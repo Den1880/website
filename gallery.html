@@ -299,17 +299,11 @@
 <script>
   // ── Photos list
   const photos = [
-    "823A2804.jpg",
-    "9V5A3073.jpg",
     "9V5A3075.jpg",
-    "9V5A3103.jpg",
-    "9V5A3154.jpg",
-    "9V5A3161-2.jpg",
     "9V5A3168.jpg",
     "9V5A3170.jpg",
     "9V5A3174.jpg",
     "9V5A3189.jpg",
-    "9V5A3201.jpg",
     "9V5A3204.jpg",
     "DEN02777.jpg",
     "DEN02819.jpg",
@@ -322,12 +316,7 @@
     "DEN03252.JPG",
     "DSCF27573 (2).JPG",
     "DSCF27742 (1).JPG",
-    "DSCF7018.JPG",
-    "DSCF7019.JPG",
     "DSCF7020.JPG",
-    "DSCF7021.JPG",
-    "DSCF7029.JPG",
-    "DSCF7038.JPG",
     "DSCF7042.JPG",
     "DSC_1147 (1).jpg",
     "IMG_4408.JPG"
@@ -354,7 +343,7 @@
     item.dataset.index = idx;
 
     const img = document.createElement('img');
-    img.src = 'assets/photos/' + encodeURIComponent(filename);
+    img.src = 'assets/websitegallery/' + encodeURIComponent(filename);
     img.alt = 'Den 1880 — ' + filename.replace(/\.[^.]+$/, '');
     img.loading = 'lazy';
     img.onload = () => img.classList.add('loaded');
@@ -385,7 +374,7 @@
 
   function updateLightbox() {
     const filename = shuffled[currentIndex];
-    lbImg.src = 'assets/photos/' + encodeURIComponent(filename);
+    lbImg.src = 'assets/websitegallery/' + encodeURIComponent(filename);
     lbImg.alt = 'Den 1880 — ' + filename.replace(/\.[^.]+$/, '');
     lbCounter.textContent = (currentIndex + 1) + ' / ' + shuffled.length;
   }
