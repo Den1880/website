@@ -155,21 +155,21 @@
   }
 
   /* INTRO TEXT SECTION (below video) */
-  .intro-text{padding:72px 0 0;text-align:center;background:var(--paper)}
-  .intro-text .eyebrow{display:inline-block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:16px}
-  .intro-text h1{margin-bottom:20px;position:relative;display:inline-block;font-style:italic}
+  .intro-text{padding:72px 0 0;text-align:center;background:var(--paper);position:relative;overflow:hidden}
+  .intro-text .eyebrow{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:16px}
+  .intro-text h1{margin-bottom:20px;font-style:italic;position:relative;z-index:1}
   .intro-text h1 .purple{color:var(--plum)}
-  .intro-text p.lede{color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);max-width:620px;margin:0 auto;line-height:1.65}
+  .intro-text p.lede{color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);max-width:620px;margin:0 auto;line-height:1.65;position:relative;z-index:1}
   .hero-lion{
     position:absolute;
-    right:-4%;
+    right:8%;
     top:50%;
     transform:translateY(-50%) rotate(45deg);
-    width:68%;
+    width:clamp(180px,30vw,380px);
     height:auto;
     opacity:0.15;
     pointer-events:none;
-    z-index:-1;
+    z-index:0;
   }
 
   /* ── PATHS SECTION ── */
@@ -265,11 +265,10 @@
 
 <!-- INTRO TEXT -->
 <section class="intro-text">
+  <img class="hero-lion" src="assets/lion-outline-lime.svg" alt="" aria-hidden="true">
   <div class="container">
     <span class="eyebrow">Uptown Waterloo · 14 Erb St. West</span>
-    <h1>WHERE <span class="purple">WORK</span><br>COMES TO <span class="purple">LIFE.</span>
-      <img class="hero-lion" src="assets/lion-outline-lime.svg" alt="" aria-hidden="true">
-    </h1>
+    <h1>WHERE <span class="purple">WORK</span><br>COMES TO <span class="purple">LIFE.</span></h1>
     <p class="lede">Premium coworking, a private gym, recovery amenities, a podcast studio, and a community of professionals — all under one heritage roof.</p>
   </div>
 </section>
