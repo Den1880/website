@@ -130,13 +130,24 @@
   .dp-option .dp-cta a{display:flex;width:100%;justify-content:center}
   .dp-option{border:1px solid var(--line);border-radius:10px;padding:20px 16px 18px;text-align:center;background:#FBF9F3;transition:all .2s ease;display:flex;flex-direction:column;position:relative}
   .dp-option:hover{border-color:var(--ink);background:#fff}
-  .dp-option.featured{border:1.5px solid var(--ink);box-shadow:0 4px 8px rgba(14,14,14,.06), 0 18px 40px rgba(107,78,142,.16);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%);padding-top:26px}
-  .dp-option.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .dp-option.featured{border:1.5px solid var(--ink);box-shadow:0 6px 12px rgba(14,14,14,.06), 0 36px 80px rgba(107,78,142,.18);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%);padding-top:26px}
+  .dp-option.featured:hover{transform:translateY(-10px) scale(1.04)}
+  .dp-option.featured .dp-price{font-family:'Fraunces';font-weight:700;font-size:38px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+  .dp-option.featured .dp-sub{font-size:13px;color:var(--muted);margin-top:6px;flex:none;min-height:auto}
+  .dp-onetimelnk{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:10px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .dp-onetimelnk:hover{color:var(--ink)}
   .dp-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap}
   .dp-option .dp-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
   .dp-option .dp-price{font-family:'Fraunces';font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
   .dp-option .dp-price small{font-size:12px;color:var(--muted);font-weight:500;font-family:'Inter'}
   .dp-option .dp-sub{font-size:12px;color:var(--muted);margin-top:6px;min-height:32px;flex:1}
+  .dp-toggle{display:flex;gap:3px;background:rgba(14,14,14,.07);border-radius:999px;padding:3px;margin:10px auto 16px;width:fit-content}
+  .dp-tab{background:transparent;border:none;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif;transition:all .2s ease}
+  .dp-tab.active{background:var(--ink);color:var(--lime)}
+  .dp-plan{display:flex;flex-direction:column;flex:1}
+  .dp-plan.hidden{display:none}
+  .addon-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13px;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;transition:all .2s ease;width:100%}
+  .addon-btn:hover{background:var(--ink);color:#fff}
 
   section{padding:72px 0}
   section h2{text-align:center;margin-bottom:8px}
@@ -376,16 +387,28 @@
         </div>
         <div class="dp-option featured">
           <span class="dp-ribbon">Best Value</span>
-          <div class="dp-label">4-Pack</div>
-          <div class="dp-price">$168</div>
-          <div class="dp-sub">$42/day · 4 visits, valid 90 days</div>
-          <div class="dp-monthly-note">
-            <strong>Or go monthly: $138/mo</strong>
-            4 visits every month at $34.50/day, recurring (2-month min)
+          <div class="dp-label">4-Pack Monthly</div>
+          <div class="dp-toggle">
+            <button class="dp-tab active" data-plan="monthly">Monthly</button>
+            <button class="dp-tab" data-plan="pack">One-Time</button>
           </div>
-          <div class="dp-cta">
-            <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/signup/">Buy a 4-Pack</a>
-            <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/signup/">Subscribe Monthly</a>
+          <!-- Monthly plan (default / featured) -->
+          <div class="dp-plan" id="dp-monthly">
+            <div class="dp-price">$138<small>/mo</small></div>
+            <div class="dp-sub">4 visits/month · $34.50/day · 2-month minimum</div>
+            <div class="dp-cta">
+              <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/signup/">Subscribe Monthly</a>
+              <a class="dp-onetimelnk" href="https://den1880.optixapp.com/signup/">Prefer one-time? Buy a 4-Pack for $168 →</a>
+            </div>
+          </div>
+          <!-- One-time 4-pack -->
+          <div class="dp-plan hidden" id="dp-pack">
+            <div class="dp-price">$168</div>
+            <div class="dp-sub">$42/day · 4 visits, valid 90 days from purchase</div>
+            <div class="dp-cta">
+              <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/signup/">Buy a 4-Pack</a>
+              <a class="dp-onetimelnk" href="https://den1880.optixapp.com/signup/">Switch to monthly for $138/mo →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -400,18 +423,21 @@
           <h3>Premium Wellness</h3>
           <div class="price">$140<small>/mo</small></div>
           <p>Enjoy access to our private sauna, cold plunge, hot tub, massage chairs and nap pods. Premium members also enjoy daily towel service &amp; their own custom robe. Add to any <strong>Club</strong> or <strong>Resident</strong> membership. <em>Onboarding session required.</em></p>
+          <a class="addon-btn" href="https://den1880.optixapp.com/signup/">Explore Wellness Add-On</a>
         </div>
         <div class="addon">
           <span class="pill">Landmark Address</span>
           <h3>Business Address &amp; Mail</h3>
           <div class="price">$88<small>/mo</small></div>
           <p>Register your business at our historic Uptown Waterloo address and establish a professional business presence in the heart of the city. Includes physical mail handling for up to two contacts, email notifications, secure mail storage, and 20% off meeting room bookings. Optional add-ons are available, including a suite number ($28/month), parcel handling ($48/month), and more.</p>
+          <a class="addon-btn" href="https://den1880.optixapp.com/signup/">Explore Business Mail</a>
         </div>
         <div class="addon">
           <span class="pill">Teams</span>
           <h3>Day Pass Bundles</h3>
           <div class="price">From $35<small>/day</small></div>
           <p>Designed for distributed and hybrid teams. Available as a 10-pack ($350) or 20-pack ($630), starting at $35/day. Passes are shareable across your company, valid for 90 days, and built for collaboration days, sprint weeks, and visiting team members.</p>
+          <a class="addon-btn" href="https://den1880.optixapp.com/signup/">Explore Bundles</a>
         </div>
       </div>
     </div>
@@ -684,6 +710,16 @@
       annualNotes.forEach(n => { n.classList.toggle('show', isAnnual); });
       annualEqs.forEach(e => { e.style.display = isAnnual ? 'inline' : 'none'; });
     });
+  });
+
+  // Day pass toggle
+  function switchDpPlan(plan) {
+    document.querySelectorAll('.dp-tab').forEach(t => t.classList.toggle('active', t.dataset.plan === plan));
+    document.getElementById('dp-monthly').classList.toggle('hidden', plan !== 'monthly');
+    document.getElementById('dp-pack').classList.toggle('hidden', plan !== 'pack');
+  }
+  document.querySelectorAll('.dp-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchDpPlan(tab.dataset.plan));
   });
 </script>
 
