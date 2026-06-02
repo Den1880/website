@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face {
+  font-family: 'Monschone';
+  src: url('../assets/fonts/Monschone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
   :root{
     --ink:#0E0E0E;
     --ink-2:#2A2A2A;
@@ -27,7 +34,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1,h2,h3,h4{font-family:'Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
   h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
   h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
   h3{font-size:clamp(20px,2vw,26px)}
@@ -36,10 +43,9 @@
   .container{max-width:1280px;margin:0 auto;padding:0 24px}
 
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
-  .logo{font-family:'Fraunces';font-weight:800;font-size:20px;letter-spacing:.04em}
-  .logo span{color:var(--plum)}
+  .logo{display:inline-flex;align-items:center}
   .nav-cta{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
   .btn-primary{background:var(--ink);color:#fff}
   .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
@@ -346,7 +352,7 @@
   </span>
 </div>
 <header class="topbar">
-  <a class="logo" href="../" style="text-decoration:none;color:inherit">DEN <span>1880</span></a>
+  <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
   <div class="nav-cta">
     <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
     <a class="btn btn-ghost btn-sm" href="../memberships.html" style="font-size:13px">Memberships</a>
