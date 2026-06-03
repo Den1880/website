@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://den1880.co/sitemap.xml
