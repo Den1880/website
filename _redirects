@@ -4,7 +4,7 @@
 # www -> non-www is handled automatically by Netlify, so no rule is needed for that.
 # Netlify matches the FIRST rule that applies, so specific rules are listed before wildcards.
 
-# ── Memberships (coworking / resident desk / day passes) ──
+# -- Memberships (coworking / resident desk / day passes) --
 /club-membership            /memberships    301
 /club-membership-1          /memberships    301
 /club-membership-2          /memberships    301
@@ -13,41 +13,37 @@
 /day-passes                 /memberships    301
 /day-passes-1               /memberships    301
 
-# ── Teams / corporate (offices, solutions, offsites, meeting rooms) ──
+# -- Teams / corporate (offices, solutions, meeting rooms) --
 /private-offices            /corporate/     301
 /business-solutions         /corporate/     301
 /solutions                  /corporate/     301
-/team-offsites              /corporate/     301
 /meeting-rooms              /corporate/     301
 
-# ── Business address / virtual mail (maps to the new business-mail pages) ──
+# -- Business address / virtual mail (maps to the new business-mail pages) --
 /business-address           /business-mail              301
 /virtualmail-application     /business-mail-application  301
 /termsandconditionsvirtualmail  /business-mail-terms    301
 
-# ── Performance Club (now its own site) ──
+# -- Performance Club (now its own site) --
 /performance-club           https://performanceclub.ca/  301
 
-# ── Gallery (same path; explicit for clarity) ──
+# -- Gallery (same path; explicit for clarity) --
 /gallery                    /gallery        301
 
-# ── Events / private events / venue (no events section on the new site) ──
+# -- Member events calendar (dated posts -- not rebuilt) --
 /eventsatden                /               301
 /eventsatden/*              /               301
-/bookanevent                /               301
-/eventinquiry               /               301
-/private-events             /               301
-/weddings                   /               301
-/holiday-parties            /               301
+# NOTE: private-events, weddings, holiday-parties, team-offsites,
+# bookanevent, and eventinquiry are now real rebuilt pages -- no redirect needed.
 
-# ── Blog & content (no blog on the new site — consider porting later) ──
+# -- Blog & content (no blog on the new site -- consider porting later) --
 /blog                       /               301
 /10-inspiring-ways-teams-use-our-spaces                         /  301
 /best-cafs-lunch-spots-near-uptown-waterloo-coworking-spaces    /  301
 /whatshappening             /               301
 /whatshappening-1           /               301
 
-# ── Newsletters (archival) ──
+# -- Newsletters (archival) --
 /august-newsletter          /               301
 /july-newsletter            /               301
 /june-newsletter            /               301
@@ -55,7 +51,7 @@
 /september-newsletter       /               301
 /october-newsletter         /               301
 
-# ── Info / contact / careers / FAQ / tour ──
+# -- Info / contact / careers / FAQ / tour --
 /faqs                       /               301
 /faqs-3                     /               301
 /contactden1880             /               301
@@ -64,10 +60,10 @@
 /tour                       /               301
 /the-vault-podcast-studio   /               301
 
-# ── Legal ──
+# -- Legal --
 /privacy-policy-1           /               301
 
-# ── Old draft / duplicate / utility pages (sent home for safety) ──
+# -- Old draft / duplicate / utility pages (sent home for safety) --
 /home                       /               301
 /home2024                   /               301
 /member-site-homepage-2-2   /               301

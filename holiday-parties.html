@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Holiday Parties at Den 1880 — Corporate &amp; Private Holiday Venue, Waterloo</title>
+<meta name="description" content="Host your corporate or private holiday party at Den 1880 in Uptown Waterloo. All-inclusive holiday event packages with venue rental, open bar, catering, AV and onsite staff." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Monschone';src:url('Monschone.otf') format('opentype'),url('assets/fonts/Monschone.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:swap;}
+:root{--ink:#0E0E0E;--ink-2:#2A2A2A;--paper:#F7F4EE;--card:#FFFFFF;--line:#E6E1D6;--muted:#6F6A60;--lime:#C8E020;--lime-deep:#9DB315;--plum:#6B4E8E;--shadow:0 1px 2px rgba(14,14,14,.04),0 8px 32px rgba(14,14,14,.06);--shadow-lift:0 2px 6px rgba(14,14,14,.06),0 24px 60px rgba(14,14,14,.12);--radius:14px;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Monschone','Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
+h1{font-size:clamp(36px,5.2vw,64px);line-height:1.04;letter-spacing:-0.025em}
+h2{font-size:clamp(26px,3.2vw,40px);line-height:1.1}
+h3{font-size:clamp(18px,1.8vw,24px)}
+p{margin:0 0 .8em}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,244,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:inline-flex;align-items:center}
+.nav-links{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+.btn-lime:hover{background:var(--lime-deep)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+.hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:8px;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 16px;font-size:15px;font-weight:600;color:var(--ink);border-radius:10px;border:1px solid var(--line);background:#fff}
+.mobile-menu a:hover{background:var(--paper);border-color:var(--ink)}
+.mobile-menu .mobile-cta{background:var(--lime);border-color:var(--lime);text-align:center;margin-top:4px}
+@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}.topbar{padding:14px 20px}}
+.breadcrumb{padding:84px 0 0;font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--ink)}.breadcrumb span{margin:0 6px;opacity:.5}
+.page-hero{padding:30px 0 52px;text-align:center}
+.page-hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px;background:rgba(107,78,142,.08);padding:6px 14px;border-radius:999px}
+.page-hero h1{margin:0 auto 18px;max-width:18ch}
+.page-hero h1 .purple{color:var(--plum)}
+.page-hero p.lede{max-width:620px;margin:0 auto 28px;color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);line-height:1.65}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.incl{padding:64px 0;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.incl .head{text-align:center;margin-bottom:40px}
+.incl .head .eyebrow{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px}
+.incl .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
+.incl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1000px;margin:0 auto}
+@media(max-width:860px){.incl-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.incl-grid{grid-template-columns:1fr}}
+.incl-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.incl-item svg{flex:0 0 16px;color:var(--lime-deep)}
+.final-cta{padding:72px 0}
+.final-cta-inner{background:var(--ink);color:#fff;border-radius:var(--radius);padding:60px 40px;text-align:center;box-shadow:var(--shadow-lift)}
+.final-cta-inner .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(200,224,32,.75);font-weight:700;margin-bottom:14px;display:block}
+.final-cta-inner h2{color:#fff;margin-bottom:14px}
+.final-cta-inner p{color:#CDC8BC;max-width:520px;margin:0 auto 30px;font-size:16px;line-height:1.7}
+.final-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1)}
+footer{padding:24px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--plum)}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+<a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+<nav class="nav-links">
+<a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+<a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+<a class="btn btn-ghost btn-sm" href="/meeting-rooms">Meeting Rooms</a>
+<a class="btn btn-ghost btn-sm" href="private-events.html">Events</a>
+<a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+<a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+<a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+<a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+</nav>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<a href="memberships.html">Memberships</a>
+<a href="corporate/">For Teams</a>
+<a href="/meeting-rooms">Meeting Rooms</a>
+<a href="private-events.html">Events</a>
+<a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+<a href="gallery.html">Gallery</a>
+<a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+<a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="private-events.html">Events</a> <span>&rsaquo;</span> Holiday Parties</div>
+<span class="eyebrow" style="margin-top:24px">Holiday Parties &middot; Uptown Waterloo</span>
+<h1>The Perfect Venue For All Your <span class="purple">Holiday Celebrations</span></h1>
+<p class="lede">Den 1880 is the perfect venue for corporate and private holiday events. Whether you're planning an intimate gathering or a large company-wide event, our all-inclusive experience means every detail will be handled with care &mdash; so you can be fully present and party in style.</p>
+<div class="hero-cta">
+<a href="eventinquiry.html" class="btn btn-primary">Inquire About Your Party</a>
+<a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
+</div>
+</div>
+</section>
+
+<section class="incl">
+<div class="container">
+<div class="head">
+<span class="eyebrow">What's Included</span>
+<h2>An All-Inclusive Holiday Experience</h2>
+<p>Everything you need for a memorable celebration, handled by our dedicated events team.</p>
+</div>
+<div class="incl-grid">
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Venue Rental</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Exclusive Access</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Open Bar</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hors d'Oeuvres</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Photo Booth</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Built-In AV &amp; More</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated Onsite Staff</div>
+<div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Parking</div>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<div class="final-cta-inner">
+<span class="eyebrow">Book Your Holiday Event</span>
+<h2>Party In Style This Season</h2>
+<p>View our event spaces online or contact us to book a tour. Share your details and our team will craft the perfect holiday package for your group.</p>
+<div class="final-cta-btns">
+<a href="eventinquiry.html" class="btn btn-lime">Submit a Holiday Inquiry</a>
+<a href="gallery.html" class="btn btn-outline-light">View Event Spaces</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">Den 1880 &middot; 14 Erb St. West, Waterloo, ON N2L 1S7 &middot; <a href="mailto:hello@den1880.co">hello@den1880.co</a> &middot; (519) 783-1505</div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',o);hamburger.setAttribute('aria-expanded',o);mobileMenu.setAttribute('aria-hidden',!o);});
+mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
+document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
+</script>
+</body>
+</html>
