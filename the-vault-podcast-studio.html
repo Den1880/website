@@ -67,44 +67,11 @@
     @media(max-width: 768px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
 
     /* ── HERO ── */
-    .hero {
-      margin-top: 57px;
-      position: relative;
-      height: 70vh;
-      min-height: 480px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: var(--ink);
-    }
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.55;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 48px 40px;
-      max-width: 760px;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--lime);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .hero-content h1 { color: #fff; }
-    .hero-content h1 em { font-style: italic; color: var(--lime); }
-    .hero-content p { color: rgba(255,255,255,0.82); font-size: clamp(16px, 1.6vw, 19px); margin-top: 16px; max-width: 580px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-    @media(max-width: 600px) { .hero-content { padding: 32px 24px; } }
+    .hero { padding: 72px 0 36px; text-align: center; position: relative; overflow: hidden; margin-top: 57px; }
+    .hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+    .hero h1 em { font-style: italic; color: var(--plum); }
+    .hero p.lede { max-width: 680px; margin: 18px auto 0; color: var(--ink-2); font-size: 18px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; justify-content: center; }
 
     /* ── INTRO ── */
     .intro { padding: 72px 0 56px; }
@@ -153,12 +120,7 @@
     .about-banner h2 em { font-style: italic; color: var(--lime); }
     .about-banner p { color: rgba(255,255,255,0.82); max-width: 600px; margin: 0 auto 28px; font-size: 17px; line-height: 1.65; }
 
-    /* ── FOOTER CTA ── */
-    .footer-cta { text-align: center; padding: 72px 24px; }
-    .footer-cta h2 { margin-bottom: 12px; }
-    .footer-cta h2 em { font-style: italic; color: var(--plum); }
-    .footer-cta p { color: var(--ink-2); max-width: 520px; margin: 0 auto 32px; font-size: 16px; }
-    .footer-cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    @media(max-width: 768px) { .pricing-grid { grid-template-columns: 1fr !important; } }
 
     /* ── FOOTER ── */
     footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 24px; font-size: 13px; }
@@ -202,14 +164,13 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-img" src="assets/photos/DEN02879 (2).jpg" alt="The Vault door at Den 1880" />
-  <div class="hero-content">
-    <span class="hero-eyebrow">Den 1880 · Uptown Waterloo</span>
+  <div class="container">
+    <span class="eyebrow">Podcast &amp; Content Studio · Den 1880 · Uptown Waterloo</span>
     <h1>The Vault · <em>Podcast &amp; Content Studio</em></h1>
-    <p>Built inside a former 1900s bond safe. Broadcast-grade production in a venue you can't replicate — the only studio of its kind in Waterloo Region.</p>
+    <p class="lede">Built inside a former 1900s bond safe. Three track-mounted cameras, 4 Shure microphones, broadcast-grade lighting, soundproofed walls. The only studio of its kind in Waterloo Region.</p>
     <div class="hero-actions">
-      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/">Book The Vault</a>
-      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.5);color:#fff" href="#pricing">See Rates</a>
+      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
+      <a class="btn btn-ghost" href="#pricing">See Rates</a>
     </div>
   </div>
 </section>
@@ -273,42 +234,49 @@
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container">
-    <div class="pricing-header">
-      <h2>Simple, <em>transparent</em> pricing</h2>
-      <p>Members save 20%. Enterprise plans include pooled studio credits. Book by the hour or lock in a 4-hour block.</p>
-    </div>
-    <div class="pricing-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Rate</th>
-            <th>Hourly</th>
-            <th>4-Hr Block</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Day Pass + Cadence members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td>
-            <td>$95</td>
-            <td>$340</td>
-          </tr>
-          <tr class="member-row">
-            <td><strong>Club member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
-            <td>$76</td>
-            <td>$272</td>
-          </tr>
-          <tr class="member-row">
-            <td><strong>Resident member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
-            <td>$76</td>
-            <td>$272</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="pricing-note">Enterprise plans include pooled studio credits — contact us for details. Toronto comparables average $100/hr.</p>
-    <div class="pricing-cta">
-      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
-      <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour First</a>
+    <h2 style="margin-bottom:32px">Rates</h2>
+    <div class="pricing-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <div class="pricing-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Rate</th>
+                <th>Hourly</th>
+                <th>4-Hr Block</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Day Pass + Cadence members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td>
+                <td>$95</td>
+                <td>$340</td>
+              </tr>
+              <tr class="member-row">
+                <td><strong>Club + Resident Members</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
+                <td>$76</td>
+                <td>$272</td>
+              </tr>
+              <tr class="member-row">
+                <td><strong>Team Offices</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
+                <td>$76</td>
+                <td>$272</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note" style="text-align:left;margin-top:12px">Enterprise plans include pooled studio credits — contact us for details. Toronto comparables average $100/hr.</p>
+        <div style="margin-top:28px">
+          <h3 style="margin-bottom:16px">Ready to <em style="font-style:italic;color:var(--plum)">record?</em></h3>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
+            <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour First</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="assets/photos/DEN02879 (2).jpg" alt="The Vault door at Den 1880" style="width:100%;height:480px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow-lift)">
+      </div>
     </div>
   </div>
 </section>
@@ -322,17 +290,6 @@
   </div>
 </section>
 
-<!-- FOOTER CTA -->
-<section class="footer-cta">
-  <div class="container">
-    <h2>Ready to <em>record?</em></h2>
-    <p>Browse availability and reserve your session in minutes. Members book at member rates automatically through the portal.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
-      <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
