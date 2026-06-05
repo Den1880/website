@@ -34,7 +34,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1,h2,h3,h4{font-family:'Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
   h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
   h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
   h3{font-size:clamp(20px,2vw,26px)}
@@ -147,7 +147,6 @@
   .plan .perworker{display:flex;align-items:baseline;gap:6px;margin:4px 0 6px;font-size:13px;color:var(--ink-2)}
   .plan .perworker .pwd{font-family:'Fraunces';font-weight:700;font-size:17px;color:var(--lime-deep);letter-spacing:-.01em}
   .plan .perworker .pwd-label{font-weight:500;color:var(--ink-2)}
-  .plan.featured .perworker .pwd{color:var(--ink)}
   .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(200,224,32,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
   .plan .perday .perday-num{font-family:'Fraunces';font-size:16px;font-weight:700;color:var(--lime-deep)}
   .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
@@ -341,39 +340,21 @@
 
   .alt-cadence-note{display:none;font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
   .alt-cadence-note.show{display:block}
-  /* Nav: borderless links, dark CTA */
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
 
-  /* ── MOBILE NAV ── */
-  .nav-links{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn-lime{background:var(--lime);color:var(--ink)}
-  .btn-lime:hover{background:var(--lime-deep)}
-  .btn-sm{padding:9px 16px;font-size:13px}
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover{background:#333}
-  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
-  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .hamburger.open span:nth-child(2){opacity:0}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
-  .mobile-menu.open{display:flex}
-  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
-  .mobile-menu a:last-of-type{border-bottom:none}
-  .mobile-menu a:hover{color:var(--lime-deep)}
-  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
-  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
-  @media(max-width:768px){.topbar{padding:14px 20px!important}.nav-links{display:none!important}.hamburger{display:flex!important}}
-</style>
+  /* ===== SAMPLE: Lite-style hierarchy adapted for passes ===== */
+  /* Step 1: big dominant passes count, like .price .amount on Lite */
+  .plan .passes-big-row{display:flex;align-items:baseline;gap:8px;margin:6px 0 2px}
+  .plan .passes-big-row .passes-num{font-family:'Fraunces';font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .plan .passes-big-row .passes-label{font-size:13px;color:var(--muted);font-weight:500;line-height:1.15;max-width:120px}
+  /* Step 2: medium per-pass line, like Lite's .perworker */
+  .plan .perpass-line{display:flex;align-items:baseline;gap:6px;margin:4px 0 6px;font-size:13px;color:var(--ink-2)}
+  .plan .perpass-line .perpass-num{font-family:'Fraunces';font-weight:700;font-size:17px;color:var(--lime-deep);letter-spacing:-.01em}
+  .plan .perpass-line .perpass-label{font-weight:500;color:var(--ink-2)}
+  /* Step 3: de-emphasized monthly rate, like Lite's .perday pill but small + neutral */
+  .plan .monthly-rate{display:inline-flex;align-items:baseline;gap:4px;font-size:12px;color:var(--muted);margin:6px 0 2px}
+  .plan .monthly-rate .mr-amt{font-family:'Fraunces';font-weight:600;font-size:13px;color:var(--ink-2)}
+
+  </style>
 </head>
 <body>
 
@@ -383,35 +364,14 @@
     <strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
   </span>
 </div>
-<!-- NAV -->
-<header class="topbar" id="topbar">
+<header class="topbar">
   <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
-  <nav class="nav-links">
-    <a class="btn btn-ghost btn-sm" href="../memberships.html">Memberships</a>
-    <a class="btn btn-ghost btn-sm" href="../corporate/">For Teams</a>
-    <a class="btn btn-ghost btn-sm" href="../meeting-rooms.html">Meeting Rooms</a>
-    <a class="btn btn-ghost btn-sm" href="#">Events</a>
-    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-    <a class="btn btn-ghost btn-sm" href="../gallery.html">Gallery</a>
+  <div class="nav-cta">
     <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
-  </nav>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE for a Day</a>
+    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+  </div>
 </header>
-
-<!-- Mobile dropdown menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="../memberships.html">Memberships</a>
-  <a href="../corporate/">For Teams</a>
-  <a href="../meeting-rooms.html">Meeting Rooms</a>
-  <a href="#">Events</a>
-  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-  <a href="../gallery.html">Gallery</a>
-  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
-</div>
 
 <!-- PAGE NAV STRIP (non-home pages) -->
 <div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
@@ -429,40 +389,232 @@
   </div>
 </div>
 
-<!-- DROP-IN DAY PASS -->
-<section id="dropin" style="padding-top:48px;padding-bottom:32px;scroll-margin-top:24px">
+<section style="padding-top:24px">
   <div class="container">
-    <div class="dropin-banner">
-      <div>
-        <span class="dropin-eyebrow">For a single day or a one-time visit</span>
-        <h3>Drop-In Day Pass</h3>
-        <p>Single-day coworking access. Workspace, kitchen, espresso, parking, fast Wi-Fi. M-F 8 to 8. No contract, no commitment, no minimum. <strong>Want the gym too?</strong> Add the <strong>$40 Performance Club add-on</strong> at check-in ($85 total) for full fitness and recovery suite access, plus towel service and a locker for the day. If your team will use 25 or more passes a month, the Flex Plans above bundle gym access into every pass and save 55% to 65% per pass.</p>
+<!-- ===== TEAM OFFICEFLEX: category banner ===== -->
+    <div class="cat-banner cat-inner" style="padding:32px 0 8px;margin-top:24px">
+      <h2 class="cat-title"><span class="cat-suffix">Team OfficeFlex</span></h2>
+    </div>
+
+    <!-- FLEX DAY PASS PLANS - mirrors Team Plans -->
+    <div class="memberships" id="flex" style="margin-top:28px;scroll-margin-top:24px">
+      <div class="mb-header">
+        <span class="mb-eyebrow">Flexible day pass plans · Recurring monthly · 5+ team minimum</span>
+        <h2>Don't know who, when, or how often?</h2>
+        <p>Pay for flexibility, not commitment. Pooled day passes that recur monthly, shareable across your team, full Club access on each visit. Upgrade between Flex tiers anytime, or pair with a Team Plan above when your team needs both dedicated seats and on-demand flexibility.</p>
       </div>
-      <div class="dropin-price">
-        <div class="num">$45</div>
-        <div class="unit">/ day pass</div>
-        <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/free-day/">Buy a Day Pass</a>
+      <div class="toggle-wrap" style="margin:8px 0 40px">
+        <div class="toggle" role="tablist" aria-label="Billing cadence">
+          <span class="annual-pill" aria-hidden="true">Save 2 months</span>
+          <button data-cad="monthly" role="tab" aria-selected="false">Monthly</button>
+          <button class="active" data-cad="annual" role="tab" aria-selected="true">Annual</button>
+        </div>
+      </div>
+      <div class="plans">
+
+        <!-- FLEX STARTER -->
+        <div class="plan" data-tier="flex-starter">
+          <div class="ptitle">Flex Starter</div>
+          <div class="ptag">For companies that want to offer their teams flexible coworking and Performance Club gym access without committing to dedicated seats.</div>
+          <div class="annual-note show">Annual contract · billed monthly · 2 months free</div>
+          <div class="passes-big-row">
+            <span class="passes-num">50</span>
+            <span class="passes-label">Day Passes<br>/ Month</span>
+          </div>
+          <div class="perpass-line">≈ <span class="perpass-num pwd" data-monthly="$45" data-annual="$38">$38</span> <span class="perpass-label">per pass · pooled, shareable</span></div>
+          <div class="anchor"><strong>Save 55%</strong> per pass vs $85 standalone (day pass $45 + gym add-on $40)</div>
+          <div class="monthly-rate">Total: <span class="mr-amt"><span class="amount" data-monthly="2,250" data-annual="1,900">1,900</span></span> / mo <span class="cadence-label" style="font-size:11px;color:var(--muted)" data-monthly="(month-to-month)" data-annual="(annual commitment)">(annual commitment)</span></div>
+          <div style="margin-top:6px;margin-bottom:4px;padding:8px 10px;background:rgba(200,224,32,0.12);border:1px solid var(--lime-deep);border-radius:6px;font-size:12px;color:var(--ink);font-weight:600;line-height:1.4">Every pass includes the Performance Club gym and can be used for either one or both.</div>
+          <ul>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>50 day passes / month, pooled and shareable</li>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><span>Full Club access on each pass (<a href="#coworking-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">workspace</a> + <a href="#fitness-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">Performance Club gym</a>)</span></li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>M-F 8 to 8 visit window</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Upgrade between Flex tiers anytime</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pair with any Team Plan above for hybrid teams</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Annual pricing, billed monthly (no year up front)</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20% off meeting room bookings</li>
+            <li class="disabled"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Passes refresh monthly, no rollover</li>
+          </ul>
+          <a href="#coworking-included" style="display:block;text-align:center;margin:8px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus everything that comes with coworking &darr;</a>
+          <a href="#fitness-included" style="display:block;text-align:center;margin:4px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus the full Performance Club &darr;</a>
+          <div class="value-stack">
+            <div class="vs-label">What it's worth per month</div>
+            <div class="vs-row"><span>50 passes @ $85 standalone <em style="color:var(--muted);font-size:11px">(day pass $45 + gym add-on $40)</em></span><span class="vs-val">$4,250/mo</span></div>
+            <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$4,250/mo</span></div>
+            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$2,250/mo" data-annual="$1,900/mo">$1,900/mo</span></div>
+            <div class="vs-save"><span class="vs-save-amt" data-monthly="$2,000" data-annual="$2,350">$2,350</span>/mo savings <span class="vs-pct" data-monthly="(47% off)" data-annual="(55% off)">(55% off)</span></div>
+          </div>
+          <div class="cta-stack">
+            <div class="cta"><a class="btn btn-ghost" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
+            <a class="try-free" href="https://den1880.optixapp.com/book/free-day/">
+              <span class="tf-icon">✓</span>
+              <span>Try free for a day</span>
+              <span class="tf-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- FLEX GROWTH (featured) -->
+        <div class="plan featured" data-tier="flex-growth">
+          <div class="ribbon">Most Popular</div>
+          <div class="ptitle">Flex Growth</div>
+          <div class="ptag">For companies that want to offer their hybrid teams flexible coworking and full Performance Club gym access for a regular, variable in-person rhythm.</div>
+          <div class="annual-note show">Annual contract · billed monthly · 2 months free</div>
+          <div class="passes-big-row">
+            <span class="passes-num">120</span>
+            <span class="passes-label">Day Passes<br>/ Month</span>
+          </div>
+          <div class="perpass-line">≈ <span class="perpass-num pwd" data-monthly="$40" data-annual="$33">$33</span> <span class="perpass-label">per pass · pooled, shareable</span></div>
+          <div class="anchor"><strong>Save 61%</strong> per pass vs $85 standalone (day pass $45 + gym add-on $40)</div>
+          <div class="monthly-rate">Total: <span class="mr-amt"><span class="amount" data-monthly="4,800" data-annual="3,960">3,960</span></span> / mo <span class="cadence-label" style="font-size:11px;color:var(--muted)" data-monthly="(month-to-month)" data-annual="(annual commitment)">(annual commitment)</span></div>
+          <div style="margin-top:6px;margin-bottom:4px;padding:8px 10px;background:rgba(200,224,32,0.12);border:1px solid var(--lime-deep);border-radius:6px;font-size:12px;color:var(--ink);font-weight:600;line-height:1.4">Every pass includes the Performance Club gym and can be used for either one or both.</div>
+          <ul>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>120 day passes / month, pooled and shareable</li>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><span>Full Club access on each pass (<a href="#coworking-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">workspace</a> + <a href="#fitness-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">Performance Club gym</a>)</span></li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>M-F 8 to 8 visit window</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Upgrade between Flex tiers anytime</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pair with any Team Plan above for hybrid teams</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Annual pricing, billed monthly (no year up front)</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20% off meeting room bookings</li>
+            <li class="disabled"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Passes refresh monthly, no rollover</li>
+          </ul>
+          <a href="#coworking-included" style="display:block;text-align:center;margin:8px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus everything that comes with coworking &darr;</a>
+          <a href="#fitness-included" style="display:block;text-align:center;margin:4px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus the full Performance Club &darr;</a>
+          <div class="value-stack">
+            <div class="vs-label">What it's worth per month</div>
+            <div class="vs-row"><span>120 passes @ $85 standalone <em style="color:var(--muted);font-size:11px">(day pass $45 + gym add-on $40)</em></span><span class="vs-val">$10,200/mo</span></div>
+            <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$10,200/mo</span></div>
+            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$4,800/mo" data-annual="$3,960/mo">$3,960/mo</span></div>
+            <div class="vs-save"><span class="vs-save-amt" data-monthly="$5,400" data-annual="$6,240">$6,240</span>/mo savings <span class="vs-pct" data-monthly="(53% off)" data-annual="(61% off)">(61% off)</span></div>
+          </div>
+          <div class="cta-stack">
+            <div class="cta"><a class="btn btn-primary" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
+            <a class="try-free" href="https://den1880.optixapp.com/book/free-day/">
+              <span class="tf-icon">✓</span>
+              <span>Try free for a day</span>
+              <span class="tf-arrow">→</span>
+            </a>
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+        <!-- FLEX SCALE -->
+        <div class="plan" data-tier="flex-scale">
+          <div class="ptitle">Flex Scale</div>
+          <div class="ptag">For companies that want to offer their larger teams heavy-use coworking and full Performance Club gym access without locking into dedicated seats.</div>
+          <div class="annual-note show">Annual contract · billed monthly · 2 months free</div>
+          <div class="passes-big-row">
+            <span class="passes-num">250</span>
+            <span class="passes-label">Day Passes<br>/ Month</span>
+          </div>
+          <div class="perpass-line">≈ <span class="perpass-num pwd" data-monthly="$36" data-annual="$30">$30</span> <span class="perpass-label">per pass · pooled, shareable</span></div>
+          <div class="anchor"><strong>Save 65%</strong> per pass vs $85 standalone (day pass $45 + gym add-on $40)</div>
+          <div class="monthly-rate">Total: <span class="mr-amt"><span class="amount" data-monthly="9,000" data-annual="7,500">7,500</span></span> / mo <span class="cadence-label" style="font-size:11px;color:var(--muted)" data-monthly="(month-to-month)" data-annual="(annual commitment)">(annual commitment)</span></div>
+          <div style="margin-top:6px;margin-bottom:4px;padding:8px 10px;background:rgba(200,224,32,0.12);border:1px solid var(--lime-deep);border-radius:6px;font-size:12px;color:var(--ink);font-weight:600;line-height:1.4">Every pass includes the Performance Club gym and can be used for either one or both.</div>
+          <ul>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>250 day passes / month, pooled and shareable</li>
+            <li class="hero-feature"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><span>Full Club access on each pass (<a href="#coworking-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">workspace</a> + <a href="#fitness-included" style="color:inherit;text-decoration:underline;text-decoration-color:var(--lime-deep);text-underline-offset:3px">Performance Club gym</a>)</span></li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>M-F 8 to 8 visit window</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Upgrade between Flex tiers anytime</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pair with any Team Plan above for hybrid teams</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Annual pricing, billed monthly (no year up front)</li>
+            <li><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20% off meeting room bookings</li>
+            <li class="disabled"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Passes refresh monthly, no rollover</li>
+          </ul>
+          <a href="#coworking-included" style="display:block;text-align:center;margin:8px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus everything that comes with coworking &darr;</a>
+          <a href="#fitness-included" style="display:block;text-align:center;margin:4px 0 4px;font-size:12px;color:var(--plum);text-decoration:none;font-weight:600">Plus the full Performance Club &darr;</a>
+          <div class="value-stack">
+            <div class="vs-label">What it's worth per month</div>
+            <div class="vs-row"><span>250 passes @ $85 standalone <em style="color:var(--muted);font-size:11px">(day pass $45 + gym add-on $40)</em></span><span class="vs-val">$21,250/mo</span></div>
+            <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$21,250/mo</span></div>
+            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$9,000/mo" data-annual="$7,500/mo">$7,500/mo</span></div>
+            <div class="vs-save"><span class="vs-save-amt" data-monthly="$12,250" data-annual="$13,750">$13,750</span>/mo savings <span class="vs-pct" data-monthly="(58% off)" data-annual="(65% off)">(65% off)</span></div>
+          </div>
+          <div class="cta-stack">
+            <div class="cta"><a class="btn btn-ghost" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
+            <a class="try-free" href="https://den1880.optixapp.com/book/free-day/">
+              <span class="tf-icon">✓</span>
+              <span>Try free for a day</span>
+              <span class="tf-arrow">→</span>
+            </a>
+          </div>
+          
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--muted)">
+        Need more than 100 passes/mo, or want a custom mix of seats + flex? <a href="enterprise.html" style="color:var(--plum);font-weight:600">See Enterprise &rarr;</a>
+      </p>
+      <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted);font-style:italic">3-month minimum. Auto-renews. Cancel anytime. Terms and conditions apply, subject to change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED IN COWORKING -->
+<section id="coworking-included" style="padding:32px 0 16px;scroll-margin-top:24px">
+  <div class="container" style="max-width:960px">
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every pass: Coworking access</h2>
+    <p class="sub" style="margin-bottom:18px">Every Flex day pass unlocks the full Club for that day. Here's what that means.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Workspace</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Hot desking in the Library, Theatre, and Kitchen, Phone/Meeting Booths. Fast Wi-Fi, printing, scanning, and on-site tech support.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Hospitality</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Complimentary espresso, tea, and fruit. A full member kitchen and lounges with big-screen TVs.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Wellness</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Free weekly yoga and Pilates classes. 15% off at hustl+flow. Built for balance through the workday.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Privacy &amp; meetings</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Phone booths, quiet zones, and tech-equipped boardrooms. Member booking rates on additional usage.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Community</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Workshops, networking socials, bagel days, and member events. A vibrant network of top professionals.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Admin support</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Our Member Experience team handles reception, mail, and some basic tech support so your team can focus on work.</div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- ===== TEAM MEETS PROMO (single card) ===== -->
-<section id="team-meets-promo" style="padding-top:0;padding-bottom:48px;scroll-margin-top:24px">
-  <a id="beyondmeet" style="scroll-margin-top:24px"></a>
-  <div class="container">
-    <div class="dropin-banner">
-      <div>
-        <span class="dropin-eyebrow">Team Meets &middot; Bulk meeting room credit promotion</span>
-        <h3>Buy $4,000 in meeting room credits, get $1,000 free.</h3>
-        <p>Pre-load a year of meetings, board sessions, podcast recordings, or event bookings. Use your $5,000 balance across any boardroom, The Vault podcast studio, or any event venue. Credits valid 12 months from purchase. The right call for teams that meet regularly but don't want a monthly subscription.</p>
+<!-- WHAT'S INCLUDED IN PERFORMANCE CLUB -->
+<section id="fitness-included" style="padding:32px 0 16px;scroll-margin-top:24px">
+  <div class="container" style="max-width:960px">
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every pass: Performance Club access</h2>
+    <p class="sub" style="margin-bottom:18px">Every Flex day pass also unlocks the full Performance Club for the day. Work and a workout, all on one pass.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Strength Training</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Multi-functional power rig, Smith machine, Olympic bars and plates, full range of dumbbells. Everything you need for a real session.</div>
       </div>
-      <div class="dropin-price">
-        <div class="num">$4,000</div>
-        <div class="unit">&rarr; $5,000 in credits</div>
-        <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/inquiry/">Buy Credits</a>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Cardio</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Peloton Bike, Tread, and Row. Studio-grade gear for a 20-minute reset or a full-distance day.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Functional Training</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">TRX, battle ropes, plyo boxes, GORUCK weighted rucks.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Reset &amp; Recovery</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Mobility zone with yoga mats and ballet barre. Stocked recovery fridge.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">8 hours of work, 8 hours of play</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">The hardest part of working out is getting there. Performance Club is steps from your desk, so it actually happens.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Premium Wellness add-on</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Upgrade for sauna, cold plunge, hot tub, massage chairs, nap pods, plus towel and robe service.</div>
       </div>
     </div>
   </div>
@@ -483,9 +635,9 @@
           <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeLite</div>
           <div style="font-size:13px;color:var(--ink-2)">Per-user team plans, 5+ seats</div>
         </a>
-        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
-          <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
+        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Drop-In &amp; Team Meets</div>
+          <div style="font-size:13px;color:var(--ink-2)">Single passes + bulk credit promo</div>
         </a>
                 <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Enterprise</div>
@@ -515,7 +667,6 @@
   </div>
 </section>
 
-
 <div style="text-align:center;padding:14px 20px 4px;font-size:11px;color:var(--muted);font-style:italic">Terms and Conditions apply, subject to change.</div>
 <footer>
   <div class="container">
@@ -535,6 +686,7 @@
   const pwds = document.querySelectorAll('.pwd[data-monthly]');
 
   const altCadenceNotes = document.querySelectorAll('.alt-cadence-note[data-monthly]');
+  const cadenceLabels = document.querySelectorAll('.cadence-label[data-monthly]');
   function setCadence(cad){
     const isAnnual = cad === 'annual';
     buttons.forEach(x => {
@@ -554,6 +706,7 @@
       n.textContent = isAnnual ? n.dataset.annual : n.dataset.monthly;
       n.classList.add('show');
     });
+    cadenceLabels.forEach(n => { n.textContent = isAnnual ? n.dataset.annual : n.dataset.monthly; });
   }
 
   buttons.forEach(b => { b.addEventListener('click', () => setCadence(b.dataset.cad)); });
@@ -562,29 +715,5 @@
   setCadence('annual');
 </script>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    mobileMenu.setAttribute('aria-hidden', !isOpen);
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    });
-  });
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    }
-  });
-</script>
 </body>
 </html>

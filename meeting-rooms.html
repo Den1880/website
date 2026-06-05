@@ -27,61 +27,43 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--white);
+      background: #F7F4EE;
       color: var(--off-black);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     /* ── NAV ── */
-    .nav-announcement {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      font-size: 0.78rem;
-      padding: 0.55rem 1rem;
-      letter-spacing: 0.01em;
-    }
-    .nav-announcement a { color: var(--lime); text-decoration: none; }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo img { height: 28px; display: block; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--off-black);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-    .nav-links a:hover { color: var(--mid); }
-    .nav-links .btn-nav {
-      background: var(--black);
-      color: var(--white) !important;
-      padding: 0.45rem 1rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    .nav-links .btn-nav:hover { background: #333; color: var(--white) !important; }
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,244,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .logo{display:inline-flex;align-items:center}
+    .nav-links{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
+    .btn-ghost{background:transparent;color:var(--off-black);border-color:var(--off-black)}
+    .btn-ghost:hover{background:var(--off-black);color:var(--white)}
+    .btn-lime{background:var(--lime);color:var(--black)}
+    .btn-lime:hover{background:#b8d018}
+    .btn-sm{padding:9px 16px;font-size:13px}
+    .nav-links .btn-ghost{border-color:transparent}
+    .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--off-black)}
+    .nav-links .btn-lime{background:var(--black);color:var(--white)}
+    .nav-links .btn-lime:hover{background:#333}
+    .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+    .hamburger span{display:block;width:18px;height:2px;background:var(--off-black);border-radius:2px;transition:all .25s ease}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--off-black);text-decoration:none;border:none;border-bottom:1px solid var(--border);background:transparent;transition:color .15s ease}
+    .mobile-menu a:last-of-type{border-bottom:none}
+    .mobile-menu a:hover{color:var(--mid)}
+    .mobile-menu .mobile-cta{background:var(--lime);color:var(--black);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
+    .mobile-menu .mobile-cta:hover{background:#b8d018}
+    @media(max-width:768px){.topbar{padding:14px 20px}.nav-links{display:none}.hamburger{display:flex}}
 
     /* ── HERO ── */
     .hero {
+      margin-top: 57px;
       padding: 5rem 2rem 4rem;
       max-width: 900px;
       margin: 0 auto;
@@ -350,26 +332,35 @@
 </head>
 <body>
 
-  <!-- ANNOUNCEMENT -->
-  <div class="nav-announcement">
-    Members save 20% on all meeting rooms. <a href="https://den1880.optixapp.com/signup/">Join Den 1880 →</a>
-  </div>
-
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="https://den1880.co/">
-      <img src="https://den1880.co/assets/den1880-logo-black.svg" alt="Den 1880" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="https://den1880.co/memberships">Memberships</a></li>
-      <li><a href="https://den1880.co/corporate/">For Teams</a></li>
-      <li><a href="/meeting-rooms">Meeting Rooms</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="https://performanceclub.ca/">Performance Club</a></li>
-      <li><a href="https://den1880.co/gallery">Gallery</a></li>
-      <li><a href="https://den1880.optixapp.com/book/tour/" class="btn-nav">Book a Tour</a></li>
-    </ul>
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="meeting-rooms.html">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
 
   <!-- HERO -->
   <section class="hero">
@@ -609,6 +600,34 @@
       </div>
     </div>
 
+    <!-- 9. THE VAULT · PODCAST & CONTENT STUDIO -->
+    <div class="room-card">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/podcast.jpg" alt="The Vault Podcast &amp; Content Studio at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Vault</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Podcast Studio</span><span class="tag">Content Studio</span></div>
+        <h2 class="room-name">The Vault · Podcast &amp; Content Studio</h2>
+        <p class="room-capacity">Hourly &amp; block rates · Members save 20%</p>
+        <p class="room-desc">
+          Built inside a former 1900s bond safe. Three track-mounted cameras, 4 Shure microphones, broadcast-grade lighting, Frame TV branding display, soundproofed walls. There is nothing like it in Waterloo Region.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$95</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">4-Hr Block</span>
+            <span class="price-value">$340</span>
+          </div>
+        </div>
+        <p class="price-note">Club &amp; Resident members save 20% — $76/hr or $272 for a 4-hr block. Enterprise plans include pooled studio credits. <em>Toronto comparables average $100/hr.</em></p>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Vault →</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- EXTRAS -->
@@ -647,5 +666,29 @@
     <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
   </footer>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
 </body>
 </html>

@@ -346,6 +346,33 @@
   .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
   .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
   .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
+
+  /* ── MOBILE NAV ── */
+  .nav-links{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+  .nav-links .btn-ghost{border-color:transparent}
+  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
+  .nav-links .btn-lime{background:var(--ink);color:#fff}
+  .nav-links .btn-lime:hover{background:#333}
+  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu a:hover{color:var(--lime-deep)}
+  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
+  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
+  @media(max-width:768px){.topbar{padding:14px 20px!important}.nav-links{display:none!important}.hamburger{display:flex!important}}
 </style>
 </head>
 <body>
@@ -356,14 +383,35 @@
     <strong>Money-back guarantee<a href="#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
   </span>
 </div>
-<header class="topbar">
+<!-- NAV -->
+<header class="topbar" id="topbar">
   <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
-  <div class="nav-cta">
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="../memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="../corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="../meeting-rooms.html">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="../gallery.html">Gallery</a>
     <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE for a Day</a>
-    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
-  </div>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="../memberships.html">Memberships</a>
+  <a href="../corporate/">For Teams</a>
+  <a href="../meeting-rooms.html">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="../gallery.html">Gallery</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
 
 <!-- PAGE NAV STRIP (non-home pages) -->
 <div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
@@ -563,5 +611,29 @@
   setCadence('annual');
 </script>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
 </body>
 </html>

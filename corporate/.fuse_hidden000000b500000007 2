@@ -341,39 +341,10 @@
 
   .alt-cadence-note{display:none;font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
   .alt-cadence-note.show{display:block}
-  /* Nav: borderless links, dark CTA */
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
-
-  /* ── MOBILE NAV ── */
-  .nav-links{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn-lime{background:var(--lime);color:var(--ink)}
-  .btn-lime:hover{background:var(--lime-deep)}
-  .btn-sm{padding:9px 16px;font-size:13px}
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover{background:#333}
-  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
-  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .hamburger.open span:nth-child(2){opacity:0}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
-  .mobile-menu.open{display:flex}
-  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
-  .mobile-menu a:last-of-type{border-bottom:none}
-  .mobile-menu a:hover{color:var(--lime-deep)}
-  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
-  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
-  @media(max-width:768px){.topbar{padding:14px 20px!important}.nav-links{display:none!important}.hamburger{display:flex!important}}
 </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -383,35 +354,14 @@
     <strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
   </span>
 </div>
-<!-- NAV -->
-<header class="topbar" id="topbar">
+<header class="topbar">
   <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
-  <nav class="nav-links">
-    <a class="btn btn-ghost btn-sm" href="../memberships.html">Memberships</a>
-    <a class="btn btn-ghost btn-sm" href="../corporate/">For Teams</a>
-    <a class="btn btn-ghost btn-sm" href="../meeting-rooms.html">Meeting Rooms</a>
-    <a class="btn btn-ghost btn-sm" href="#">Events</a>
-    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-    <a class="btn btn-ghost btn-sm" href="../gallery.html">Gallery</a>
+  <div class="nav-cta">
     <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
-  </nav>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE for a Day</a>
+    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+  </div>
 </header>
-
-<!-- Mobile dropdown menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="../memberships.html">Memberships</a>
-  <a href="../corporate/">For Teams</a>
-  <a href="../meeting-rooms.html">Meeting Rooms</a>
-  <a href="#">Events</a>
-  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-  <a href="../gallery.html">Gallery</a>
-  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
-</div>
 
 <!-- PAGE NAV STRIP (non-home pages) -->
 <div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
@@ -429,40 +379,49 @@
   </div>
 </div>
 
-<!-- DROP-IN DAY PASS -->
-<section id="dropin" style="padding-top:48px;padding-bottom:32px;scroll-margin-top:24px">
+<!-- ENTERPRISE BAND -->
+<section id="enterprise">
   <div class="container">
-    <div class="dropin-banner">
+    <div class="teams-band" style="background:linear-gradient(135deg,#0E0E0E 0%,#1F1230 100%)">
       <div>
-        <span class="dropin-eyebrow">For a single day or a one-time visit</span>
-        <h3>Drop-In Day Pass</h3>
-        <p>Single-day coworking access. Workspace, kitchen, espresso, parking, fast Wi-Fi. M-F 8 to 8. No contract, no commitment, no minimum. <strong>Want the gym too?</strong> Add the <strong>$40 Performance Club add-on</strong> at check-in ($85 total) for full fitness and recovery suite access, plus towel service and a locker for the day. If your team will use 25 or more passes a month, the Flex Plans above bundle gym access into every pass and save 55% to 65% per pass.</p>
+        <span class="scarce">Custom contracts · 25+ seats · Bespoke venue access</span>
+        <h2>Enterprise</h2>
+        <p>For 25+ seat contracts with bespoke needs (event venue access, onboarding, vendor of record for HR procurement, etc.). Scaled pooled credits and plans, quarterly business reviews, and custom commercial terms. Per-seat rates, inclusions and exclusions are fully custom at this scale, talk to our sales team for details.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-lime" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+          <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
+        </div>
       </div>
-      <div class="dropin-price">
-        <div class="num">$45</div>
-        <div class="unit">/ day pass</div>
-        <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/free-day/">Buy a Day Pass</a>
+      <div>
+        <div class="team-stats">
+          <div class="stat"><div class="num">25+</div><div class="lbl">Seats</div></div>
+          <div class="stat"><div class="num">Custom</div><div class="lbl">Pooled credits</div></div>
+          <div class="stat"><div class="num">Dedicated</div><div class="lbl">Account team</div></div>
+          <div class="stat"><div class="num">Bespoke</div><div class="lbl">Contract terms</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 
-
-<!-- ===== TEAM MEETS PROMO (single card) ===== -->
-<section id="team-meets-promo" style="padding-top:0;padding-bottom:48px;scroll-margin-top:24px">
-  <a id="beyondmeet" style="scroll-margin-top:24px"></a>
+<!-- USE CASES section, two-persona pivot -->
+<section style="padding-top:0">
   <div class="container">
-    <div class="dropin-banner">
-      <div>
-        <span class="dropin-eyebrow">Team Meets &middot; Bulk meeting room credit promotion</span>
-        <h3>Buy $4,000 in meeting room credits, get $1,000 free.</h3>
-        <p>Pre-load a year of meetings, board sessions, podcast recordings, or event bookings. Use your $5,000 balance across any boardroom, The Vault podcast studio, or any event venue. Credits valid 12 months from purchase. The right call for teams that meet regularly but don't want a monthly subscription.</p>
+    <h2>Two reasons companies sign team contracts</h2>
+    <p class="sub">Either you have remote workers in KW who need somewhere to sync, or you're a local team that wants the wellness and amenities without paying for your own office. Both get the gym.</p>
+    <div class="usecases" style="grid-template-columns:repeat(2,1fr);max-width:980px;margin:0 auto">
+      <div class="usecase" style="display:flex;flex-direction:column">
+        <span class="uc-pill">Distributed Teams</span>
+        <h3>Want your KW remote workers back together in person?</h3>
+        <p>If you have a distributed workforce with employees in Waterloo Region, they need a real place to work, train, and sync in person. Shareable Day Pass Bundles let any of your local team walk in and use the space. Full Team plans give them daily access plus The Performance Club and wellness amenities, the kind of health benefit that bigger companies pay a vendor for. One corporate contract, transferable seats, single invoice.</p>
+        <div class="uc-who">For: HR, People Ops, and Workforce leads at large corporations</div>
       </div>
-      <div class="dropin-price">
-        <div class="num">$4,000</div>
-        <div class="unit">&rarr; $5,000 in credits</div>
-        <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/inquiry/">Buy Credits</a>
+      <div class="usecase" style="display:flex;flex-direction:column">
+        <span class="uc-pill">Local Small Teams</span>
+        <h3>Want to run your business here without owning an office?</h3>
+        <p>If you're a 2 to 15 person team operating in Waterloo Region, your own office costs $17,000+/month all-in by the time you've paid for buildout, furniture, IT, cleaning, reception, parking, and separate gym memberships for your team. Den 1880 bundles all of that into one membership. <strong>Plus The Performance Club, wellness amenities, podcast studio, and event venue your team would never get on their own.</strong> See the cost comparison below.</p>
+        <div class="uc-who">For: Founders, COOs, Ops leads of small teams</div>
       </div>
     </div>
   </div>
@@ -487,11 +446,11 @@
           <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
           <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
         </a>
-                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Enterprise</div>
-          <div style="font-size:13px;color:var(--ink-2)">25+ seats, custom contracts</div>
+        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Drop-In &amp; Team Meets</div>
+          <div style="font-size:13px;color:var(--ink-2)">Single passes + bulk credit promo</div>
         </a>
-        <a href="compare.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+                <a href="compare.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Compare</div>
           <div style="font-size:13px;color:var(--ink-2)">Cost vs your own office</div>
         </a>
@@ -562,29 +521,5 @@
   setCadence('annual');
 </script>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    mobileMenu.setAttribute('aria-hidden', !isOpen);
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    });
-  });
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    }
-  });
-</script>
 </body>
 </html>

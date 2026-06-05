@@ -34,7 +34,7 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1,h2,h3,h4{font-family:'Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
   h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
   h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
   h3{font-size:clamp(20px,2vw,26px)}
@@ -45,7 +45,7 @@
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
   .logo{display:inline-flex;align-items:center}
   .nav-cta{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
   .btn-primary{background:var(--ink);color:#fff}
   .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
@@ -341,38 +341,6 @@
 
   .alt-cadence-note{display:none;font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
   .alt-cadence-note.show{display:block}
-  /* Nav: borderless links, dark CTA */
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
-
-  /* ── MOBILE NAV ── */
-  .nav-links{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn-lime{background:var(--lime);color:var(--ink)}
-  .btn-lime:hover{background:var(--lime-deep)}
-  .btn-sm{padding:9px 16px;font-size:13px}
-  .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover{background:#333}
-  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
-  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .hamburger.open span:nth-child(2){opacity:0}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
-  .mobile-menu.open{display:flex}
-  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
-  .mobile-menu a:last-of-type{border-bottom:none}
-  .mobile-menu a:hover{color:var(--lime-deep)}
-  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
-  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
-  @media(max-width:768px){.topbar{padding:14px 20px!important}.nav-links{display:none!important}.hamburger{display:flex!important}}
 </style>
 </head>
 <body>
@@ -383,123 +351,83 @@
     <strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
   </span>
 </div>
-<!-- NAV -->
-<header class="topbar" id="topbar">
+<header class="topbar">
   <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
-  <nav class="nav-links">
-    <a class="btn btn-ghost btn-sm" href="../memberships.html">Memberships</a>
-    <a class="btn btn-ghost btn-sm" href="../corporate/">For Teams</a>
-    <a class="btn btn-ghost btn-sm" href="../meeting-rooms.html">Meeting Rooms</a>
-    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+  <div class="nav-cta">
     <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-    <a class="btn btn-ghost btn-sm" href="../gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="../memberships.html" style="font-size:13px">Memberships</a>
     <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
-  </nav>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE</a>
+    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+  </div>
 </header>
-
-<!-- Mobile dropdown menu -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="../memberships.html">Memberships</a>
-  <a href="../corporate/">For Teams</a>
-  <a href="../meeting-rooms.html">Meeting Rooms</a>
-  <a href="#">Events</a>
-  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-  <a href="../gallery.html">Gallery</a>
-  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
-</div>
-
-<!-- PAGE NAV STRIP (non-home pages) -->
-<div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-    <a href="index.html" style="color:var(--ink);text-decoration:none;font-weight:600;font-size:14px">&larr; Back to Home</a>
-    <nav style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px">
-      <a href="team-office.html" style="color:var(--ink-2);text-decoration:none">Team Office</a>
-      <a href="team-officelite.html" style="color:var(--ink-2);text-decoration:none">Team OfficeLite</a>
-      <a href="team-officeflex.html" style="color:var(--ink-2);text-decoration:none">Team OfficeFlex</a>
-      <a href="drop-in.html" style="color:var(--ink-2);text-decoration:none">Drop-In &amp; Meets</a>
-      <a href="enterprise.html" style="color:var(--ink-2);text-decoration:none">Enterprise</a>
-      <a href="compare.html" style="color:var(--ink-2);text-decoration:none">Compare</a>
-      <a href="faq.html" style="color:var(--ink-2);text-decoration:none">FAQ</a>
-    </nav>
-  </div>
-</div>
-
-<!-- DROP-IN DAY PASS -->
-<section id="dropin" style="padding-top:48px;padding-bottom:32px;scroll-margin-top:24px">
+<section class="hero">
   <div class="container">
-    <div class="dropin-banner">
-      <div>
-        <span class="dropin-eyebrow">For a single day or a one-time visit</span>
-        <h3>Drop-In Day Pass</h3>
-        <p>Single-day coworking access. Workspace, kitchen, espresso, parking, fast Wi-Fi. M-F 8 to 8. No contract, no commitment, no minimum. <strong>Want the gym too?</strong> Add the <strong>$40 Performance Club add-on</strong> at check-in ($85 total) for full fitness and recovery suite access, plus towel service and a locker for the day. If your team will use 25 or more passes a month, the Flex Plans above bundle gym access into every pass and save 55% to 65% per pass.</p>
+    <span class="eyebrow">Options for your Team</span>
+    <h1><em>In-person productivity</em> without an expensive boring long-term lease.</h1>
+    <p class="lede">Attract and retain your best team with culture, mentorship, and health and wellness opportunities for a small fraction of the cost. Den 1880 is a premium space paid by the seat, not by the square foot. We are located in the core of Uptown Waterloo near the LRT and countless restaurants. It includes coworking spaces, a full high-end fitness facility, The Vault podcast studio, a boutique event venue, and more, all on one simple corporate plan. Provide your team with a world-class offer most companies can't afford to make.</p>
+
+  </div>
+</section>
+<!-- PATH SELECTOR - pick your team shape -->
+<section style="padding:32px 0 16px">
+  <div class="container">
+    <div class="path-selector">
+      <span class="path-eyebrow">Find your fit</span>
+      <h2>How Do You Want to Work?</h2>
+      <div class="path-options">
+        <a href="team-office.html" class="path-card">
+          <h3>Team Office</h3>
+          <p>Dedicated office space, lockable, 24/7, fully-furnished.</p>
+          <span class="path-cta">See Offices</span>
+        </a>
+        <a href="team-officelite.html" class="path-card">
+          <h3>Team OfficeLite</h3>
+          <p>Team memberships for coworking and fitness.</p>
+          <span class="path-cta">See OfficeLite Plans</span>
+        </a>
+        <a href="team-officeflex.html" class="path-card">
+          <h3>Team OfficeFlex</h3>
+          <p>Team day passes for coworking and fitness.</p>
+          <span class="path-cta">See OfficeFlex Plans</span>
+        </a>
+        <a href="drop-in.html#beyondmeet" class="path-card">
+          <h3>Team Meets</h3>
+          <p>Bulk meeting room credit promotion.</p>
+          <span class="path-cta">See the Offer</span>
+        </a>
       </div>
-      <div class="dropin-price">
-        <div class="num">$45</div>
-        <div class="unit">/ day pass</div>
-        <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/free-day/">Buy a Day Pass</a>
-      </div>
+      <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--ink-2);font-style:italic">
+        Just need a one-off visit? Grab a single <a href="drop-in.html" style="color:var(--plum);font-weight:600;font-style:normal;text-decoration:none">Drop-In Day Pass</a> for $45.
+      </p>
     </div>
   </div>
 </section>
 
 
 
-<!-- ===== TEAM MEETS PROMO (single card) ===== -->
-<section id="team-meets-promo" style="padding-top:0;padding-bottom:48px;scroll-margin-top:24px">
-  <a id="beyondmeet" style="scroll-margin-top:24px"></a>
-  <div class="container">
-    <div class="dropin-banner">
-      <div>
-        <span class="dropin-eyebrow">Team Meets &middot; Bulk meeting room credit promotion</span>
-        <h3>Buy $4,000 in meeting room credits, get $1,000 free.</h3>
-        <p>Pre-load a year of meetings, board sessions, podcast recordings, or event bookings. Use your $5,000 balance across any boardroom, The Vault podcast studio, or any event venue. Credits valid 12 months from purchase. The right call for teams that meet regularly but don't want a monthly subscription.</p>
-      </div>
-      <div class="dropin-price">
-        <div class="num">$4,000</div>
-        <div class="unit">&rarr; $5,000 in credits</div>
-        <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/inquiry/">Buy Credits</a>
-      </div>
-    </div>
+<!-- GUARANTEE TAGLINE -->
+<section style="padding:24px 0">
+  <div class="container" style="max-width:820px;text-align:center">
+    <p style="font-size:clamp(15px,1.6vw,18px);color:var(--ink);margin:0;line-height:1.5">
+      <strong>Money-back guarantee.</strong> If Den 1880 isn't right for your team, we'll refund you within the first month.
+      <a href="faq.html#guarantee-terms" style="color:var(--plum);font-weight:600;text-decoration:none">See full terms &rarr;</a>
+    </p>
   </div>
 </section>
 
 
-
-<!-- SEE OTHER PLANS -->
-<section style="padding-top:0;padding-bottom:48px">
-  <div class="container">
-    <h2 style="font-size:clamp(20px,2.4vw,26px);text-align:center;margin-bottom:24px">Explore other options</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:1080px;margin:0 auto">
-        <a href="team-office.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team Office</div>
-          <div style="font-size:13px;color:var(--ink-2)">Private offices on the Teams Floor</div>
-        </a>
-        <a href="team-officelite.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeLite</div>
-          <div style="font-size:13px;color:var(--ink-2)">Per-user team plans, 5+ seats</div>
-        </a>
-        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
-          <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
-        </a>
-                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Enterprise</div>
-          <div style="font-size:13px;color:var(--ink-2)">25+ seats, custom contracts</div>
-        </a>
-        <a href="compare.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Compare</div>
-          <div style="font-size:13px;color:var(--ink-2)">Cost vs your own office</div>
-        </a>
-        <a href="faq.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
-          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">FAQ</div>
-          <div style="font-size:13px;color:var(--ink-2)">Common questions</div>
-        </a>
+<!-- FAQ TEASER -->
+<section style="padding-top:0;padding-bottom:24px">
+  <div class="container" style="max-width:820px;text-align:center">
+    <h2>Common questions</h2>
+    <p class="sub">A few of the most common asks before procurement. See the full list on the FAQ page.</p>
+    <div style="text-align:left;margin-top:24px">
+      <details><summary>Which plan fits my team?</summary><p>Pick by what services your team will actually use. Starter for the essentials, Base for hybrid teams, Scale for executive teams. Every plan has a 5-user minimum and a 3-month minimum term. <a href="faq.html" style="color:var(--plum);font-weight:600">See full FAQ &rarr;</a></p></details>
+      <details><summary>How do transferable seats work?</summary><p>Each seat is tied to your company contract, not to an individual. HR or your account contact can reassign seats when someone leaves or joins. No paperwork. <a href="faq.html" style="color:var(--plum);font-weight:600">See full FAQ &rarr;</a></p></details>
+      <details><summary>How does the money-back guarantee work?</summary><p>If Den 1880 isn't right for your team in the first 30 days, we'll refund what you paid. <a href="faq.html" style="color:var(--plum);font-weight:600">See full FAQ &rarr;</a></p></details>
     </div>
+    <p style="margin-top:24px"><a href="faq.html" class="btn btn-ghost btn-sm">See all questions</a></p>
   </div>
 </section>
 
@@ -562,29 +490,5 @@
   setCadence('annual');
 </script>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    mobileMenu.setAttribute('aria-hidden', !isOpen);
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    });
-  });
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-    }
-  });
-</script>
 </body>
 </html>

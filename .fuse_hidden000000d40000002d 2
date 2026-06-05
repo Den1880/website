@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Virtual Services Agreement — Den 1880</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('Monschone.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --gold:#B89252;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0 0 .5em}
+  h1{font-size:clamp(28px,4vw,48px);line-height:1.08;letter-spacing:-0.02em}
+  h2{font-size:20px;margin-top:2em;color:var(--ink)}
+  p{margin:0 0 .9em}
+  a{color:var(--plum)}
+  .container{max-width:820px;margin:0 auto;padding:0 24px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .logo{display:inline-flex;align-items:center}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease;cursor:pointer}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  .page-hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:20px;font-weight:500}
+  .back-link:hover{color:var(--ink)}
+  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:14px}
+
+  .tc-body{padding:48px 0 80px}
+  .tc-doc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:48px 52px;box-shadow:var(--shadow)}
+  @media(max-width:640px){.tc-doc{padding:28px 24px}}
+  .tc-doc h1{font-size:clamp(22px,3vw,30px);margin-bottom:.3em}
+  .tc-doc .effective{font-size:13px;color:var(--muted);margin-bottom:2em;font-style:italic}
+  .tc-doc .intro{font-size:15px;color:var(--ink-2);margin-bottom:1.2em;line-height:1.65}
+  .tc-section{margin:2em 0}
+  .tc-section h2{font-family:'Fraunces';font-size:17px;font-weight:600;color:var(--plum);letter-spacing:-.005em;border-bottom:1px solid var(--line);padding-bottom:.5em;margin-bottom:.8em}
+  .tc-section p,.tc-section li{font-size:14px;color:var(--ink-2);line-height:1.7}
+  .tc-section ul,.tc-section ol{padding-left:1.5em;margin:.4em 0 .8em}
+  .tc-section li{margin-bottom:.3em}
+  .tc-section ul ul{margin:.3em 0 .5em}
+  .notice-box{background:rgba(107,78,142,.07);border:1px solid rgba(107,78,142,.2);border-radius:10px;padding:18px 20px;margin:2em 0;font-size:14px;color:var(--ink-2)}
+  .notice-box strong{color:var(--plum)}
+
+  footer{padding:20px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  /* Nav: borderless links, dark CTA */
+  .nav-links .btn-ghost{border-color:transparent}
+  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
+  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
+  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-cta">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-primary btn-sm" href="business-mail-application.html">Apply Now</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <a class="back-link" href="business-mail.html">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Business Mail
+    </a>
+    <div class="eyebrow">Legal</div>
+    <h1>Den 1880 Virtual Services Agreement</h1>
+    <p style="color:var(--muted);font-size:15px;margin-top:10px">Please read this agreement carefully before submitting your application.</p>
+  </div>
+</div>
+
+<section class="tc-body">
+  <div class="container">
+    <div class="tc-doc">
+
+      <div class="notice-box">
+        <strong>Note:</strong> This document will be sent to you for formal review and digital signature once your application has been approved. The version you sign via Optix is the binding agreement.
+      </div>
+
+      <div class="tc-section">
+        <p class="intro">This Virtual Services Agreement (the "Agreement") is between Prospect Spaces Inc., operating as Den 1880 (the "Den"), and the person or entity agreeing to the terms hereof (the "Member"). This Agreement is effective as of the date the Member clicks the "I Accept" button appearing at the bottom of the applicable registration page or signs the document digitally or otherwise (the "Effective Date").</p>
+        <p class="intro">If you are accepting the terms of this Agreement on behalf of your employer or another entity, you represent and warrant that:</p>
+        <ul>
+          <li>You have legal authority to bind your employer or the applicable entity.</li>
+          <li>You have read and understand this Agreement.</li>
+          <li>You agree, on behalf of your employer or the applicable entity, to all of the terms of this Agreement.</li>
+        </ul>
+      </div>
+
+      <div class="tc-section">
+        <h2>1. Virtual Services</h2>
+        <p>Den agrees to provide the Member with the services selected and purchased by the Member, as described in this Agreement and on the Virtual Office portion of Den's website, as amended from time to time (collectively, the "Virtual Services"). Virtual Services include, at a minimum, mail service.</p>
+        <p>If services are used that were not selected in this Agreement, the Member will be charged accordingly, together with an additional 20% administrative penalty. Examples include:</p>
+        <ul>
+          <li>Receiving mail for additional individuals not listed on the Agreement.</li>
+          <li>Receiving oversized packages.</li>
+          <li>Using add-on services without authorization.</li>
+        </ul>
+      </div>
+
+      <div class="tc-section">
+        <h2>2. Payment Terms</h2>
+        <p>By accepting this Agreement, the Member authorizes Den to charge a recurring monthly fee for the Virtual Services at the current rate, together with all applicable taxes (the "Monthly Fee"), using the Member's approved payment method (the "Payment Method"). Key payment terms include:</p>
+        <ul>
+          <li>The first Monthly Fee is due immediately upon acceptance of this Agreement.</li>
+          <li>Thereafter, fees will be charged automatically on each Payment Date.</li>
+          <li>Den may change the Monthly Fee upon providing 30 days' written notice.</li>
+          <li>Payments are non-refundable.</li>
+          <li>No refunds or credits will be provided for partially used service periods.</li>
+          <li>Members are responsible for maintaining accurate payment information.</li>
+          <li>Any payment that cannot be processed on the Payment Date will be considered overdue, will incur a 10% late payment fee, and will bear interest at 2% per month.</li>
+        </ul>
+      </div>
+
+      <div class="tc-section">
+        <h2>3. Services and Add-Ons</h2>
+        <p>Members may purchase additional services ("Add-Ons") available through Den's Virtual Office program. Add-Ons may be modified from time to time upon 30 days' notice. Custom services may also be provided at Den's published rates or as otherwise agreed between the parties.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>4. Term</h2>
+        <p>The initial term of this Agreement begins on the Effective Date and continues for one month. Thereafter, the Agreement automatically renews for successive monthly periods unless terminated in accordance with this Agreement.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>5. Termination</h2>
+        <p>Either party may terminate this Agreement by providing one (1) month's written notice from the first day of the month (the "Termination Period"). During the Termination Period, any Monthly Fee that becomes due remains payable, and Den may continue charging the Member's Payment Method.</p>
+        <p>Den may terminate the Agreement immediately if the Member defaults and fails to remedy the default within five business days after receiving written notice. If Den terminates the Agreement due to an uncured default, the Member must pay an amount equal to two additional months of Monthly Fees.</p>
+        <p>Upon termination, Virtual Services cease immediately. Mail received within 30 days after termination will be returned to sender at the Member's cost. Den has no mail forwarding obligations and mail-related obligations cease after the 30-day period.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>6. Default</h2>
+        <p>The following constitute Events of Default:</p>
+        <ul>
+          <li><strong>Payment Default:</strong> Failure to pay amounts owing after five days' written notice.</li>
+          <li><strong>Breach of Agreement:</strong> Failure to perform obligations under this Agreement and failure to cure the breach within five business days.</li>
+          <li><strong>Insolvency Events:</strong> Bankruptcy filings, insolvency proceedings, appointment of a receiver or trustee, or assignments for the benefit of creditors.</li>
+          <li><strong>Conduct Issues:</strong> Abuse or hostile treatment of staff, or improper use of Den systems or services.</li>
+        </ul>
+        <p>Upon default, Den may suspend or terminate services immediately, recover all outstanding fees, recover amounts that would have been payable had proper notice been provided, and recover collection costs, legal costs, and out-of-pocket expenses.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>7. Compliance with Laws</h2>
+        <p>The Member agrees to comply with all applicable federal, provincial, and municipal laws, regulations, policies, and guidelines relating to the Virtual Services.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>8. Confidentiality</h2>
+        <p>Both parties agree to maintain the confidentiality of information received as a result of this Agreement. Confidential Information shall not be disclosed except as required by law, shall not be used for personal benefit or the benefit of third parties, and shall be protected using reasonable precautions. Both parties acknowledge that unauthorized disclosure may cause irreparable harm and may entitle the affected party to injunctive relief.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>9. Limitation of Liability</h2>
+        <p>Den and its affiliates shall not be liable for direct damages, indirect damages, consequential damages, special damages, loss of profits, loss of business opportunities, loss of goodwill, failure or interruption of Virtual Services, or lost, delayed, or undelivered mail. This limitation applies even if Den was advised of the possibility of such damages.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>10. Indemnity</h2>
+        <p>The Member agrees to indemnify and hold harmless Den and its affiliates from any claims, liabilities, losses, costs, penalties, fines, damages, legal fees, and expenses arising from breach of this Agreement, improper use of the Virtual Services, or reliance on the Virtual Services.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>11. Warranty Disclaimer</h2>
+        <p>Den provides the Virtual Services without warranties of any kind. Den specifically disclaims merchantability, fitness for a particular purpose, and any implied warranties. Members shall not rely on statements contrary to this disclaimer.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>12. Rules and Regulations</h2>
+        <p>The Member acknowledges that Den is a tenant of the building and not the owner. The Member agrees not to disturb other occupants, to comply with all building rules and regulations, and to comply with Den's policies and procedures. Any breach of the Rules and Regulations constitutes a breach of this Agreement. The Agreement is subordinate to Den's lease. If Den's lease terminates, this Agreement may be terminated immediately.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>13. Transfer and Assignment</h2>
+        <p>Den may assign or transfer its rights and obligations under this Agreement. The Member may not assign, transfer, sublicense, or delegate any rights or obligations without Den's prior written consent.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>14. Notice</h2>
+        <p>All notices must be provided in writing. Den 1880 contact information: 14 Erb St. W., Waterloo, ON N2L 1S7. Attention: Virtual Office. Email: hello@den1880.co. Notices are deemed received five business days after regular mail delivery, or on the day delivered if sent personally or by email on a business day (otherwise the next business day).</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>15. Name and Address Usage</h2>
+        <p>The Member may not use Den 1880 branding without approval. The Member may not use the location as a registered address for service of legal process.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>16. Mail Handling and Storage</h2>
+        <p>Unless specifically purchased, Den does not accept packages over one pound and does not accept items that exceed standard storage capacity. Den may refuse dangerous items, perishable items, live goods, unlawful items, and excessive quantities of mail. Additional administrative fees may apply for excessive mail volumes.</p>
+        <p>Additional conditions:</p>
+        <ul>
+          <li>Mail left uncollected for more than 30 days may be securely disposed of.</li>
+          <li>Deliveries are accepted Monday through Friday, 9:00 a.m. to 5:00 p.m., excluding holidays.</li>
+          <li>The address may not be used for illegal, misleading, or fraudulent activities.</li>
+        </ul>
+      </div>
+
+      <div class="tc-section">
+        <h2>17. Mail Forwarding</h2>
+        <p>Den does not provide mail forwarding services. Mail may only be collected by the authorized individual on file upon presentation of government-issued photo identification.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>18. Phone Number Services</h2>
+        <p>Assigned phone numbers remain the property of Den, are provided only during the Term, and may not be listed in directory services. The Member acquires no ownership interest in any assigned number.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>19. Phone Number Porting</h2>
+        <p>Porting fees: Standard number $100 plus HST per number. Premium number $500 plus HST per number.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>20. Data Collection</h2>
+        <p>Den may collect personal information, non-personal information, technical information, website interaction information, and customer service interaction information. Information is collected to provide and administer the Virtual Services.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>21. Data Usage</h2>
+        <p>Den may use collected information for service delivery, administration, billing and collections, marketing communications, research and development, website functionality, advertising and analytics, legal compliance, and customer support.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>22. Data Transfer</h2>
+        <p>Den may disclose information to affiliates, to service providers, during business sales or reorganizations, to comply with legal obligations, and with the Member's consent.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>23. Data Retention</h2>
+        <p>Den may anonymize personal information and use anonymized information for legitimate business purposes without further notice.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>24. Data Security</h2>
+        <p>Den employs physical, electronic, and administrative safeguards intended to protect personal information from unauthorized access, use, disclosure, or alteration.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>25. Force Majeure</h2>
+        <p>Den shall not be liable for delays or failures to perform resulting from events beyond its reasonable control.</p>
+      </div>
+
+      <div class="tc-section">
+        <h2>26. General Intent and Interpretation</h2>
+        <p>This Agreement constitutes the entire agreement between the parties and is governed by the laws of Ontario and the federal laws of Canada applicable therein. It creates an independent contractor relationship between the parties and does not create a partnership, joint venture, fiduciary relationship, or agency relationship. If any provision is found unenforceable, the remaining provisions shall remain in full force and effect. This Agreement shall benefit and bind the parties and their respective successors and permitted assigns.</p>
+      </div>
+
+      <div style="margin-top:3em;padding-top:2em;border-top:1px solid var(--line);text-align:center">
+        <a href="business-mail-application.html" class="btn btn-primary" style="display:inline-flex">Apply for Business Mail</a>
+        <p style="margin-top:14px;font-size:13px;color:var(--muted)">Questions? Email <a href="mailto:hello@den1880.co">hello@den1880.co</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  Den 1880 &middot; 14 Erb St. West, Waterloo, ON N2L 1S7 &middot; <a href="mailto:hello@den1880.co">hello@den1880.co</a> &middot; (519) 783-1505
+</footer>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "/Users/jacklynwarmington/Documents/Claude/Projects/Memberships/den1880-site"
+cd /Users/jacklynwarmington/Documents/Claude/Projects/Memberships/den1880-site
 
 echo "What changed? (press Enter when done):"
 read message
@@ -11,7 +11,7 @@ fi
 
 git add .
 git commit -m "$message"
-git push origin HEAD:main
+git push origin HEAD:main --force
 
 echo ""
 echo "✓ Deployed! Netlify will be live in ~1 minute."
