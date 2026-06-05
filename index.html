@@ -174,8 +174,8 @@
   .paths-header .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:600}
   .paths-header h2{margin-bottom:10px}
   .paths-header p{color:var(--ink-2);font-size:16px;max-width:560px;margin:0 auto}
-  .paths-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
-  @media(max-width:700px){.paths-grid{grid-template-columns:1fr}}
+  .paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+  @media(max-width:900px){.paths-grid{grid-template-columns:1fr 1fr}}@media(max-width:580px){.paths-grid{grid-template-columns:1fr}}
   .path-card{background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:36px 32px;text-decoration:none;color:var(--ink);transition:all .2s ease;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
   .path-card:hover{border-color:var(--lime-deep);box-shadow:var(--shadow-lift);transform:translateY(-3px)}
   .path-card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px}
@@ -298,6 +298,13 @@
         <h3>Corporate Plans</h3>
         <p>Flexible packages from drop-in day passes to dedicated private offices. Built for growing companies, hybrid teams, and enterprise clients.</p>
         <span class="card-cta">Explore team options</span>
+      </a>
+
+      <a class="path-card" href="/private-offices">
+        <span class="tag">Private Offices</span>
+        <h3>Teams Floor</h3>
+        <p>20+ fully furnished private suites on a secure Teams Floor. 24/7 access, sit-to-stand desks, keyless entry. No lease, no setup. Move in Monday morning.</p>
+        <span class="card-cta">See available suites</span>
       </a>
 
     </div>
