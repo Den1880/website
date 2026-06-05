@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Offices · Den 1880</title>
+  <meta name="description" content="20+ fully furnished private offices for teams of 1 to 35 on Den 1880's secure Teams Floor in Uptown Waterloo. 24/7 access, sit-to-stand desks, private kitchenette, and no commercial lease required." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0E0E0E;
+      --ink-2: #2A2A2A;
+      --paper: #F7F4EE;
+      --card: #F7F4EE;
+      --line: #E6E1D6;
+      --muted: #6F6A60;
+      --lime: #C8E020;
+      --lime-deep: #9DB315;
+      --plum: #6B4E8E;
+      --shadow: 0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+      --shadow-lift: 0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.025em; }
+    h2 { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
+    h3 { font-size: clamp(18px, 1.8vw, 24px); }
+    p { margin: 0 0 .8em; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .logo { display: inline-flex; align-items: center; }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; font-family: 'Inter', sans-serif; }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: #fff; }
+    .btn-lime { background: var(--lime); color: var(--ink); }
+    .btn-lime:hover { background: var(--lime-deep); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; }
+    .nav-links .btn-ghost { border-color: transparent; }
+    .nav-links .btn-ghost:hover { background: rgba(14,14,14,.07); color: var(--ink); }
+    .nav-links .btn-lime { background: var(--ink); color: #fff; }
+    .nav-links .btn-lime:hover { background: #333; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; padding: 0; flex-shrink: 0; }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; transition: color .15s ease; }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--lime-deep); }
+    .mobile-menu .mobile-cta { background: var(--lime); color: var(--ink); text-align: center; margin-top: 12px; padding: 14px; border-radius: 999px; font-weight: 700; border-bottom: none; }
+    .mobile-menu .mobile-cta:hover { background: var(--lime-deep); }
+    @media(max-width: 768px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .hero { padding: 72px 0 48px; text-align: center; background: var(--paper); margin-top: 57px; }
+    .hero-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 16px; }
+    .hero h1 { margin-bottom: 16px; }
+    .hero h1 em { font-style: italic; color: var(--plum); }
+    .hero p.lede { max-width: 640px; margin: 0 auto 28px; color: var(--ink-2); font-size: 18px; line-height: 1.65; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(107,78,142,.08); border: 1px solid rgba(107,78,142,.2); color: var(--plum); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+    .availability-badge::before { content: ''; width: 7px; height: 7px; background: var(--plum); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── INTRO ── */
+    .intro { padding: 80px 0 64px; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .intro-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .intro-text h2 { margin-bottom: 18px; }
+    .intro-text h2 em { font-style: italic; color: var(--plum); }
+    .intro-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+    .intro-img { width: 100%; height: 460px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-lift); }
+    @media(max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 36px; } .intro-img { height: 280px; } }
+
+    /* ── OFFICE GRID ── */
+    .office-gallery { padding: 0 0 80px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius); display: block; transition: transform .3s ease; }
+    .gallery-grid img:hover { transform: scale(1.02); }
+    .gallery-grid .large { grid-column: span 2; }
+    .gallery-grid .large img { height: 280px; }
+    @media(max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; } .gallery-grid .large { grid-column: span 2; } }
+    @media(max-width: 500px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-grid .large { grid-column: span 1; } }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included { padding: 80px 0; background: var(--ink); color: #fff; }
+    .included-header { text-align: center; margin-bottom: 56px; }
+    .included-header h2 { color: #fff; margin-bottom: 12px; }
+    .included-header h2 em { font-style: italic; color: var(--lime); }
+    .included-header p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; font-size: 16px; }
+    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .included-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 28px; }
+    .included-card h3 { color: var(--lime); font-size: 15px; font-weight: 600; margin-bottom: 14px; font-family: 'Inter', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+    .included-card ul { list-style: none; padding: 0; }
+    .included-card li { font-size: 14px; color: rgba(255,255,255,0.78); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
+    .included-card li:last-child { border-bottom: none; }
+    .included-card li::before { content: '→'; color: var(--lime); flex-shrink: 0; margin-top: 1px; }
+    @media(max-width: 900px) { .included-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width: 580px) { .included-grid { grid-template-columns: 1fr; } }
+
+    /* ── TEAM PLANS PAIRING ── */
+    .pairing { padding: 80px 0; }
+    .pairing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .pairing-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .pairing-text h2 { margin-bottom: 18px; }
+    .pairing-text h2 em { font-style: italic; color: var(--plum); }
+    .pairing-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+    .plan-cards { display: flex; flex-direction: column; gap: 14px; }
+    .plan-card { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+    .plan-card h4 { font-size: 17px; margin-bottom: 6px; }
+    .plan-card p { font-size: 14px; color: var(--ink-2); margin: 0; }
+    .plan-card a { font-size: 13px; font-weight: 600; color: var(--lime-deep); display: inline-block; margin-top: 10px; }
+    @media(max-width: 768px) { .pairing-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── BUILDING AMENITIES ── */
+    .amenities { padding: 72px 0; background: var(--paper); border-top: 1px solid var(--line); }
+    .amenities-header { text-align: center; margin-bottom: 48px; }
+    .amenities-header .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .amenities-header h2 { margin-bottom: 10px; }
+    .amenities-header h2 em { font-style: italic; color: var(--plum); }
+    .amenities-header p { color: var(--ink-2); font-size: 16px; max-width: 560px; margin: 0 auto; }
+    .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .amenity-item { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .amenity-item .icon { margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
+    .amenity-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .amenity-item p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+    @media(max-width: 768px) { .amenities-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width: 480px) { .amenities-grid { grid-template-columns: 1fr; } }
+
+    /* ── FINAL CTA ── */
+    .final-cta { padding: 80px 24px; text-align: center; background: var(--ink); color: #fff; }
+    .final-cta .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
+    .final-cta h2 { color: #fff; margin-bottom: 14px; }
+    .final-cta h2 em { font-style: italic; color: var(--lime); }
+    .final-cta p { color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 32px; font-size: 16px; line-height: 1.7; }
+    .final-cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .final-cta .scarce { display: inline-block; background: rgba(200,224,32,.14); color: var(--lime); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 6px; margin-bottom: 24px; }
+
+    /* ── FOOTER ── */
+    footer { background: #080808; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.4); }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="/events">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="meeting-rooms.html">Meeting Rooms</a>
+  <a href="/events">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="the-vault-podcast-studio.html">Podcast Studio</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="availability-badge">Suites are 80% leased · Limited availability</div>
+    <span class="hero-eyebrow">Private Offices · Den 1880 · Uptown Waterloo</span>
+    <h1>Your team's <em>permanent home base.</em></h1>
+    <p class="lede">Fully furnished, 24/7 access, no commercial lease. Move in Monday morning and be productive by noon — without the overhead of setting up an office from scratch.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a class="btn btn-ghost" href="https://den1880.optixapp.com/inquiry/">Talk to Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <img class="intro-img" src="assets/officephotos/Office 6 (1).jpg" alt="Private office interior at Den 1880" />
+      <div class="intro-text">
+        <span class="eyebrow">The Teams Floor</span>
+        <h2>An office without the <em>overhead.</em></h2>
+        <p>Twenty-plus private offices sit on Den 1880's dedicated Teams Floor — a secure, professional environment designed specifically for teams who want the feel of their own space without the cost and commitment of a commercial lease.</p>
+        <p>Skip the furniture order, the IT setup, the internet installation, and the three-year contract. Your office is ready the day you are.</p>
+        <p>Offices accommodate teams of 1 to 35, with lockable suites, sit-to-stand desks, and keyless entry. Every office pairs naturally with a Team plan — your suite is your HQ, the plan covers the gym, wellness, and everything else in the building.</p>
+        <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/" style="margin-top:8px">Walk the Teams Floor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE GALLERY -->
+<section class="office-gallery">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="large">
+        <img src="assets/officephotos/IMG_6600.JPG" alt="Private office at Den 1880" />
+      </div>
+      <div>
+        <img src="assets/officephotos/Office 8 (1).jpg" alt="Private office at Den 1880" />
+      </div>
+      <div>
+        <img src="assets/officephotos/Office 15 (4).jpg" alt="Private office at Den 1880" />
+      </div>
+      <div>
+        <img src="assets/officephotos/Suite3.JPG" alt="Teams Floor at Den 1880" />
+      </div>
+      <div>
+        <img src="assets/officephotos/Office 6 (1).jpg" alt="Private office at Den 1880" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="container">
+    <div class="included-header">
+      <h2>Everything <em>included.</em></h2>
+      <p>No hidden costs, no furniture to source, no contractors to call. Every office comes fully ready.</p>
+    </div>
+    <div class="included-grid">
+      <div class="included-card">
+        <h3>Your Office</h3>
+        <ul>
+          <li>Fully furnished, move-in ready</li>
+          <li>Sit-to-stand desks included</li>
+          <li>Keyless suite entry</li>
+          <li>24/7 access to your space</li>
+          <li>Lockable, private suite</li>
+          <li>Teams of 1 to 35</li>
+        </ul>
+      </div>
+      <div class="included-card">
+        <h3>The Building</h3>
+        <ul>
+          <li>Secure, dedicated Teams Floor</li>
+          <li>Private kitchenette access</li>
+          <li>Fast, reliable Wi-Fi</li>
+          <li>Printing &amp; scanning</li>
+          <li>Phone &amp; meeting booths</li>
+          <li>Heritage building, Uptown Waterloo</li>
+        </ul>
+      </div>
+      <div class="included-card">
+        <h3>Shared Spaces</h3>
+        <ul>
+          <li>Hot desking in The Library</li>
+          <li>Access to the Theatre &amp; Kitchen</li>
+          <li>The Vault podcast studio</li>
+          <li>Lobby &amp; common areas</li>
+          <li>Steps from LRT &amp; restaurants</li>
+          <li>Parking nearby</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM PLANS PAIRING -->
+<section class="pairing">
+  <div class="container">
+    <div class="pairing-inner">
+      <div class="pairing-text">
+        <span class="eyebrow">Better together</span>
+        <h2>Your office <em>plus</em> everything else.</h2>
+        <p>A private office gives your team a home base. A Team plan layers in the rest — the gym, wellness amenities, meeting room credits, and the full Den 1880 experience for every person on your team.</p>
+        <p>Most teams combine their suite with a Team OfficeLite or Team OfficeFlex plan, giving each team member their own access to the building and everything in it.</p>
+        <a class="btn btn-primary" href="corporate/">Explore Team Plans</a>
+      </div>
+      <div class="plan-cards">
+        <div class="plan-card">
+          <h4>Team OfficeLite</h4>
+          <p>Per-user team plans starting at 5 seats. Coworking, The Performance Club gym, and all Den 1880 amenities included for every team member.</p>
+          <a href="corporate/team-officelite.html">See OfficeLite →</a>
+        </div>
+        <div class="plan-card">
+          <h4>Team OfficeFlex</h4>
+          <p>Pooled day passes for teams who work a few days a week. Flexible, cost-effective, and includes full building access on every visit.</p>
+          <a href="corporate/team-officeflex.html">See OfficeFlex →</a>
+        </div>
+        <div class="plan-card">
+          <h4>Enterprise</h4>
+          <p>25+ seats, custom contracts, and tailored arrangements. We'll put together something that fits your team's specific needs.</p>
+          <a href="corporate/enterprise.html">Talk to us about Enterprise →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDING AMENITIES -->
+<section class="amenities">
+  <div class="container">
+    <div class="amenities-header">
+      <span class="eyebrow">In the building</span>
+      <h2>More than just an <em>office.</em></h2>
+      <p>Your team gets access to amenities most companies can't afford to offer — all steps from their desk.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-item">
+        <div class="icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="20" width="8" height="8" rx="2" stroke="#9DB315" stroke-width="2"/>
+            <rect x="36" y="20" width="8" height="8" rx="2" stroke="#9DB315" stroke-width="2"/>
+            <line x1="12" y1="24" x2="36" y2="24" stroke="#9DB315" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="16" y="18" width="16" height="12" rx="3" stroke="#9DB315" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>The Performance Club</h4>
+        <p>A full private gym with recovery amenities — sauna, cold plunge, hot tub, and more.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="8" width="12" height="20" rx="6" stroke="#6B4E8E" stroke-width="2"/>
+            <path d="M12 26c0 6.627 5.373 12 12 12s12-5.373 12-12" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="38" x2="24" y2="44" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18" y1="44" x2="30" y2="44" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>The Vault Studio</h4>
+        <p>Professional podcast and content studio, bookable by your team at member rates.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="36" height="26" rx="3" stroke="#C8E020" stroke-width="2"/>
+            <line x1="6" y1="36" x2="42" y2="36" stroke="#C8E020" stroke-width="2"/>
+            <line x1="16" y1="36" x2="12" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="36" x2="36" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="42" x2="38" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="18,28 24,20 30,28" stroke="#C8E020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Event Venue</h4>
+        <p>The Theatre and Lobby Bar — host your team events, client nights, and presentations in-house.</p>
+      </div>
+      <div class="amenity-item">
+        <div class="icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6C17.373 6 12 11.373 12 18c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" stroke="#0E0E0E" stroke-width="2"/>
+            <circle cx="24" cy="18" r="4" stroke="#0E0E0E" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>Uptown Waterloo</h4>
+        <p>14 Erb St. West — steps from the LRT, surrounded by restaurants, and easy to get to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <span class="scarce">Suites are 80% leased · Act soon</span>
+    <span class="eyebrow" style="display:block">Come see it</span>
+    <h2>Walk the <em>Teams Floor.</em></h2>
+    <p>Tours run weekday mornings and afternoons. See the available suites, meet the team, ask anything. We'll show you exactly what your team would be walking into.</p>
+    <div class="actions">
+      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
+  <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+</body>
+</html>
