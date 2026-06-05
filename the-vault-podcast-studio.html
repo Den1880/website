@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Vault · Podcast &amp; Content Studio · Den 1880</title>
+  <meta name="description" content="The Vault is Den 1880's professional podcast and content studio — built inside a former 1900s bond safe. Three track-mounted cameras, 4 Shure microphones, broadcast-grade lighting, soundproofed walls. The only studio of its kind in Waterloo Region." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --ink: #0E0E0E;
+      --ink-2: #2A2A2A;
+      --paper: #F7F4EE;
+      --card: #F7F4EE;
+      --line: #E6E1D6;
+      --muted: #6F6A60;
+      --lime: #C8E020;
+      --lime-deep: #9DB315;
+      --plum: #6B4E8E;
+      --shadow: 0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+      --shadow-lift: 0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.025em; }
+    h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; }
+    h3 { font-size: clamp(20px, 2vw, 26px); }
+    p { margin: 0 0 .8em; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .logo { display: inline-flex; align-items: center; }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: #fff; }
+    .btn-lime { background: var(--lime); color: var(--ink); }
+    .btn-lime:hover { background: var(--lime-deep); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; }
+    .nav-links .btn-ghost { border-color: transparent; }
+    .nav-links .btn-ghost:hover { background: rgba(14,14,14,.07); color: var(--ink); }
+    .nav-links .btn-lime { background: var(--ink); color: #fff; }
+    .nav-links .btn-lime:hover { background: #333; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; padding: 0; flex-shrink: 0; }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; transition: color .15s ease; }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--lime-deep); }
+    .mobile-menu .mobile-cta { background: var(--lime); color: var(--ink); text-align: center; margin-top: 12px; padding: 14px; border-radius: 999px; font-weight: 700; border-bottom: none; }
+    .mobile-menu .mobile-cta:hover { background: var(--lime-deep); }
+    @media(max-width: 768px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 57px;
+      position: relative;
+      height: 70vh;
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 48px 40px;
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hero-content h1 { color: #fff; }
+    .hero-content h1 em { font-style: italic; color: var(--lime); }
+    .hero-content p { color: rgba(255,255,255,0.82); font-size: clamp(16px, 1.6vw, 19px); margin-top: 16px; max-width: 580px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    @media(max-width: 600px) { .hero-content { padding: 32px 24px; } }
+
+    /* ── INTRO ── */
+    .intro { padding: 72px 0 56px; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .intro-grid img { width: 100%; height: 420px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-lift); }
+    .intro-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .intro-text h2 { margin-bottom: 16px; }
+    .intro-text h2 em { font-style: italic; color: var(--plum); }
+    .intro-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 12px; }
+    @media(max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 32px; } .intro-grid img { height: 280px; } }
+
+    /* ── SPECS ── */
+    .specs { padding: 56px 0; background: var(--ink); color: #fff; }
+    .specs-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .spec-block h3 { font-size: 16px; font-weight: 600; color: var(--lime); margin-bottom: 10px; letter-spacing: .04em; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+    .spec-block ul { list-style: none; padding: 0; }
+    .spec-block li { font-size: 15px; color: rgba(255,255,255,0.82); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: flex-start; gap: 10px; }
+    .spec-block li::before { content: '→'; color: var(--lime); flex-shrink: 0; margin-top: 1px; }
+    .specs-header { text-align: center; margin-bottom: 48px; }
+    .specs-header h2 { color: #fff; margin-bottom: 10px; }
+    .specs-header h2 em { color: var(--lime); font-style: italic; }
+    .specs-header p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; }
+    @media(max-width: 768px) { .specs-inner { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* ── PRICING ── */
+    .pricing { padding: 72px 0; }
+    .pricing-header { text-align: center; margin-bottom: 48px; }
+    .pricing-header h2 { margin-bottom: 10px; }
+    .pricing-header h2 em { font-style: italic; color: var(--plum); }
+    .pricing-header p { color: var(--ink-2); max-width: 540px; margin: 0 auto; font-size: 16px; }
+    .pricing-table { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); max-width: 720px; margin: 0 auto; }
+    .pricing-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .pricing-table thead tr { background: var(--ink); color: #fff; }
+    .pricing-table th { padding: 14px 20px; text-align: left; font-weight: 600; }
+    .pricing-table th:not(:first-child) { text-align: right; }
+    .pricing-table td { padding: 14px 20px; border-bottom: 1px solid var(--line); }
+    .pricing-table td:not(:first-child) { text-align: right; font-weight: 600; }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table .member-row { background: rgba(200,224,32,.10); }
+    .pricing-note { text-align: center; margin-top: 16px; font-size: 13px; color: var(--muted); max-width: 600px; margin-left: auto; margin-right: auto; }
+    .pricing-cta { text-align: center; margin-top: 36px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── ABOUT BANNER ── */
+    .about-banner { background: var(--plum); color: #fff; padding: 56px 0; text-align: center; }
+    .about-banner h2 { color: #fff; margin-bottom: 14px; }
+    .about-banner h2 em { font-style: italic; color: var(--lime); }
+    .about-banner p { color: rgba(255,255,255,0.82); max-width: 600px; margin: 0 auto 28px; font-size: 17px; line-height: 1.65; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta { text-align: center; padding: 72px 24px; }
+    .footer-cta h2 { margin-bottom: 12px; }
+    .footer-cta h2 em { font-style: italic; color: var(--plum); }
+    .footer-cta p { color: var(--ink-2); max-width: 520px; margin: 0 auto 32px; font-size: 16px; }
+    .footer-cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="meeting-rooms.html">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="the-vault-podcast-studio.html">Podcast Studio</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="assets/photos/DEN02879 (2).jpg" alt="The Vault door at Den 1880" />
+  <div class="hero-content">
+    <span class="hero-eyebrow">Den 1880 · Uptown Waterloo</span>
+    <h1>The Vault · <em>Podcast &amp; Content Studio</em></h1>
+    <p>Built inside a former 1900s bond safe. Broadcast-grade production in a venue you can't replicate — the only studio of its kind in Waterloo Region.</p>
+    <div class="hero-actions">
+      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/">Book The Vault</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.5);color:#fff" href="#pricing">See Rates</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <img src="assets/meetingrooms/podcast.jpg" alt="Recording a podcast inside The Vault at Den 1880" />
+      <div class="intro-text">
+        <span class="eyebrow">About The Vault</span>
+        <h2>Where <em>great content</em> gets made.</h2>
+        <p>The Vault is housed inside Den 1880's original 1900s bank vault — a space with 12-inch steel-reinforced walls that provides natural soundproofing unlike any purpose-built studio. The history inside these walls is as compelling as the content recorded here.</p>
+        <p>Three track-mounted cameras capture every angle automatically. Four Shure microphones, broadcast-grade lighting, and a Frame TV branding display mean your production looks polished from the first session — no crew required.</p>
+        <p>Toronto studios of this calibre average $100/hr. The Vault delivers the same quality at boutique rates, ten minutes from downtown Kitchener and steps from the LRT.</p>
+        <a class="btn btn-primary" href="https://den1880.optixapp.com/book/" style="margin-top:8px">Book a Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs">
+  <div class="container">
+    <div class="specs-header">
+      <h2>Studio <em>specs</em></h2>
+      <p>Everything you need for a professional production, ready to go.</p>
+    </div>
+    <div class="specs-inner">
+      <div class="spec-block">
+        <h3>Video</h3>
+        <ul>
+          <li>Three track-mounted cameras</li>
+          <li>Automatic multi-angle capture</li>
+          <li>Broadcast-grade lighting rig</li>
+          <li>Frame TV branding display</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <h3>Audio</h3>
+        <ul>
+          <li>4 Shure microphones</li>
+          <li>Soundproofed 12" steel walls</li>
+          <li>Former 1900s bank vault acoustics</li>
+          <li>Broadcast-quality signal chain</li>
+        </ul>
+      </div>
+      <div class="spec-block">
+        <h3>Space</h3>
+        <ul>
+          <li>Seats up to 4 guests comfortably</li>
+          <li>Historic vault door feature</li>
+          <li>Fully climate controlled</li>
+          <li>Private, lockable during sessions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <h2>Simple, <em>transparent</em> pricing</h2>
+      <p>Members save 20%. Enterprise plans include pooled studio credits. Book by the hour or lock in a 4-hour block.</p>
+    </div>
+    <div class="pricing-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Rate</th>
+            <th>Hourly</th>
+            <th>4-Hr Block</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Day Pass + Cadence members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td>
+            <td>$95</td>
+            <td>$340</td>
+          </tr>
+          <tr class="member-row">
+            <td><strong>Club member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
+            <td>$76</td>
+            <td>$272</td>
+          </tr>
+          <tr class="member-row">
+            <td><strong>Resident member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
+            <td>$76</td>
+            <td>$272</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-note">Enterprise plans include pooled studio credits — contact us for details. Toronto comparables average $100/hr.</p>
+    <div class="pricing-cta">
+      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
+      <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour First</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BANNER -->
+<section class="about-banner">
+  <div class="container">
+    <h2>Nothing like it <em>in the Region.</em></h2>
+    <p>Den 1880 is Uptown Waterloo's premium coworking space — with a private gym, recovery amenities, boutique event venue, and The Vault, all under one heritage roof. Members record here regularly. You can too.</p>
+    <a class="btn btn-lime" href="memberships.html">See Memberships</a>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="container">
+    <h2>Ready to <em>record?</em></h2>
+    <p>Browse availability and reserve your session in minutes. Members book at member rates automatically through the portal.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/">Book The Vault</a>
+      <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
+  <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+</body>
+</html>
