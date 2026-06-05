@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Den 1880 · Uptown Waterloo</title>
+<meta name="description" content="Den 1880 is Uptown Waterloo's premium coworking space with gym, wellness, podcasting, and event experiences under one heritage roof." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Monschone';
+  src: url('assets/fonts/Monschone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1{font-size:clamp(38px,5.5vw,68px);line-height:1.05;letter-spacing:-0.025em}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  h3{font-size:clamp(20px,2vw,26px)}
+  p{margin:0 0 .8em}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+  /* ── NAV ── */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 32px;
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(247,244,238,0.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{display:inline-flex;align-items:center}
+  .nav-links{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  /* ── HAMBURGER (mobile only) ── */
+  .hamburger{
+    display:none;
+    flex-direction:column;justify-content:center;align-items:center;
+    gap:5px;width:38px;height:38px;
+    background:transparent;border:1px solid var(--line);
+    border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;
+  }
+  .hamburger span{
+    display:block;width:18px;height:2px;
+    background:var(--ink);border-radius:2px;
+    transition:all .25s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ── MOBILE DROPDOWN MENU ── */
+  .mobile-menu{
+    display:none;
+    position:fixed;top:52px;left:0;right:0;z-index:99;
+    background:rgba(247,244,238,0.98);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    padding:12px 20px 20px;
+    flex-direction:column;gap:8px;
+    box-shadow:0 8px 24px rgba(14,14,14,0.08);
+  }
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{
+    display:block;padding:14px 0;
+    font-family:'Inter',sans-serif;font-size:15px;font-weight:500;
+    color:var(--ink);text-decoration:none;
+    border:none;border-bottom:1px solid var(--line);
+    background:transparent;
+    transition:color .15s ease;
+  }
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu a:hover{color:var(--lime-deep)}
+  .mobile-menu .mobile-cta{
+    background:var(--lime);color:var(--ink);
+    text-align:center;margin-top:12px;
+    padding:14px;border-radius:999px;
+    font-weight:700;border-bottom:none;
+  }
+  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
+
+  @media(max-width:768px){
+    .topbar{padding:14px 20px}
+    .nav-links{display:none}
+    .hamburger{display:flex}
+  }
+
+  /* ── HERO VIDEO ── */
+  .hero{
+    position:relative;
+    margin-top:52px; /* offset for fixed nav height */
+    height:calc(100svh - 52px);
+    min-height:548px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    background:var(--ink);
+  }
+  .hero-video-wrap{
+    position:absolute;inset:0;
+    pointer-events:none;overflow:hidden;
+  }
+  .hero-video-wrap iframe{
+    position:absolute;top:50%;left:50%;
+    width:100vw;
+    height:56.25vw;   /* 16:9 based on viewport width */
+    min-height:100%;
+    min-width:177.78vh; /* 16:9 based on viewport height, fills tall screens */
+    transform:translate(-50%,-50%);
+    opacity:1;
+    border:none;
+  }
+
+  /* MOBILE — let hero shrink to the video's natural 16:9 height so nothing is cropped */
+  @media(max-width:768px){
+    .hero{
+      height:auto;
+      aspect-ratio:16/9;
+      min-height:unset;
+    }
+    .hero-video-wrap iframe{
+      top:0;left:0;
+      width:100%;
+      height:100%;
+      min-width:unset;
+      min-height:unset;
+      transform:none;
+    }
+  }
+
+  /* INTRO TEXT SECTION (below video) */
+  .intro-text{padding:72px 0 0;text-align:center;background:var(--paper);position:relative;overflow:hidden}
+  .intro-text .eyebrow{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:16px}
+  .intro-text h1{margin-bottom:20px;font-style:italic;position:relative;z-index:1}
+  .intro-text h1 .purple{color:var(--plum)}
+  .intro-text p.lede{color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);max-width:620px;margin:0 auto;line-height:1.65;position:relative;z-index:1}
+  .hero-lion{
+    position:absolute;
+    right:8%;
+    top:50%;
+    transform:translateY(-50%) rotate(25deg);
+    width:clamp(90px,15vw,190px);
+    height:auto;
+    opacity:0.15;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ── PATHS SECTION ── */
+  .paths{padding:48px 0 80px;background:var(--paper)}
+  .paths-header{text-align:center;margin-bottom:48px}
+  .paths-header .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:600}
+  .paths-header h2{margin-bottom:10px}
+  .paths-header p{color:var(--ink-2);font-size:16px;max-width:560px;margin:0 auto}
+  .paths-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
+  @media(max-width:700px){.paths-grid{grid-template-columns:1fr}}
+  .path-card{background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:36px 32px;text-decoration:none;color:var(--ink);transition:all .2s ease;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+  .path-card:hover{border-color:var(--lime-deep);box-shadow:var(--shadow-lift);transform:translateY(-3px)}
+  .path-card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px}
+  .path-card.lime-tag .tag{background:rgba(200,224,32,.22);color:var(--lime-deep)}
+  .path-card h3{font-size:clamp(22px,2.4vw,28px);line-height:1.15}
+  .path-card p{font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;flex:1}
+  .path-card .card-cta{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime-deep);margin-top:6px}
+  .path-card .card-cta::after{content:' →'}
+  .path-card:hover .card-cta{color:var(--ink)}
+
+  /* ── PERFORMANCE CLUB BANNER ── */
+  .pc-section{padding:0 0 80px;background:var(--paper)}
+  .pc-banner{
+    background:var(--ink);border-radius:var(--radius);
+    padding:44px 48px;
+    display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+    max-width:900px;margin:0 auto;
+    box-shadow:var(--shadow-lift);
+    position:relative;overflow:hidden;
+  }
+  .pc-banner::before{
+    content:'PC';position:absolute;right:-20px;bottom:-30px;
+    font-family:'Fraunces';font-weight:800;font-size:180px;line-height:1;
+    color:rgba(255,255,255,0.04);pointer-events:none;letter-spacing:-.02em;
+  }
+  @media(max-width:680px){.pc-banner{grid-template-columns:1fr;text-align:center;padding:36px 28px}}
+  .pc-banner .eyebrow{display:inline-block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+  .pc-banner h3{color:#fff;font-size:clamp(20px,2.4vw,28px);margin-bottom:10px}
+  .pc-banner p{color:rgba(255,255,255,0.62);font-size:14px;margin:0;line-height:1.6}
+  .pc-banner .pc-ctas{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0}
+  @media(max-width:680px){.pc-banner .pc-ctas{align-items:center}}
+
+  /* ── FOOTER ── */
+  footer{padding:24px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+
+  <!-- Desktop nav -->
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="/meeting-rooms">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+
+  <!-- Mobile: hamburger only -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="/meeting-rooms">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- HERO VIDEO -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <iframe
+      src="https://player.vimeo.com/video/1197825413?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- INTRO TEXT -->
+<section class="intro-text">
+  <img class="hero-lion" src="assets/lion-outline-lime.svg" alt="" aria-hidden="true">
+  <div class="container">
+    <span class="eyebrow">Uptown Waterloo · 14 Erb St. West</span>
+    <h1>WHERE <span class="purple">WORK</span><br>COMES TO <span class="purple">LIFE.</span></h1>
+    <p class="lede">Premium coworking, a private gym, recovery amenities, a podcast studio, and a community of professionals — all under one heritage roof.</p>
+  </div>
+</section>
+
+<!-- PATHS -->
+<section class="paths">
+  <div class="container">
+    <div class="paths-header">
+      <span class="eyebrow">Find your fit</span>
+      <h2>Memberships &amp; Plans</h2>
+      <p>Whether you work solo or bring a team, there's a plan built around how you actually use the space.</p>
+    </div>
+    <div class="paths-grid">
+
+      <a class="path-card lime-tag" href="memberships.html">
+        <span class="tag">Individual</span>
+        <h3>Memberships</h3>
+        <p>Cadence, Club, and Resident Desk plans for individuals and freelancers. Unlimited coworking, The Performance Club gym, and the full Den 1880 experience.</p>
+        <span class="card-cta">See plans &amp; pricing</span>
+      </a>
+
+      <a class="path-card" href="corporate/">
+        <span class="tag">Teams &amp; Corporate</span>
+        <h3>Corporate Plans</h3>
+        <p>Flexible packages from drop-in day passes to dedicated private offices. Built for growing companies, hybrid teams, and enterprise clients.</p>
+        <span class="card-cta">Explore team options</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE CLUB BANNER -->
+<section class="pc-section">
+  <div class="container">
+    <div class="pc-banner">
+      <div>
+        <span class="eyebrow">Included with Club &amp; Resident memberships</span>
+        <h3>The Performance Club</h3>
+        <p>Den 1880's premium fitness &amp; wellness club. Sauna, cold plunge, hot tub, Peloton bikes and treads, nap pods, and massage chairs — recovery built into your workday.</p>
+      </div>
+      <div class="pc-ctas">
+        <a class="btn btn-lime btn-sm" href="https://performanceclub.ca" target="_blank" rel="noopener">PerformanceClub.ca →</a>
+        <a class="btn btn-ghost btn-sm" style="border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.7)" href="memberships.html">See membership add-ons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Den 1880 · 14 Erb St. West, Waterloo, ON N2L 1S7 · <a href="mailto:hello@den1880.co" style="color:var(--plum)">hello@den1880.co</a> · (519) 783-1505
+  </div>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+
+  // Close menu when a link is tapped
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Close menu when tapping outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+</body>
+</html>

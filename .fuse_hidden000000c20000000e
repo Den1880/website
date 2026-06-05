@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery · Den 1880</title>
+<meta name="description" content="Take a look inside Den 1880 — Uptown Waterloo's premium coworking space with a high-end fitness facility, recovery amenities, and boutique event venues." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Monschone';
+  src: url('assets/fonts/Monschone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1{font-size:clamp(38px,5.5vw,68px);line-height:1.05;letter-spacing:-0.025em}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  p{margin:0 0 .8em}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+  /* ── NAV ── */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 32px;
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(247,244,238,0.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{display:inline-flex;align-items:center}
+  .nav-links{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+  .btn-ghost.active{background:var(--ink);color:#fff}
+
+  /* ── HAMBURGER (mobile only) ── */
+  .hamburger{
+    display:none;
+    flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;
+  }
+  .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu{
+    display:none;
+    flex-direction:column;gap:0;
+    position:fixed;top:64px;left:0;right:0;z-index:99;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:12px 24px 20px;
+    transform:translateY(-8px);opacity:0;
+    transition:transform .25s ease,opacity .25s ease;
+  }
+  .mobile-menu.open{display:flex;transform:translateY(0);opacity:1}
+  .mobile-menu a{padding:12px 0;font-size:15px;font-weight:500;border-bottom:1px solid var(--line);color:var(--ink)}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu .mobile-cta{margin-top:12px;background:var(--lime);color:var(--ink);text-align:center;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .hamburger{display:flex}
+    .topbar{padding:14px 20px}
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header{
+    padding: 140px 0 60px;
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:16px;
+  }
+  .page-header h1{margin-bottom:16px}
+  .page-header p{font-size:18px;color:var(--muted);max-width:500px;margin:0 auto}
+
+  /* ── GALLERY GRID ── */
+  .gallery-section{
+    padding:0 0 100px;
+  }
+  .gallery-grid{
+    columns:3;
+    column-gap:16px;
+    padding:0 24px;
+    max-width:1280px;
+    margin:0 auto;
+  }
+  @media(max-width:1024px){.gallery-grid{columns:2}}
+  @media(max-width:600px){.gallery-grid{columns:1}}
+
+  .gallery-item{
+    break-inside:avoid;
+    margin-bottom:16px;
+    overflow:hidden;
+    border-radius:var(--radius);
+    background:#E6E1D6;
+    cursor:pointer;
+    position:relative;
+  }
+  .gallery-item img{
+    display:block;
+    width:100%;
+    height:auto;
+    transition:transform .5s ease, opacity .3s ease;
+    opacity:0;
+  }
+  .gallery-item img.loaded{opacity:1}
+  .gallery-item:hover img{transform:scale(1.03)}
+
+  /* ── LIGHTBOX ── */
+  .lightbox{
+    display:none;
+    position:fixed;inset:0;z-index:200;
+    background:rgba(14,14,14,.92);
+    backdrop-filter:blur(12px);
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .lightbox.open{display:flex}
+  .lightbox-inner{
+    position:relative;
+    max-width:1100px;
+    width:100%;
+    max-height:90vh;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-inner img{
+    max-width:100%;
+    max-height:88vh;
+    object-fit:contain;
+    border-radius:10px;
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+  }
+  .lb-close{
+    position:fixed;top:20px;right:24px;
+    background:rgba(255,255,255,.12);
+    border:none;color:#fff;
+    width:44px;height:44px;border-radius:50%;
+    font-size:20px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+    z-index:201;
+  }
+  .lb-close:hover{background:rgba(255,255,255,.24)}
+  .lb-prev,.lb-next{
+    position:fixed;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,.12);
+    border:none;color:#fff;
+    width:50px;height:50px;border-radius:50%;
+    font-size:22px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+    z-index:201;
+  }
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.24)}
+  .lb-counter{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.5);font-size:13px;font-weight:500;letter-spacing:.06em;
+    z-index:201;
+  }
+  @media(max-width:600px){
+    .lb-prev{left:8px}
+    .lb-next{right:8px}
+  }
+
+  /* ── CTA ── */
+  .gallery-cta{
+    text-align:center;padding:80px 24px 100px;
+    border-top:1px solid var(--line);
+  }
+  .gallery-cta h2{margin-bottom:16px}
+  .gallery-cta p{color:var(--muted);max-width:480px;margin:0 auto 36px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ── FOOTER ── */
+  .footer{background:var(--ink);color:rgba(255,255,255,.5);padding:48px 32px 40px;text-align:center;font-size:13px}
+  .footer a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+  .footer a:hover{color:#fff}
+  .footer-logo{font-family:'Fraunces';font-weight:800;font-size:18px;color:#fff;letter-spacing:.04em;display:block;margin-bottom:20px}
+  .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+
+  <!-- Desktop nav -->
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="/meeting-rooms">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="#">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm active" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+
+  <!-- Mobile: hamburger only -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="/meeting-rooms">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">14 Erb St. West · Uptown Waterloo</span>
+    <h1>Inside Den 1880</h1>
+    <p>A look at the spaces where work, wellness, and community come together.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Populated by JS with randomized order -->
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous photo">&#8592;</button>
+  <div class="lightbox-inner">
+    <img id="lbImg" src="" alt="Den 1880 space" />
+  </div>
+  <button class="lb-next" id="lbNext" aria-label="Next photo">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- CTA -->
+<section class="gallery-cta">
+  <div class="container">
+    <h2>Come see it in person.</h2>
+    <p>Book a tour and we'll walk you through every space — from the gym floor to the rooftop terrace.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a class="btn btn-ghost" href="memberships.html">View Memberships</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-logo" href="/">DEN 1880</a>
+  <div class="footer-links">
+    <a href="memberships.html">Memberships</a>
+    <a href="corporate/">For Teams</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a></p>
+  </div>
+</footer>
+
+<script>
+  // ── Photos list
+  const photos = [
+    "9V5A3075.jpg",
+    "9V5A3168.jpg",
+    "9V5A3170.jpg",
+    "9V5A3174.jpg",
+    "9V5A3189.jpg",
+    "9V5A3204.jpg",
+    "DEN02777.jpg",
+    "DEN02819.jpg",
+    "DEN02879 (2).jpg",
+    "DEN02924.JPG",
+    "DEN02963.jpg",
+    "DEN02996.jpg",
+    "DEN03003 (1).jpg",
+    "DEN03202 (1).jpg",
+    "DEN03252.JPG",
+    "DSCF27573 (2).JPG",
+    "DSCF27742 (1).JPG",
+    "DSCF7020.JPG",
+    "DSCF7042.JPG",
+    "DSC_1147 (1).jpg",
+    "IMG_4408.JPG"
+  ];
+
+  // Fisher-Yates shuffle
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  let shuffled = shuffle(photos);
+  let currentIndex = 0;
+
+  // Build grid
+  const grid = document.getElementById('galleryGrid');
+  shuffled.forEach((filename, idx) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.dataset.index = idx;
+
+    const img = document.createElement('img');
+    img.src = 'assets/websitegallery/' + encodeURIComponent(filename);
+    img.alt = 'Den 1880 — ' + filename.replace(/\.[^.]+$/, '');
+    img.loading = 'lazy';
+    img.onload = () => img.classList.add('loaded');
+    // If already cached
+    if (img.complete) img.classList.add('loaded');
+
+    item.appendChild(img);
+    item.addEventListener('click', () => openLightbox(idx));
+    grid.appendChild(item);
+  });
+
+  // ── Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+
+  function openLightbox(idx) {
+    currentIndex = idx;
+    updateLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    const filename = shuffled[currentIndex];
+    lbImg.src = 'assets/websitegallery/' + encodeURIComponent(filename);
+    lbImg.alt = 'Den 1880 — ' + filename.replace(/\.[^.]+$/, '');
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + shuffled.length;
+  }
+
+  function prevPhoto() {
+    currentIndex = (currentIndex - 1 + shuffled.length) % shuffled.length;
+    updateLightbox();
+  }
+
+  function nextPhoto() {
+    currentIndex = (currentIndex + 1) % shuffled.length;
+    updateLightbox();
+  }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', prevPhoto);
+  document.getElementById('lbNext').addEventListener('click', nextPhoto);
+
+  // Close on backdrop click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevPhoto();
+    if (e.key === 'ArrowRight') nextPhoto();
+  });
+
+  // ── Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+</script>
+</body>
+</html>

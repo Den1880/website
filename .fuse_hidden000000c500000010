@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Address &amp; Mail Application — Den 1880</title>
+<meta name="description" content="Apply for a Business Address &amp; Mail membership at Den 1880. Register your business at 14 Erb St. W., Waterloo's premier address.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('Monschone.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --gold:#B89252;
+    --warn:#C0392B;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  p{margin:0 0 .8em}
+  a{color:var(--plum)}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .logo{display:inline-flex;align-items:center}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  /* Page hero */
+  .page-hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:20px;font-weight:500;transition:color .15s}
+  .back-link:hover{color:var(--ink)}
+  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:14px}
+  .hero-sub{font-size:16px;color:var(--ink-2);margin-top:10px;max-width:580px;line-height:1.6}
+  .plan-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(200,224,32,.18);border:1px solid rgba(157,179,21,.35);border-radius:999px;padding:8px 16px;margin-top:20px;font-size:13px;font-weight:600;color:var(--ink)}
+  .plan-badge .price{font-family:'Fraunces';font-size:17px;font-weight:700}
+
+  /* Form layout */
+  .form-section{padding:56px 0 80px}
+  .form-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:48px 52px;box-shadow:var(--shadow)}
+  @media(max-width:640px){.form-wrap{padding:28px 20px}}
+
+  /* Section headers inside form */
+  .form-group-header{margin:36px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .form-group-header:first-child{margin-top:0}
+  .form-group-header h3{font-family:'Fraunces';font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .form-group-header p{font-size:13px;color:var(--muted);margin:0}
+
+  /* Field rows */
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  @media(max-width:560px){.field-row{grid-template-columns:1fr}}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;letter-spacing:.01em}
+  .field label .req{color:var(--plum);margin-left:2px}
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="url"],
+  .field textarea,
+  .field select{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s, box-shadow .15s;outline:none;appearance:none;-webkit-appearance:none
+  }
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--plum);box-shadow:0 0 0 3px rgba(107,78,142,.1)}
+  .field textarea{resize:vertical;min-height:90px}
+  .field .hint{font-size:12px;color:var(--muted);margin-top:5px}
+
+  /* Yes/No radio toggle */
+  .yn-group{display:flex;gap:10px;margin-top:4px}
+  .yn-option{position:relative;flex:1;max-width:120px}
+  .yn-option input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+  .yn-option label{display:flex;align-items:center;justify-content:center;padding:10px 16px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s ease;background:#fff;user-select:none}
+  .yn-option input[type="radio"]:checked + label{border-color:var(--plum);background:rgba(107,78,142,.08);color:var(--plum)}
+  .yn-option label:hover{border-color:var(--ink);color:var(--ink)}
+  /* Conditional field reveal */
+  .conditional-field{display:none;margin-top:14px;padding:16px;background:var(--paper);border-radius:10px;border:1px dashed var(--line)}
+  .conditional-field.visible{display:block}
+
+  /* Checkboxes */
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  @media(max-width:500px){.check-grid{grid-template-columns:1fr}}
+  .check-item{position:relative}
+  .check-item input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0}
+  .check-item label{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--ink-2);cursor:pointer;transition:all .15s;background:#fff;line-height:1.45}
+  .check-item label::before{content:'';flex:0 0 16px;height:16px;border:1.5px solid #C8C3B8;border-radius:4px;margin-top:1px;transition:all .15s;background:#fff}
+  .check-item input[type="checkbox"]:checked + label{border-color:var(--plum);background:rgba(107,78,142,.06);color:var(--ink)}
+  .check-item input[type="checkbox"]:checked + label::before{background:var(--plum);border-color:var(--plum);background-image:url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px 8px}
+  .check-item label:hover{border-color:var(--ink)}
+  .check-single{margin-top:6px}
+  .check-single .check-item label{padding:12px 14px}
+
+  /* Referral other text */
+  .referral-other{display:none;margin-top:10px}
+  .referral-other.visible{display:block}
+
+  /* Delivery contacts */
+  .delivery-contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media(max-width:500px){.delivery-contacts{grid-template-columns:1fr}}
+  .delivery-contact-input{position:relative}
+  .delivery-contact-input .num{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:600;color:var(--muted)}
+  .delivery-contact-input input{padding-left:32px}
+
+  /* Authorization block */
+  .auth-block{background:rgba(107,78,142,.05);border:1px solid rgba(107,78,142,.18);border-radius:var(--radius);padding:24px;margin-top:24px}
+  .auth-block h3{font-family:'Fraunces';font-size:16px;color:var(--plum);margin-bottom:14px}
+  .auth-notice{font-size:13px;color:var(--ink-2);line-height:1.65;margin-bottom:16px;padding-left:0}
+  .auth-notice li{margin-bottom:6px}
+  .auth-notice ul{padding-left:18px;margin:0 0 .5em}
+
+  /* Submit area */
+  .submit-area{margin-top:32px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+  .submit-area .tc-note{font-size:12px;color:var(--muted);line-height:1.6}
+  .submit-area .tc-note a{color:var(--plum);font-weight:600}
+  .btn-submit{padding:14px 28px;font-size:15px;font-weight:700;background:var(--ink);color:#fff;border:none;border-radius:999px;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+  .btn-submit:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-submit svg{flex-shrink:0}
+
+  footer{padding:20px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  /* Nav: borderless links, dark CTA */
+  .nav-links .btn-ghost{border-color:transparent}
+  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
+  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
+  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-cta">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container narrow">
+    <a class="back-link" href="business-mail.html">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Business Address &amp; Mail
+    </a>
+    <div class="eyebrow">Application</div>
+    <h1>Apply for Business Mail</h1>
+    <p class="hero-sub">Fill out the form below and we'll review your application within 1 to 2 business days. You'll receive a confirmation email once approved, along with your agreement via Optix.</p>
+    <div class="plan-badge">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L2.2 5.7l4-.6L8 1.5z" stroke="var(--lime-deep)" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      Business Address &amp; Mail &nbsp;&middot;&nbsp; <span class="price">$88</span>/mo &nbsp;&middot;&nbsp; 6-month minimum
+    </div>
+  </div>
+</div>
+
+<section class="form-section">
+  <div class="container narrow">
+    <div class="form-wrap">
+
+      <form name="business-mail-application" method="POST" netlify netlify-honeypot="bot-field" action="business-mail-success.html">
+        <input type="hidden" name="form-name" value="business-mail-application">
+        <!-- Honeypot spam filter -->
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <!-- 1. Company Information -->
+        <div class="form-group-header">
+          <h3>Company Information</h3>
+        </div>
+
+        <div class="field">
+          <label for="company-name">Company Name <span class="req">*</span></label>
+          <input type="text" id="company-name" name="company_name" required placeholder="Your registered business name">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="first-name">First Name <span class="req">*</span></label>
+            <input type="text" id="first-name" name="first_name" required placeholder="First name">
+          </div>
+          <div class="field">
+            <label for="last-name">Last Name <span class="req">*</span></label>
+            <input type="text" id="last-name" name="last_name" required placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="position">Position / Role</label>
+          <input type="text" id="position" name="position" placeholder="What is your role within the company?">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="you@yourcompany.com">
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="website">Website <span class="req">*</span></label>
+          <input type="text" id="website" name="website" required placeholder="yourcompany.com">
+        </div>
+
+        <div class="field">
+          <label>Sign Up for News &amp; Updates</label>
+          <div class="yn-group">
+            <div class="yn-option">
+              <input type="radio" id="news-yes" name="news_updates" value="Yes">
+              <label for="news-yes">Yes</label>
+            </div>
+            <div class="yn-option">
+              <input type="radio" id="news-no" name="news_updates" value="No">
+              <label for="news-no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Business Details -->
+        <div class="form-group-header">
+          <h3>Business Details</h3>
+        </div>
+
+        <div class="field">
+          <label for="business-desc">Nature of Business <span class="req">*</span></label>
+          <textarea id="business-desc" name="nature_of_business" required placeholder="Please provide a brief description of your business."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="mail-types">Expected Types of Mail <span class="req">*</span></label>
+          <input type="text" id="mail-types" name="expected_mail_types" required placeholder="e.g. business correspondence, invoices, packages">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="years-biz">Years in Business <span class="req">*</span></label>
+            <input type="text" id="years-biz" name="years_in_business" required placeholder="e.g. 3 years">
+          </div>
+          <div class="field">
+            <label for="emergency-address">Emergency Mailing Address <span class="req">*</span></label>
+            <input type="text" id="emergency-address" name="emergency_mailing_address" required placeholder="Home or alternative address">
+          </div>
+        </div>
+
+        <!-- 3. Address Registration -->
+        <div class="form-group-header">
+          <h3>Business Address Registration</h3>
+          <p>Would you like to register 14 Erb St. W. as your business address?</p>
+        </div>
+
+        <div class="field">
+          <label>Register 14 Erb St. W. as your business address? <span class="req">*</span></label>
+          <div class="yn-group">
+            <div class="yn-option">
+              <input type="radio" id="addr-yes" name="register_address" value="Yes" required>
+              <label for="addr-yes">Yes</label>
+            </div>
+            <div class="yn-option">
+              <input type="radio" id="addr-no" name="register_address" value="No">
+              <label for="addr-no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Add-Ons -->
+        <div class="form-group-header">
+          <h3>Add-On Selections</h3>
+          <p>Enhance your membership with optional services.</p>
+        </div>
+
+        <div class="field">
+          <label>Select any add-ons you're interested in:</label>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+            <div class="check-item">
+              <input type="checkbox" id="addon-suite" name="addon_suite" value="Suite Number ($28/month)">
+              <label for="addon-suite">
+                <span>Suite Number &nbsp;<strong style="color:var(--plum)">+$28/month</strong><br><span style="font-weight:400;color:var(--muted)">Adds a dedicated suite number to your mailing address</span></span>
+              </label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="addon-name" name="addon_name" value="Additional Delivery Name ($8/month per name)">
+              <label for="addon-name">
+                <span>Additional Delivery Name &nbsp;<strong style="color:var(--plum)">+$8/month per name</strong><br><span style="font-weight:400;color:var(--muted)">Register more individuals to receive mail at your address</span></span>
+              </label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="addon-receptionist" name="addon_receptionist" value="Virtual Receptionist & Voicemail ($28/month)">
+              <label for="addon-receptionist">
+                <span>Virtual Receptionist &amp; Voicemail &nbsp;<strong style="color:var(--plum)">+$28/month</strong><br><span style="font-weight:400;color:var(--muted)">A dedicated local phone number with voicemail to email</span></span>
+              </label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="addon-parcel" name="addon_parcel" value="Parcel Handling ($48/month)">
+              <label for="addon-parcel">
+                <span>Parcel Handling &nbsp;<strong style="color:var(--plum)">+$48/month</strong><br><span style="font-weight:400;color:var(--muted)">Secure receipt and storage of packages on your behalf</span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. How Did You Hear About Us -->
+        <div class="form-group-header">
+          <h3>How Did You Hear About Us?</h3>
+        </div>
+
+        <div class="field">
+          <label>Select all that apply: <span class="req">*</span></label>
+          <div class="check-grid" style="margin-top:8px">
+            <div class="check-item">
+              <input type="checkbox" id="ref-google" name="referral_google" value="Google">
+              <label for="ref-google">Google</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-instagram" name="referral_instagram" value="Instagram">
+              <label for="ref-instagram">Instagram</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-linkedin" name="referral_linkedin" value="LinkedIn">
+              <label for="ref-linkedin">LinkedIn</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-event-listing" name="referral_event_listing" value="Event Listing">
+              <label for="ref-event-listing">Event Listing</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-attended-event" name="referral_attended_event" value="Attended Event">
+              <label for="ref-attended-event">Attended Event</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-wom" name="referral_word_of_mouth" value="Word of Mouth">
+              <label for="ref-wom">Word of Mouth</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-member" name="referral_member_referral" value="Member Referral">
+              <label for="ref-member">Member Referral</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="ref-other-check" name="referral_other_check" value="Other">
+              <label for="ref-other-check">Other</label>
+            </div>
+          </div>
+          <div class="referral-other" id="referral-other-field">
+            <div class="field" style="margin-bottom:0;margin-top:10px">
+              <input type="text" name="referral_other_detail" id="referral-other-text" placeholder="Please describe...">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Delivery Contacts -->
+        <div class="form-group-header">
+          <h3>Delivery Contacts</h3>
+          <p>List up to two additional contact names (included in your base membership).</p>
+        </div>
+
+        <div class="delivery-contacts">
+          <div class="field delivery-contact-input">
+            <label for="contact-1">Contact 1</label>
+            <div style="position:relative">
+              <span class="num">1.</span>
+              <input type="text" id="contact-1" name="delivery_contact_1" placeholder="Full name" style="padding-left:32px">
+            </div>
+          </div>
+          <div class="field delivery-contact-input">
+            <label for="contact-2">Contact 2</label>
+            <div style="position:relative">
+              <span class="num">2.</span>
+              <input type="text" id="contact-2" name="delivery_contact_2" placeholder="Full name" style="padding-left:32px">
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Compliance -->
+        <div class="form-group-header">
+          <h3>Compliance &amp; Disclosures</h3>
+        </div>
+
+        <div class="field">
+          <label>Are you and/or your company compliant with all local, provincial, and federal laws and regulations related to your business? <span class="req">*</span></label>
+          <div class="yn-group">
+            <div class="yn-option">
+              <input type="radio" id="compliance-yes" name="business_compliance" value="Yes" required>
+              <label for="compliance-yes">Yes</label>
+            </div>
+            <div class="yn-option">
+              <input type="radio" id="compliance-no" name="business_compliance" value="No">
+              <label for="compliance-no">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Have you or your company ever been convicted of a felony or any crime related to fraud or misrepresentation? <span class="req">*</span></label>
+          <div class="yn-group">
+            <div class="yn-option">
+              <input type="radio" id="criminal-no" name="criminal_history" value="No" required>
+              <label for="criminal-no">No</label>
+            </div>
+            <div class="yn-option">
+              <input type="radio" id="criminal-yes" name="criminal_history" value="Yes">
+              <label for="criminal-yes">Yes</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Are you opening this account on behalf of someone else or another company? <span class="req">*</span></label>
+          <div class="yn-group">
+            <div class="yn-option">
+              <input type="radio" id="third-party-no" name="third_party_application" value="No" required>
+              <label for="third-party-no">No</label>
+            </div>
+            <div class="yn-option">
+              <input type="radio" id="third-party-yes" name="third_party_application" value="Yes">
+              <label for="third-party-yes">Yes</label>
+            </div>
+          </div>
+          <div class="conditional-field" id="third-party-details">
+            <div class="field" style="margin-bottom:0">
+              <label for="third-party-info">Please provide details:</label>
+              <textarea id="third-party-info" name="third_party_details" placeholder="Name of the person or company on whose behalf you are applying..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Additional Info -->
+        <div class="form-group-header">
+          <h3>Additional Information</h3>
+        </div>
+
+        <div class="field">
+          <label for="additional-info">Please provide any additional information relevant to this application:</label>
+          <textarea id="additional-info" name="additional_information" placeholder="Anything else you'd like us to know..."></textarea>
+        </div>
+
+        <!-- 9. Authorization -->
+        <div class="auth-block">
+          <h3>Authorization &amp; Acknowledgment</h3>
+          <ul class="auth-notice">
+            <li>Government-issued photo ID will be required once your application has been submitted and approved.</li>
+            <li>If approved, you will receive a formal agreement for review and signature via Optix.</li>
+            <li>By submitting this form you confirm you have read and understood the <a href="business-mail-terms.html" target="_blank" rel="noopener">Den 1880 Virtual Services Agreement</a>.</li>
+          </ul>
+          <div class="check-single">
+            <div class="check-item">
+              <input type="checkbox" id="authorization" name="authorization" value="Agreed" required>
+              <label for="authorization" style="font-weight:600;color:var(--ink)">I have the legal authority to submit this application and agree to the terms outlined above. <span class="req">*</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-area">
+          <p class="tc-note">
+            By submitting, you agree to the <a href="business-mail-terms.html" target="_blank" rel="noopener">Den 1880 Virtual Services Agreement</a>. We'll review your application and reach out within 1 to 2 business days.
+          </p>
+          <button type="submit" class="btn-submit">
+            Submit Application
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Den 1880 &middot; 14 Erb St. West, Waterloo, ON N2L 1S7 &middot; <a href="mailto:hello@den1880.co">hello@den1880.co</a> &middot; (519) 783-1505
+</footer>
+
+<script>
+  // Show "Other" referral text field when checked
+  document.getElementById('ref-other-check').addEventListener('change', function() {
+    const field = document.getElementById('referral-other-field');
+    field.classList.toggle('visible', this.checked);
+    if (!this.checked) document.getElementById('referral-other-text').value = '';
+  });
+
+  // Show third-party details when "Yes" selected
+  document.querySelectorAll('[name="third_party_application"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const details = document.getElementById('third-party-details');
+      details.classList.toggle('visible', this.value === 'Yes');
+    });
+  });
+
+  // Basic required-referral validation (at least one checked)
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const referralBoxes = document.querySelectorAll('[name^="referral_"]');
+    const anyChecked = Array.from(referralBoxes).some(cb => cb.type === 'checkbox' && cb.checked);
+    if (!anyChecked) {
+      e.preventDefault();
+      const refSection = document.getElementById('ref-google');
+      refSection.closest('.field').querySelector('label').style.color = 'var(--warn)';
+      refSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      alert('Please select at least one option for "How Did You Hear About Us?"');
+    }
+  });
+</script>
+
+</body>
+</html>

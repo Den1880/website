@@ -6,7 +6,7 @@
 <title>Application Received — Den 1880</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   @font-face {
     font-family: 'Monschone';
@@ -31,7 +31,7 @@
   h1,h2{font-family:'Monschone','Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper)}
   .logo{display:inline-flex;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease;text-transform:uppercase;letter-spacing:.04em}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
   .btn-ghost:hover{background:var(--ink);color:#fff}
   .btn-sm{padding:9px 16px;font-size:13px}
@@ -45,6 +45,11 @@
   .card .next-steps ol{padding-left:18px;margin:8px 0 0;line-height:1.8}
   .card .cta-links{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
   footer{padding:16px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  /* Nav: borderless links, dark CTA */
+  .nav-links .btn-ghost{border-color:transparent}
+  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
+  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
+  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
 </style>
 </head>
 <body>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting Rooms · Den 1880</title>
+  <meta name="description" content="Beautifully designed meeting rooms available on demand at Den 1880, Uptown Waterloo. Book by the hour or the day — members save 20%." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --off-black: #1c1c1c;
+      --mid: #666666;
+      --light: #f4f2ef;
+      --border: #e0ddd8;
+      --lime: #c8f135;
+      --white: #ffffff;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--off-black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav-announcement {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 0.55rem 1rem;
+      letter-spacing: 0.01em;
+    }
+    .nav-announcement a { color: var(--lime); text-decoration: none; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img { height: 28px; display: block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--off-black);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--mid); }
+    .nav-links .btn-nav {
+      background: var(--black);
+      color: var(--white) !important;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    .nav-links .btn-nav:hover { background: #333; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; font-weight: 500; }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 560px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.75rem 1.6rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #333; }
+    .hero-note { font-size: 0.82rem; color: var(--mid); }
+    .hero-note strong { color: var(--off-black); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
+
+    /* ── MEMBER CALLOUT ── */
+    .member-callout {
+      background: var(--light);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--off-black);
+      text-align: center;
+      flex-wrap: wrap;
+    }
+    .member-callout strong { font-weight: 600; }
+    .member-callout a { color: var(--off-black); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── ROOMS SECTION ── */
+    .rooms-section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* ── ROOM CARD ── */
+    .room-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .room-card.reverse { direction: rtl; }
+    .room-card.reverse > * { direction: ltr; }
+    .room-card.featured { grid-template-columns: 1.2fr 1fr; }
+
+    .room-photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--light);
+      min-height: 320px;
+    }
+    .room-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .room-card:hover .room-photo img { transform: scale(1.03); }
+    .room-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--mid);
+      background: var(--light);
+    }
+
+    .room-body {
+      padding: 2.5rem 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .room-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      background: var(--light);
+      color: var(--mid);
+    }
+    .tag.members-only { background: var(--lime); color: var(--black); }
+
+    .room-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    .room-capacity {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .room-desc {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.65;
+    }
+    .room-pricing {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .price-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .price-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); font-weight: 500; }
+    .price-value { font-size: 1.05rem; font-weight: 600; color: var(--black); }
+    .room-cta {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      width: fit-content;
+      transition: background 0.15s;
+    }
+    .room-cta:hover { background: #333; }
+
+    /* ── EXTRAS SECTION ── */
+    .extras-section {
+      background: var(--light);
+      padding: 4rem 2rem;
+    }
+    .extras-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .extra-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+    }
+    .extra-block p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .extra-block a.btn-primary { font-size: 0.82rem; padding: 0.6rem 1.2rem; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      padding: 4rem 2rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .footer-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .footer-cta h2 em { font-style: italic; font-weight: 500; }
+    .footer-cta p { font-size: 0.95rem; color: var(--mid); margin-bottom: 2rem; line-height: 1.7; }
+    .footer-cta .actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--off-black);
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+    .btn-outline:hover { border-color: var(--off-black); }
+
+    /* ── SITE FOOTER ── */
+    footer {
+      background: var(--black);
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .rooms-section { padding: 3rem 1.25rem; }
+      .room-card,
+      .room-card.reverse,
+      .room-card.featured { grid-template-columns: 1fr; direction: ltr; }
+      .room-card.reverse .room-photo { order: -1; }
+      .room-body { padding: 1.75rem; }
+      .extras-inner { grid-template-columns: 1fr; }
+      .extras-section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="nav-announcement">
+    Members save 20% on all meeting rooms. <a href="https://den1880.optixapp.com/signup/">Join Den 1880 →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="https://den1880.co/">
+      <img src="https://den1880.co/assets/den1880-logo-black.svg" alt="Den 1880" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://den1880.co/memberships">Memberships</a></li>
+      <li><a href="https://den1880.co/corporate/">For Teams</a></li>
+      <li><a href="/meeting-rooms">Meeting Rooms</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="https://performanceclub.ca/">Performance Club</a></li>
+      <li><a href="https://den1880.co/gallery">Gallery</a></li>
+      <li><a href="https://den1880.optixapp.com/book/tour/" class="btn-nav">Book a Tour</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">14 Erb St. West · Uptown Waterloo</p>
+    <h1>Beautifully designed rooms for <em>every kind of meeting.</em></h1>
+    <p class="hero-desc">
+      Available on demand for members and guests alike. A range of sizes, built-in AV, Smart TVs, whiteboards, and curated aesthetics — each space built to support productive conversations, creative thinking, and professional gatherings.
+    </p>
+    <div class="hero-actions">
+      <a href="https://den1880.optixapp.com/book/" class="btn-primary">Book a Room</a>
+      <span class="hero-note"><strong>Members save 20%</strong> on all bookings · No membership required to book</span>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- MEMBER CALLOUT -->
+  <div class="member-callout">
+    Book by the hour or the day &nbsp;·&nbsp; Members enjoy <strong>20% off all meeting rooms</strong> when booked from your member portal &nbsp;·&nbsp;
+    <a href="https://den1880.optixapp.com/inquiry/">Team Offsite packages available →</a>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ROOMS -->
+  <section class="rooms-section">
+
+    <!-- 1. THE GRAND BOARDROOM -->
+    <div class="room-card featured">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/grand-boardroom.jpg" alt="The Grand Boardroom at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Grand Boardroom</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 18</span><span class="tag">Premium</span></div>
+        <h2 class="room-name">The Grand Boardroom</h2>
+        <p class="room-capacity">Up to 18 guests · Full day available</p>
+        <p class="room-desc">
+          Den 1880's flagship boardroom. An ideal choice for formal presentations, executive meetings, and larger strategic sessions — with premium finishes, built-in AV, and a commanding presence that reflects the gravity of the work inside.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$175</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$1,120</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Grand →</a>
+      </div>
+    </div>
+
+    <!-- 2. OLIVE & LAUREL (COMBINED) -->
+    <div class="room-card reverse">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/olivelaurel.jpg" alt="Olive and Laurel combined meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">Olive &amp; Laurel</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 12</span><span class="tag">Combined Space</span></div>
+        <h2 class="room-name">Olive &amp; Laurel</h2>
+        <p class="room-capacity">Up to 12 guests · Full day available</p>
+        <p class="room-desc">
+          Olive and Laurel joined together for expanded space — perfect for collaborative sessions, larger team huddles, workshops, or any occasion that needs room to breathe without the formality of a full boardroom.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$115</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$740</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book Olive &amp; Laurel →</a>
+      </div>
+    </div>
+
+    <!-- 3. THE OAK -->
+    <div class="room-card">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/oak.jpg" alt="The Oak meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Oak</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 5</span></div>
+        <h2 class="room-name">The Oak</h2>
+        <p class="room-capacity">Up to 5 guests · Full day available</p>
+        <p class="room-desc">
+          Designed for intimate meetings, The Oak is a cozy, focused room ideal for brainstorming sessions, one-on-ones, and small team check-ins that benefit from a private, distraction-free environment.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$55</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$350</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Oak →</a>
+      </div>
+    </div>
+
+    <!-- 4. THE DOMINION -->
+    <div class="room-card reverse">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/dominion.jpg" alt="The Dominion meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Dominion</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 8</span></div>
+        <h2 class="room-name">The Dominion</h2>
+        <p class="room-capacity">Up to 8 guests · Full day available</p>
+        <p class="room-desc">
+          A spacious, well-appointed room for up to 8 guests — well-suited for board meetings, client presentations, and team strategy sessions that need professional surroundings without the scale of The Grand.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$80</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$510</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Dominion →</a>
+      </div>
+    </div>
+
+    <!-- 5. THE OLIVE -->
+    <div class="room-card">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/oak.jpg" alt="The Olive meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Olive</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 5</span></div>
+        <h2 class="room-name">The Olive</h2>
+        <p class="room-capacity">Up to 5 guests · Full day available</p>
+        <p class="room-desc">
+          A bright, versatile space with a modern setup suited for team check-ins, interviews, and focused working sessions. The Olive is a comfortable fit for small groups who want a clean, well-equipped room without fuss.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$55</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$350</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Olive →</a>
+      </div>
+    </div>
+
+    <!-- 6. THE LAUREL -->
+    <div class="room-card reverse">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/laurel.jpg" alt="The Laurel meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Laurel</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 7</span></div>
+        <h2 class="room-name">The Laurel</h2>
+        <p class="room-capacity">Up to 7 guests · Full day available</p>
+        <p class="room-desc">
+          A professional atmosphere with all the tech tools you need. The Laurel comfortably fits 7 and strikes the right balance between focused and collaborative — a reliable choice for team meetings, training sessions, and recurring weekly stand-ups.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$75</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$500</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Laurel →</a>
+      </div>
+    </div>
+
+    <!-- 7. THE THEATRE -->
+    <div class="room-card">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Theatre</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Presentation Space</span></div>
+        <h2 class="room-name">The Theatre</h2>
+        <p class="room-capacity">Available for presentations &amp; screenings · Inquire for capacity</p>
+        <p class="room-desc">
+          Den 1880's dramatic presentation space — a curated environment for keynotes, screenings, panel discussions, and any session where the work deserves a stage. With built-in AV and refined aesthetics, The Theatre elevates the moment.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Pricing</span>
+            <span class="price-value">Contact us</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Theatre →</a>
+      </div>
+    </div>
+
+    <!-- 8. THE CELLAR -->
+    <div class="room-card reverse">
+      <div class="room-photo">
+        <img src="assets/meetingrooms/cellar.jpg" alt="The Cellar meeting room at Den 1880" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="room-photo-placeholder" style="display:none;">The Cellar</div>
+      </div>
+      <div class="room-body">
+        <div class="room-tags"><span class="tag">Seats 8</span><span class="tag members-only">Members Only</span></div>
+        <h2 class="room-name">The Cellar</h2>
+        <p class="room-capacity">Up to 8 guests · Full day available · Exclusive to members</p>
+        <p class="room-desc">
+          One of a kind. Curved vaulted ceilings, exposed brick throughout, and an unmistakable historic charm that can't be replicated. Exclusive to Den 1880 members, The Cellar is a memorable backdrop for private team sessions, client dinners, and meetings that deserve something special.
+        </p>
+        <div class="room-pricing">
+          <div class="price-item">
+            <span class="price-label">Hourly</span>
+            <span class="price-value">$80</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">Full Day</span>
+            <span class="price-value">$500</span>
+          </div>
+        </div>
+        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Cellar →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EXTRAS -->
+  <section class="extras-section">
+    <div class="extras-inner">
+      <div class="extra-block">
+        <h3>Team Offsites &amp; Events</h3>
+        <p>
+          Den 1880 ensures a seamless and rewarding offsite experience — from customized itinerary planning and exclusive local discounts to hands-on pre-event and onsite support. All-inclusive single and multi-day packages available. Let us handle the details so your team can focus on what matters.
+        </p>
+        <a href="https://den1880.optixapp.com/inquiry/" class="btn-primary">Inquire about Offsites</a>
+      </div>
+      <div class="extra-block">
+        <h3>Filming &amp; Photography</h3>
+        <p>
+          All filming and photography within Den 1880 requires approval from our team in advance and may be subject to additional fees. Contact us directly for rates and availability.
+        </p>
+        <a href="mailto:hello@den1880.co" class="btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <h2>Ready to book your next <em>great meeting?</em></h2>
+    <p>Browse availability and reserve your space in minutes. Members get 20% off — no membership required to book.</p>
+    <div class="actions">
+      <a href="https://den1880.optixapp.com/book/" class="btn-primary">Book a Meeting Room</a>
+      <a href="https://den1880.optixapp.com/book/tour/" class="btn-outline">Book a Tour</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
+    <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
+  </footer>
+
+</body>
+</html>

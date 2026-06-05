@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Den 1880 for Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Monschone';
+  src: url('../assets/fonts/Monschone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --gold:#B89252;
+    --warn:#C0392B;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  h3{font-size:clamp(20px,2vw,26px)}
+  p{margin:0 0 .8em}
+  a{color:inherit}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .logo{display:inline-flex;align-items:center}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  .hero{padding:72px 0 36px;text-align:center;position:relative;overflow:hidden}
+  .hero .eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--plum)}
+  .hero p.lede{max-width:760px;margin:18px auto 0;color:var(--ink-2);font-size:18px}
+  .hero-fineprint{margin-top:28px;color:var(--muted);font-size:13px}
+  .hero-fineprint strong{color:var(--ink);font-weight:600}
+
+  /* PATH SELECTOR (3-card team-shape chooser) */
+  .path-selector{max-width:1080px;margin:0 auto}
+  .path-eyebrow{display:block;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+  .path-selector h2{text-align:center;font-size:clamp(24px,3.2vw,34px);margin-bottom:24px}
+  .path-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:8px}
+  @media (max-width:900px){.path-options{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}}
+  .path-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:22px 22px 20px;text-decoration:none;color:var(--ink);transition:all .18s ease;cursor:pointer;position:relative}
+  .path-card:hover{border-color:var(--lime-deep);box-shadow:0 10px 28px rgba(157,179,21,.18);transform:translateY(-2px)}
+  .path-card .path-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--ink);font-family:'Fraunces';font-weight:800;font-size:14px;margin-bottom:14px;border:2px solid var(--ink)}
+  .path-card h3{font-family:'Fraunces';font-weight:600;font-size:18px;line-height:1.25;margin-bottom:8px}
+  .path-card p{font-size:13px;color:var(--ink-2);line-height:1.5;margin:0 0 14px;flex:1}
+  .path-card .path-cta{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime-deep);margin-top:auto}
+  .path-card .path-cta::after{content:' →';font-weight:700}
+  .path-card:hover .path-cta{color:var(--ink)}
+
+  /* DROP-IN single banner */
+  .dropin-banner{max-width:980px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--shadow)}
+  @media (max-width:680px){.dropin-banner{grid-template-columns:1fr;text-align:center}}
+  .dropin-eyebrow{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .dropin-banner h3{font-family:'Fraunces';font-weight:600;font-size:24px;margin-bottom:8px}
+  .dropin-banner p{margin:0;color:var(--ink-2);font-size:14px;line-height:1.55}
+  .dropin-price{text-align:right}
+  @media (max-width:680px){.dropin-price{text-align:center}}
+  .dropin-price .num{font-family:'Fraunces';font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .dropin-price .unit{font-size:13px;color:var(--muted);margin-bottom:14px;display:block;margin-top:4px}
+
+  /* MONTHLY / ANNUAL toggle */
+  .toggle-wrap{display:flex;justify-content:center;align-items:center;gap:16px;margin:36px 0 8px}
+  .toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow);position:relative}
+  .toggle button{border:0;background:transparent;font-family:inherit;font-size:14px;font-weight:600;padding:10px 20px;border-radius:999px;cursor:pointer;color:var(--muted);transition:all .2s ease}
+  .toggle button.active{background:var(--ink);color:#fff}
+  .annual-pill{position:absolute;top:-28px;right:0;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 10px rgba(157,179,21,.4);border:1.5px solid var(--ink);animation:bobble 2.4s ease-in-out infinite;pointer-events:none}
+  .annual-pill::after{content:'';position:absolute;bottom:-5px;right:28px;transform:rotate(45deg);width:8px;height:8px;background:var(--lime);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+  @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .plan .annual-note{display:none;font-size:11px;color:var(--plum);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+  .plan .annual-note.show{display:block}
+  .plan .reg-price{font-size:13px;color:var(--muted);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .plan .reg-price s{color:#B5AFA1;font-variant-numeric:tabular-nums}
+  .plan .reg-price .limited{display:inline-block;background:var(--warn);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+  /* VALUE STACK callout per card */
+  .plan .value-stack{margin:14px 0 12px;padding:14px 16px;background:linear-gradient(135deg,rgba(200,224,32,0.14) 0%,rgba(157,179,21,0.08) 100%);border:1.5px solid var(--lime-deep);border-radius:12px}
+  .plan .vs-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-deep);font-weight:800;margin-bottom:8px;text-align:center}
+  .plan .vs-row{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--ink-2);padding:3px 0;gap:8px}
+  .plan .vs-row .vs-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .plan .vs-row.vs-total{font-family:'Fraunces';font-weight:700;color:var(--ink);font-size:14px;border-top:1px dashed var(--lime-deep);margin-top:6px;padding-top:8px}
+  .plan .vs-row.vs-total .vs-val{font-size:15px;color:var(--ink)}
+  .plan .vs-row.vs-cost{color:var(--muted);font-size:12px;padding-top:4px}
+  .plan .vs-row.vs-cost .vs-val{color:var(--muted)}
+  .plan .vs-save{text-align:center;margin-top:8px;padding:8px 0;background:var(--lime);border-radius:8px;font-family:'Fraunces';font-weight:800;color:var(--ink);font-size:14px;border:1.5px solid var(--ink)}
+  .plan .vs-save .vs-pct{font-size:12px;font-weight:700;margin-left:4px;color:var(--ink)}
+
+  /* plan card secondary "Try for free" CTA (Box-style: outlined link button below primary CTA) */
+  .plan .cta-stack{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+  .plan .try-free{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border:1.5px dashed var(--lime-deep);border-radius:12px;background:rgba(200,224,32,0.08);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;transition:all .15s ease}
+  .plan .try-free:hover{background:var(--lime);border-style:solid;transform:translateY(-1px)}
+  .plan .try-free .tf-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:11px;font-weight:800;flex-shrink:0}
+  .plan .try-free .tf-arrow{margin-left:2px}
+  .plan.featured .try-free{background:#fff;border-color:var(--ink)}
+  .plan.featured .try-free:hover{background:var(--lime);border-color:var(--ink)}
+
+  /* MEMBERSHIPS, container around the 3-card plans grid */
+  .memberships{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px;box-shadow:var(--shadow)}
+  .mb-header{text-align:center;margin-bottom:28px}
+  .mb-header .mb-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .mb-header h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:8px;line-height:1.1}
+  .mb-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:680px}
+  .memberships .plans{padding-top:32px}
+
+  /* PLAN GRID, 3 tier */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px auto 12px;align-items:stretch;max-width:1080px}
+  @media (max-width:900px){.plans{grid-template-columns:1fr;max-width:480px}}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px 24px;display:flex;flex-direction:column;position:relative;transition:transform .2s ease, box-shadow .2s ease;box-shadow:var(--shadow)}
+  .plan:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+  .plan .ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap}
+  .plan.featured{border-color:var(--ink);box-shadow:0 6px 12px rgba(14,14,14,.06), 0 36px 80px rgba(107,78,142,.18);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%)}
+  .plan.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .plan .ptitle{font-family:'Fraunces';font-weight:600;font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
+  .plan .ptag{font-size:13px;color:var(--muted);min-height:42px;margin-bottom:18px}
+  .plan .price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+  .plan .price .currency{font-size:18px;color:var(--muted);font-weight:500}
+  .plan .price .amount{font-family:'Fraunces';font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em}
+  .plan .price .unit{font-size:13px;color:var(--muted);font-weight:500}
+  .plan .perworker{display:flex;align-items:baseline;gap:6px;margin:4px 0 6px;font-size:13px;color:var(--ink-2)}
+  .plan .perworker .pwd{font-family:'Fraunces';font-weight:700;font-size:17px;color:var(--lime-deep);letter-spacing:-.01em}
+  .plan .perworker .pwd-label{font-weight:500;color:var(--ink-2)}
+  .plan.featured .perworker .pwd{color:var(--ink)}
+  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(200,224,32,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
+  .plan .perday .perday-num{font-family:'Fraunces';font-size:16px;font-weight:700;color:var(--lime-deep)}
+  .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
+  .plan .price-sub{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .plan .anchor{font-size:12px;color:var(--muted);margin-bottom:16px}
+  .plan .anchor strong{color:var(--lime-deep)}
+  .plan ul{list-style:none;margin:14px 0 22px;padding:0;flex:1}
+  .plan li{display:flex;gap:10px;padding:7px 0;font-size:14px;color:var(--ink-2);align-items:flex-start;line-height:1.4}
+  .plan li svg{flex:0 0 16px;margin-top:3px}
+  .plan li.disabled{color:#B0AB9F}
+  .plan li.disabled svg{color:#D4CFC1}
+  .plan li.hero-feature{font-weight:600;color:var(--ink)}
+  .plan .cta{margin-top:auto}
+  .plan .cta a{width:100%;justify-content:center}
+  .plan .micro{margin-top:10px;font-size:11px;color:var(--muted);text-align:center}
+  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:8px 10px;background:rgba(200,224,32,.14);border:1px dashed var(--lime-deep);border-radius:8px;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
+  .plan .guarantee-badge svg{color:var(--lime-deep);flex-shrink:0}
+
+  /* DAY PASS BUNDLES, mini section like the consumer chart */
+  .daypass{max-width:980px;margin:56px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px;box-shadow:var(--shadow)}
+  .dp-header{text-align:center;margin-bottom:28px}
+  .dp-header .dp-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .dp-header h3{font-size:24px;margin-bottom:8px}
+  .dp-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:640px}
+  .dp-options{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;padding-top:8px}
+  @media (max-width:760px){.dp-options{grid-template-columns:1fr;gap:14px}}
+  .dp-option{border:1px solid var(--line);border-radius:10px;padding:20px 16px 18px;text-align:center;background:#FBF9F3;transition:all .2s ease;display:flex;flex-direction:column;position:relative}
+  .dp-option:hover{border-color:var(--ink);background:#fff}
+  .dp-option.featured{border:1.5px solid var(--ink);box-shadow:0 4px 8px rgba(14,14,14,.06), 0 18px 40px rgba(107,78,142,.16);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%);padding-top:26px}
+  .dp-option.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .dp-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .dp-option .dp-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+  .dp-option .dp-price{font-family:'Fraunces';font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+  .dp-option .dp-price small{font-size:12px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .dp-option .dp-sub{font-size:12px;color:var(--muted);margin-top:6px;min-height:32px;flex:1}
+  .dp-option .dp-cta{margin-top:14px}
+  .dp-option .dp-cta a{display:flex;width:100%;justify-content:center}
+
+  section{padding:72px 0}
+  section h2{text-align:center;margin-bottom:8px}
+  section .sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 40px}
+
+  .compare{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .compare table{width:100%;border-collapse:collapse;font-size:14px}
+  .compare th, .compare td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  .compare th{background:#FBF9F3;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);position:sticky;top:0}
+  .compare th.col, .compare td.col{text-align:center}
+  .compare th.col-feat{background:var(--ink);color:var(--lime);text-align:center;position:relative}
+  .compare td.col-feat{background:#FCFBF7;text-align:center}
+  .compare td.row-section{background:var(--paper);font-family:'Fraunces';font-weight:600;font-size:15px;letter-spacing:-.005em;color:var(--ink);text-transform:none}
+  .compare svg.tick{color:var(--lime-deep)}
+  .compare svg.dash{color:#D6D1C4}
+  .compare .lite{color:var(--muted);font-size:13px}
+  .compare tr:last-child td{border-bottom:0}
+
+  .teams-band{background:var(--ink);color:#fff;border-radius:var(--radius);padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:var(--shadow-lift)}
+  @media (max-width:880px){.teams-band{grid-template-columns:1fr}}
+  .teams-band h2{text-align:left;color:#fff}
+  .teams-band .scarce{display:inline-block;background:rgba(200,224,32,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:6px;margin-bottom:18px}
+  .teams-band p{color:#CDC8BC}
+  .teams-band .team-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+  .teams-band .stat{background:rgba(255,255,255,.05);padding:18px;border-radius:10px}
+  .teams-band .stat .num{font-family:'Fraunces';font-weight:600;font-size:22px;color:var(--lime)}
+  .teams-band .stat .lbl{font-size:12px;color:#CDC8BC;letter-spacing:.04em;text-transform:uppercase;margin-top:6px}
+
+  /* COMMUNITY MEMBERSHIP section, relationship tier for companies not ready for a Team plan */
+  .community{max-width:980px;margin:56px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+  @media (max-width:780px){.community{grid-template-columns:1fr;gap:24px}}
+  .community .cm-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;display:inline-block}
+  .community h3{font-size:24px;margin-bottom:10px}
+  .community p.cm-pitch{font-size:14px;color:var(--ink-2);margin-bottom:14px;line-height:1.5}
+  .community ul.cm-benefits{list-style:none;margin:14px 0 18px;padding:0;font-size:13px;color:var(--ink-2)}
+  .community ul.cm-benefits li{padding:5px 0;display:flex;gap:8px;line-height:1.45;align-items:flex-start}
+  .community ul.cm-benefits li svg{flex:0 0 14px;margin-top:3px;color:var(--lime-deep)}
+  .community ul.cm-benefits li.cm-hero{background:var(--lime);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;margin:8px 0 14px;font-size:13.5px;color:var(--ink);line-height:1.5;align-items:flex-start}
+  .community ul.cm-benefits li.cm-hero svg{color:var(--ink);margin-top:5px}
+  .community ul.cm-benefits li.cm-hero strong{color:var(--ink);font-weight:800}
+  .cm-payback-seal{display:flex;gap:10px;align-items:center;background:var(--ink);color:#fff;border-radius:10px;padding:12px 16px;font-family:'Fraunces';font-weight:600;font-size:13px;line-height:1.4;max-width:340px}
+  .cm-payback-seal svg{color:var(--lime);flex:0 0 18px}
+  /* CREDIT-CARD style member card for Community Membership */
+  .cm-cardwrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .cm-card{background:linear-gradient(135deg,#0E0E0E 0%,#1F1230 50%,#0E0E0E 100%);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:20px 22px;color:#fff;width:100%;max-width:340px;aspect-ratio:1.586/1;position:relative;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 18px 40px rgba(14,14,14,0.45), inset 0 0 0 1px rgba(255,255,255,0.06);overflow:hidden}
+  .cm-card::before{content:'';position:absolute;top:-30%;left:-20%;width:90%;height:160%;background:radial-gradient(ellipse,rgba(200,224,32,0.10) 0%,transparent 60%);pointer-events:none}
+  .cm-card::after{content:'';position:absolute;bottom:-40%;right:-30%;width:80%;height:140%;background:radial-gradient(ellipse,rgba(107,78,142,0.15) 0%,transparent 60%);pointer-events:none}
+  .cm-card .cc-top{display:flex;justify-content:flex-end;align-items:center;position:relative;z-index:1}
+  .cm-card .cc-wordmark{font-family:'Fraunces';font-weight:800;font-size:16px;letter-spacing:.16em;color:#fff}
+  .cm-card .cc-wordmark span{color:var(--lime)}
+  .cm-card .cc-middle{position:relative;z-index:1}
+  .cm-card .cc-status{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:4px}
+  .cm-card .cc-headline{font-family:'Fraunces';font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1.1;color:#fff}
+  .cm-card .cc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;position:relative;z-index:1}
+  .cm-card .cc-detail-label{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:2px;font-weight:700}
+  .cm-card .cc-detail-value{font-size:11px;font-weight:600;color:#fff;letter-spacing:.02em;line-height:1.2}
+  .cm-card-terms{font-size:12px;color:var(--muted);line-height:1.5;text-align:center;max-width:340px}
+  .cm-card-terms s{color:#B5AFA1}
+  .tier-footnote{max-width:1140px;margin:14px auto 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.5}
+  .tier-footnote a{color:var(--plum);font-weight:600;text-decoration:none}
+
+  /* USE CASES section */
+  .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:900px){.usecases{grid-template-columns:1fr}}
+  .usecase{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow)}
+  .usecase .uc-pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px;margin-bottom:14px}
+  .usecase h3{font-size:22px;margin-bottom:10px}
+  .usecase p{color:var(--ink-2);font-size:14px;margin-bottom:14px}
+  .usecase .uc-who{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:700;margin-top:auto}
+
+  .tco{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:980px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  @media (max-width:760px){.tco{grid-template-columns:1fr}}
+  .tco-col{padding:28px 24px}
+  .tco-col.left{background:#FCFBF7;border-right:1px solid var(--line)}
+  @media (max-width:760px){.tco-col.left{border-right:none;border-bottom:1px solid var(--line)}}
+  .tco-col.right{background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%)}
+  .tco-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .tco-col h4{font-family:'Fraunces';font-weight:600;font-size:20px;margin-bottom:14px}
+  .tco-row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;color:var(--ink-2)}
+  .tco-row .val{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+  .tco-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:14px;border-top:2px solid var(--ink);font-family:'Fraunces';font-weight:700;font-size:18px}
+  .tco-total .val{font-size:22px;color:var(--warn)}
+  .tco-col.right .tco-total .val{color:var(--lime-deep)}
+  .tco-savings{max-width:980px;margin:18px auto 0;background:var(--lime);border:2px solid var(--ink);border-radius:var(--radius);padding:22px 28px;text-align:center}
+  .tco-savings .save-headline{font-family:'Fraunces';font-weight:800;font-size:28px;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+  .tco-savings .save-sub{font-size:14px;color:var(--ink);line-height:1.55;max-width:780px;margin:0 auto}
+
+  .addons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.addons{grid-template-columns:1fr}}
+  .addon{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .addon .price{font-family:'Fraunces';font-weight:700;font-size:28px;letter-spacing:-.02em;margin:6px 0}
+  .addon .price small{font-size:13px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .addon h3{margin-bottom:6px}
+  .addon p{color:var(--ink-2);font-size:14px}
+  .addon .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px;margin-bottom:10px}
+
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+  @media (max-width:680px){.guarantee{grid-template-columns:1fr;text-align:center}}
+  .guarantee .seal{width:120px;height:120px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:800;font-size:14px;line-height:1.05;text-align:center;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;border:3px solid var(--ink)}
+  .guarantee h3{margin-bottom:6px;font-size:28px}
+  .guarantee p{color:var(--ink-2);font-size:15px;margin:0}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:10px;cursor:pointer}
+  details[open]{box-shadow:var(--shadow)}
+  summary{font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-size:24px;color:var(--muted);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin-top:12px;color:var(--ink-2);font-size:14px}
+
+  .final-cta{text-align:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:64px 32px;margin:0 auto}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#CDC8BC;max-width:560px;margin:14px auto 28px}
+  .final-cta .btn-lime{margin:0 6px}
+
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:48px}
+
+/* ===== Team Office / Lite / Flex category banners ===== */
+.cat-banner { background:transparent; }
+.cat-banner .cat-eyebrow {
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#5a6470;
+  padding:6px 12px;
+  border:1px solid #d6d9de;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+.cat-banner .cat-title {
+  font-size:clamp(34px, 4.6vw, 52px);
+  line-height:1.05;
+  margin:0 0 10px;
+  font-weight:800;
+  letter-spacing:-0.02em;
+}
+.cat-banner .cat-title .cat-suffix {
+  font-weight:500;
+  font-style:italic;
+  color:#7a8290;
+}
+.cat-banner .cat-sub {
+  max-width:760px;
+  font-size:clamp(15px, 1.4vw, 17px);
+  line-height:1.5;
+  color:#4a525c;
+  margin:0;
+}
+/* When a banner sits inside the .container of the big plans wrapper,
+   keep top spacing tighter on the inner ones */
+.container > .cat-banner.cat-inner { padding:8px 0 4px; margin-top:8px; }
+
+  .alt-cadence-note{display:none;font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
+  .alt-cadence-note.show{display:block}
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="guarantee-strip" style="background:var(--ink);color:var(--lime);text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.02em">
+  <span style="display:inline-flex;align-items:center;gap:8px">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5 4.9.7-3.5 3.4.8 4.9L8 12.2 3.8 14.5l.8-4.9L1.1 6.2 6 5.5 8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    <strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
+  </span>
+</div>
+<header class="topbar">
+  <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-cta">
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE for a Day</a>
+    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+  </div>
+</header>
+
+<!-- PAGE NAV STRIP (non-home pages) -->
+<div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <a href="index.html" style="color:var(--ink);text-decoration:none;font-weight:600;font-size:14px">&larr; Back to Home</a>
+    <nav style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px">
+      <a href="team-office.html" style="color:var(--ink-2);text-decoration:none">Team Office</a>
+      <a href="team-officelite.html" style="color:var(--ink-2);text-decoration:none">Team OfficeLite</a>
+      <a href="team-officeflex.html" style="color:var(--ink-2);text-decoration:none">Team OfficeFlex</a>
+      <a href="drop-in.html" style="color:var(--ink-2);text-decoration:none">Drop-In &amp; Meets</a>
+      <a href="enterprise.html" style="color:var(--ink-2);text-decoration:none">Enterprise</a>
+      <a href="compare.html" style="color:var(--ink-2);text-decoration:none">Compare</a>
+      <a href="faq.html" style="color:var(--ink-2);text-decoration:none">FAQ</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ===== TEAMS OFFICE: category banner ===== -->
+<section id="teams-office-banner" class="cat-banner" style="padding:48px 0 8px">
+  <div class="container">
+    <h2 class="cat-title">Team Office</h2>
+  </div>
+</section>
+
+<!-- PRIVATE OFFICES BAND -->
+<section id="privateoffice" style="padding-top:0">
+  <a id="team-offices" style="scroll-margin-top:24px"></a>
+  <div class="container">
+    <div class="teams-band">
+      <div>
+        <span class="scarce">Teams Floor · 80%+ leased · Limited availability</span>
+        <h2>Want a private team office?</h2>
+        <p>Twenty+ fully furnished private offices for teams of 1 to 35, on a secure Teams Floor with 24/7 access, sit-to-stand desks, private kitchenette. Skip the commercial lease, the IT setup, the furniture order. Your team is productive Monday morning. Pairs naturally with a Team plan: the office is your team's HQ, the plan covers the wellness and amenities.</p>
+        <p style="margin-top:12px;font-size:13px"><a href="#coworking-included" style="color:var(--lime);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(200,224,32,0.5);padding-bottom:1px">Plus everything that comes with coworking &darr;</a></p>
+        <p style="margin-top:8px;font-size:13px"><a href="#fitness-included" style="color:var(--lime);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(200,224,32,0.5);padding-bottom:1px">Plus the full Performance Club &darr;</a></p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-lime" href="https://den1880.optixapp.com/inquiry/">Inquire about Teams Floor</a>
+          <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+        </div>
+      </div>
+      <div>
+        <div class="team-stats">
+          <div class="stat"><div class="num">1-35</div><div class="lbl">Team sizes</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">Secure access</div></div>
+          <div class="stat"><div class="num">80%+</div><div class="lbl">Currently leased</div></div>
+          <div class="stat"><div class="num">$0</div><div class="lbl">Furniture &amp; setup</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- WHAT'S INCLUDED IN COWORKING -->
+<section id="coworking-included" style="padding:32px 0 16px;scroll-margin-top:24px">
+  <div class="container" style="max-width:960px">
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">Coworking is included, too</h2>
+    <p class="sub" style="margin-bottom:18px">Your private office on the Teams Floor includes full main-floor coworking access whenever you want to step out of the suite, and so does every one of your team's seats.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Workspace</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Hot desking in the Library, Theatre, and Kitchen, Phone/Meeting Booths. Fast Wi-Fi, printing, scanning, and on-site tech support.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Hospitality</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Complimentary espresso, tea, and fruit. A full member kitchen and lounges with big-screen TVs.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Wellness</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Free weekly yoga and Pilates classes. 15% off at hustl+flow. Built for balance through the workday.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Privacy &amp; meetings</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Phone booths, quiet zones, and tech-equipped boardrooms. Member booking rates on additional usage.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Community</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Workshops, networking socials, bagel days, and member events. A vibrant network of top professionals.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Admin support</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Our Member Experience team handles reception, mail, and some basic tech support so your team can focus on work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED IN PERFORMANCE CLUB -->
+<section id="fitness-included" style="padding:32px 0 16px;scroll-margin-top:24px">
+  <div class="container" style="max-width:960px">
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">The Performance Club is included, too</h2>
+    <p class="sub" style="margin-bottom:18px">Your private office on the Teams Floor includes Performance Club gym access for every seat on your plan including: gym, cardio, functional zones. 8 hours of work, 8 hours of play, all under one roof.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Strength Training</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Multi-functional power rig, Smith machine, Olympic bars and plates, full range of dumbbells. Everything you need for a real session.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Cardio</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Peloton Bike, Tread, and Row. Studio-grade gear for a 20-minute reset or a full-distance day.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Functional Training</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">TRX, battle ropes, plyo boxes, GORUCK weighted rucks.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Reset &amp; Recovery</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Mobility zone with yoga mats and ballet barre. Stocked recovery fridge.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">8 hours of work, 8 hours of play</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">The hardest part of working out is getting there. Performance Club is steps from your desk, so it actually happens.</div>
+      </div>
+      <div style="padding:16px 18px;background:#FBF9F3;border:1px solid var(--line);border-radius:12px">
+        <div style="font-family:'Fraunces';font-weight:600;font-size:15px;margin-bottom:4px">Premium Wellness add-on</div>
+        <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Upgrade for sauna, cold plunge, hot tub, massage chairs, nap pods, plus towel and robe service.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SEE OTHER PLANS -->
+<section style="padding-top:0;padding-bottom:48px">
+  <div class="container">
+    <h2 style="font-size:clamp(20px,2.4vw,26px);text-align:center;margin-bottom:24px">Explore other options</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:1080px;margin:0 auto">
+        <a href="team-officelite.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeLite</div>
+          <div style="font-size:13px;color:var(--ink-2)">Per-user team plans, 5+ seats</div>
+        </a>
+        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
+          <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
+        </a>
+        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Drop-In &amp; Team Meets</div>
+          <div style="font-size:13px;color:var(--ink-2)">Single passes + bulk credit promo</div>
+        </a>
+                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Enterprise</div>
+          <div style="font-size:13px;color:var(--ink-2)">25+ seats, custom contracts</div>
+        </a>
+        <a href="compare.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Compare</div>
+          <div style="font-size:13px;color:var(--ink-2)">Cost vs your own office</div>
+        </a>
+        <a href="faq.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">FAQ</div>
+          <div style="font-size:13px;color:var(--ink-2)">Common questions</div>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-bottom:96px">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Bring your team in to see it.</h2>
+      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
+      <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
+    </div>
+  </div>
+</section>
+
+
+<div style="text-align:center;padding:14px 20px 4px;font-size:11px;color:var(--muted);font-style:italic">Terms and Conditions apply, subject to change.</div>
+<footer>
+  <div class="container">
+    Den 1880 · 14 Erb St. West, Waterloo, ON N2L 1S7 · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.toggle button');
+  const amounts = document.querySelectorAll('.amount[data-monthly]');
+  const perdayNums = document.querySelectorAll('.perday-num[data-monthly-text]');
+  const annualNotes = document.querySelectorAll('.annual-note');
+  const annualEqs = document.querySelectorAll('.annual-eq');
+  const vsCosts = document.querySelectorAll('.vs-cost-val[data-monthly]');
+  const vsSaveAmts = document.querySelectorAll('.vs-save-amt[data-monthly]');
+  const vsPcts = document.querySelectorAll('.vs-pct[data-monthly]');
+  const pwds = document.querySelectorAll('.pwd[data-monthly]');
+
+  const altCadenceNotes = document.querySelectorAll('.alt-cadence-note[data-monthly]');
+  function setCadence(cad){
+    const isAnnual = cad === 'annual';
+    buttons.forEach(x => {
+      const match = x.dataset.cad === cad;
+      x.classList.toggle('active', match);
+      x.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+    amounts.forEach(a => { a.textContent = isAnnual ? a.dataset.annual : a.dataset.monthly; });
+    perdayNums.forEach(p => { p.textContent = isAnnual ? p.dataset.annualText : p.dataset.monthlyText; });
+    annualNotes.forEach(n => { n.classList.toggle('show', isAnnual); });
+    annualEqs.forEach(e => { e.style.display = isAnnual ? 'inline' : 'none'; });
+    vsCosts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    vsSaveAmts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    vsPcts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    pwds.forEach(p => { p.textContent = isAnnual ? p.dataset.annual : p.dataset.monthly; });
+    altCadenceNotes.forEach(n => {
+      n.textContent = isAnnual ? n.dataset.annual : n.dataset.monthly;
+      n.classList.add('show');
+    });
+  }
+
+  buttons.forEach(b => { b.addEventListener('click', () => setCadence(b.dataset.cad)); });
+
+  // Default to Annual on load
+  setCadence('annual');
+</script>
+
+</body>
+</html>

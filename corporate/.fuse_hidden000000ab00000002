@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Den 1880 for Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Monschone';
+  src: url('../assets/fonts/Monschone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --gold:#B89252;
+    --warn:#C0392B;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display','Monschone',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  h3{font-size:clamp(20px,2vw,26px)}
+  p{margin:0 0 .8em}
+  a{color:inherit}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .logo{display:inline-flex;align-items:center}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  .hero{padding:72px 0 36px;text-align:center;position:relative;overflow:hidden}
+  .hero .eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--plum)}
+  .hero p.lede{max-width:760px;margin:18px auto 0;color:var(--ink-2);font-size:18px}
+  .hero-fineprint{margin-top:28px;color:var(--muted);font-size:13px}
+  .hero-fineprint strong{color:var(--ink);font-weight:600}
+
+  /* PATH SELECTOR (3-card team-shape chooser) */
+  .path-selector{max-width:1080px;margin:0 auto}
+  .path-eyebrow{display:block;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+  .path-selector h2{text-align:center;font-size:clamp(24px,3.2vw,34px);margin-bottom:24px}
+  .path-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:8px}
+  @media (max-width:900px){.path-options{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}}
+  .path-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:22px 22px 20px;text-decoration:none;color:var(--ink);transition:all .18s ease;cursor:pointer;position:relative}
+  .path-card:hover{border-color:var(--lime-deep);box-shadow:0 10px 28px rgba(157,179,21,.18);transform:translateY(-2px)}
+  .path-card .path-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--ink);font-family:'Fraunces';font-weight:800;font-size:14px;margin-bottom:14px;border:2px solid var(--ink)}
+  .path-card h3{font-family:'Fraunces';font-weight:600;font-size:18px;line-height:1.25;margin-bottom:8px}
+  .path-card p{font-size:13px;color:var(--ink-2);line-height:1.5;margin:0 0 14px;flex:1}
+  .path-card .path-cta{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime-deep);margin-top:auto}
+  .path-card .path-cta::after{content:' →';font-weight:700}
+  .path-card:hover .path-cta{color:var(--ink)}
+
+  /* DROP-IN single banner */
+  .dropin-banner{max-width:980px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;box-shadow:var(--shadow)}
+  @media (max-width:680px){.dropin-banner{grid-template-columns:1fr;text-align:center}}
+  .dropin-eyebrow{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .dropin-banner h3{font-family:'Fraunces';font-weight:600;font-size:24px;margin-bottom:8px}
+  .dropin-banner p{margin:0;color:var(--ink-2);font-size:14px;line-height:1.55}
+  .dropin-price{text-align:right}
+  @media (max-width:680px){.dropin-price{text-align:center}}
+  .dropin-price .num{font-family:'Fraunces';font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  .dropin-price .unit{font-size:13px;color:var(--muted);margin-bottom:14px;display:block;margin-top:4px}
+
+  /* MONTHLY / ANNUAL toggle */
+  .toggle-wrap{display:flex;justify-content:center;align-items:center;gap:16px;margin:36px 0 8px}
+  .toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow);position:relative}
+  .toggle button{border:0;background:transparent;font-family:inherit;font-size:14px;font-weight:600;padding:10px 20px;border-radius:999px;cursor:pointer;color:var(--muted);transition:all .2s ease}
+  .toggle button.active{background:var(--ink);color:#fff}
+  .annual-pill{position:absolute;top:-28px;right:0;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 10px rgba(157,179,21,.4);border:1.5px solid var(--ink);animation:bobble 2.4s ease-in-out infinite;pointer-events:none}
+  .annual-pill::after{content:'';position:absolute;bottom:-5px;right:28px;transform:rotate(45deg);width:8px;height:8px;background:var(--lime);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+  @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .plan .annual-note{display:none;font-size:11px;color:var(--plum);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+  .plan .annual-note.show{display:block}
+  .plan .reg-price{font-size:13px;color:var(--muted);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .plan .reg-price s{color:#B5AFA1;font-variant-numeric:tabular-nums}
+  .plan .reg-price .limited{display:inline-block;background:var(--warn);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+  /* VALUE STACK callout per card */
+  .plan .value-stack{margin:14px 0 12px;padding:14px 16px;background:linear-gradient(135deg,rgba(200,224,32,0.14) 0%,rgba(157,179,21,0.08) 100%);border:1.5px solid var(--lime-deep);border-radius:12px}
+  .plan .vs-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-deep);font-weight:800;margin-bottom:8px;text-align:center}
+  .plan .vs-row{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--ink-2);padding:3px 0;gap:8px}
+  .plan .vs-row .vs-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .plan .vs-row.vs-total{font-family:'Fraunces';font-weight:700;color:var(--ink);font-size:14px;border-top:1px dashed var(--lime-deep);margin-top:6px;padding-top:8px}
+  .plan .vs-row.vs-total .vs-val{font-size:15px;color:var(--ink)}
+  .plan .vs-row.vs-cost{color:var(--muted);font-size:12px;padding-top:4px}
+  .plan .vs-row.vs-cost .vs-val{color:var(--muted)}
+  .plan .vs-save{text-align:center;margin-top:8px;padding:8px 0;background:var(--lime);border-radius:8px;font-family:'Fraunces';font-weight:800;color:var(--ink);font-size:14px;border:1.5px solid var(--ink)}
+  .plan .vs-save .vs-pct{font-size:12px;font-weight:700;margin-left:4px;color:var(--ink)}
+
+  /* plan card secondary "Try for free" CTA (Box-style: outlined link button below primary CTA) */
+  .plan .cta-stack{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+  .plan .try-free{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border:1.5px dashed var(--lime-deep);border-radius:12px;background:rgba(200,224,32,0.08);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;transition:all .15s ease}
+  .plan .try-free:hover{background:var(--lime);border-style:solid;transform:translateY(-1px)}
+  .plan .try-free .tf-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:11px;font-weight:800;flex-shrink:0}
+  .plan .try-free .tf-arrow{margin-left:2px}
+  .plan.featured .try-free{background:#fff;border-color:var(--ink)}
+  .plan.featured .try-free:hover{background:var(--lime);border-color:var(--ink)}
+
+  /* MEMBERSHIPS, container around the 3-card plans grid */
+  .memberships{max-width:1200px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px;box-shadow:var(--shadow)}
+  .mb-header{text-align:center;margin-bottom:28px}
+  .mb-header .mb-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .mb-header h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:8px;line-height:1.1}
+  .mb-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:680px}
+  .memberships .plans{padding-top:32px}
+
+  /* PLAN GRID, 3 tier */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px auto 12px;align-items:stretch;max-width:1080px}
+  @media (max-width:900px){.plans{grid-template-columns:1fr;max-width:480px}}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px 24px;display:flex;flex-direction:column;position:relative;transition:transform .2s ease, box-shadow .2s ease;box-shadow:var(--shadow)}
+  .plan:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+  .plan .ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap}
+  .plan.featured{border-color:var(--ink);box-shadow:0 6px 12px rgba(14,14,14,.06), 0 36px 80px rgba(107,78,142,.18);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%)}
+  .plan.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .plan .ptitle{font-family:'Fraunces';font-weight:600;font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
+  .plan .ptag{font-size:13px;color:var(--muted);min-height:42px;margin-bottom:18px}
+  .plan .price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+  .plan .price .currency{font-size:18px;color:var(--muted);font-weight:500}
+  .plan .price .amount{font-family:'Fraunces';font-weight:800;font-size:48px;line-height:1;letter-spacing:-.02em}
+  .plan .price .unit{font-size:13px;color:var(--muted);font-weight:500}
+  .plan .perworker{display:flex;align-items:baseline;gap:6px;margin:4px 0 6px;font-size:13px;color:var(--ink-2)}
+  .plan .perworker .pwd{font-family:'Fraunces';font-weight:700;font-size:17px;color:var(--lime-deep);letter-spacing:-.01em}
+  .plan .perworker .pwd-label{font-weight:500;color:var(--ink-2)}
+  .plan.featured .perworker .pwd{color:var(--ink)}
+  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(200,224,32,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
+  .plan .perday .perday-num{font-family:'Fraunces';font-size:16px;font-weight:700;color:var(--lime-deep)}
+  .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
+  .plan .price-sub{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .plan .anchor{font-size:12px;color:var(--muted);margin-bottom:16px}
+  .plan .anchor strong{color:var(--lime-deep)}
+  .plan ul{list-style:none;margin:14px 0 22px;padding:0;flex:1}
+  .plan li{display:flex;gap:10px;padding:7px 0;font-size:14px;color:var(--ink-2);align-items:flex-start;line-height:1.4}
+  .plan li svg{flex:0 0 16px;margin-top:3px}
+  .plan li.disabled{color:#B0AB9F}
+  .plan li.disabled svg{color:#D4CFC1}
+  .plan li.hero-feature{font-weight:600;color:var(--ink)}
+  .plan .cta{margin-top:auto}
+  .plan .cta a{width:100%;justify-content:center}
+  .plan .micro{margin-top:10px;font-size:11px;color:var(--muted);text-align:center}
+  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:8px 10px;background:rgba(200,224,32,.14);border:1px dashed var(--lime-deep);border-radius:8px;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
+  .plan .guarantee-badge svg{color:var(--lime-deep);flex-shrink:0}
+
+  /* DAY PASS BUNDLES, mini section like the consumer chart */
+  .daypass{max-width:980px;margin:56px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px;box-shadow:var(--shadow)}
+  .dp-header{text-align:center;margin-bottom:28px}
+  .dp-header .dp-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .dp-header h3{font-size:24px;margin-bottom:8px}
+  .dp-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:640px}
+  .dp-options{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;padding-top:8px}
+  @media (max-width:760px){.dp-options{grid-template-columns:1fr;gap:14px}}
+  .dp-option{border:1px solid var(--line);border-radius:10px;padding:20px 16px 18px;text-align:center;background:#FBF9F3;transition:all .2s ease;display:flex;flex-direction:column;position:relative}
+  .dp-option:hover{border-color:var(--ink);background:#fff}
+  .dp-option.featured{border:1.5px solid var(--ink);box-shadow:0 4px 8px rgba(14,14,14,.06), 0 18px 40px rgba(107,78,142,.16);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%);padding-top:26px}
+  .dp-option.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .dp-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .dp-option .dp-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+  .dp-option .dp-price{font-family:'Fraunces';font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+  .dp-option .dp-price small{font-size:12px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .dp-option .dp-sub{font-size:12px;color:var(--muted);margin-top:6px;min-height:32px;flex:1}
+  .dp-option .dp-cta{margin-top:14px}
+  .dp-option .dp-cta a{display:flex;width:100%;justify-content:center}
+
+  section{padding:72px 0}
+  section h2{text-align:center;margin-bottom:8px}
+  section .sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 40px}
+
+  .compare{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .compare table{width:100%;border-collapse:collapse;font-size:14px}
+  .compare th, .compare td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  .compare th{background:#FBF9F3;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);position:sticky;top:0}
+  .compare th.col, .compare td.col{text-align:center}
+  .compare th.col-feat{background:var(--ink);color:var(--lime);text-align:center;position:relative}
+  .compare td.col-feat{background:#FCFBF7;text-align:center}
+  .compare td.row-section{background:var(--paper);font-family:'Fraunces';font-weight:600;font-size:15px;letter-spacing:-.005em;color:var(--ink);text-transform:none}
+  .compare svg.tick{color:var(--lime-deep)}
+  .compare svg.dash{color:#D6D1C4}
+  .compare .lite{color:var(--muted);font-size:13px}
+  .compare tr:last-child td{border-bottom:0}
+
+  .teams-band{background:var(--ink);color:#fff;border-radius:var(--radius);padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:var(--shadow-lift)}
+  @media (max-width:880px){.teams-band{grid-template-columns:1fr}}
+  .teams-band h2{text-align:left;color:#fff}
+  .teams-band .scarce{display:inline-block;background:rgba(200,224,32,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:6px;margin-bottom:18px}
+  .teams-band p{color:#CDC8BC}
+  .teams-band .team-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+  .teams-band .stat{background:rgba(255,255,255,.05);padding:18px;border-radius:10px}
+  .teams-band .stat .num{font-family:'Fraunces';font-weight:600;font-size:22px;color:var(--lime)}
+  .teams-band .stat .lbl{font-size:12px;color:#CDC8BC;letter-spacing:.04em;text-transform:uppercase;margin-top:6px}
+
+  /* COMMUNITY MEMBERSHIP section, relationship tier for companies not ready for a Team plan */
+  .community{max-width:980px;margin:56px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+  @media (max-width:780px){.community{grid-template-columns:1fr;gap:24px}}
+  .community .cm-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;display:inline-block}
+  .community h3{font-size:24px;margin-bottom:10px}
+  .community p.cm-pitch{font-size:14px;color:var(--ink-2);margin-bottom:14px;line-height:1.5}
+  .community ul.cm-benefits{list-style:none;margin:14px 0 18px;padding:0;font-size:13px;color:var(--ink-2)}
+  .community ul.cm-benefits li{padding:5px 0;display:flex;gap:8px;line-height:1.45;align-items:flex-start}
+  .community ul.cm-benefits li svg{flex:0 0 14px;margin-top:3px;color:var(--lime-deep)}
+  .community ul.cm-benefits li.cm-hero{background:var(--lime);border:1.5px solid var(--ink);border-radius:10px;padding:12px 14px;margin:8px 0 14px;font-size:13.5px;color:var(--ink);line-height:1.5;align-items:flex-start}
+  .community ul.cm-benefits li.cm-hero svg{color:var(--ink);margin-top:5px}
+  .community ul.cm-benefits li.cm-hero strong{color:var(--ink);font-weight:800}
+  .cm-payback-seal{display:flex;gap:10px;align-items:center;background:var(--ink);color:#fff;border-radius:10px;padding:12px 16px;font-family:'Fraunces';font-weight:600;font-size:13px;line-height:1.4;max-width:340px}
+  .cm-payback-seal svg{color:var(--lime);flex:0 0 18px}
+  /* CREDIT-CARD style member card for Community Membership */
+  .cm-cardwrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .cm-card{background:linear-gradient(135deg,#0E0E0E 0%,#1F1230 50%,#0E0E0E 100%);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:20px 22px;color:#fff;width:100%;max-width:340px;aspect-ratio:1.586/1;position:relative;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 18px 40px rgba(14,14,14,0.45), inset 0 0 0 1px rgba(255,255,255,0.06);overflow:hidden}
+  .cm-card::before{content:'';position:absolute;top:-30%;left:-20%;width:90%;height:160%;background:radial-gradient(ellipse,rgba(200,224,32,0.10) 0%,transparent 60%);pointer-events:none}
+  .cm-card::after{content:'';position:absolute;bottom:-40%;right:-30%;width:80%;height:140%;background:radial-gradient(ellipse,rgba(107,78,142,0.15) 0%,transparent 60%);pointer-events:none}
+  .cm-card .cc-top{display:flex;justify-content:flex-end;align-items:center;position:relative;z-index:1}
+  .cm-card .cc-wordmark{font-family:'Fraunces';font-weight:800;font-size:16px;letter-spacing:.16em;color:#fff}
+  .cm-card .cc-wordmark span{color:var(--lime)}
+  .cm-card .cc-middle{position:relative;z-index:1}
+  .cm-card .cc-status{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:4px}
+  .cm-card .cc-headline{font-family:'Fraunces';font-weight:700;font-size:20px;letter-spacing:-.01em;line-height:1.1;color:#fff}
+  .cm-card .cc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;position:relative;z-index:1}
+  .cm-card .cc-detail-label{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:2px;font-weight:700}
+  .cm-card .cc-detail-value{font-size:11px;font-weight:600;color:#fff;letter-spacing:.02em;line-height:1.2}
+  .cm-card-terms{font-size:12px;color:var(--muted);line-height:1.5;text-align:center;max-width:340px}
+  .cm-card-terms s{color:#B5AFA1}
+  .tier-footnote{max-width:1140px;margin:14px auto 0;font-size:12px;color:var(--muted);text-align:center;line-height:1.5}
+  .tier-footnote a{color:var(--plum);font-weight:600;text-decoration:none}
+
+  /* USE CASES section */
+  .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:900px){.usecases{grid-template-columns:1fr}}
+  .usecase{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow)}
+  .usecase .uc-pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px;margin-bottom:14px}
+  .usecase h3{font-size:22px;margin-bottom:10px}
+  .usecase p{color:var(--ink-2);font-size:14px;margin-bottom:14px}
+  .usecase .uc-who{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:700;margin-top:auto}
+
+  .tco{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:980px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  @media (max-width:760px){.tco{grid-template-columns:1fr}}
+  .tco-col{padding:28px 24px}
+  .tco-col.left{background:#FCFBF7;border-right:1px solid var(--line)}
+  @media (max-width:760px){.tco-col.left{border-right:none;border-bottom:1px solid var(--line)}}
+  .tco-col.right{background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%)}
+  .tco-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .tco-col h4{font-family:'Fraunces';font-weight:600;font-size:20px;margin-bottom:14px}
+  .tco-row{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;color:var(--ink-2)}
+  .tco-row .val{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+  .tco-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:14px;border-top:2px solid var(--ink);font-family:'Fraunces';font-weight:700;font-size:18px}
+  .tco-total .val{font-size:22px;color:var(--warn)}
+  .tco-col.right .tco-total .val{color:var(--lime-deep)}
+  .tco-savings{max-width:980px;margin:18px auto 0;background:var(--lime);border:2px solid var(--ink);border-radius:var(--radius);padding:22px 28px;text-align:center}
+  .tco-savings .save-headline{font-family:'Fraunces';font-weight:800;font-size:28px;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+  .tco-savings .save-sub{font-size:14px;color:var(--ink);line-height:1.55;max-width:780px;margin:0 auto}
+
+  .addons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.addons{grid-template-columns:1fr}}
+  .addon{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .addon .price{font-family:'Fraunces';font-weight:700;font-size:28px;letter-spacing:-.02em;margin:6px 0}
+  .addon .price small{font-size:13px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .addon h3{margin-bottom:6px}
+  .addon p{color:var(--ink-2);font-size:14px}
+  .addon .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px;margin-bottom:10px}
+
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+  @media (max-width:680px){.guarantee{grid-template-columns:1fr;text-align:center}}
+  .guarantee .seal{width:120px;height:120px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:800;font-size:14px;line-height:1.05;text-align:center;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;border:3px solid var(--ink)}
+  .guarantee h3{margin-bottom:6px;font-size:28px}
+  .guarantee p{color:var(--ink-2);font-size:15px;margin:0}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:10px;cursor:pointer}
+  details[open]{box-shadow:var(--shadow)}
+  summary{font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-size:24px;color:var(--muted);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin-top:12px;color:var(--ink-2);font-size:14px}
+
+  .final-cta{text-align:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:64px 32px;margin:0 auto}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#CDC8BC;max-width:560px;margin:14px auto 28px}
+  .final-cta .btn-lime{margin:0 6px}
+
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:48px}
+
+/* ===== Team Office / Lite / Flex category banners ===== */
+.cat-banner { background:transparent; }
+.cat-banner .cat-eyebrow {
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#5a6470;
+  padding:6px 12px;
+  border:1px solid #d6d9de;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+.cat-banner .cat-title {
+  font-size:clamp(34px, 4.6vw, 52px);
+  line-height:1.05;
+  margin:0 0 10px;
+  font-weight:800;
+  letter-spacing:-0.02em;
+}
+.cat-banner .cat-title .cat-suffix {
+  font-weight:500;
+  font-style:italic;
+  color:#7a8290;
+}
+.cat-banner .cat-sub {
+  max-width:760px;
+  font-size:clamp(15px, 1.4vw, 17px);
+  line-height:1.5;
+  color:#4a525c;
+  margin:0;
+}
+/* When a banner sits inside the .container of the big plans wrapper,
+   keep top spacing tighter on the inner ones */
+.container > .cat-banner.cat-inner { padding:8px 0 4px; margin-top:8px; }
+
+  .alt-cadence-note{display:none;font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
+  .alt-cadence-note.show{display:block}
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="guarantee-strip" style="background:var(--ink);color:var(--lime);text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.02em">
+  <span style="display:inline-flex;align-items:center;gap:8px">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5 4.9.7-3.5 3.4.8 4.9L8 12.2 3.8 14.5l.8-4.9L1.1 6.2 6 5.5 8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    <strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for your team, we'll refund you within the first month.</span>
+  </span>
+</div>
+<header class="topbar">
+  <a class="logo" href="../"><img src="../assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-cta">
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/book/free-day/">Try with your Team FREE for a Day</a>
+    <a class="btn btn-primary btn-sm" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+  </div>
+</header>
+
+<!-- PAGE NAV STRIP (non-home pages) -->
+<div style="background:#fff;border-bottom:1px solid var(--line);padding:14px 20px">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <a href="index.html" style="color:var(--ink);text-decoration:none;font-weight:600;font-size:14px">&larr; Back to Home</a>
+    <nav style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px">
+      <a href="team-office.html" style="color:var(--ink-2);text-decoration:none">Team Office</a>
+      <a href="team-officelite.html" style="color:var(--ink-2);text-decoration:none">Team OfficeLite</a>
+      <a href="team-officeflex.html" style="color:var(--ink-2);text-decoration:none">Team OfficeFlex</a>
+      <a href="drop-in.html" style="color:var(--ink-2);text-decoration:none">Drop-In &amp; Meets</a>
+      <a href="enterprise.html" style="color:var(--ink-2);text-decoration:none">Enterprise</a>
+      <a href="compare.html" style="color:var(--ink-2);text-decoration:none">Compare</a>
+      <a href="faq.html" style="color:var(--ink-2);text-decoration:none">FAQ</a>
+    </nav>
+  </div>
+</div>
+
+<!-- COST OF OWN OFFICE vs DEN 1880 -->
+<section style="padding-top:0">
+  <div class="container">
+    <h2>Want the productivity of in-person without the cost of an office?</h2>
+    <p class="sub">Here's what a 10-person team actually pays to run their own office in Uptown Waterloo, versus the same 10 seats at Den 1880 Team Base.</p>
+    <div class="tco">
+      <div class="tco-col left">
+        <div class="tco-label">Your own office in Uptown Waterloo</div>
+        <h4>1,800 sq ft, 10 people</h4>
+        <div class="tco-row"><span>Net rent + TMI (1,800 sf @ $40/sf all-in)</span><span class="val">$6,000</span></div>
+        <div class="tco-row"><span>Utilities (electric, gas, water, internet)</span><span class="val">$900</span></div>
+        <div class="tco-row"><span>Office buildout, amortized over 5 years</span><span class="val">$3,000</span></div>
+        <div class="tco-row"><span>Furniture, amortized over 5 years</span><span class="val">$1,000</span></div>
+        <div class="tco-row"><span>IT setup, network, AV, maintenance</span><span class="val">$500</span></div>
+        <div class="tco-row"><span>Cleaning service</span><span class="val">$700</span></div>
+        <div class="tco-row"><span>Coffee, kitchen, supplies</span><span class="val">$300</span></div>
+        <div class="tco-row"><span>Commercial insurance</span><span class="val">$300</span></div>
+        <div class="tco-row"><span>Phone, communications</span><span class="val">$300</span></div>
+        <div class="tco-row"><span>Parking, 10 spots Uptown core</span><span class="val">$1,500</span></div>
+        <div class="tco-row"><span>Gym memberships for 10 employees</span><span class="val">$1,160</span></div>
+        <div class="tco-row"><span>Meeting room and event venue rentals</span><span class="val">$400</span></div>
+        <div class="tco-row"><span>Part-time reception or admin</span><span class="val">$2,000</span></div>
+        <div class="tco-total"><span>Monthly total</span><span class="val">$18,060</span></div>
+      </div>
+      <div class="tco-col right">
+        <div class="tco-label">Den 1880 Team Base</div>
+        <h4>10 seats on Team Base, annual rate</h4>
+        <div class="tco-row"><span>Workspace, M to F 8 to 8, every seat</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Utilities, WiFi, printing, scanning</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Buildout, you walk in Monday morning</span><span class="val">$0</span></div>
+        <div class="tco-row"><span>Furniture, designer, premium quality</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>IT, AV, Smart TVs in every meeting room</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Cleaning, daily, by our team</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Espresso bar, sparkling water, fruit, tea</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Our commercial insurance covers the space</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Phone booths and meeting rooms</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Parking, 3 lots, plenty of capacity</span><span class="val">Included</span></div>
+        <div class="tco-row"><span><strong>Performance Club gym and recovery for every seat</strong> <em style="color:var(--muted);font-size:11px">(worth $40/day standalone)</em></span><span class="val">Included</span></div>
+        <div class="tco-row"><span>$300/mo pooled meeting room credit</span><span class="val">Included</span></div>
+        <div class="tco-row"><span>Front desk, reception, mail handling</span><span class="val">Included</span></div>
+        <div class="tco-total"><span>Monthly total (10 seats @ $408/user/mo, annual)</span><span class="val">$4,080</span></div>
+      </div>
+    </div>
+    <div class="tco-savings">
+      <div class="save-headline">Save $13,980/month. $167,760/year.</div>
+      <div class="save-sub">Plus everything Den 1880 includes that your own office never could: heritage venue for offsites, broadcast-grade podcast studio, member events and networking, and a recovery suite that makes the gym look like a starting point.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM VS INDIVIDUAL -->
+<section style="padding-top:0">
+  <div class="container">
+    <h2>Team plans vs an individual Club Membership</h2>
+    <p class="sub">Team Starter is the same per-seat rate as a Club Membership. The team tier exists because a five-person team is not five people with five separate memberships, five invoices, and five separate onboardings. Here is what changes when you go team.</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col">Individual Club Membership<br><span class="lite">$388/mo · 1 person</span></th>
+            <th class="col">Team Starter<br><span class="lite">$388/user/mo · 5+ users</span></th>
+            <th class="col col-feat">Team Base<br><span style="color:#fff">$488/user/mo · 5+ users</span></th>
+            <th class="col">Team Scale<br><span class="lite">$688/user/mo · 5+ users</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-section" colspan="5">Pricing &amp; commitment</td></tr>
+          <tr><td>Per-seat rate (month-to-month)</td><td class="col">$388 reg</td><td class="col">$388</td><td class="col col-feat"><strong>$488</strong></td><td class="col">$688</td></tr>
+          <tr><td>Per-seat rate (annual commitment, monthly billing)</td><td class="col">$328 sale</td><td class="col">$328</td><td class="col col-feat"><strong>$408</strong></td><td class="col">$568</td></tr>
+          <tr><td>Per-workday cost (month-to-month) <em style="color:var(--muted);font-size:11px">(~22 workdays/mo)</em></td><td class="col">~$18/day</td><td class="col">~$18/day</td><td class="col col-feat"><strong>~$19/day</strong></td><td class="col">~$31/day</td></tr>
+          <tr><td>Per-workday cost (annual commitment)</td><td class="col">~$15/day</td><td class="col">~$15/day</td><td class="col col-feat"><strong>~$15/day</strong></td><td class="col">~$26/day</td></tr>
+          <tr><td>Minimum size</td><td class="col">1 person</td><td class="col">5 users</td><td class="col col-feat"><strong>5 users</strong></td><td class="col">5 users</td></tr>
+          <tr><td>Commitment</td><td class="col">Month-to-month</td><td class="col">3-month minimum</td><td class="col col-feat"><strong>3-month minimum</strong></td><td class="col">3-month minimum</td></tr>
+          <tr><td class="row-section" colspan="5">What sets team plans apart</td></tr>
+          <tr><td>Contract format</td><td class="col">One membership per person</td><td class="col">One contract for the team</td><td class="col col-feat"><strong>One contract for the team</strong></td><td class="col">One contract for the team</td></tr>
+          <tr><td>Invoicing</td><td class="col">One invoice per person</td><td class="col">Single team invoice</td><td class="col col-feat"><strong>Single team invoice</strong></td><td class="col">Single team invoice</td></tr>
+          <tr><td>Transferable seats (reassign when staff change)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Flexible seat count (scale up or down)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Corporate Mailing Address</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Team onboarding session ($100/seat value)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Try free for a day (as a team)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Annual rate without annual prepay</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Money-back guarantee (first month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td class="row-section" colspan="5">Workspace &amp; Performance Club (every seat)</td></tr>
+          <tr><td>Coworking access (M-F 8-8)</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Performance Club gym &amp; recovery</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Complimentary tea, coffee, fruit</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Member events, yoga, Pilates, networking</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td class="row-section" colspan="5">Pooled team credits</td></tr>
+          <tr><td>Meeting room credit (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>$300 + $60/seat</strong></td><td class="col"><strong>$1,000 + $200/seat</strong></td></tr>
+          <tr><td>Studio (The Vault) credit (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>$300 + $60/seat</strong></td></tr>
+          <tr><td>Catered lunch credit (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>$300 + $60/seat</strong></td><td class="col"><strong>$300 + $60/seat</strong></td></tr>
+          <tr><td>Annual event venue credit</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>$2,000 + $400/seat</strong></td></tr>
+          <tr><td>Free guest day passes (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>5 + 1/seat</strong></td><td class="col"><strong>15 + 3/seat</strong></td></tr>
+          <tr><td>Bookings discount on additional usage <em style="color:var(--muted);font-size:11px">(credits don't stack)</em></td><td class="col">—</td><td class="col"><strong>10% off</strong></td><td class="col col-feat"><strong>20% off</strong></td><td class="col"><strong>30% off</strong></td></tr>
+          <tr><td>Priority booking</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--ink-2);margin-top:18px;max-width:820px">The bottom line: <strong>Team Starter is the same money</strong> as five individual Club Memberships, but you get one contract, one invoice, transferable seats, a Corporate Mailing Address, a paid team onboarding ($500 of value at the 5-seat minimum), and the annual rate billed monthly (no big upfront for the discount). <strong>Team Base</strong> adds about $22/user/mo over Starter and bundles roughly $500/mo of meeting, catering, and guest-pass credits at the 5-user minimum. <strong>Team Scale</strong> adds another tier of executive credits, the Vault studio allowance, and event venue access.</p>
+  </div>
+</section>
+
+<!-- TEAM FLEX VS SINGLE DAY PASSES -->
+<section style="padding-top:0">
+  <div class="container">
+    <h2>Team Flex vs single day passes</h2>
+    <p class="sub">A single drop-in day pass is $45 (coworking only). Add the Performance Club gym and it's $85. Team Flex bundles workspace + Performance Club on every pass at $30-$38 each, plus pooling across your team. Here is what changes when you go team.</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col">Day Pass / 5-Pack<br><span class="lite">$45 single · $188 5-pack</span></th>
+            <th class="col">Flex Starter<br><span class="lite">$1,900/mo · 50 passes</span></th>
+            <th class="col col-feat">Flex Growth<br><span style="color:#fff">$3,960/mo · 120 passes</span></th>
+            <th class="col">Flex Scale<br><span class="lite">$7,500/mo · 250 passes</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-section" colspan="5">Pricing &amp; commitment</td></tr>
+          <tr><td>Cost (month-to-month)</td><td class="col">$45 single<br>$188 5-pack</td><td class="col">$2,250/mo</td><td class="col col-feat"><strong>$4,800/mo</strong></td><td class="col">$9,000/mo</td></tr>
+          <tr><td>Cost (annual commitment)</td><td class="col"><em style="color:var(--muted);font-size:11px">Pay per use</em></td><td class="col">$1,900/mo</td><td class="col col-feat"><strong>$3,960/mo</strong></td><td class="col">$7,500/mo</td></tr>
+          <tr><td>Passes per month</td><td class="col">1 (or 5)</td><td class="col">50</td><td class="col col-feat"><strong>120</strong></td><td class="col">250</td></tr>
+          <tr><td>Commitment</td><td class="col">Pay per use</td><td class="col">3-month minimum</td><td class="col col-feat"><strong>3-month minimum</strong></td><td class="col">3-month minimum</td></tr>
+          <tr><td>Per-pass cost (month-to-month)</td><td class="col">$45 single<br>$37.60 in 5-pack</td><td class="col">$45</td><td class="col col-feat"><strong>$40</strong></td><td class="col">$36</td></tr>
+          <tr><td>Per-pass cost (annual commitment)</td><td class="col"><em style="color:var(--muted);font-size:11px">Pay per use</em></td><td class="col">$38</td><td class="col col-feat"><strong>$33</strong></td><td class="col">$30</td></tr>
+          <tr><td>Fitness Club cost per pass</td><td class="col">Not Available</td><td class="col"><strong>Included</strong></td><td class="col col-feat"><strong>Included</strong></td><td class="col"><strong>Included</strong></td></tr>
+          <tr><td class="row-section" colspan="5">What sets team Flex apart</td></tr>
+          <tr><td>Contract format</td><td class="col">Pay each time / 5-pack receipt</td><td class="col">One contract for the team</td><td class="col col-feat"><strong>One contract for the team</strong></td><td class="col">One contract for the team</td></tr>
+          <tr><td>Invoicing</td><td class="col">Receipt per purchase</td><td class="col">Single team invoice</td><td class="col col-feat"><strong>Single team invoice</strong></td><td class="col">Single team invoice</td></tr>
+          <tr><td>Passes pooled and shareable across team</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Performance Club gym + recovery on every pass</td><td class="col"><em style="color:var(--muted);font-size:11px">Only with $40 add-on</em></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Team onboarding session</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Try free for a day (as a team)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Annual rate without annual prepay</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Money-back guarantee (first month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td class="row-section" colspan="5">Workspace &amp; Performance Club (every visit, M-F 8 to 8)</td></tr>
+          <tr><td>Coworking access</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Performance Club gym, cardio, recovery</td><td class="col"><em style="color:var(--muted);font-size:11px">Add-on $40</em></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Complimentary tea, coffee, fruit</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Member events, yoga, Pilates</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td class="row-section" colspan="5">Booking discounts on additional usage</td></tr>
+          <tr><td>Meeting room booking discount <em style="color:var(--muted);font-size:11px">(credits don't stack)</em></td><td class="col">—</td><td class="col">Member rate</td><td class="col col-feat"><strong>Member rate</strong></td><td class="col">Member rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--ink-2);margin-top:18px;max-width:820px">The bottom line: a single day pass with gym access costs <strong>$85</strong> (day pass $45 + gym add-on $40). <strong>Flex Starter</strong> delivers the same $85-value pass at <strong>$38 each</strong> on the annual commitment, a ~55% saving per visit. <strong>Flex Scale</strong> drops that to <strong>$30 each</strong>, ~65% off. Plus the pooling: any team member uses any pass on any day, one contract, one invoice, no individual signups. The 5-pack still has its place for one person who just wants the cheapest workspace and no gym, but it doesn't scale to a team.</p>
+  </div>
+</section>
+
+<!-- FULL COMPARISON -->
+<section style="padding-top:0">
+  <div class="container">
+    <h2>Compare team plans</h2>
+    <p class="sub">See exactly what each tier includes and where Enterprise picks up.</p>
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col">Team Starter<br><span class="lite">$388/user/mo · min 5</span></th>
+            <th class="col col-feat">Team Base<br><span style="color:#fff">$488/user/mo · min 5</span></th>
+            <th class="col">Team Scale<br><span class="lite">$688/user/mo · min 5</span></th>
+            <th class="col">Enterprise<br><span class="lite">25+ · custom</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-section" colspan="5">Per-Seat Membership</td></tr>
+          <tr><td>Per-user / month (month-to-month)</td><td class="col">$388</td><td class="col col-feat"><strong>$488</strong></td><td class="col">$688</td><td class="col">Custom</td></tr>
+          <tr><td>Per-user / month (annual commitment, billed monthly)</td><td class="col">$328</td><td class="col col-feat"><strong>$408</strong></td><td class="col">$568</td><td class="col">Custom</td></tr>
+          <tr><td>Minimum team size</td><td class="col">5 users</td><td class="col col-feat"><strong>5 users</strong></td><td class="col">5 users</td><td class="col">25+ users</td></tr>
+          <tr><td>vs regular Club rate ($388/mo individual)</td><td class="col"><strong>Same rate</strong></td><td class="col col-feat">Premium tier</td><td class="col">Premium tier</td><td class="col">Negotiated</td></tr>
+          <tr><td>Club workspace access (M-F 8-8, unlimited)</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Performance Club (gym + cardio + functional)</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Member events, yoga, Pilates, networking</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+
+          <tr><td class="row-section" colspan="5">Pooled Team Credits</td></tr>
+          <tr><td>Meeting room credit (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>$300 base + $60/seat</strong></td><td class="col"><strong>$1,000 base + $200/seat</strong></td><td class="col">Custom</td></tr>
+          <tr><td>At 5-user minimum, that's</td><td class="col">—</td><td class="col col-feat"><strong>$300/mo</strong></td><td class="col"><strong>$1,000/mo</strong></td><td class="col">—</td></tr>
+          <tr><td>Studio credit (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>$300 base + $60/seat</strong></td><td class="col">Custom</td></tr>
+          <tr><td>Annual event venue credit (annual plans)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>$2,000 base + $400/seat</strong></td><td class="col">Custom</td></tr>
+          <tr><td>Catering credit (team lunches: Base bi-monthly, Scale monthly)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>$300 base + $60/seat</strong></td><td class="col"><strong>$300 base + $60/seat</strong></td><td class="col">Custom</td></tr>
+          <tr><td>At 5-user minimum, that's</td><td class="col">—</td><td class="col col-feat"><strong>$300/mo</strong></td><td class="col"><strong>$300/mo</strong></td><td class="col">—</td></tr>
+          <tr><td>Free day passes (per month)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>5 guest + 1/seat</strong></td><td class="col"><strong>15 guest + 3/seat</strong></td><td class="col">Custom</td></tr>
+          <tr><td>At 5-user minimum, that's</td><td class="col">—</td><td class="col col-feat"><strong>5 guest/mo team total</strong></td><td class="col"><strong>15 guest/mo team total</strong></td><td class="col">—</td></tr>
+          <tr><td>Priority booking (meeting rooms, events)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Dedicated meeting concierge</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Meeting room booking discount on additional usage</td><td class="col"><strong>10% off</strong></td><td class="col col-feat"><strong>20% off</strong></td><td class="col"><strong>30% off</strong></td><td class="col">Negotiated</td></tr>
+          <tr><td>Studio (The Vault) booking discount</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>30% off</strong></td><td class="col">Negotiated</td></tr>
+          <tr><td>Event venue booking discount</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>30% off</strong></td><td class="col">Negotiated</td></tr>
+          <tr><td class="row-section" colspan="5">Hospitality</td></tr>
+          <tr><td>Complimentary tea and coffee in meetings</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Catering available (as add-on)</td><td class="col">By menu</td><td class="col col-feat">By menu</td><td class="col">By menu</td><td class="col">By menu</td></tr>
+          <tr><td>Reception, mail handling, parking</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+
+          <tr><td class="row-section" colspan="5">Account &amp; Contract</td></tr>
+          <tr><td>Transferable seats (HR can reassign)</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Single procurement contract, one invoice</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Named account contact</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Dedicated account manager</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Minimum term</td><td class="col">3 months</td><td class="col col-feat">3 months</td><td class="col">3 months</td><td class="col">Custom</td></tr>
+          <tr><td><strong>Money-back guarantee<a href="faq.html#guarantee-terms" style="text-decoration:none;color:var(--lime-deep)">*</a></strong></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- SEE OTHER PLANS -->
+<section style="padding-top:0;padding-bottom:48px">
+  <div class="container">
+    <h2 style="font-size:clamp(20px,2.4vw,26px);text-align:center;margin-bottom:24px">Explore other options</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:1080px;margin:0 auto">
+        <a href="team-office.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team Office</div>
+          <div style="font-size:13px;color:var(--ink-2)">Private offices on the Teams Floor</div>
+        </a>
+        <a href="team-officelite.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeLite</div>
+          <div style="font-size:13px;color:var(--ink-2)">Per-user team plans, 5+ seats</div>
+        </a>
+        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
+          <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
+        </a>
+        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Drop-In &amp; Team Meets</div>
+          <div style="font-size:13px;color:var(--ink-2)">Single passes + bulk credit promo</div>
+        </a>
+                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">Enterprise</div>
+          <div style="font-size:13px;color:var(--ink-2)">25+ seats, custom contracts</div>
+        </a>
+        <a href="faq.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+          <div style="font-family:'Fraunces';font-weight:600;font-size:16px;margin-bottom:4px">FAQ</div>
+          <div style="font-size:13px;color:var(--ink-2)">Common questions</div>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-bottom:96px">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Bring your team in to see it.</h2>
+      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
+      <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
+    </div>
+  </div>
+</section>
+
+
+<div style="text-align:center;padding:14px 20px 4px;font-size:11px;color:var(--muted);font-style:italic">Terms and Conditions apply, subject to change.</div>
+<footer>
+  <div class="container">
+    Den 1880 · 14 Erb St. West, Waterloo, ON N2L 1S7 · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.toggle button');
+  const amounts = document.querySelectorAll('.amount[data-monthly]');
+  const perdayNums = document.querySelectorAll('.perday-num[data-monthly-text]');
+  const annualNotes = document.querySelectorAll('.annual-note');
+  const annualEqs = document.querySelectorAll('.annual-eq');
+  const vsCosts = document.querySelectorAll('.vs-cost-val[data-monthly]');
+  const vsSaveAmts = document.querySelectorAll('.vs-save-amt[data-monthly]');
+  const vsPcts = document.querySelectorAll('.vs-pct[data-monthly]');
+  const pwds = document.querySelectorAll('.pwd[data-monthly]');
+
+  const altCadenceNotes = document.querySelectorAll('.alt-cadence-note[data-monthly]');
+  function setCadence(cad){
+    const isAnnual = cad === 'annual';
+    buttons.forEach(x => {
+      const match = x.dataset.cad === cad;
+      x.classList.toggle('active', match);
+      x.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+    amounts.forEach(a => { a.textContent = isAnnual ? a.dataset.annual : a.dataset.monthly; });
+    perdayNums.forEach(p => { p.textContent = isAnnual ? p.dataset.annualText : p.dataset.monthlyText; });
+    annualNotes.forEach(n => { n.classList.toggle('show', isAnnual); });
+    annualEqs.forEach(e => { e.style.display = isAnnual ? 'inline' : 'none'; });
+    vsCosts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    vsSaveAmts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    vsPcts.forEach(v => { v.textContent = isAnnual ? v.dataset.annual : v.dataset.monthly; });
+    pwds.forEach(p => { p.textContent = isAnnual ? p.dataset.annual : p.dataset.monthly; });
+    altCadenceNotes.forEach(n => {
+      n.textContent = isAnnual ? n.dataset.annual : n.dataset.monthly;
+      n.classList.add('show');
+    });
+  }
+
+  buttons.forEach(b => { b.addEventListener('click', () => setCadence(b.dataset.cad)); });
+
+  // Default to Annual on load
+  setCadence('annual');
+</script>
+
+</body>
+</html>

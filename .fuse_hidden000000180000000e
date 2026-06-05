@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Den 1880 Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root{
+    --ink:#0E0E0E;
+    --ink-2:#2A2A2A;
+    --paper:#F7F4EE;
+    --card:#F7F4EE;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --lime-deep:#9DB315;
+    --plum:#6B4E8E;
+    --gold:#B89252;
+    --warn:#C0392B;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Monschone','Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-0.025em}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  h3{font-size:clamp(20px,2vw,26px)}
+  p{margin:0 0 .8em}
+  a{color:inherit}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .logo{display:inline-flex;align-items:center}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-sm{padding:9px 16px;font-size:13px}
+
+  /* ── HAMBURGER (mobile only) ── */
+  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 24px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu a:hover{color:var(--lime-deep)}
+  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
+  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
+  @media(max-width:768px){
+    .topbar{padding:14px 20px}
+    .nav-cta{display:none}
+    .hamburger{display:flex}
+  }
+
+  .hero{padding:72px 0 36px;text-align:center;position:relative;overflow:hidden}
+  .hero .eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .hero h1 em{font-style:italic;color:var(--plum)}
+  .hero p.lede{max-width:680px;margin:18px auto 0;color:var(--ink-2);font-size:18px}
+  .hero-fineprint{margin-top:28px;color:var(--muted);font-size:13px}
+  .hero-fineprint strong{color:var(--ink);font-weight:600}
+
+  .toggle-wrap{display:flex;justify-content:center;align-items:center;gap:16px;margin:48px 0 12px}
+  .toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow);position:relative}
+  .toggle button{border:0;background:transparent;font-family:inherit;font-size:14px;font-weight:600;padding:10px 20px;border-radius:999px;cursor:pointer;color:var(--muted);transition:all .2s ease}
+  .toggle button.active{background:var(--ink);color:#fff}
+  .annual-pill{position:absolute;top:-28px;right:0;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 10px rgba(157,179,21,.4);border:1.5px solid var(--ink);animation:bobble 2.4s ease-in-out infinite;pointer-events:none}
+  .annual-pill::after{content:'';position:absolute;bottom:-5px;right:28px;transform:rotate(45deg);width:8px;height:8px;background:var(--lime);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+  @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .save-tag{font-size:12px;color:var(--lime-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(200,224,32,.18);padding:6px 10px;border-radius:6px}
+
+  /* PLAN GRID, 3 tier */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px auto 12px;align-items:stretch;max-width:1080px}
+  @media (max-width:900px){
+    .plans{grid-template-columns:1fr;max-width:480px}
+    .plan.featured{transform:none;margin-top:8px}
+    .plan.featured:hover{transform:translateY(-3px)}
+  }
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px 24px;display:flex;flex-direction:column;position:relative;transition:transform .2s ease, box-shadow .2s ease;box-shadow:var(--shadow)}
+  .plan:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+  .plan .ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap}
+  .plan.featured{border-color:var(--ink);box-shadow:0 6px 12px rgba(14,14,14,.06), 0 36px 80px rgba(107,78,142,.18);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%)}
+  .plan.featured:hover{transform:translateY(-11px) scale(1.04)}
+  .plan .ptitle{font-family:'Fraunces';font-weight:600;font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
+  .plan .ptag{font-size:13px;color:var(--muted);min-height:38px;margin-bottom:18px}
+  .plan .price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+  .plan .price .currency{font-size:18px;color:var(--muted);font-weight:500}
+  .plan .price .amount{font-family:'Fraunces';font-weight:800;font-size:54px;line-height:1;letter-spacing:-.02em}
+  .plan .price .unit{font-size:13px;color:var(--muted);font-weight:500}
+  .plan .reg-price{font-size:13px;color:var(--muted);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+  .plan .reg-price s{color:#B5AFA1;font-variant-numeric:tabular-nums}
+  .plan .reg-price .limited{display:inline-block;background:var(--warn);color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(200,224,32,.18);color:var(--ink);padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
+  .plan .perday .perday-num{font-family:'Fraunces';font-size:15px;font-weight:700;color:var(--lime-deep)}
+  .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
+  .plan .annual-note{display:none;font-size:11px;color:var(--plum);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+  .plan .annual-note.show{display:block}
+  .plan .price-sub{font-size:12px;color:var(--muted);margin-bottom:6px}
+  .plan .anchor{font-size:12px;color:var(--muted);margin-bottom:16px}
+  .plan .anchor s{color:#B5AFA1}
+  .plan .anchor strong{color:var(--lime-deep)}
+  .plan ul{list-style:none;margin:12px 0 20px;padding:0;flex:1}
+  .plan li{display:flex;gap:9px;padding:6px 0;font-size:13px;color:var(--ink-2);align-items:flex-start;line-height:1.4}
+  .plan li svg{flex:0 0 14px;margin-top:3px}
+  .plan li.disabled{color:#B0AB9F}
+  .plan li.disabled svg{color:#D4CFC1}
+  .plan li.hero-feature{font-weight:600;color:var(--ink)}
+  .plan .cta{margin-top:auto}
+  .plan .cta a{width:100%;justify-content:center}
+  .plan .micro{margin-top:10px;font-size:11px;color:var(--muted);text-align:center}
+  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:7px 9px;background:rgba(200,224,32,.14);border:1px dashed var(--lime-deep);border-radius:8px;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
+  .plan .guarantee-badge svg{color:var(--lime-deep);flex-shrink:0}
+  /* MEMBERSHIPS: container around the 3-card plans grid */
+  .memberships{max-width:1200px;margin:24px auto 0;background:transparent;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px}
+  .mb-header{text-align:center;margin-bottom:28px}
+  .mb-header .mb-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .mb-header h2{font-size:clamp(28px,3.4vw,38px);margin-bottom:8px;line-height:1.1}
+  .mb-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:620px}
+  .memberships .plans{padding-top:32px}
+
+
+  /* DAY PASS, mini comparison chart with featured middle */
+  .daypass{max-width:980px;margin:56px auto 0;background:transparent;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px 32px}
+  .dp-header{text-align:center;margin-bottom:28px}
+  .dp-header .dp-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px;display:inline-block}
+  .dp-header h3{font-size:24px;margin-bottom:8px}
+  .dp-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:620px}
+  .dp-options{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;padding-top:8px;max-width:720px;margin:0 auto}
+  @media (max-width:760px){.dp-options{grid-template-columns:1fr;gap:14px;max-width:420px}}
+  .dp-monthly-note{background:rgba(200,224,32,.18);border:1px solid rgba(157,179,21,.4);border-radius:8px;padding:10px 12px;font-size:11px;color:var(--ink-2);margin:12px 0 0;line-height:1.4;text-align:center}
+  .dp-monthly-note strong{color:var(--ink);font-family:'Fraunces';font-weight:700;font-size:14px;display:block;margin-bottom:2px}
+  .dp-option .dp-cta{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+  .dp-option .dp-cta a{display:flex;width:100%;justify-content:center}
+  .dp-option{border:1px solid var(--line);border-radius:10px;padding:20px 16px 18px;text-align:center;background:#FBF9F3;transition:all .2s ease;display:flex;flex-direction:column;position:relative}
+  .dp-option:hover{border-color:var(--ink);background:#fff}
+  .dp-option.featured{border:1.5px solid var(--ink);box-shadow:0 6px 12px rgba(14,14,14,.06), 0 36px 80px rgba(107,78,142,.18);transform:translateY(-8px) scale(1.04);z-index:2;background:linear-gradient(180deg,#fff 0%,#FBF9F3 100%);padding-top:26px}
+  .dp-option.featured:hover{transform:translateY(-10px) scale(1.04)}
+  .dp-option.featured .dp-price{font-family:'Fraunces';font-weight:700;font-size:38px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+  .dp-option.featured .dp-sub{font-size:13px;color:var(--muted);margin-top:6px;flex:none;min-height:auto}
+  .dp-onetimelnk{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:10px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .dp-onetimelnk:hover{color:var(--ink)}
+  .dp-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .dp-option .dp-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+  .dp-option .dp-price{font-family:'Fraunces';font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+  .dp-option .dp-price small{font-size:12px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .dp-option .dp-sub{font-size:12px;color:var(--muted);margin-top:6px;min-height:32px;flex:1}
+  .dp-toggle{display:flex;gap:3px;background:rgba(14,14,14,.07);border-radius:999px;padding:3px;margin:10px auto 16px;width:fit-content}
+  .dp-tab{background:transparent;border:none;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;cursor:pointer;color:var(--muted);font-family:'Inter',sans-serif;transition:all .2s ease}
+  .dp-tab.active{background:var(--ink);color:var(--lime)}
+  .dp-plan{display:flex;flex-direction:column;flex:1}
+  .dp-plan.hidden{display:none}
+  .addon-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13px;text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;transition:all .2s ease;width:100%}
+  .addon-btn:hover{background:var(--ink);color:#fff}
+
+  section{padding:72px 0}
+  section h2{text-align:center;margin-bottom:8px}
+  section .sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px}
+
+  .compare{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .compare table{width:100%;border-collapse:collapse;font-size:14px}
+  .compare th, .compare td{padding:14px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  .compare th{background:#FBF9F3;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);position:sticky;top:0}
+  .compare th.col, .compare td.col{text-align:center}
+  .compare th.col-feat{background:var(--ink);color:var(--lime);text-align:center;position:relative}
+  .compare td.col-feat{background:#FCFBF7;text-align:center}
+  .compare td.row-section{background:var(--paper);font-family:'Fraunces';font-weight:600;font-size:15px;letter-spacing:-.005em;color:var(--ink);text-transform:none}
+  .compare svg.tick{color:var(--lime-deep)}
+  .compare svg.dash{color:#D6D1C4}
+  .compare .lite{color:var(--muted);font-size:13px}
+  .compare .cell-note{display:block;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.3}
+  .compare .multi-tick{display:inline-flex;gap:2px;align-items:center;justify-content:center}
+  .compare tr:last-child td{border-bottom:0}
+
+  .teams{background:var(--ink);color:#fff;border-radius:var(--radius);padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:var(--shadow-lift)}
+  @media (max-width:880px){.teams{grid-template-columns:1fr}}
+  .teams h2{text-align:left;color:#fff}
+  .teams .scarce{display:inline-block;background:rgba(200,224,32,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:6px;margin-bottom:18px}
+  .teams p{color:#CDC8BC}
+  .teams .team-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+  .teams .stat{background:rgba(255,255,255,.05);padding:18px;border-radius:10px}
+  .teams .stat .num{font-family:'Fraunces';font-weight:600;font-size:28px;color:var(--lime)}
+  .teams .stat .lbl{font-size:12px;color:#CDC8BC;letter-spacing:.04em;text-transform:uppercase;margin-top:6px}
+
+  .addons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.addons{grid-template-columns:1fr}}
+  .addon{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .addon .price{font-family:'Fraunces';font-weight:700;font-size:32px;letter-spacing:-.02em;margin:6px 0}
+  .addon .price small{font-size:14px;color:var(--muted);font-weight:500;font-family:'Inter'}
+  .addon h3{margin-bottom:6px}
+  .addon p{color:var(--ink-2);font-size:14px}
+  .addon .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(107,78,142,.1);color:var(--plum);border-radius:999px;margin-bottom:10px}
+
+  .stack{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);max-width:760px;margin:0 auto}
+  .stack-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;color:var(--ink-2)}
+  .stack-row:last-of-type{border-bottom:0}
+  .stack-row .v{font-variant-numeric:tabular-nums;color:var(--ink)}
+  .stack-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:18px;border-top:2px solid var(--ink)}
+  .stack-total .lbl{font-family:'Fraunces';font-size:18px;font-weight:600}
+  .stack-total .v{font-family:'Fraunces';font-size:28px;font-weight:700;color:var(--ink);text-decoration:line-through;text-decoration-color:#C5C0B0}
+  .stack-final{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding:14px 18px;background:var(--lime);border-radius:10px}
+  .stack-final .lbl{font-family:'Fraunces';font-size:17px;font-weight:600;color:var(--ink)}
+  .stack-final .v{font-family:'Fraunces';font-size:32px;font-weight:800;color:var(--ink)}
+  .stack-disclaimer{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+
+  .guarantee{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+  @media (max-width:680px){.guarantee{grid-template-columns:1fr;text-align:center}}
+  .guarantee .seal{width:96px;height:96px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:800;font-size:13px;line-height:1.05;text-align:center;color:var(--ink);letter-spacing:.04em;text-transform:uppercase;border:3px solid var(--ink)}
+  .guarantee h3{margin-bottom:6px}
+  .guarantee p{color:var(--ink-2);font-size:15px;margin:0}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.quotes{grid-template-columns:1fr}}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative}
+  .quote::before{content:'\201C';font-family:'Fraunces';font-size:64px;line-height:.6;color:var(--plum);position:absolute;top:18px;left:14px}
+  .quote p{font-style:italic;color:var(--ink-2);margin:18px 0 16px;font-size:15px;padding-left:18px}
+  .quote .who{font-size:13px;font-weight:600;padding-left:18px}
+  .quote .who span{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:2px}
+
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:10px;cursor:pointer}
+  details[open]{box-shadow:var(--shadow)}
+  summary{font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';font-size:24px;color:var(--muted);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{margin-top:12px;color:var(--ink-2);font-size:14px}
+
+  .final-cta{text-align:center;background:var(--ink);color:#fff;border-radius:var(--radius);padding:64px 32px;margin:0 auto}
+  .final-cta h2{color:#fff}
+  .final-cta p{color:#CDC8BC;max-width:560px;margin:14px auto 28px}
+  .final-cta .btn-lime{margin:0 6px}
+
+  footer{padding:20px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:0}
+  body > *:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<div class="guarantee-strip" style="background:var(--ink);color:var(--lime);text-align:center;padding:9px 20px;font-size:13px;font-weight:600;letter-spacing:.02em">
+  <span style="display:inline-flex;align-items:center;gap:8px">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5 4.9.7-3.5 3.4.8 4.9L8 12.2 3.8 14.5l.8-4.9L1.1 6.2 6 5.5 8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    <strong>Money-back guarantee<a href="#guarantee-terms" style="color:var(--lime);text-decoration:none">*</a></strong> <span style="color:#fff;font-weight:400">If Den 1880 isn't right for you, we'll refund it. No questions, no hassle.</span>
+  </span>
+</div>
+<header class="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-cta">
+    <a class="btn btn-ghost btn-sm" href="corporate/" style="font-size:13px">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="/meeting-rooms">Meeting Rooms</a>
+  <a href="#">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Memberships at Den 1880 · Uptown Waterloo</span>
+    <h1>The most comprehensive workspace in <em>Waterloo Region.</em></h1>
+    <p class="lede">Den 1880 brings workspace, wellness, podcasting, and event experiences together under one heritage roof. It's the only place in KW where you can host a client meeting, hit the gym, cold plunge, record a podcast, and host a launch party, all in the same day.</p>
+
+    <div class="toggle-wrap">
+      <div class="toggle" role="tablist" aria-label="Billing cadence">
+        <span class="annual-pill" aria-hidden="true">Save 2 months</span>
+        <button class="active" data-cad="monthly" role="tab" aria-selected="true">Monthly</button>
+        <button data-cad="annual" role="tab" aria-selected="false">Annual</button>
+      </div>
+    </div>
+
+    <p class="hero-fineprint"><strong>The premium boutique workspace in KW.</strong> &nbsp;·&nbsp; <strong style="color:var(--lime-deep)">Money-back guarantee<a href="#guarantee-terms" style="color:var(--lime-deep);text-decoration:none">*</a></strong> &nbsp;·&nbsp; 30 days notice to cancel anytime.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="memberships">
+      <div class="mb-header">
+        <span class="mb-eyebrow">A few days a week, every day, or always</span>
+        <h2>Memberships</h2>
+        <p>Tiers shaped around how often you'll actually be here. Performance Club access and member discounts scale up with the higher tiers.</p>
+      </div>
+    <div class="plans">
+
+      <div class="plan" data-tier="cadence">
+        <div class="ptitle">Cadence</div>
+        <div class="ptag">The dedicated coworking membership. Perfect for 2 to 3 days a week.</div>
+        <div class="annual-note">Billed annually · 2 months free</div>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="288" data-annual="240">288</span>
+          <span class="unit">/ mo</span>
+        </div>
+        <div class="perday"><span class="perday-num" data-monthly-perday="$29" data-annual-perday="$24">$29</span> per visit · 10 visits/mo</div>
+        <div class="price-sub"><span class="annual-eq" style="display:none">$2,880/yr billed up front · </span>vs $450 as individual day passes</div>
+        <div class="anchor">Your premium coworking base, on your schedule.</div>
+        <ul>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>10 coworking days/month</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mon to Fri, 8am to 8pm</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary coffee, tea, and fruit</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Access to Library, Theatre, lounges &amp; silent phone booths</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary yoga &amp; pilates classes, happy hours and bagel day (on day of visit)</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>15% off Hustl+Flow + local perks</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free Lunch Delivery from The Three</li>
+          <li class="disabled"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>No Fitness Club</li>
+          <li class="disabled"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>No member discount on meetings</li>
+        </ul>
+        <div class="cta"><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58570">Get Cadence</a></div>
+        <div class="micro">2-month minimum. Want unlimited + gym? Go Club.</div>
+        <div class="guarantee-badge" style="visibility:hidden" aria-hidden="true">spacer</div>
+      </div>
+
+      <div class="plan featured" data-tier="club">
+        <div class="ribbon">Most Popular · Best Value</div>
+        <div class="ptitle">Club</div>
+        <div class="ptag">For the daily operator. Unlimited workdays + <a href="https://performanceclub.ca/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">The Performance Club access</a>.</div>
+        <div class="annual-note">Billed annually · 2 months free</div>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="388" data-annual="323">388</span>
+          <span class="unit">/ mo</span>
+        </div>
+        <div class="perday"><span class="perday-num" data-monthly-perday="$18" data-annual-perday="$15">$18</span> per workday · cheaper than coffee + lunch</div>
+        <div class="price-sub"><span class="annual-eq" style="display:none">$3,880/yr billed up front · </span>~22 workdays included every month</div>
+        <div class="anchor">Unlimited access, every workday.</div>
+        <ul>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited coworking, Mon to Fri 8 to 8</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="https://performanceclub.ca/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">The Performance Club access</a></li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary coffee, tea, and fruit</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Access to Library, Theatre, lounges &amp; silent phone booths</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary yoga &amp; pilates classes, happy hours and bagel day</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20% off meeting rooms + The Vault Podcast Studio</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>15% off Hustl+Flow + local perks</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free Lunch Delivery from The Three</li>
+        </ul>
+        <div class="cta"><a class="btn btn-primary" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58571%2C58597%2C58652">Become a Member</a></div>
+        <div class="micro">2-month minimum. 30 days notice to cancel.</div>
+        <div class="guarantee-badge"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5 4.9.7-3.5 3.4.8 4.9L8 12.2 3.8 14.5l.8-4.9L1.1 6.2 6 5.5 8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg> Money-back guarantee<a href="#guarantee-terms" style="text-decoration:none;color:var(--lime-deep);font-weight:700">*</a></div>
+      </div>
+
+      <div class="plan" data-tier="resident">
+        <div class="ptitle">Resident</div>
+        <div class="ptag">Your own desk plus 24/7 access. For the everyday user.</div>
+        <div class="annual-note">Billed annually · 2 months free</div>
+        <div class="price">
+          <span class="currency">$</span>
+          <span class="amount" data-monthly="588" data-annual="490">588</span>
+          <span class="unit">/ mo</span>
+        </div>
+        <div class="perday"><span class="perday-num" data-monthly-perday="$27" data-annual-perday="$22">$27</span> per workday · 24/7 dedicated desk</div>
+        <div class="price-sub"><span class="annual-eq" style="display:none">$5,880/yr billed up front · </span>Your own dedicated desk with 24/7 access.</div>
+        <div class="anchor">For the everyday user. Limited Inventory.</div>
+        <ul>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Club, plus:</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated live-edge oak sit-to-stand desk</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>High-back leather chair</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 access to your desk*</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Business Address &amp; Mail Service</li>
+          <li class="hero-feature"><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1 hour/mo meeting room credit</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary coffee, tea, and fruit</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Access to Library, Theatre, lounges &amp; silent phone booths</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Complimentary yoga &amp; pilates classes, happy hours and bagel day</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20% off meeting rooms + The Vault Podcast Studio</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Access to Private kitchenette and members only meeting room on Teams Floor</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>15% off Hustl+Flow + local perks</li>
+          <li><svg class="tick" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free Lunch Delivery from The Three</li>
+        </ul>
+        <div class="cta"><a class="btn btn-ghost" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58572%2C58598%2C58653">Reserve a Desk</a></div>
+        <div class="micro">2-month minimum. *24/7 on Teams Floor only.</div>
+        <div class="guarantee-badge"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 4.5 4.9.7-3.5 3.4.8 4.9L8 12.2 3.8 14.5l.8-4.9L1.1 6.2 6 5.5 8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg> Money-back guarantee<a href="#guarantee-terms" style="text-decoration:none;color:var(--lime-deep);font-weight:700">*</a></div>
+      </div>
+
+    </div>
+    </div>
+
+    <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--muted)">
+      Bringing 10+ employees? <a href="#enterprise" style="color:var(--plum);font-weight:600;font-size:14px">Enterprise Plans &rarr;</a> &nbsp;·&nbsp;
+      Private office? <a href="#teams" style="color:var(--plum);font-weight:600">Teams Floor &rarr;</a> &nbsp;·&nbsp;
+      Just a Waterloo address? <a href="#mail" style="color:var(--plum);font-weight:600">Business Mail $88/mo &rarr;</a>
+    </p>
+
+    <div class="daypass">
+      <div class="dp-header">
+        <span class="dp-eyebrow">Once a week or occasional?</span>
+        <h3>Day Pass</h3>
+        <p>One day of coworking in the Library, Theatre, Lobby &amp; Kitchen. Mon to Fri, 8am to 5pm. Espresso, sparkling water, parking included. Three ways to buy.</p>
+      </div>
+      <div class="dp-options">
+        <div class="dp-option">
+          <div class="dp-label">Single Day Pass</div>
+          <div class="dp-price">$45<small>/day</small></div>
+          <div class="dp-sub">Pay per visit, no commitment, valid anytime within 90 days</div>
+          <div class="dp-cta"><a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&products=48328">Buy a Day Pass</a></div>
+        </div>
+        <div class="dp-option featured">
+          <span class="dp-ribbon">Best Value</span>
+          <div class="dp-label">4-Pack Monthly</div>
+          <div class="dp-toggle">
+            <button class="dp-tab active" data-plan="monthly">Monthly</button>
+            <button class="dp-tab" data-plan="pack">One-Time</button>
+          </div>
+          <!-- Monthly plan (default / featured) -->
+          <div class="dp-plan" id="dp-monthly">
+            <div class="dp-price">$138<small>/mo</small></div>
+            <div class="dp-sub">4 visits/month · $34.50/day · 2-month minimum</div>
+            <div class="dp-cta">
+              <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58651">Subscribe Monthly</a>
+              <a class="dp-onetimelnk" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&products=53350">Prefer one-time? Buy a 4-Pack for $168 →</a>
+            </div>
+          </div>
+          <!-- One-time 4-pack -->
+          <div class="dp-plan hidden" id="dp-pack">
+            <div class="dp-price">$168</div>
+            <div class="dp-sub">$42/day · 4 visits, valid 90 days from purchase</div>
+            <div class="dp-cta">
+              <a class="btn btn-ghost btn-sm" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&products=53350">Buy a 4-Pack</a>
+              <a class="dp-onetimelnk" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58651">Switch to monthly for $138/mo →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mail" style="margin-top:56px;scroll-margin-top:120px">
+      <h2 style="text-align:center;margin-bottom:8px">Add-ons &amp; lighter plans</h2>
+      <p class="sub">Mix and match. Layer in only what you need.</p>
+      <div class="addons">
+        <div class="addon">
+          <span class="pill">Member Add-on</span>
+          <h3>Premium Wellness</h3>
+          <div class="price">$140<small>/mo</small></div>
+          <p>Enjoy access to our private sauna, cold plunge, hot tub, massage chairs and nap pods. Premium members also enjoy daily towel service &amp; their own custom robe. Add to any <strong>Club</strong> or <strong>Resident</strong> membership. <em>Onboarding session required.</em></p>
+          <a class="addon-btn" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/?location=27903&plans=58597%2C58598">Explore Wellness Add-On</a>
+        </div>
+        <div class="addon">
+          <span class="pill">Landmark Address</span>
+          <h3>Business Address &amp; Mail</h3>
+          <div class="price">$88<small>/mo</small></div>
+          <p>Register your business at our historic Uptown Waterloo address and establish a professional business presence in the heart of the city. Includes physical mail handling for up to two contacts, email notifications, secure mail storage, and 20% off meeting room bookings. Optional add-ons are available, including a suite number ($28/month), parcel handling ($48/month), and more.</p>
+          <a class="addon-btn" href="business-mail.html">Explore Business Mail</a>
+        </div>
+        <div class="addon">
+          <span class="pill">Teams</span>
+          <h3>Day Pass Bundles</h3>
+          <div class="price">From $35<small>/day</small></div>
+          <p>Designed for distributed and hybrid teams. Available as a 10-pack ($350) or 20-pack ($630), starting at $35/day. Passes are shareable across your company, valid for 90 days, and built for collaboration days, sprint weeks, and visiting team members.</p>
+          <a class="addon-btn" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/">Explore Bundles</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Compare every feature</h2>
+    <p class="sub">See exactly what's included where.</p>
+
+    <div class="compare">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col">Cadence<br><span class="lite">$288/mo</span></th>
+            <th class="col col-feat">Club<br><span style="color:#fff">$388/mo</span></th>
+            <th class="col">Resident<br><span class="lite">$588/mo</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-section" colspan="4">Workspace</td></tr>
+          <tr><td>Coworking days included</td><td class="col">10 / mo</td><td class="col col-feat"><strong>Unlimited</strong></td><td class="col"><strong>Unlimited</strong></td></tr>
+          <tr><td>Hours of Access</td><td class="col">M-F 8-8</td><td class="col col-feat">M-F 8-8</td><td class="col"><strong>24/7*</strong></td></tr>
+          <tr><td>Dedicated workstation</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Library, Theatre, Kitchen &amp; Lounges</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Silent phone booths</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+
+          <tr><td class="row-section" colspan="4">Performance Club (Fitness &amp; Wellness)</td></tr>
+          <tr><td>Strength &amp; cardio (complete Peloton Suite (Bikes, Treads, Row), Smith machine, and full Olympic lifting sets)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Functional zone (TRX, ropes, plyo, GORUCK)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Mobility zone, recovery fridge</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Complimentary yoga &amp; pilates classes</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cell-note">Visit days</span></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Premium Wellness (sauna, cold plunge, hot tub, nap pods, massage chairs)</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat">+$140 add-on</td><td class="col">+$140 add-on</td></tr>
+
+          <tr><td class="row-section" colspan="4">Hospitality &amp; Tools</td></tr>
+          <tr><td>Complimentary espresso, coffee, tea, sparkling water &amp; fruit</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Reception &amp; on-site team</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>High-speed WiFi, printing, scanning</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Meeting room &amp; podcast studio discount</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><strong>20% off</strong></td><td class="col"><strong>20% off</strong></td></tr>
+          <tr><td>Meeting room credits included</td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col"><strong>1 hr/mo</strong></td></tr>
+          <tr><td>Parking passes (3 lots)</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+
+          <tr><td class="row-section" colspan="4">Community &amp; Perks</td></tr>
+          <tr><td>Monthly member socials and networking events</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+          <tr><td>Local perks including 15% off Hustl+Flow classes, Free Lunch Delivery from The Three, and exclusive discounts at local restaurants &amp; hotels</td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+
+          <tr><td class="row-section" colspan="4">Commitment</td></tr>
+          <tr><td>Minimum term</td><td class="col">2 months</td><td class="col col-feat">2 months</td><td class="col">2 months</td></tr>
+          <tr><td>Notice to cancel</td><td class="col">30 days</td><td class="col col-feat">30 days</td><td class="col">30 days</td></tr>
+          <tr><td><strong>Money-back guarantee<a href="#guarantee-terms" style="text-decoration:none;color:var(--lime-deep)">*</a></strong></td><td class="col"><svg class="dash" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></td><td class="col col-feat"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="col"><svg class="tick" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="enterprise">
+  <div class="container">
+    <div class="teams" style="background:linear-gradient(135deg,#0E0E0E 0%,#1F1230 100%)">
+      <div>
+        <span class="scarce">Custom plans · Corporate health benefit · Third-space syncing</span>
+        <h2>Enterprise</h2>
+        <p>For companies giving their team a real third place to work, train, and connect, not another perk that goes unused. Bulk Club memberships, meeting room minutes pooled across the team, Performance Club access, podcast studio credits, and event venue privileges. Built for hybrid workforces who need somewhere to sync in person that isn't HQ or a hotel lobby.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-lime" href="https://den1880.optixapp.com/inquiry/">Talk to us about Enterprise</a>
+          <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+        </div>
+      </div>
+      <div>
+        <div class="team-stats">
+          <div class="stat"><div class="num" style="font-size:22px">Pooled</div><div class="lbl">Meeting room minutes</div></div>
+          <div class="stat"><div class="num" style="font-size:22px">Bundled</div><div class="lbl">Club + Performance Club</div></div>
+          <div class="stat"><div class="num" style="font-size:22px">Flexible</div><div class="lbl">Transferable seats</div></div>
+          <div class="stat"><div class="num" style="font-size:22px">Custom</div><div class="lbl">Pricing &amp; terms</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:var(--muted);font-size:14px;max-width:760px;margin-left:auto;margin-right:auto">
+      An employee wellness benefit, a hybrid-workforce HQ, and a place to host clients, in one membership your CFO can put through procurement. Designed for companies of 10+ employees.
+    </p>
+  </div>
+</section>
+
+<section id="vault" style="padding-top:0">
+  <div class="container">
+    <h2>The Vault · Podcast &amp; Content Studio</h2>
+    <p class="sub">Built inside a former 1900s bond safe. Three track-mounted cameras, 4 Shure microphones, broadcast-grade lighting, Frame TV branding display, soundproofed walls. There is nothing like it in Waterloo Region.</p>
+
+    <div style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;max-width:880px;margin:0 auto">
+      <table style="width:100%;border-collapse:collapse;font-size:15px">
+        <thead>
+          <tr style="background:var(--ink);color:#fff">
+            <th style="padding:14px 18px;text-align:left;font-weight:600">Rate</th>
+            <th style="padding:14px 18px;text-align:right;font-weight:600">Hourly</th>
+            <th style="padding:14px 18px;text-align:right;font-weight:600">4-hr block</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:14px 18px;border-bottom:1px solid var(--line)"><strong>Day Pass + Cadence members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)">$95</td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)">$340</td></tr>
+          <tr style="background:rgba(200,224,32,.10)"><td style="padding:14px 18px;border-bottom:1px solid var(--line)"><strong>Club member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$272</strong></td></tr>
+          <tr style="background:rgba(200,224,32,.10)"><td style="padding:14px 18px"><strong>Resident member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right"><strong>$272</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--muted)">
+      Enterprise Plans include pooled studio credits. Toronto comparables average $100/hr. The Vault delivers premium production at boutique rates, in a venue you can't replicate.
+    </p>
+  </div>
+</section>
+
+<section id="teams">
+  <div class="container">
+    <div class="teams">
+      <div>
+        <span class="scarce">Suites are 80% leased · Limited availability</span>
+        <h2>Teams &amp; Private Offices</h2>
+        <p>20 fully furnished private offices for teams of 1 to 25+, on a secure Teams Floor with 24/7 access, sit-to-stand desks, private kitchenette, and your own keyless suite. Skip the commercial lease, the IT setup, the furniture order. Your team is productive Monday morning.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-lime" href="https://den1880.optixapp.com/inquiry/">Inquire about Teams</a>
+          <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+        </div>
+      </div>
+      <div>
+        <div class="team-stats">
+          <div class="stat"><div class="num">1-25+</div><div class="lbl">Team sizes</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">Secure access</div></div>
+          <div class="stat"><div class="num">80%</div><div class="lbl">Currently leased</div></div>
+          <div class="stat"><div class="num">$0</div><div class="lbl">Furniture &amp; setup</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <h2>The Real Value of Den 1880 Membership</h2>
+    <p class="sub">Den 1880 membership combines workspace, fitness, wellness, hospitality, and professional amenities into one offering. Here's what similar services typically cost separately in KW.</p>
+
+    <div class="stack">
+      <div class="stack-row"><span>Premium private office lease + utilities (Uptown, ~150 sf)</span><span class="v">$1,400/mo</span></div>
+      <div class="stack-row"><span>Boutique gym membership (Movati Select or F45 equiv.)</span><span class="v">$179/mo</span></div>
+      <div class="stack-row"><span>Daily espresso bar + sparkling water tab</span><span class="v">$140/mo</span></div>
+      <div class="stack-row"><span>Meeting rooms (4 hrs/mo at KW market rates)</span><span class="v">$200/mo</span></div>
+      <div class="stack-row"><span>Networking + workshops (3 events/mo at $40)</span><span class="v">$120/mo</span></div>
+      <div class="stack-row"><span>Reception, mail handling, printing, IT, cleaning</span><span class="v">$180/mo</span></div>
+      <div class="stack-row"><span>Parking pass (Uptown core)</span><span class="v">$120/mo</span></div>
+      <div class="stack-total"><span class="lbl">Replacement value</span><span class="v">$2,339/mo</span></div>
+      <div class="stack-final"><span class="lbl">Club at Den 1880</span><span class="v">$388/mo</span></div>
+      <div class="stack-disclaimer">Local KW market estimates as of 2026. Resident adds your own dedicated desk, 24/7 access, and 1 hr/mo of meeting room credit for $588/mo. Premium Wellness is available as an add-on to Club or Resident.</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="guarantee" id="guarantee-terms" style="background:linear-gradient(135deg,#FBF9F3 0%,#F5F0E2 100%);border:2px solid var(--ink);scroll-margin-top:120px">
+      <div class="seal" style="width:120px;height:120px;background:var(--lime);font-size:14px">Money<br>back<br>guarantee</div>
+      <div>
+        <h3 style="font-size:28px">Try Club or Resident, risk-free.</h3>
+        <p style="font-size:16px;color:var(--ink-2)"><strong>If Den 1880 isn't right for you, we'll refund what you paid.</strong> Give it a real try. If it doesn't fit, you walk away whole.</p>
+        <p style="font-size:12px;color:var(--muted);margin-top:14px"><strong>* Terms:</strong> The money-back guarantee is claimable within the first month of your membership when our service hasn't met expectations. We'll review your concern, work with you to make it right, and issue a refund if we can't. One claim per member. Applies to Club and Resident memberships only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <h2>What members say</h2>
+    <p class="sub">Independent professionals, agencies, and growing teams have made Den 1880 home.</p>
+    <div class="quotes">
+      <div class="quote">
+        <p>Den 1880 strikes a rare balance between calm and focused while still feeling genuinely social and alive. When I host clients, I'm always proud to bring them into the space.</p>
+        <div class="who">Patrick Westaway<span>Westaway Corporate Law</span></div>
+      </div>
+      <div class="quote">
+        <p>It's a coworking space that avoids the usual extremes. Not corporate, not bro-ey, not generic. Both serious and inspiring. Far more pleasant than any office I've worked in.</p>
+        <div class="who">Roger Kirkness<span>CEO &amp; Founder, Convictional</span></div>
+      </div>
+      <div class="quote">
+        <p>Almost 2 years in our private office. Fitness classes, parking, socials, complimentary bagels. It really feels more like a community than a workplace.</p>
+        <div class="who">Hannah Lusty<span>The Paragon Group</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container" style="max-width:820px">
+    <h2>Common questions</h2>
+    <p class="sub">Quick answers to the things people usually ask before joining.</p>
+
+    <details>
+      <summary>Which plan is right for me?</summary>
+      <p>If you'll be here a couple times a week or more and want the gym, <strong>Club</strong> is the best value at $388/mo (about $18/workday). Coming 2 to 3 days a week but don't want the gym? <strong>Cadence</strong> at $288/mo gives you 10 visits. Want your own desk plus 24/7 access? <strong>Resident</strong> at $588/mo includes everything in Club, your dedicated workstation, business address, and 1 hour of meeting room credits each month. Want the wellness amenities too? Add <strong>Premium Wellness</strong> ($140/mo) to any Club or Resident membership. Coming once a week or less? Day passes are $45 each, or grab a 4-pack at $168 (or go monthly at $138/mo for 4 visits recurring). All in the Day Pass section above.</p>
+    </details>
+
+    <details>
+      <summary>How does the money-back guarantee work?</summary>
+      <p>It's straightforward. <strong>If Den 1880 isn't right for you, we'll refund what you paid.</strong> Talk to the front desk or email hello@den1880.co. We'll review your concern, work with you to make it right, and issue a refund if we can't.</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px"><strong>Terms:</strong> the money-back guarantee is claimable within the first month of your membership when our service hasn't met expectations. One claim per member. Applies to <strong>Club</strong> and <strong>Resident</strong> memberships only. Day passes (including 4-pack and monthly subscription) and Cadence memberships aren't covered.</p>
+    </details>
+
+    <details>
+      <summary>What's the catch with the 2-month minimum?</summary>
+      <p>None. Club and Resident members are covered by the money-back guarantee in the first month if our service hasn't met expectations. After that you go month-to-month with 30 days notice to cancel. We use the 2-month minimum because members tell us it takes about three weeks to build a routine here, and we'd rather you actually experience it than churn after a single trial week.</p>
+    </details>
+
+    <details>
+      <summary>How does Performance Club work?</summary>
+      <p>The Performance Club Gym is included with <strong>Club</strong> and <strong>Resident</strong> memberships. <strong>Cadence</strong> and Day Pass options (single, 4-pack, or monthly subscription) do not include gym access. If the gym matters, go Club or higher. The <strong>Premium Wellness Add-On</strong> (sauna, cold plunge, hot tub, massage chairs, nap pods, towel and robe service) is $140/mo, and is available as an add-on to any Club or Resident membership.</p>
+    </details>
+
+    <details>
+      <summary>Can I bring clients or guests?</summary>
+      <p>Yes, guests are welcome at Den 1880. Members are welcome to host guests during meeting room bookings, and <strong>Club</strong> and <strong>Resident</strong> Members may also bring guests into the space for short visits of up to 90 minutes. Guests are not permitted for Day Pass users. If a guest will be staying longer than 90 minutes, they must either purchase a Day Pass or be included as part of a booked meeting room reservation. Members are responsible for the conduct of their guests while on site, and repeated or extended guest usage may require a membership upgrade.</p>
+    </details>
+
+    <details>
+      <summary>Is there parking?</summary>
+      <p>Three lots are available including one behind our building + two offsite lots at 24 and 32 Erb St E., with parking passes available for members and day pass visitors. The LRT is right across the street, and Uptown Waterloo is fully walkable to cafés, lunch spots, and the universities.</p>
+    </details>
+
+    <details>
+      <summary>I just need a business address, do I have to be a member?</summary>
+      <p>No. <strong>Business Address &amp; Mail</strong> is $88/mo standalone. You get our heritage 14 Erb St. W address, 2 contacts, email notifications on mail arrival, secure storage, and 20% off meeting rooms when you visit. Add a suite number for unlimited names ($28) or parcel handling ($48). 6-month minimum. <a href="business-mail.html" style="color:var(--plum);font-weight:600">See the full plan &rarr;</a></p>
+    </details>
+  </div>
+</section>
+
+<section style="padding-bottom:0">
+  <div class="container">
+    <div class="final-cta">
+      <h2>Come see it before you decide.</h2>
+      <p>Tours run weekday mornings and afternoons. Walk the Library, Theatre, The Vault podcast studio, and The Performance Club. Meet the team, grab an espresso, ask anything. No pressure.</p>
+      <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a class="btn btn-ghost" style="border-color:#fff;color:#fff" target="_blank" rel="noopener" href="https://den1880.optixapp.com/signup/">Skip the tour, just join</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Den 1880 · 14 Erb St. West, Waterloo, ON N2L 1S7 · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.toggle button');
+  const amounts = document.querySelectorAll('.amount[data-monthly]');
+  const perdayNums = document.querySelectorAll('.perday-num[data-monthly-perday]');
+  const annualNotes = document.querySelectorAll('.annual-note');
+  const annualEqs = document.querySelectorAll('.annual-eq');
+
+  buttons.forEach(b => {
+    b.addEventListener('click', () => {
+      buttons.forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+      b.classList.add('active');
+      b.setAttribute('aria-selected','true');
+      const cad = b.dataset.cad;
+      const isAnnual = cad === 'annual';
+
+      amounts.forEach(a => { a.textContent = isAnnual ? a.dataset.annual : a.dataset.monthly; });
+      perdayNums.forEach(p => { p.textContent = isAnnual ? p.dataset.annualPerday : p.dataset.monthlyPerday; });
+      annualNotes.forEach(n => { n.classList.toggle('show', isAnnual); });
+      annualEqs.forEach(e => { e.style.display = isAnnual ? 'inline' : 'none'; });
+    });
+  });
+
+  // Day pass toggle
+  function switchDpPlan(plan) {
+    document.querySelectorAll('.dp-tab').forEach(t => t.classList.toggle('active', t.dataset.plan === plan));
+    document.getElementById('dp-monthly').classList.toggle('hidden', plan !== 'monthly');
+    document.getElementById('dp-pack').classList.toggle('hidden', plan !== 'pack');
+  }
+  document.querySelectorAll('.dp-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchDpPlan(tab.dataset.plan));
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+
+</body>
+</html>

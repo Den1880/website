@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Application Received — Den 1880</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('Monschone.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root{
+    --ink:#0E0E0E;
+    --paper:#F7F4EE;
+    --card:#FFFFFF;
+    --line:#E6E1D6;
+    --muted:#6F6A60;
+    --lime:#C8E020;
+    --plum:#6B4E8E;
+    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  h1,h2{font-family:'Monschone','Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper)}
+  .logo{display:inline-flex;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-sm{padding:9px 16px;font-size:13px}
+  .main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:52px 48px;box-shadow:var(--shadow);text-align:center;max-width:520px;width:100%}
+  .check-circle{width:72px;height:72px;border-radius:50%;background:var(--lime);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+  .card h1{font-size:clamp(24px,3vw,34px);margin-bottom:14px}
+  .card p{color:#4A453D;font-size:15px;line-height:1.7;margin-bottom:18px}
+  .card .divider{border:0;border-top:1px solid var(--line);margin:24px 0}
+  .card .next-steps{text-align:left;background:#F7F4EE;border-radius:10px;padding:18px 20px;font-size:14px;color:#4A453D}
+  .card .next-steps ol{padding-left:18px;margin:8px 0 0;line-height:1.8}
+  .card .cta-links{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+  footer{padding:16px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+</header>
+
+<div class="main">
+  <div class="card">
+    <div class="check-circle">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16l7 7 13-13" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>Application Received</h1>
+    <p>Thank you for applying for Business Address &amp; Mail at Den 1880. We've received your application and will be in touch within 1 to 2 business days.</p>
+
+    <div class="next-steps">
+      <strong>What happens next:</strong>
+      <ol>
+        <li>Our team reviews your application</li>
+        <li>We'll email you at the address you provided</li>
+        <li>If approved, you'll receive your agreement via Optix for digital signature</li>
+        <li>Once signed, your Business Address is active</li>
+      </ol>
+    </div>
+
+    <p style="margin-top:18px;font-size:13px;color:var(--muted)">Questions? Email us at <a href="mailto:hello@den1880.co" style="color:var(--plum);font-weight:600">hello@den1880.co</a></p>
+
+    <div class="cta-links">
+      <a href="memberships.html" class="btn btn-ghost btn-sm">Explore Memberships</a>
+      <a href="/" class="btn btn-ghost btn-sm">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Den 1880 &middot; 14 Erb St. West, Waterloo, ON N2L 1S7 &middot; <a href="mailto:hello@den1880.co">hello@den1880.co</a>
+</footer>
+
+</body>
+</html>
