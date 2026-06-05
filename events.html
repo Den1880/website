@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events · Den 1880</title>
+  <meta name="description" content="Den 1880 hosts corporate meetings, team offsites, client appreciation events, product launches, panel discussions and more — in a historic Uptown Waterloo venue unlike anything else in the region." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0E0E0E;
+      --ink-2: #2A2A2A;
+      --paper: #F7F4EE;
+      --card: #F7F4EE;
+      --line: #E6E1D6;
+      --muted: #6F6A60;
+      --lime: #C8E020;
+      --lime-deep: #9DB315;
+      --plum: #6B4E8E;
+      --shadow: 0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
+      --shadow-lift: 0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.025em; }
+    h2 { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
+    h3 { font-size: clamp(20px, 2vw, 26px); }
+    p { margin: 0 0 .8em; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .logo { display: inline-flex; align-items: center; }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; font-family: 'Inter', sans-serif; }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: #fff; }
+    .btn-lime { background: var(--lime); color: var(--ink); }
+    .btn-lime:hover { background: var(--lime-deep); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; }
+    .nav-links .btn-ghost { border-color: transparent; }
+    .nav-links .btn-ghost:hover { background: rgba(14,14,14,.07); color: var(--ink); }
+    .nav-links .btn-lime { background: var(--ink); color: #fff; }
+    .nav-links .btn-lime:hover { background: #333; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; padding: 0; flex-shrink: 0; }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .25s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; transition: color .15s ease; }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--lime-deep); }
+    .mobile-menu .mobile-cta { background: var(--lime); color: var(--ink); text-align: center; margin-top: 12px; padding: 14px; border-radius: 999px; font-weight: 700; border-bottom: none; }
+    .mobile-menu .mobile-cta:hover { background: var(--lime-deep); }
+    @media(max-width: 768px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 57px;
+      position: relative;
+      height: 72vh;
+      min-height: 500px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+    .hero-content { position: relative; z-index: 1; padding: 56px 48px; max-width: 820px; }
+    .hero-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 16px; }
+    .hero-content h1 { color: #fff; }
+    .hero-content h1 em { font-style: italic; color: var(--lime); }
+    .hero-content p { color: rgba(255,255,255,0.78); font-size: clamp(16px, 1.5vw, 18px); margin-top: 16px; max-width: 560px; line-height: 1.65; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    @media(max-width: 600px) { .hero-content { padding: 32px 24px; } }
+
+    /* ── INTRO ── */
+    .intro { padding: 72px 0 56px; text-align: center; }
+    .intro .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .intro h2 { margin-bottom: 16px; }
+    .intro h2 em { font-style: italic; color: var(--plum); }
+    .intro p { color: var(--ink-2); font-size: 17px; max-width: 640px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── EVENT TYPES ── */
+    .event-types { padding: 0 0 72px; }
+    .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .event-tile { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--ink); }
+    .event-tile img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: opacity .3s ease, transform .4s ease; display: block; }
+    .event-tile:hover img { opacity: 0.5; transform: scale(1.04); }
+    .event-tile-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(transparent, rgba(14,14,14,0.72)); }
+    .event-tile-label h3 { color: #fff; font-size: clamp(16px, 1.6vw, 20px); margin-bottom: 4px; }
+    .event-tile-label p { color: rgba(255,255,255,0.72); font-size: 13px; margin: 0; line-height: 1.4; font-family: 'Inter', sans-serif; }
+    @media(max-width: 768px) { .event-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width: 500px) { .event-grid { grid-template-columns: 1fr; } }
+
+    /* ── THE THEATRE ── */
+    .theatre { padding: 80px 0; background: var(--ink); color: #fff; }
+    .theatre-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .theatre-img { width: 100%; height: 480px; object-fit: cover; border-radius: var(--radius); }
+    .theatre-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
+    .theatre-text h2 { color: #fff; margin-bottom: 18px; }
+    .theatre-text h2 em { font-style: italic; color: var(--lime); }
+    .theatre-text p { color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+    .theatre-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+    .spec-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.8); }
+    .spec-item::before { content: '→'; color: var(--lime); flex-shrink: 0; margin-top: 1px; }
+    @media(max-width: 768px) { .theatre-inner { grid-template-columns: 1fr; gap: 36px; } .theatre-img { height: 280px; } .theatre-specs { grid-template-columns: 1fr; } }
+
+    /* ── DAYTIME HIRE ── */
+    .daytime { padding: 80px 0; }
+    .daytime-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .daytime-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .daytime-text h2 { margin-bottom: 16px; }
+    .daytime-text h2 em { font-style: italic; color: var(--plum); }
+    .daytime-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+    .daytime-detail { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
+    .daytime-detail h3 { margin-bottom: 20px; font-size: 18px; }
+    .detail-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .detail-row:last-of-type { border-bottom: none; }
+    .detail-label { color: var(--ink-2); }
+    .detail-value { font-weight: 600; color: var(--ink); text-align: right; }
+    .addons { margin-top: 24px; }
+    .addons h4 { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; font-family: 'Inter', sans-serif; }
+    .addon-tag { display: inline-block; font-size: 12px; font-weight: 500; padding: 5px 12px; background: rgba(107,78,142,.1); color: var(--plum); border-radius: 999px; margin: 3px 4px 3px 0; }
+    .daytime-note { font-size: 13px; color: var(--muted); margin-top: 20px; line-height: 1.55; font-style: italic; }
+    @media(max-width: 768px) { .daytime-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+    /* ── EVENING EVENTS ── */
+    .evening { padding: 80px 0; background: var(--plum); color: #fff; }
+    .evening-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+    .evening-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
+    .evening-text h2 { color: #fff; margin-bottom: 16px; }
+    .evening-text h2 em { font-style: italic; color: var(--lime); }
+    .evening-text p { color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+    .evening-list { list-style: none; padding: 0; margin: 20px 0 28px; }
+    .evening-list li { color: rgba(255,255,255,0.82); font-size: 15px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.12); display: flex; align-items: flex-start; gap: 10px; }
+    .evening-list li::before { content: '→'; color: var(--lime); flex-shrink: 0; }
+    .evening-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lift); }
+    @media(max-width: 768px) { .evening-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+
+    /* ── LARGER EVENTS TEASER ── */
+    .teaser { background: var(--paper); border-top: 1px solid var(--line); }
+    .teaser .container { padding: 72px 24px 48px; text-align: center; }
+    .teaser .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .teaser h2 { margin-bottom: 14px; }
+    .teaser h2 em { font-style: italic; color: var(--plum); }
+    .teaser p { color: var(--ink-2); font-size: 16px; max-width: 560px; margin: 0 auto 28px; line-height: 1.7; }
+    .parties-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; height: 220px; }
+    .parties-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media(max-width: 768px) { .parties-grid { grid-template-columns: repeat(3, 1fr); height: auto; } .parties-grid img { height: 140px; } }
+    @media(max-width: 480px) { .parties-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── INQUIRY FORM ── */
+    .inquiry { padding: 80px 0; background: var(--ink); color: #fff; }
+    .inquiry-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+    .inquiry-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
+    .inquiry-text h2 { color: #fff; margin-bottom: 16px; }
+    .inquiry-text h2 em { font-style: italic; color: var(--lime); }
+    .inquiry-text p { color: rgba(255,255,255,0.72); font-size: 16px; line-height: 1.7; margin-bottom: 12px; }
+    .inquiry-text .contact-line { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 24px; }
+    .inquiry-text .contact-line a { color: var(--lime); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-full { grid-column: 1 / -1; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #fff;
+      background: rgba(255,255,255,0.07);
+      transition: border-color .15s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--lime); }
+    .form-group select option { background: #1a1a1a; color: #fff; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit { padding: 14px 32px; font-size: 15px; font-weight: 700; background: var(--lime); color: var(--ink); border: none; border-radius: 999px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background .15s, transform .15s; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .btn-submit:hover { background: var(--lime-deep); transform: translateY(-1px); }
+    @media(max-width: 768px) { .inquiry-inner { grid-template-columns: 1fr; gap: 40px; } .form-grid { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    footer { background: #080808; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="events.html">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+    <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="meeting-rooms.html">Meeting Rooms</a>
+  <a href="events.html">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="the-vault-podcast-studio.html">Podcast Studio</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
+  <div class="hero-content">
+    <span class="hero-eyebrow">Events at Den 1880 · Uptown Waterloo</span>
+    <h1>Where <em>good work</em> gets celebrated.</h1>
+    <p>A historic venue with a 16-foot video wall, private bar, full kitchen, and a space that adapts to however you need it — from a focused morning session to a full evening with your team.</p>
+    <div class="hero-actions">
+      <a class="btn btn-lime" href="#inquiry">Inquire About Your Event</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.45);color:#fff" href="#theatre">See the Space</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <h2><em>More</em> than a meeting room.</h2>
+    <p>Den 1880 hosts everything from early morning strategy sessions to evening client events. The space is flexible, the AV is built-in, and the atmosphere is unlike any conference centre you've been in before.</p>
+  </div>
+</section>
+
+<!-- EVENT TYPES GRID -->
+<section class="event-types">
+  <div class="event-grid">
+    <div class="event-tile">
+      <img src="assets/Events/258A3532.jpg" alt="Corporate presentations at Den 1880" />
+      <div class="event-tile-label">
+        <h3>Presentations &amp; Panels</h3>
+        <p>Fireside chats, keynotes, thought leadership sessions</p>
+      </div>
+    </div>
+    <div class="event-tile">
+      <img src="assets/Events/Creativeriseraw-126.jpg" alt="Team offsites at Den 1880" />
+      <div class="event-tile-label">
+        <h3>Team Offsites</h3>
+        <p>Strategy days, workshops, all-hands gatherings</p>
+      </div>
+    </div>
+    <div class="event-tile">
+      <img src="assets/Events/258A3611.jpg" alt="Client appreciation events at Den 1880" />
+      <div class="event-tile-label">
+        <h3>Client Appreciation</h3>
+        <p>Evening events with bar service, catering, and atmosphere</p>
+      </div>
+    </div>
+    <div class="event-tile">
+      <img src="assets/Events/9V5A3036.jpg" alt="Product launches at Den 1880" />
+      <div class="event-tile-label">
+        <h3>Product Launches</h3>
+        <p>Branded activations, press events, community gatherings</p>
+      </div>
+    </div>
+    <div class="event-tile">
+      <img src="assets/Events/EverythingYes-74.jpg" alt="Company celebrations at Den 1880" />
+      <div class="event-tile-label">
+        <h3>Company Celebrations</h3>
+        <p>Year-end events, team milestones, award nights</p>
+      </div>
+    </div>
+    <div class="event-tile" style="background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:32px;text-align:center">
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;font-family:'Inter',sans-serif;">Something else in mind?</p>
+      <h3 style="color:#fff;font-size:18px">Tell us about it.</h3>
+      <a class="btn btn-ghost btn-sm" style="border-color:rgba(255,255,255,0.3);color:#fff" href="#inquiry">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE THEATRE -->
+<section class="theatre" id="theatre">
+  <div class="container">
+    <div class="theatre-inner">
+      <img class="theatre-img" src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
+      <div class="theatre-text">
+        <span class="eyebrow">The Space</span>
+        <h2>The <em>Theatre.</em></h2>
+        <p>Built in a fully restored heritage building in the heart of Uptown Waterloo. The Theatre seats up to 100 for a panel or presentation, and opens into the Lobby Bar for cocktail-style events up to 140 guests.</p>
+        <p>The kind of space that makes an impression before anyone says a word.</p>
+        <div class="theatre-specs">
+          <div class="spec-item">16-ft video wall with screen share</div>
+          <div class="spec-item">Built-in wireless microphones</div>
+          <div class="spec-item">Premium Sonos sound system</div>
+          <div class="spec-item">Elevated bleacher seating section</div>
+          <div class="spec-item">Customizable furniture layout</div>
+          <div class="spec-item">Full kitchen access available</div>
+          <div class="spec-item">Lobby Bar for arrivals &amp; receptions</div>
+          <div class="spec-item">Steps from LRT, parking nearby</div>
+        </div>
+        <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff;margin-top:8px" href="#inquiry">Inquire About the Space</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAYTIME HIRE -->
+<section class="daytime" id="daytime">
+  <div class="container">
+    <div class="daytime-inner">
+      <div class="daytime-text">
+        <span class="eyebrow">Weekday Corporate Hire</span>
+        <h2>A focused space for <em>productive mornings.</em></h2>
+        <p>Need the Theatre for a morning strategy session, presentation, or team meeting — without the full evening event setup? This is it.</p>
+        <p>Monday to Thursday, 9am to 5pm. The space is yours as-is — furniture in place, AV ready to go, access to common areas. Arrive, run your meeting, and leave. No fanfare required.</p>
+        <p style="color:var(--muted);font-size:14px">Ideal for fireside chats, internal all-hands, client presentations, workshops, and team sessions under 50 people.</p>
+      </div>
+      <div>
+        <div class="daytime-detail">
+          <h3>Theatre · Daytime Hire</h3>
+          <div class="detail-row">
+            <span class="detail-label">Availability</span>
+            <span class="detail-value">Mon–Thu, 9am–5pm</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Capacity</span>
+            <span class="detail-value">Up to 50 guests</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Starting rate</span>
+            <span class="detail-value">$1,500 + HST / 2 hrs</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Additional hours</span>
+            <span class="detail-value">$500 + HST / hr</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">What's included</span>
+            <span class="detail-value">Theatre, AV, common areas</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Same-day extensions</span>
+            <span class="detail-value">Available if space permits</span>
+          </div>
+          <div class="addons">
+            <h4>Available Add-ons</h4>
+            <span class="addon-tag">Coffee &amp; tea service</span>
+            <span class="addon-tag">Theatre-style row seating</span>
+            <span class="addon-tag">Furniture reconfiguration</span>
+            <span class="addon-tag">Catering (various options)</span>
+            <span class="addon-tag">AV tech support</span>
+          </div>
+          <p class="daytime-note">Add-ons must be arranged in advance. The space is provided as-is — setup, teardown, and on-site staffing are not included in the base rate.</p>
+        </div>
+        <div style="margin-top:16px;text-align:center">
+          <a class="btn btn-primary" href="#inquiry">Check Availability</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENING EVENTS -->
+<section class="evening" id="evening">
+  <div class="container">
+    <div class="evening-inner">
+      <div class="evening-text">
+        <span class="eyebrow">Evening &amp; Full Venue Events</span>
+        <h2>The full <em>Den 1880</em> experience.</h2>
+        <p>For evenings and larger events, we bring the whole venue to life — Theatre, Lobby Bar, kitchen, and a team to run it all. You show up, your guests are impressed, and we handle the rest.</p>
+        <ul class="evening-list">
+          <li>Full Theatre and Lobby Bar access</li>
+          <li>Bar service — open bar, cash bar, or consumption bar</li>
+          <li>Catering from our local partner network</li>
+          <li>Onsite Den 1880 staff throughout</li>
+          <li>Built-in AV, lighting, and sound</li>
+          <li>Up to 100 guests seated, 140 cocktail-style</li>
+          <li>Monday through Saturday availability</li>
+        </ul>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px">Every evening event is quoted based on your group, date, and what you need. Reach out and we'll put together something that works.</p>
+        <a class="btn btn-lime" href="#inquiry" style="margin-top:8px">Tell Us About Your Event</a>
+      </div>
+      <img class="evening-img" src="assets/Events/Creativeriseraw-39.jpg" alt="Evening event at Den 1880" onerror="this.style.display='none'" />
+    </div>
+  </div>
+</section>
+
+<!-- LARGER EVENTS TEASER -->
+<section class="teaser">
+  <div class="container">
+    <span class="eyebrow">Looking for something bigger?</span>
+    <h2>Weddings, parties, &amp; <em>social events.</em></h2>
+    <p>Den 1880 also hosts larger social events — weddings, holiday parties, comedy shows, concerts, and more. That side of what we do lives on its own site.</p>
+    <a class="btn btn-ghost" href="#">Explore</a>
+  </div>
+  <div class="parties-grid">
+    <img src="assets/parties/EverythingYes-74.jpg" alt="Events at Den 1880" />
+    <img src="assets/parties/DSC_5736.jpg" alt="Events at Den 1880" />
+    <img src="assets/parties/DSC_3171.jpg" alt="Events at Den 1880" />
+    <img src="assets/parties/EverythingYes-75.jpg" alt="Events at Den 1880" />
+    <img src="assets/parties/DSC_9256.jpg" alt="Events at Den 1880" />
+    <img src="assets/parties/DSC_5861.jpg" alt="Events at Den 1880" />
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry" id="inquiry">
+  <div class="container">
+    <div class="inquiry-inner">
+      <div class="inquiry-text">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Let's talk about <em>your event.</em></h2>
+        <p>Tell us a bit about what you're planning and we'll get back to you within one business day to discuss options, availability, and next steps.</p>
+        <p>No commitment required — just a conversation.</p>
+        <p class="contact-line">Prefer email? Reach us at <a href="mailto:events@den1880.co">events@den1880.co</a></p>
+      </div>
+      <form action="https://formspree.io/f/events" method="POST">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jackie W." required />
+          </div>
+          <div class="form-group">
+            <label for="org">Company / Organization</label>
+            <input type="text" id="org" name="organization" placeholder="Den 1880 Co." />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="519-555-0100" />
+          </div>
+          <div class="form-group">
+            <label for="event-type">Type of Event</label>
+            <select id="event-type" name="event_type">
+              <option value="" disabled selected>Select one</option>
+              <option>Corporate Presentation / Panel</option>
+              <option>Team Offsite / Workshop</option>
+              <option>Client Appreciation Event</option>
+              <option>Company Celebration</option>
+              <option>Product Launch</option>
+              <option>Daytime Theatre Hire</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="guests">Estimated Guest Count</label>
+            <input type="text" id="guests" name="guest_count" placeholder="e.g. 40" />
+          </div>
+          <div class="form-group">
+            <label for="date">Preferred Date(s)</label>
+            <input type="text" id="date" name="preferred_date" placeholder="e.g. Mid-October, flexible" />
+          </div>
+          <div class="form-group">
+            <label for="time">Time of Day</label>
+            <select id="time" name="time_of_day">
+              <option value="" disabled selected>Select one</option>
+              <option>Morning / Daytime (9am–5pm)</option>
+              <option>Evening (after 5pm)</option>
+              <option>Full Day</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group form-full">
+            <label for="message">Tell us about your event</label>
+            <textarea id="message" name="message" placeholder="What are you planning? Any specific needs, ideas, or questions — drop them here."></textarea>
+          </div>
+          <div class="form-full">
+            <button type="submit" class="btn-submit">Send Inquiry →</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
+  <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+</script>
+</body>
+</html>
