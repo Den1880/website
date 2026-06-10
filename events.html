@@ -66,55 +66,57 @@
     @media(max-width: 1100px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
 
     /* ── HERO ── */
-    .hero {
-      padding: calc(57px + 5rem) 2rem 4rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 1.25rem;
-    }
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--black);
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em { font-style: italic; font-weight: 500; }
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--mid);
-      max-width: 560px;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--black);
-      color: var(--white);
-      padding: 0.75rem 1.6rem;
-      border-radius: 4px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: background 0.15s;
-    }
-    .btn-primary:hover { background: #333; }
-    .hero-note { font-size: 0.82rem; color: var(--mid); }
+    .hero { padding: 72px 0 36px; text-align: center; }
+    .hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+    .hero h1 em { font-style: italic; color: var(--plum); }
+    .hero p.lede { max-width: 680px; margin: 18px auto 0; color: var(--ink-2); font-size: 18px; line-height: 1.6; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
+
+    /* ── THEATRE SECTION ── */
+    .theatre-section { max-width: 1100px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+    .theatre-section img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; display: block; }
+    .theatre-text .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .theatre-text h2 em { font-style: italic; color: var(--plum); }
+    .theatre-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-top: 16px; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 24px; }
+    .spec { font-size: 13px; color: var(--ink-2); padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 8px; }
+    .spec::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
+
+    /* ── OPTIONS SECTION ── */
+    .options-section { background: var(--ink); padding: 72px 24px; }
+    .options-inner { max-width: 1100px; margin: 0 auto; }
+    .options-header { text-align: center; margin-bottom: 48px; }
+    .options-header .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 600; margin-bottom: 14px; }
+    .options-header h2 { color: #fff; }
+    .options-header h2 em { font-style: italic; color: var(--lime); }
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .option-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 36px; }
+    .option-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .option-card h3 em { font-style: italic; color: var(--lime); }
+    .option-tag { display: inline-block; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 16px; }
+    .option-card p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+    .option-details { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .option-row { display: flex; justify-content: space-between; font-size: 13px; }
+    .option-row span:first-child { color: rgba(255,255,255,0.4); }
+    .option-row span:last-child { color: rgba(255,255,255,0.85); font-weight: 500; }
+    .option-card .btn-outline { display: inline-block; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 500; transition: all .2s; }
+    .option-card .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .option-card .btn-fill { display: inline-block; background: var(--lime); color: var(--ink); padding: 10px 24px; border-radius: 4px; font-size: 13px; font-weight: 600; transition: background .2s; }
+    .option-card .btn-fill:hover { background: var(--lime-deep); }
+
+    /* ── SOCIAL TEASER ── */
+    .social-teaser { max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; position: relative; }
+    .social-teaser-text { grid-column: 1 / -1; text-align: center; margin-bottom: 40px; }
+    .social-teaser-text .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .social-teaser-text h2 em { font-style: italic; color: var(--plum); }
+    .social-teaser-text p { color: var(--ink-2); max-width: 560px; margin: 16px auto 24px; font-size: 16px; line-height: 1.7; }
+    .social-photo { aspect-ratio: 3/4; overflow: hidden; }
+    .social-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+    .social-photo:hover img { transform: scale(1.04); }
+    .social-cta { grid-column: 1 / -1; text-align: center; margin-top: 32px; }
+
+    /* ── INQUIRY SECTION ── */
+    .inquiry { padding: 72px 24px; background: var(--paper); }
 
     /* ── INTRO ── */
     .intro { padding: 72px 0 56px; text-align: center; }
@@ -281,192 +283,100 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Events at Den 1880 · Uptown Waterloo</p>
-  <h1>Where <em>good work</em> gets celebrated.</h1>
-  <p class="hero-desc">A historic venue in the heart of Uptown Waterloo — a space that adapts to however you need it, from a focused morning session to a full evening event.</p>
+  <p class="eyebrow">Events at Den 1880 · Uptown Waterloo</p>
+  <h1>Where good work gets <em>celebrated.</em></h1>
+  <p class="lede">A heritage venue in the heart of Uptown Waterloo — built for the kind of event people remember.</p>
   <div class="hero-actions">
-    <a href="#inquiry" class="btn-primary">Inquire About Your Event</a>
-    <a href="#theatre" class="hero-note" style="text-decoration:underline;text-underline-offset:3px;color:var(--mid)">See the Space</a>
+    <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
+    <a href="#space" class="btn btn-ghost">See the Space</a>
   </div>
 </section>
 
-<!-- INTRO -->
-<section class="intro">
-  <div class="container">
-    <h2><em>More</em> than a meeting room.</h2>
-    <p>Den 1880 hosts everything from early morning strategy sessions to evening client events. The space is flexible, the AV is built-in, and the atmosphere is unlike any conference centre you've been in before.</p>
+<!-- THE SPACE -->
+<section id="space">
+  <div class="theatre-section">
+    <img src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
+    <div class="theatre-text">
+      <span class="section-eyebrow">The Space</span>
+      <h2>The <em>Theatre.</em></h2>
+      <p>A fully restored heritage building in the heart of Uptown Waterloo. The Theatre seats up to 100 for a presentation or panel, and opens into the Lobby Bar for cocktail-style events up to 140 guests.</p>
+      <p>The kind of space that makes an impression before anyone says a word.</p>
+      <div class="specs-grid">
+        <div class="spec">16-ft video wall</div>
+        <div class="spec">Wireless microphones</div>
+        <div class="spec">Premium Sonos sound</div>
+        <div class="spec">Elevated bleacher seating</div>
+        <div class="spec">Flexible furniture layout</div>
+        <div class="spec">Full kitchen access</div>
+        <div class="spec">Lobby Bar included</div>
+        <div class="spec">Steps from LRT</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- EVENT TYPES GRID -->
-<section class="event-types">
-  <div class="event-grid">
-    <div class="event-tile">
-      <img src="assets/Events/9V5A3036.jpg" alt="Corporate presentations at Den 1880" />
-      <div class="event-tile-label">
-        <h3>Presentations &amp; Panels</h3>
-        <p>Fireside chats, keynotes, thought leadership sessions</p>
-      </div>
+<!-- OPTIONS -->
+<section class="options-section">
+  <div class="options-inner">
+    <div class="options-header">
+      <span class="section-eyebrow">How it works</span>
+      <h2>Two ways to <em>book the space.</em></h2>
     </div>
-    <div class="event-tile">
-      <img src="assets/Events/258A3611.jpg" alt="Team offsites at Den 1880" />
-      <div class="event-tile-label">
-        <h3>Team Offsites</h3>
-        <p>Strategy days, workshops, all-hands gatherings</p>
-      </div>
-    </div>
-    <div class="event-tile">
-      <img src="assets/Events/Creativeriseraw-39.jpg" alt="Client appreciation events at Den 1880" />
-      <div class="event-tile-label">
-        <h3>Client Appreciation</h3>
-        <p>Evening events with bar service, catering, and atmosphere</p>
-      </div>
-    </div>
-    <div class="event-tile">
-      <img src="assets/Events/823A5663.jpg" alt="Product launches at Den 1880" />
-      <div class="event-tile-label">
-        <h3>Product Launches</h3>
-        <p>Branded activations, press events, community gatherings</p>
-      </div>
-    </div>
-    <div class="event-tile">
-      <img src="assets/parties/DSC_3276.jpg" alt="Company celebrations at Den 1880" />
-      <div class="event-tile-label">
-        <h3>Company Celebrations</h3>
-        <p>Year-end events, team milestones, award nights</p>
-      </div>
-    </div>
-    <div class="event-tile" style="background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:32px;text-align:center;position:relative;overflow:hidden"><img src="assets/photos/DSC_1147 (1).jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;z-index:0" /><div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;align-items:center">
-      <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;font-family:'Inter',sans-serif;">Something else in mind?</p>
-      <h3 style="color:#fff;font-size:18px">Tell us about it.</h3>
-      <a class="btn btn-ghost btn-sm" style="border-color:rgba(255,255,255,0.3);color:#fff" href="#inquiry">Get in Touch</a>
-    </div></div>
-  </div>
-</section>
+    <div class="options-grid">
 
-<!-- THE THEATRE -->
-<section class="theatre" id="theatre">
-  <div class="container">
-    <div class="theatre-inner">
-      <img class="theatre-img" src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
-      <div class="theatre-text">
-        <span class="eyebrow">The Space</span>
-        <h2>The <em>Theatre.</em></h2>
-        <p>Built in a fully restored heritage building in the heart of Uptown Waterloo. The Theatre seats up to 100 for a panel or presentation, and opens into the Lobby Bar for cocktail-style events up to 140 guests.</p>
-        <p>The kind of space that makes an impression before anyone says a word.</p>
-        <div class="theatre-specs">
-          <div class="spec-item">16-ft video wall with screen share</div>
-          <div class="spec-item">Built-in wireless microphones</div>
-          <div class="spec-item">Premium Sonos sound system</div>
-          <div class="spec-item">Elevated bleacher seating section</div>
-          <div class="spec-item">Customizable furniture layout</div>
-          <div class="spec-item">Full kitchen access available</div>
-          <div class="spec-item">Lobby Bar for arrivals &amp; receptions</div>
-          <div class="spec-item">Steps from LRT, parking nearby</div>
+      <!-- Daytime -->
+      <div class="option-card">
+        <span class="option-tag">Daytime · Mon–Thu</span>
+        <h3>Corporate <em>Hire</em></h3>
+        <p>The Theatre as-is — furniture in its current layout, AV ready to go. Arrive, run your session, and leave. Ideal for presentations, workshops, all-hands meetings, and team sessions under 50 people.</p>
+        <div class="option-details">
+          <div class="option-row"><span>Availability</span><span>Mon–Thu, 9am–5pm</span></div>
+          <div class="option-row"><span>Capacity</span><span>Up to 50 guests</span></div>
+          <div class="option-row"><span>Starting rate</span><span>$1,500 + HST / 2 hrs</span></div>
+          <div class="option-row"><span>Additional hours</span><span>$500 + HST / hr</span></div>
+          <div class="option-row"><span>Includes</span><span>Theatre &amp; full AV</span></div>
         </div>
-        <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff;margin-top:8px" href="#inquiry">Inquire About the Space</a>
+        <a href="#inquiry" class="btn-outline">Check Availability</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- DAYTIME HIRE -->
-<section class="daytime" id="daytime">
-  <div class="container">
-    <div class="daytime-inner">
-      <div class="daytime-text">
-        <span class="eyebrow">Weekday Corporate Hire</span>
-        <h2>A focused space for <em>productive mornings.</em></h2>
-        <p>Need the Theatre for a morning strategy session, presentation, or team meeting — without the full evening event setup? This is it.</p>
-        <p>Monday to Thursday, 9am to 5pm. The space is yours as-is — furniture in its current layout, AV ready to go. Arrive, run your meeting, and leave.</p>
-        <p style="color:var(--muted);font-size:14px">Ideal for fireside chats, internal all-hands, client presentations, workshops, and team sessions under 50 people.</p>
-      </div>
-      <div>
-        <div class="daytime-detail">
-          <h3>Theatre · Daytime Hire</h3>
-          <div class="detail-row">
-            <span class="detail-label">Availability</span>
-            <span class="detail-value">Mon–Thu, 9am–5pm</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Capacity</span>
-            <span class="detail-value">Up to 50 guests</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Starting rate</span>
-            <span class="detail-value">$1,500 + HST / 2 hrs</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Additional hours</span>
-            <span class="detail-value">$500 + HST / hr</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">What's included</span>
-            <span class="detail-value">Theatre &amp; AV</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Same-day extensions</span>
-            <span class="detail-value">Available if space permits</span>
-          </div>
-          <div class="addons">
-            <h4>Available Add-ons</h4>
-            <span class="addon-tag">Coffee &amp; tea service</span>
-            <span class="addon-tag">Theatre-style row seating</span>
-            <span class="addon-tag">Furniture reconfiguration</span>
-            <span class="addon-tag">Catering (various options)</span>
-            <span class="addon-tag">AV tech support</span>
-          </div>
-          <p class="daytime-note">Add-ons must be arranged in advance. The space is provided as-is — setup, teardown, and on-site staffing are not included in the base rate.</p>
+      <!-- Evening -->
+      <div class="option-card">
+        <span class="option-tag">Evenings &amp; Weekends</span>
+        <h3>Full Venue <em>Events</em></h3>
+        <p>Theatre, Lobby Bar, kitchen, and a team to run it all. Bar service, catering, lighting — you show up, your guests are impressed, and we handle everything else. Up to 140 guests.</p>
+        <div class="option-details">
+          <div class="option-row"><span>Availability</span><span>Evenings &amp; weekends</span></div>
+          <div class="option-row"><span>Capacity</span><span>Up to 140 cocktail-style</span></div>
+          <div class="option-row"><span>Pricing</span><span>Quoted per event</span></div>
+          <div class="option-row"><span>Includes</span><span>Staff, AV, bar service</span></div>
+          <div class="option-row"><span>Catering</span><span>Available via partners</span></div>
         </div>
-        <div style="margin-top:16px;text-align:center">
-          <a class="btn btn-primary" href="#inquiry">Check Availability</a>
-        </div>
+        <a href="#inquiry" class="btn-fill">Tell Us About Your Event</a>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- LARGER EVENTS TEASER -->
-<section class="teaser">
-  <div class="container">
-    <span class="eyebrow">Looking for something bigger?</span>
-    <h2>Weddings, parties, &amp; <em>social events.</em></h2>
-    <p>Den 1880 also hosts larger social events — weddings, holiday parties, comedy shows, concerts, and more. That side of what we do lives on its own site.</p>
-    <a class="btn btn-ghost" href="#">Explore</a>
-  </div>
-</section>
-
-<div class="parties-grid">
-  <img src="assets/parties/EverythingYes-74.jpg" alt="Events at Den 1880" />
-  <img src="assets/parties/DSC_5736.jpg" alt="Events at Den 1880" />
-  <img src="assets/parties/DSC_3171.jpg" alt="Events at Den 1880" />
-  <img src="assets/parties/EverythingYes-75.jpg" alt="Events at Den 1880" />
-  <img src="assets/parties/DSC_9256.jpg" alt="Events at Den 1880" />
-  <img src="assets/parties/DSC_5861.jpg" alt="Events at Den 1880" />
-</div>
-
-<!-- EVENING EVENTS -->
-<section class="evening" id="evening">
-  <div class="container">
-    <div class="evening-inner">
-      <div class="evening-text">
-        <span class="eyebrow">Evening &amp; Full Venue Events</span>
-        <h2>The full <em>Den 1880</em> experience.</h2>
-        <p>For evenings and larger events, we bring the whole venue to life — Theatre, Lobby Bar, kitchen, and a team to run it all. You show up, your guests are impressed, and we handle the rest.</p>
-        <ul class="evening-list">
-          <li>Full Theatre and Lobby Bar access</li>
-          <li>Bar service — open bar, cash bar, or consumption bar</li>
-          <li>Catering from our local partner network</li>
-          <li>Onsite Den 1880 staff throughout</li>
-          <li>Built-in AV, lighting, and sound</li>
-          <li>Up to 100 guests seated, 140 cocktail-style</li>
-          <li>Evenings, weekends, and holiday availability</li>
-        </ul>
-        <p style="color:rgba(255,255,255,0.6);font-size:14px">Every evening event is quoted based on your group, date, and what you need. Reach out and we'll put together something that works.</p>
-        <a class="btn btn-lime" href="#inquiry" style="margin-top:8px">Tell Us About Your Event</a>
-      </div>
-      <img class="evening-img" src="assets/parties/DSC_3276.jpg" alt="Evening event at Den 1880" />
+<!-- SOCIAL TEASER -->
+<section>
+  <div class="social-teaser">
+    <div class="social-teaser-text">
+      <span class="section-eyebrow">Beyond the boardroom</span>
+      <h2>Weddings, parties &amp; <em>social events.</em></h2>
+      <p>Den 1880 also hosts weddings, birthday parties, holiday events, concerts, and more. That side of what we do has its own dedicated page.</p>
+      <a href="weddings.html" class="btn btn-ghost">Explore Social Events</a>
     </div>
+    <div class="social-photo">
+      <img src="assets/parties/EverythingYes-74.jpg" alt="Events at Den 1880" />
+    </div>
+    <div class="social-photo">
+      <img src="assets/parties/DSC_5736.jpg" alt="Events at Den 1880" />
+    </div>
+    <div class="social-photo">
+      <img src="assets/parties/DSC_3171.jpg" alt="Events at Den 1880" />
+    </div>
+    <div class="social-cta"></div>
   </div>
 </section>
 
@@ -475,13 +385,13 @@
   <div class="container">
     <div class="inquiry-inner">
       <div class="inquiry-text">
-        <span class="eyebrow">Get in Touch</span>
-        <h2>Weddings, corporate, <em>and everything in between.</em></h2>
-        <p>Whether it's a corporate offsite, a wedding, holiday party, birthday, product launch, or just a great night with bar service and your people — tell us what you're thinking and we'll get back to you within one business day.</p>
-        <p>No commitment required — just a conversation.</p>
-        <p class="contact-line">Prefer email? Reach us at <a href="mailto:events@den1880.co">events@den1880.co</a></p>
+        <span class="section-eyebrow" style="display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px">Get in Touch</span>
+        <h2>Let's talk about <em>your event.</em></h2>
+        <p style="color:var(--ink-2);margin-top:16px;line-height:1.7">Whether it's a corporate offsite, product launch, wedding, or an evening with bar service and great people — tell us what you're thinking. We'll get back to you within one business day.</p>
+        <p style="color:var(--muted);font-size:14px;margin-top:12px">No commitment required — just a conversation.</p>
+        <p style="margin-top:20px;font-size:14px">Prefer email? <a href="mailto:events@den1880.co" style="color:var(--plum);text-decoration:underline;text-underline-offset:3px">events@den1880.co</a></p>
       </div>
-      <form name="event-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<form name="event-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -563,7 +473,6 @@
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
