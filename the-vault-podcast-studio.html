@@ -7,7 +7,7 @@
   <meta name="description" content="The Vault is Den 1880's professional podcast and content studio — built inside a former 1900s bond safe. Three track-mounted cameras, 4 Shure microphones, broadcast-grade lighting, soundproofed walls. The only studio of its kind in Waterloo Region." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
   <style>
 
     :root {
@@ -126,19 +126,30 @@
     footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 24px; font-size: 13px; }
     footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
     footer a:hover { color: #fff; }
-  </style>
+  
+  /* ── NAV REBRAND (Space Grotesk style) ── */
+  .nav-brand{display:flex;align-items:center;gap:12px}
+  .nav-pipe{color:var(--line);font-size:20px;font-weight:300;line-height:1;user-select:none}
+  .nav-pc-link{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);transition:color .2s ease;white-space:nowrap}
+  .nav-pc-link:hover{color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:6px 8px;color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted);transform:none;box-shadow:none}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <header class="topbar" id="topbar">
-  <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  <div class="nav-brand">
+    <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+    <span class="nav-pipe">/</span>
+    <a class="nav-pc-link" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  </div>
   <nav class="nav-links">
     <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
     <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
     <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
     <a class="btn btn-ghost btn-sm" href="/events">Events</a>
-    <a class="btn btn-ghost btn-sm" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
     <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
     <a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
     <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
