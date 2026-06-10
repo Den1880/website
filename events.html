@@ -72,15 +72,24 @@
     .hero p.lede { max-width: 680px; margin: 18px auto 0; color: var(--ink-2); font-size: 18px; line-height: 1.6; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
 
-    /* ── THEATRE SECTION ── */
-    .theatre-section { max-width: 1100px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
-    .theatre-section img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; display: block; }
-    .theatre-text .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
-    .theatre-text h2 em { font-style: italic; color: var(--plum); }
-    .theatre-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-top: 16px; }
+    /* ── SPACES SECTION ── */
+    .spaces-header { text-align: center; padding: 72px 24px 48px; }
+    .spaces-header .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .spaces-header h2 em { font-style: italic; color: var(--plum); }
+    .spaces-header p { color: var(--ink-2); max-width: 560px; margin: 16px auto 0; font-size: 16px; line-height: 1.7; }
+    .space-row { max-width: 1100px; margin: 0 auto; padding: 0 24px 72px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+    .space-row.reverse { grid-template-columns: 1fr 1.1fr; }
+    .space-row.reverse .space-img { order: 2; }
+    .space-row.reverse .space-text { order: 1; }
+    .space-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; display: block; }
+    .space-text .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
+    .space-text h2 em { font-style: italic; color: var(--plum); }
+    .space-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-top: 16px; }
     .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 24px; }
     .spec { font-size: 13px; color: var(--ink-2); padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 8px; }
     .spec::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
+    .spaces-divider { border: none; border-top: 1px solid var(--line); max-width: 1100px; margin: 0 auto 0; }
+    @media(max-width:768px) { .space-row, .space-row.reverse { grid-template-columns: 1fr; gap: 32px; } .space-row.reverse .space-img, .space-row.reverse .space-text { order: unset; } }
 
     /* ── OPTIONS SECTION ── */
     .options-section { background: var(--ink); padding: 72px 24px; }
@@ -138,17 +147,7 @@
     @media(max-width: 500px) { .event-grid { grid-template-columns: 1fr; } }
 
     /* ── THE THEATRE ── */
-    .theatre { padding: 80px 0; background: var(--ink); color: #fff; }
-    .theatre-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .theatre-img { width: 100%; height: 480px; object-fit: cover; border-radius: var(--radius); }
-    .theatre-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
-    .theatre-text h2 { color: #fff; margin-bottom: 18px; }
-    .theatre-text h2 em { font-style: italic; color: var(--lime); }
-    .theatre-text p { color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
-    .theatre-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
-    .spec-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.8); }
-    .spec-item::before { content: '→'; color: var(--lime); flex-shrink: 0; margin-top: 1px; }
-    @media(max-width: 768px) { .theatre-inner { grid-template-columns: 1fr; gap: 36px; } .theatre-img { height: 280px; } .theatre-specs { grid-template-columns: 1fr; } }
+
 
     /* ── DAYTIME HIRE ── */
     .daytime { padding: 80px 0; }
@@ -196,37 +195,7 @@
     @media(max-width: 480px) { .parties-grid { grid-template-columns: repeat(2, 1fr); } }
 
     /* ── INQUIRY FORM ── */
-    .inquiry { padding: 80px 0; background: var(--ink); color: #fff; }
-    .inquiry-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
-    .inquiry-text .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #E6E414; font-weight: 600; margin-bottom: 14px; }
-    .inquiry-text h2 { color: #fff; margin-bottom: 16px; }
-    .inquiry-text h2 em { font-style: italic; color: #E6E414; }
-    .inquiry-text p { color: rgba(255,255,255,0.72); font-size: 16px; line-height: 1.7; margin-bottom: 12px; }
-    .inquiry-text .contact-line { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 24px; }
-    .inquiry-text .contact-line a { color: #E6E414; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-full { grid-column: 1 / -1; }
-    .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 7px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: #fff;
-      background: rgba(255,255,255,0.07);
-      transition: border-color .15s;
-      outline: none;
-      -webkit-appearance: none;
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--lime); }
-    .form-group select option { background: #1a1a1a; color: #fff; }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .btn-submit { padding: 14px 32px; font-size: 15px; font-weight: 700; background: var(--lime); color: var(--ink); border: none; border-radius: 999px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background .15s, transform .15s; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
-    .btn-submit:hover { background: var(--lime-deep); transform: translateY(-1px); }
-    @media(max-width: 768px) { .inquiry-inner { grid-template-columns: 1fr; gap: 40px; } .form-grid { grid-template-columns: 1fr; } }
+
 
     /* ── FOOTER ── */
     footer { background: #080808; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
@@ -292,68 +261,71 @@
   </div>
 </section>
 
-<!-- THE SPACE -->
-<section id="space">
-  <div class="theatre-section">
-    <img src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
-    <div class="theatre-text">
-      <span class="section-eyebrow">The Space</span>
-      <h2>The <em>Theatre.</em></h2>
-      <p>A fully restored heritage building in the heart of Uptown Waterloo. The Theatre seats up to 100 for a presentation or panel, and opens into the Lobby Bar for cocktail-style events up to 140 guests.</p>
-      <p>The kind of space that makes an impression before anyone says a word.</p>
+<!-- SPACES -->
+<section>
+  <div class="spaces-header">
+    <span class="section-eyebrow">The Venue</span>
+    <h2>Three distinct <em>spaces.</em></h2>
+    <p>Every booking includes access to the Theatre and Lobby. The Library is available for exclusive hire as an add-on.</p>
+  </div>
+
+  <!-- Theatre -->
+  <div class="space-row">
+    <img class="space-img" src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
+    <div class="space-text">
+      <span class="section-eyebrow">The Theatre</span>
+      <h2>Built for <em>impact.</em></h2>
+      <p>Seats up to 100 for a panel or presentation, and opens into the Lobby Bar for cocktail-style events up to 140 guests. The kind of space that makes an impression before anyone says a word.</p>
       <div class="specs-grid">
         <div class="spec">16-ft video wall</div>
         <div class="spec">Wireless microphones</div>
-        <div class="spec">Premium Sonos sound</div>
+        <div class="spec">Sonos sound system</div>
         <div class="spec">Elevated bleacher seating</div>
         <div class="spec">Flexible furniture layout</div>
-        <div class="spec">Full kitchen access</div>
-        <div class="spec">Lobby Bar included</div>
+        <div class="spec">Customizable lighting</div>
         <div class="spec">Steps from LRT</div>
+        <div class="spec">Parking nearby</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- OPTIONS -->
-<section class="options-section">
-  <div class="options-inner">
-    <div class="options-header">
-      <span class="section-eyebrow">How it works</span>
-      <h2>Two ways to <em>book the space.</em></h2>
+  <hr class="spaces-divider" />
+
+  <!-- Lobby -->
+  <div class="space-row reverse">
+    <div class="space-text">
+      <span class="section-eyebrow">The Lobby</span>
+      <h2>Where arrivals become <em>moments.</em></h2>
+      <p>Custom furniture, ornate chandeliers, and original wood finishes set the tone the moment your guests walk in. The Lobby Bar is perfect for cocktail receptions, arrivals, and mingling — and flows directly into the Theatre.</p>
+      <div class="specs-grid">
+        <div class="spec">Ornate chandeliers</div>
+        <div class="spec">Original wood finishes</div>
+        <div class="spec">Full Lobby Bar</div>
+        <div class="spec">Catering service access</div>
+        <div class="spec">Accessible washrooms</div>
+        <div class="spec">Cocktail seating</div>
+      </div>
     </div>
-    <div class="options-grid">
+    <img class="space-img" src="assets/photos/DEN02924.JPG" alt="The Lobby at Den 1880" />
+  </div>
 
-      <!-- Daytime -->
-      <div class="option-card">
-        <span class="option-tag">Daytime · Mon–Thu</span>
-        <h3>Corporate <em>Hire</em></h3>
-        <p>The Theatre as-is — furniture in its current layout, AV ready to go. Arrive, run your session, and leave. Ideal for presentations, workshops, all-hands meetings, and team sessions under 50 people.</p>
-        <div class="option-details">
-          <div class="option-row"><span>Availability</span><span>Mon–Thu, 9am–5pm</span></div>
-          <div class="option-row"><span>Capacity</span><span>Up to 50 guests</span></div>
-          <div class="option-row"><span>Starting rate</span><span>$1,500 + HST / 2 hrs</span></div>
-          <div class="option-row"><span>Additional hours</span><span>$500 + HST / hr</span></div>
-          <div class="option-row"><span>Includes</span><span>Theatre &amp; full AV</span></div>
-        </div>
-        <a href="#inquiry" class="btn-outline">Check Availability</a>
+  <hr class="spaces-divider" />
+
+  <!-- Library -->
+  <div class="space-row">
+    <img class="space-img" src="assets/photos/DEN02777.jpg" alt="The Library at Den 1880" />
+    <div class="space-text">
+      <span class="section-eyebrow">The Library</span>
+      <h2>An intimate space for <em>deeper work.</em></h2>
+      <p>Available for exclusive hire as an add-on to any evening event. Four 16-ft harvest tables, custom seating areas, a video screen, and the same architectural detail that runs through every corner of Den 1880.</p>
+      <div class="specs-grid">
+        <div class="spec">Four 16-ft harvest tables</div>
+        <div class="spec">Video screen</div>
+        <div class="spec">Ornate chandeliers</div>
+        <div class="spec">Custom seating areas</div>
+        <div class="spec">Heritage architecture</div>
+        <div class="spec">Add-on from $1,000/hr</div>
       </div>
-
-      <!-- Evening -->
-      <div class="option-card">
-        <span class="option-tag">Evenings &amp; Weekends</span>
-        <h3>Full Venue <em>Events</em></h3>
-        <p>Theatre, Lobby Bar, kitchen, and a team to run it all. Bar service, catering, lighting — you show up, your guests are impressed, and we handle everything else. Up to 140 guests.</p>
-        <div class="option-details">
-          <div class="option-row"><span>Availability</span><span>Evenings &amp; weekends</span></div>
-          <div class="option-row"><span>Capacity</span><span>Up to 140 cocktail-style</span></div>
-          <div class="option-row"><span>Pricing</span><span>Quoted per event</span></div>
-          <div class="option-row"><span>Includes</span><span>Staff, AV, bar service</span></div>
-          <div class="option-row"><span>Catering</span><span>Available via partners</span></div>
-        </div>
-        <a href="#inquiry" class="btn-fill">Tell Us About Your Event</a>
-      </div>
-
     </div>
   </div>
 </section>
