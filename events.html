@@ -66,10 +66,10 @@
     @media(max-width: 1100px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
 
     /* ── HERO ── */
-    .hero { padding: 72px 0 36px; text-align: center; }
+    .hero { padding: 72px 0 36px; text-align: center; position: relative; overflow: hidden; }
     .hero .eyebrow { display: inline-block; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
     .hero h1 em { font-style: italic; color: var(--plum); }
-    .hero p.lede { max-width: 680px; margin: 18px auto 0; color: var(--ink-2); font-size: 18px; line-height: 1.6; }
+    .hero p.lede { max-width: 760px; margin: 18px auto 0; color: var(--ink-2); font-size: 18px; line-height: 1.7; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
 
     /* ── SPACES SECTION ── */
@@ -275,12 +275,14 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="eyebrow">Events at Den 1880 · Uptown Waterloo</p>
-  <h1>Where good work gets <em>celebrated.</em></h1>
-  <p class="lede">A heritage venue in the heart of Uptown Waterloo — built for the kind of event people remember.</p>
-  <div class="hero-actions">
-    <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
-    <a href="#space" class="btn btn-ghost">See the Space</a>
+  <div class="container">
+    <span class="eyebrow">Events at Den 1880 · Uptown Waterloo</span>
+    <h1>Where good work gets <em>celebrated.</em></h1>
+    <p class="lede">A heritage venue in the heart of Uptown Waterloo — built for the kind of event people actually remember.</p>
+    <div class="hero-actions">
+      <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
+      <a href="#space" class="btn btn-ghost">See the Space</a>
+    </div>
   </div>
 </section>
 
