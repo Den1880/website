@@ -73,7 +73,7 @@
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
 
     /* ── SPACES SECTION ── */
-    .spaces-header { text-align: center; padding: 72px 24px 48px; }
+    .spaces-header { text-align: center; padding: 56px 24px 32px; }
     .spaces-header .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
     .spaces-header h2 em { font-style: italic; color: var(--plum); }
     .spaces-header p { color: var(--ink-2); max-width: 560px; margin: 16px auto 0; font-size: 16px; line-height: 1.7; }
@@ -114,7 +114,7 @@
     .option-card .btn-fill:hover { background: var(--lime-deep); }
 
     /* ── SOCIAL TEASER ── */
-    .social-teaser { max-width: 1100px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; position: relative; }
+    .social-teaser { max-width: 1100px; margin: 0 auto; padding: 40px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; position: relative; }
     .social-teaser-text { grid-column: 1 / -1; text-align: center; margin-bottom: 40px; }
     .social-teaser-text .section-eyebrow { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 14px; }
     .social-teaser-text h2 em { font-style: italic; color: var(--plum); }
@@ -126,6 +126,24 @@
 
     /* ── INQUIRY SECTION ── */
     .inquiry { padding: 72px 24px; background: var(--paper); }
+    /* ── INQUIRY FORM ── */
+    .inquiry-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; max-width: 1100px; margin: 0 auto; }
+    .inquiry-text h2 em { font-style: italic; color: var(--plum); }
+    .inquiry-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-top: 16px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-full { grid-column: 1 / -1; }
+    .form-group label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink); background: #fff; transition: border-color .2s; -webkit-appearance: none; appearance: none; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--ink); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .btn-submit { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff; border: none; padding: 13px 32px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
+    .btn-submit:hover { background: var(--plum); }
+    @media(max-width: 768px) { .inquiry-inner { grid-template-columns: 1fr; gap: 32px; } .form-grid { grid-template-columns: 1fr; } }
 
     /* ── INTRO ── */
     .intro { padding: 72px 0 56px; text-align: center; }
@@ -264,14 +282,12 @@
 <!-- SPACES -->
 <section>
   <div class="spaces-header">
-    <span class="section-eyebrow">The Venue</span>
-    <h2>Three distinct <em>spaces.</em></h2>
-    <p>Every booking includes access to the Theatre and Lobby. The Library is available for exclusive hire as an add-on.</p>
+    <span class="section-eyebrow">Where the magic happens</span>
   </div>
 
   <!-- Theatre -->
   <div class="space-row">
-    <img class="space-img" src="assets/meetingrooms/theatre.jpg" alt="The Theatre at Den 1880" />
+    <img class="space-img" src="assets/Events/Bar.jpg" alt="The Theatre at Den 1880" />
     <div class="space-text">
       <span class="section-eyebrow">The Theatre</span>
       <h2>Built for <em>impact.</em></h2>
@@ -306,7 +322,7 @@
         <div class="spec">Cocktail seating</div>
       </div>
     </div>
-    <img class="space-img" src="assets/photos/DEN02924.JPG" alt="The Lobby at Den 1880" />
+    <img class="space-img" src="assets/Events/9V5A3036.jpg" alt="The Theatre at Den 1880" />
   </div>
 
   <hr class="spaces-divider" />
@@ -383,7 +399,7 @@
           </div>
           <div class="form-group">
             <label for="event-type">Type of Event</label>
-            <select id="event-type" name="event_type">
+            <select id="event-type" name="event_type" required>
               <option value="" disabled selected>Select one</option>
               <optgroup label="Corporate">
                 <option>Corporate Presentation / Panel</option>
@@ -405,7 +421,7 @@
           </div>
           <div class="form-group">
             <label for="budget">Approximate Budget</label>
-            <select id="budget" name="budget">
+            <select id="budget" name="budget" required>
               <option value="" disabled selected>Select a range</option>
               <option>Under $1,000</option>
               <option>$1,000 – $2,500</option>
@@ -417,11 +433,11 @@
           </div>
           <div class="form-group">
             <label for="guests">Estimated Guest Count</label>
-            <input type="text" id="guests" name="guest_count" placeholder="e.g. 40" />
+            <input type="text" id="guests" name="guest_count" placeholder="e.g. 40" required />
           </div>
           <div class="form-group">
             <label for="date">Preferred Date(s)</label>
-            <input type="text" id="date" name="preferred_date" placeholder="e.g. Mid-October, flexible" />
+            <input type="text" id="date" name="preferred_date" placeholder="e.g. Mid-October, flexible" required />
           </div>
           <div class="form-group">
             <label for="time">Time of Day</label>
