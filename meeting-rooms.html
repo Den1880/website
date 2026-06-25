@@ -345,7 +345,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
   .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, #666);transform:none;box-shadow:none}
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
-</style>
+
+    /* ── The Cellar members-only modal ── */
+    .cellar-modal-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(14,14,14,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:24px;}
+    .cellar-modal-overlay.open{display:flex;}
+    .cellar-modal{position:relative;width:100%;max-width:460px;background:#F7F4EE;border:1px solid #E6E1D6;border-radius:14px;padding:34px 30px 28px;box-shadow:0 24px 60px rgba(14,14,14,.22);text-align:left;}
+    .cellar-modal-tag{display:inline-block;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700;color:#7d8f12;margin-bottom:.5rem;}
+    .cellar-modal h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3vw,30px);line-height:1.12;margin:0 0 .6rem;color:#0E0E0E;}
+    .cellar-modal p{font-family:'Inter',sans-serif;color:#2A2A2A;font-size:15px;line-height:1.55;margin:0 0 .6rem;}
+    .cellar-modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:999px;border:1px solid #E6E1D6;background:transparent;color:#0E0E0E;font-size:22px;line-height:1;cursor:pointer;}
+    .cellar-modal-close:hover{background:rgba(14,14,14,.06);}
+    .cellar-app-buttons{display:flex;flex-wrap:wrap;gap:10px;margin:1.1rem 0 .8rem;}
+    .app-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:12px;background:#0E0E0E;color:#fff;text-decoration:none;transition:background .2s ease,transform .2s ease;}
+    .app-badge:hover{background:#6B4E8E;transform:translateY(-1px);}
+    .app-badge svg{width:22px;height:22px;flex-shrink:0;fill:#fff;}
+    .app-badge span{display:flex;flex-direction:column;line-height:1.15;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;}
+    .app-badge small{font-size:10px;font-weight:500;letter-spacing:.04em;opacity:.85;}
+    .cellar-modal-note{font-size:12.5px;color:#6F6A60;margin:.2rem 0 0;}
+    .cellar-modal-note a{color:#6B4E8E;font-weight:600;text-decoration:none;}
+    @media(max-width:420px){.cellar-app-buttons{flex-direction:column;}.app-badge{justify-content:center;}}
+
+  </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
@@ -647,7 +667,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$500</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/" class="room-cta">Book The Cellar →</a>
+        <a href="#cellarModal" class="room-cta" onclick="openCellarModal(event)">Book The Cellar →</a>
       </div>
     </div>
 
@@ -713,7 +733,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  
+<!-- The Cellar members-only modal -->
+<div class="cellar-modal-overlay" id="cellarModal" role="dialog" aria-modal="true" aria-labelledby="cellarModalTitle" aria-hidden="true">
+  <div class="cellar-modal">
+    <button type="button" class="cellar-modal-close" onclick="closeCellarModal()" aria-label="Close">&times;</button>
+    <span class="cellar-modal-tag">Members only</span>
+    <h2 id="cellarModalTitle">The Cellar is exclusive to members</h2>
+    <p>To book it, open it in your Optix mobile app, where members manage their bookings. Click below to get Optix on your mobile, or head there to book.</p>
+    <div class="cellar-app-buttons">
+      <a class="app-badge" href="https://apps.apple.com/us/app/optix/id1316198832" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg><span><small>Download on the</small>App Store</span></a>
+      <a class="app-badge" href="https://play.google.com/store/apps/details?id=sharedesk.net.optixapp.optix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54z"/></svg><span><small>Get it on</small>Google Play</span></a>
+    </div>
+  </div>
+</div>
+<script>
+  function openCellarModal(e){ if(e&&e.preventDefault)e.preventDefault(); var m=document.getElementById('cellarModal'); if(!m)return; m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeCellarModal(){ var m=document.getElementById('cellarModal'); if(!m)return; m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  (function(){ var m=document.getElementById('cellarModal'); if(!m)return; m.addEventListener('click',function(e){ if(e.target===m)closeCellarModal(); }); document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeCellarModal(); }); })();
+</script>
+
+<footer>
     <p>Den 1880 · 14 Erb St. West, Uptown Waterloo · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505</p>
     <p style="margin-top:0.4rem;">© 2025 Den 1880</p>
   </footer>
