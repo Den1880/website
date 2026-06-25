@@ -1,0 +1,10 @@
+{
+  "name": "den1880-site",
+  "private": true,
+  "type": "module",
+  "description": "Den 1880 marketing site (static). Node deps exist only for the Google Reviews Netlify functions.",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

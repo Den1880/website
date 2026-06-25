@@ -1,0 +1,9 @@
+# Den 1880 — static site. No build step; Netlify serves the repo root as-is.
+# This file only adds the Google Reviews feature (scheduled fetch + edge render).
+[build]
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+# Functions dir: netlify/functions (default). Edge dir: netlify/edge-functions (default).
+# The edge function declares its own routes via `export const config` (/, /memberships).
