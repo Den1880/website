@@ -385,6 +385,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
   .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, #666);transform:none;box-shadow:none}
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
+
+  /* ===== Unified site footer ===== */
+  footer.site-footer{padding:0;text-align:left;font-size:16px;margin:0;border:none;}
+  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+  .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+  .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
+  .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
+  .footer-col a:hover{color:#fff}
+  .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+  .footer-bottom-links{display:flex;gap:24px;align-items:center}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+  .footer-bottom-links a:hover{color:#fff}
+  .footer-social{display:flex;gap:16px;margin-top:8px}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+  .footer-social a:hover{color:#fff}
+  @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
+
 </style>
 </head>
 <body>
@@ -711,9 +734,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <div style="text-align:center;padding:14px 20px 4px;font-size:11px;color:var(--muted);font-style:italic">Terms and Conditions apply, subject to change.</div>
-<footer>
-  <div class="container">
-    Den 1880 · 14 Erb St. West, Waterloo, ON N2L 1S7 · <a href="mailto:hello@den1880.co">hello@den1880.co</a> · (519) 783-1505
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <img src="/assets/den1880-logo-black.svg" alt="Den 1880">
+      <p>A heritage coworking space for founders, creatives, and teams in the heart of Uptown Waterloo.</p>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://www.instagram.com/den1880.co/" target="_blank" rel="noopener">@den1880.co</a>
+        <a href="https://ca.linkedin.com/company/den-1880" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/events">Events</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/blog">Blog</a>
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <div class="hours-label">Office</div><div class="hours-line">Mon &#8211; Fri<br>8:00 am &#8211; 8:00 pm</div>
+      <div class="hours-label">Team Members</div><div class="hours-line">24/7 Access</div>
+      <div class="hours-label">Performance Club</div><div class="hours-line">Mon &#8211; Fri<br>6:00 am &#8211; 8:00 pm</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@den1880.co">hello@den1880.co</a>
+      <a href="tel:5197831505">(519) 783-1505</a>
+      <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Den 1880. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a href="https://den1880.optixapp.com/signup/">Get Started</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
   </div>
 </footer>
 
