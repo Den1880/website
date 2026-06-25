@@ -151,7 +151,9 @@ export default async (request, context) => {
     data = await store.get("google", { type: "json" });
   } catch (_) { data = null; }
 
-  const isProd = (Deno.env.get("CONTEXT") || "production") === "production";
+  // Non-production = Netlify preview/branch subdomains (e.g. deploy-preview-11--den1880.netlify.app).
+  const host = new URL(request.url).hostname;
+  const isProd = !(host.endsWith(".netlify.app") && host.includes("--"));
   let sample = false;
 
   if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) {
