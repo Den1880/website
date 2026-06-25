@@ -2,13 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://den1880.co/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://den1880.co/memberships</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://den1880.co/meeting-rooms</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://den1880.co/the-vault-podcast-studio</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://den1880.co/private-offices</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://den1880.co/events</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://den1880.co/corporate/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://den1880.co/gallery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/corporate/team-officeflex</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/corporate/team-officelite</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/corporate/enterprise</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/corporate/drop-in</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://den1880.co/corporate/compare</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://den1880.co/corporate/faq</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://den1880.co/business-mail</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://den1880.co/private-events</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://den1880.co/weddings</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://den1880.co/private-events</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://den1880.co/team-offsites</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://den1880.co/holiday-parties</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://den1880.co/team-offsites</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://den1880.co/bookanevent</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://den1880.co/eventinquiry</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://den1880.co/gallery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/best-cafs-lunch-spots-near-uptown-waterloo-coworking-spaces</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://den1880.co/10-inspiring-ways-teams-use-our-spaces</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://den1880.co/october-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/september-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/august-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/july-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/june-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/may-newsletter</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://den1880.co/bookanevent</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://den1880.co/eventinquiry</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://den1880.co/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
