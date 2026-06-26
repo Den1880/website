@@ -14,10 +14,8 @@
 /day-passes-1               /memberships    301
 
 # -- Teams / corporate (offices, solutions, meeting rooms) --
-/private-offices            /corporate/     301
 /business-solutions         /corporate/     301
 /solutions                  /corporate/     301
-/meeting-rooms              /corporate/     301
 
 # -- Business address / virtual mail (maps to the new business-mail pages) --
 /business-address           /business-mail              301
@@ -30,9 +28,10 @@
 # -- Gallery (same path; explicit for clarity) --
 /gallery                    /gallery        301
 
-# -- Member events calendar (dated posts -- not rebuilt) --
-/eventsatden                /               301
-/eventsatden/*              /               301
+# -- Old events pages -> new private-events venue page --
+/eventsatden                /private-events 301
+/eventsatden/*              /private-events 301
+/events                     /private-events 301
 # NOTE: private-events, weddings, holiday-parties, team-offsites,
 # bookanevent, and eventinquiry are now real rebuilt pages -- no redirect needed.
 
@@ -40,8 +39,8 @@
 /blog                       /               301
 /10-inspiring-ways-teams-use-our-spaces                         /  301
 /best-cafs-lunch-spots-near-uptown-waterloo-coworking-spaces    /  301
-/whatshappening             /               301
-/whatshappening-1           /               301
+/whatshappening             /blog           301
+/whatshappening-1           /blog           301
 
 # -- Newsletters (archival) --
 /august-newsletter          /               301
@@ -61,7 +60,7 @@
 /the-vault-podcast-studio   /               301
 
 # -- Legal --
-/privacy-policy-1           /               301
+/privacy-policy-1           /privacy-policy 301
 
 # -- Old draft / duplicate / utility pages (sent home for safety) --
 /home                       /               301
