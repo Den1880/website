@@ -7,3 +7,9 @@
   node_bundler = "esbuild"
 # Functions dir: netlify/functions (default). Edge dir: netlify/edge-functions (default).
 # The edge function declares its own routes via `export const config` (/, /memberships).
+
+# Serve the web app manifest with the correct MIME type (not octet-stream).
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
