@@ -48,6 +48,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
   .logo{display:inline-flex;align-items:center}
   .nav-cta{display:flex;gap:10px;align-items:center}
+  .nav-links{display:flex;gap:10px;align-items:center}
+  .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
+  .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 24px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
+  .mobile-menu a:last-of-type{border-bottom:none}
+  .mobile-menu a:hover{color:var(--lime-deep)}
+  .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
+  .mobile-menu .mobile-cta:hover{background:var(--lime-deep)}
+  @media(max-width:1100px){.topbar{padding:14px 20px}.nav-links{display:none}.hamburger{display:flex}}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
   .btn-primary{background:var(--ink);color:#fff}
   .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
@@ -64,7 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .breadcrumb span{margin:0 6px;opacity:.5}
 
   /* Hero */
-  .hero{padding:52px 0 64px;position:relative;overflow:hidden}
+  .hero{padding:64px 0 76px;position:relative;overflow:hidden;background:var(--ink) url('assets/photos/den1880-exterior.jpg') center 38%/cover no-repeat}
   .hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
   @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:36px}}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px;background:rgba(107,78,142,.08);padding:6px 12px;border-radius:999px}
@@ -72,7 +86,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero p.lede{max-width:540px;margin:18px 0 28px;color:var(--ink-2);font-size:17px;line-height:1.65}
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
   .hero-cta .subtle{font-size:13px;color:var(--muted)}
+  /* Exterior building banner */
+  .exterior-band{position:relative;width:100%;margin:0;line-height:0;background:var(--ink)}
+  .exterior-band img{display:block;width:100%;height:clamp(320px,52vh,600px);object-fit:cover;object-position:center 42%}
+  .exterior-band .exterior-cap{position:absolute;left:0;right:0;bottom:0;padding:64px 32px 26px;background:linear-gradient(to top,rgba(14,14,14,.62),rgba(14,14,14,0));line-height:1.35}
+  .exterior-band .exterior-addr{display:block;font-family:'Anton',sans-serif;font-size:clamp(22px,3.2vw,36px);letter-spacing:.02em;color:#fff;text-transform:uppercase}
+  .exterior-band .exterior-sub{display:block;margin-top:6px;font-size:14px;color:rgba(255,255,255,.85);max-width:560px}
+  @media(max-width:600px){.exterior-band .exterior-cap{padding:48px 20px 20px}}
   .hero-cta .subtle a{color:var(--plum);font-weight:600;text-decoration:none}
+  /* Photo hero overlay */
+  .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(14,14,14,.86) 0%,rgba(14,14,14,.64) 58%,rgba(14,14,14,.50) 100%);z-index:0}
+  .hero>.container{position:relative;z-index:1}
+  .hero .breadcrumb,.hero .breadcrumb a{color:rgba(255,255,255,.72)}
+  .hero .breadcrumb a:hover{color:#fff}
+  .hero h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.30)}
+  .hero h1 em{color:#cbb8ea}
+  .hero p.lede{color:rgba(255,255,255,.90);text-shadow:0 1px 16px rgba(0,0,0,.25)}
+  .hero .eyebrow{background:rgba(255,255,255,.15);color:#fff}
+  .hero .hero-cta .subtle{color:rgba(255,255,255,.82)}
+  .hero .hero-cta .subtle a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+  .hero .hero-cta .btn-primary{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+  .hero .hero-cta .btn-primary:hover{background:var(--lime-deep)}
+  .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+  .hero .btn-ghost:hover{background:#fff;color:var(--ink)}
   .hero-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-lift)}
   .hero-card .hc-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
   .hero-card .hc-price{display:flex;align-items:baseline;gap:4px;margin:10px 0 4px}
@@ -200,14 +236,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Business Address &amp; Mail — Den 1880 | 14 Erb St. W, Waterloo" />
 <meta property="og:description" content="Register your business at Den 1880's heritage Uptown Waterloo address. Professional business address, mail handling, and virtual office services from $88/month." />
 <meta property="og:url" content="https://den1880.co/business-mail" />
-<meta property="og:image" content="https://den1880.co/assets/photos/Copy%20of%20DSC_2167.jpg" />
+<meta property="og:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Business Address &amp; Mail — Den 1880 | 14 Erb St. W, Waterloo" />
 <meta name="twitter:description" content="Register your business at Den 1880's heritage Uptown Waterloo address. Professional business address, mail handling, and virtual office services from $88/month." />
-<meta name="twitter:image" content="https://den1880.co/assets/photos/Copy%20of%20DSC_2167.jpg" />
+<meta name="twitter:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
 <!-- SEO:LocalBusiness -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/Copy%20of%20DSC_2167.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
 </script>
 </head>
 <body>
@@ -223,13 +259,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="nav-pipe">/</span>
     <a class="nav-pc-link" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
   </div>
-  <div class="nav-cta">
-    <a class="btn btn-ghost btn-sm" href="corporate/" style="font-size:13px">For Teams</a>
-    <a class="btn btn-ghost btn-sm" href="../the-vault-podcast-studio.html">Podcast Studio</a>
-    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-    <a class="btn btn-primary btn-sm" href="business-mail-application.html">Apply Now</a>
-  </div>
+  <nav class="nav-links">
+  <a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+  <a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+  <a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+  <a class="btn btn-ghost btn-sm" href="/events">Events</a>
+  <a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+  <a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
+  <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+</nav>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
 </header>
+
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="memberships.html">Memberships</a>
+  <a href="corporate/">For Teams</a>
+  <a href="meeting-rooms.html">Meeting Rooms</a>
+  <a href="/events">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="the-vault-podcast-studio.html">Podcast Studio</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -246,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Virtual Office
         </div>
         <h1>A prestigious<br>Waterloo address,<br><em>without the overhead.</em></h1>
-        <p class="lede">Register your business at 14 Erb St. W. — Den 1880's heritage building in the heart of Uptown Waterloo. Get professional mail handling, a business address, and a virtual presence, starting at $88/month.</p>
+        <p class="lede">Register your business at 14 Erb St. W., Den 1880's heritage building in the heart of Uptown Waterloo. Get professional mail handling, a business address, and a virtual presence, starting at $88/month.</p>
         <div class="hero-cta">
           <a href="business-mail-application.html" class="btn btn-primary">Apply for Business Mail</a>
           <a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
@@ -279,6 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+
 
 <!-- How it Works -->
 <section class="how">
@@ -463,6 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/gallery">Gallery</a>
       <a href="/the-vault-podcast-studio">Podcast Studio</a>
       <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
       <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
     </div>
     <div class="footer-col">
@@ -489,5 +547,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<script>
+  (function(){
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if(!hamburger || !mobileMenu) return;
+    hamburger.addEventListener('click', function(){
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+    document.addEventListener('click', function(e){
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+  })();
+</script>
 </body>
 </html>
