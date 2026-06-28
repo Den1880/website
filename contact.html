@@ -11,7 +11,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F7F4EE">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
 <title>Contact Den 1880 — Uptown Waterloo Coworking &amp; Event Venue | 14 Erb St. W</title>
 <meta name="description" content="Contact Den 1880 in Uptown Waterloo. Book a tour, ask about memberships, meeting rooms, the podcast studio, or hosting an event. Call (519) 783-1505, email hello@den1880.co, or visit 14 Erb St. West, Waterloo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .container{max-width:1280px;margin:0 auto;padding:0 24px}
 
   /* Nav */
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
   .logo{display:inline-flex;align-items:center}
   .nav-cta{display:flex;gap:10px;align-items:center}
   .nav-links{display:flex;gap:10px;align-items:center}
@@ -54,7 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .hamburger.open span:nth-child(2){opacity:0}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 24px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 24px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
   .mobile-menu.open{display:flex}
   .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
   .mobile-menu a:last-of-type{border-bottom:none}
@@ -263,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){.form-row{grid-template-columns:1fr}}
   .form-field label{font-size:13px;font-weight:600;color:var(--ink)}
-  .form-field input,.form-field select,.form-field textarea{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s ease,box-shadow .15s ease;width:100%;box-sizing:border-box}
+  .form-field input,.form-field select,.form-field textarea{font-family:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s ease,box-shadow .15s ease;width:100%;box-sizing:border-box}
   .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(107,78,142,.12)}
   .form-field textarea{min-height:132px;resize:vertical}
   .form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -280,7 +290,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .aside-social a{font-size:14px;color:var(--ink);text-decoration:none;font-weight:600}
   .aside-social a:hover{color:var(--plum)}
   .newsletter{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
-  .newsletter input[type=email]{flex:1;min-width:220px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:13px 20px;box-sizing:border-box;transition:border-color .15s ease,box-shadow .15s ease}
+  .newsletter input[type=email]{flex:1;min-width:220px;font-family:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:13px 20px;box-sizing:border-box;transition:border-color .15s ease,box-shadow .15s ease}
   .newsletter input[type=email]:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(107,78,142,.12)}
   .newsletter button{flex-shrink:0}
   .newsletter-note{text-align:center;font-size:12px;color:var(--muted);margin:12px 0 0}
@@ -304,6 +314,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .scorelinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
   .scorelinks a{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
   .scorelinks a:hover{border-color:var(--plum);color:var(--plum)}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/contact" />

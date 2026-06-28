@@ -1,0 +1,14 @@
+{
+  "name": "Den 1880",
+  "short_name": "Den 1880",
+  "description": "Premium coworking, private gym, podcast studio and event venue in a heritage building in Uptown Waterloo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4EE",
+  "theme_color": "#F7F4EE",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

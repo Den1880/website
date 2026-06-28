@@ -11,7 +11,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F7F4EE">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
 <title>Gallery · Den 1880</title>
 <meta name="description" content="Take a look inside Den 1880 — Uptown Waterloo's premium coworking space with a high-end fitness facility, recovery amenities, and boutique event venues." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     padding:14px 32px;
     position:fixed;top:0;left:0;right:0;z-index:100;
     background:rgba(247,244,238,0.96);
-    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .logo{display:inline-flex;align-items:center}
@@ -145,7 +155,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:none;
     position:fixed;inset:0;z-index:200;
     background:rgba(14,14,14,.92);
-    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
     align-items:center;justify-content:center;
     padding:20px;
   }
@@ -250,6 +260,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/gallery" />

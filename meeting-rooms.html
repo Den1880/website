@@ -11,7 +11,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F7F4EE">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
   <title>Meeting Room Rentals in Uptown Waterloo | Den 1880</title>
   <meta name="description" content="Beautifully designed meeting rooms available on demand at Den 1880, Uptown Waterloo. Book by the hour or the day — members save 20%." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* ── NAV ── */
-    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,244,238,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,244,238,0.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
     .logo{display:inline-flex;align-items:center}
     .nav-links{display:flex;gap:10px;align-items:center}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
@@ -61,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+    .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
     .mobile-menu.open{display:flex}
     .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--off-black);text-decoration:none;border:none;border-bottom:1px solid var(--border);background:transparent;transition:color .15s ease}
     .mobile-menu a:last-of-type{border-bottom:none}
@@ -347,7 +357,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
     /* ── The Cellar members-only modal ── */
-    .cellar-modal-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(14,14,14,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:24px;}
+    .cellar-modal-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(14,14,14,.55);-webkit-backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:24px;}
     .cellar-modal-overlay.open{display:flex;}
     .cellar-modal{position:relative;width:100%;max-width:460px;background:#F7F4EE;border:1px solid #E6E1D6;border-radius:14px;padding:34px 30px 28px;box-shadow:0 24px 60px rgba(14,14,14,.22);text-align:left;}
     .cellar-modal-tag{display:inline-block;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700;color:#7d8f12;margin-bottom:.5rem;}
@@ -388,6 +398,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/meeting-rooms" />
