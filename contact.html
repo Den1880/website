@@ -236,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .crumbs{font-size:12px;color:rgba(255,255,255,.72);margin-bottom:18px}
   .crumbs a{color:rgba(255,255,255,.72);text-decoration:none}
   .crumbs a:hover{color:#fff}
-  .section{padding:56px 0}
+  .section{padding:48px 0}
   .section.alt{background:var(--paper)}
   .section-head{max-width:640px;margin:0 0 32px}
   .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
@@ -269,13 +269,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .direct-sub{font-size:13px;color:var(--muted)}
   .contact-split{display:grid;grid-template-columns:1.3fr .9fr;gap:44px;align-items:start}
   @media(max-width:880px){.contact-split{grid-template-columns:1fr;gap:36px}}
-  .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){.form-row{grid-template-columns:1fr}}
   .form-field label{font-size:13px;font-weight:600;color:var(--ink)}
   .form-field input,.form-field select,.form-field textarea{font-family:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s ease,box-shadow .15s ease;width:100%;box-sizing:border-box}
   .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(107,78,142,.12)}
-  .form-field textarea{min-height:132px;resize:vertical}
+  .form-field textarea{min-height:118px;resize:vertical}
   .form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .contact-aside{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 1px 2px rgba(14,14,14,.04)}
   .contact-aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700}
@@ -465,13 +465,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Form + direct contact -->
 <section class="section">
   <div class="container">
+    <div class="section-head" style="margin-bottom:26px">
+      <span class="eyebrow">Send a message</span>
+      <h2>Tell us what you need.</h2>
+      <p>Fill this out and we'll get right back to you.</p>
+    </div>
     <div class="contact-split">
       <div>
-        <div class="section-head" style="margin-bottom:24px">
-          <span class="eyebrow">Send a message</span>
-          <h2>Tell us what you need.</h2>
-          <p>Fill this out and we'll get right back to you.</p>
-        </div>
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="contact-success.html">
           <input type="hidden" name="form-name" value="contact" />
           <p class="form-hp"><label>Leave this empty: <input name="bot-field" /></label></p>
