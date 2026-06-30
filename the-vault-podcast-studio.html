@@ -179,6 +179,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY (appended; original CSS above untouched).
+   Restyles only the .hero into a full-bleed studio photo with a
+   dark scrim + white text. Remove this block to revert. Matches
+   the corporate / memberships / meeting-rooms / events heroes.
+   ============================================================ */
+.hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.40),rgba(14,14,14,.74)),url('/assets/photos/vault-hero.jpg') center 50%/cover no-repeat !important;
+  min-height:clamp(440px,60vh,580px);
+  display:flex;align-items:center;justify-content:center;
+  padding:96px 24px 64px !important;
+  overflow:hidden;
+}
+.hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center}
+.hero,.hero h1,.hero p,.hero .lede,.hero .eyebrow{color:#fff !important}
+.hero .eyebrow{text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.hero h1 em{color:var(--lime) !important}
+.hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.hero .btn-primary:hover{background:var(--lime-deep) !important;transform:translateY(-1px)}
+.hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,.55) !important}
+.hero .btn-ghost:hover{background:#fff !important;color:var(--ink) !important}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/the-vault-podcast-studio" />
