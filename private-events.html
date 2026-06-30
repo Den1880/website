@@ -140,6 +140,30 @@ footer a{color:var(--plum)}
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY (appended; original CSS above untouched).
+   Restyles only the .page-hero into a full-bleed event photo
+   with a dark scrim + white text. Remove this block to revert.
+   Matches the corporate / memberships / meeting-rooms heroes.
+   ============================================================ */
+.page-hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.38),rgba(14,14,14,.74)),url('/assets/photos/event-hero.jpg') center 50%/cover no-repeat !important;
+  min-height:clamp(440px,60vh,580px);
+  display:flex;align-items:center;justify-content:center;
+  padding:96px 24px 64px !important;
+  overflow:hidden;
+}
+.page-hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.page-hero,.page-hero h1,.page-hero p,.page-hero .lede,.page-hero .eyebrow,.page-hero .breadcrumb,.page-hero .breadcrumb a,.page-hero .breadcrumb span{color:#fff !important}
+.page-hero .eyebrow{background:rgba(255,255,255,.16) !important;text-shadow:none}
+.page-hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.page-hero h1 .purple{color:var(--lime) !important}
+.page-hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.page-hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.page-hero .btn-primary:hover{background:var(--lime-deep) !important;transform:translateY(-1px)}
+.page-hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,.55) !important}
+.page-hero .btn-ghost:hover{background:#fff !important;color:var(--ink) !important}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/private-events" />
