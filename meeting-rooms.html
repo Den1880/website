@@ -400,6 +400,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY (appended; original CSS above untouched).
+   Restyles only the .hero into a full-bleed photo with a dark
+   scrim + white text. Remove this block to revert. Matches the
+   corporate + memberships hero treatment.
+   ============================================================ */
+.hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.34),rgba(14,14,14,.72)),url('/assets/photos/DSC_1304-hero.jpg') center 50%/cover no-repeat !important;
+  max-width:none !important;
+  min-height:clamp(420px,58vh,560px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:calc(57px + 5rem) 1.5rem 4rem !important;
+  overflow:hidden;
+}
+.hero > *{position:relative;z-index:1;max-width:820px}
+.hero,.hero h1,.hero .hero-eyebrow,.hero .hero-desc,.hero .hero-note,.hero .hero-note strong{color:#fff !important}
+.hero .hero-eyebrow{text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero h1{text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero h1 em{color:var(--lime) !important}
+.hero .hero-desc{text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.hero .hero-actions{justify-content:center}
+.hero .btn-primary{background:var(--lime) !important;color:#111 !important}
+.hero .btn-primary:hover{background:#b9e024 !important}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/meeting-rooms" />
