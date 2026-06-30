@@ -11,17 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#F7F4EE">
-<meta name="application-name" content="Den 1880">
-<meta name="apple-mobile-web-app-title" content="Den 1880">
-<meta name="msapplication-TileColor" content="#F7F4EE">
-<meta name="msapplication-config" content="/browserconfig.xml">
-<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Team & Corporate Memberships in Waterloo | Den 1880</title>
     <meta name="description" content="Coworking and gym access for teams in Uptown Waterloo. Flexible day passes, private offices and per-seat plans, all on one invoice. For teams of 5 to 500." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   a{color:inherit}
   .container{max-width:1280px;margin:0 auto;padding:0 24px}
 
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
   .logo{display:inline-flex;align-items:center}
   .nav-cta{display:flex;gap:10px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer}
@@ -372,13 +362,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
   .nav-links .btn-lime{background:var(--ink);color:#fff}
   .nav-links .btn-lime:hover{background:#333}
-  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar{display:flex!important;justify-content:space-between;align-items:center;padding:14px 32px!important;position:fixed!important;top:0;left:0;right:0;z-index:100!important;background:rgba(247,244,238,0.96)!important;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0}
   .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s ease}
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .hamburger.open span:nth-child(2){opacity:0}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
+  .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(14,14,14,0.08)}
   .mobile-menu.open{display:flex}
   .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;border-bottom:1px solid var(--line);background:transparent;transition:color .15s ease}
   .mobile-menu a:last-of-type{border-bottom:none}
@@ -418,8 +408,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
-  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* =====================================================================
+   Busy-office hero for the corporate / For Teams page.
+   Paste this block inside the page's main style block, just before the
+   closing style tag in corporate/index.html. It restyles only .hero.
+   Needs the image at /assets/photos/DSCF1988-hero.jpg (1600px, ~190KB).
+===================================================================== */
+.hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.34),rgba(14,14,14,.74)),url('/assets/photos/DSCF1988-hero.jpg') center 40%/cover no-repeat !important;
+  min-height:clamp(460px,64vh,600px);
+  display:flex;align-items:center;justify-content:center;
+  padding:88px 24px 64px !important;
+  overflow:hidden;
+}
+.hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.hero,.hero h1,.hero h2,.hero p,.hero .lede,.hero .eyebrow,.hero .hero-eyebrow,.hero .hero-desc,.hero .hero-note,.hero .hero-fineprint{color:#fff !important}
+.hero h1 em,.hero h1 .purple{color:var(--lime) !important}
+.hero .eyebrow,.hero .hero-eyebrow{background:rgba(255,255,255,.16) !important}
+.hero .hero-fineprint strong{color:#fff !important}
+.hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,.55) !important}
+.hero .btn-ghost:hover{background:#fff !important;color:var(--ink) !important}
+
 </style>
 <link rel="canonical" href="https://den1880.co/corporate/" />
 <!-- SEO:LocalBusiness -->
@@ -577,7 +588,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/gallery">Gallery</a>
       <a href="/the-vault-podcast-studio">Podcast Studio</a>
       <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
       <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
     </div>
     <div class="footer-col">
