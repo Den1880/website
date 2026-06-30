@@ -400,6 +400,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY (appended; original CSS above untouched).
+   Restyles only the .hero into a full-bleed photo with a dark
+   scrim + white text. Remove this block to revert. Matches the
+   corporate + memberships hero treatment.
+   ============================================================ */
+.hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.34),rgba(14,14,14,.72)),url('/assets/photos/DSC_1304-hero.jpg') center 50%/cover no-repeat !important;
+  max-width:none !important;
+  min-height:clamp(420px,58vh,560px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:calc(57px + 5rem) 1.5rem 4rem !important;
+  overflow:hidden;
+}
+.hero > *{position:relative;z-index:1;max-width:820px}
+.hero,.hero h1,.hero .hero-eyebrow,.hero .hero-desc{color:#fff !important}
+.hero .hero-eyebrow{text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero h1{text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero h1 em{color:var(--lime) !important}
+.hero .hero-desc{text-shadow:0 1px 12px rgba(0,0,0,.45)}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/meeting-rooms" />
@@ -468,17 +489,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hero-desc">
       Available on demand for members and guests alike. A range of sizes, built-in AV, Smart TVs, whiteboards, and curated aesthetics — each space built to support productive conversations, creative thinking, and professional gatherings.
     </p>
-    <div class="hero-actions">
-      <a href="https://den1880.optixapp.com/book/" class="btn-primary">Book a Room</a>
-      <span class="hero-note"><strong>Members save 20%</strong> on all bookings · Included with Club, Resident, Office &amp; Enterprise plans</span>
-    </div>
   </section>
 
   <hr class="divider" />
 
   <!-- MEMBER CALLOUT -->
   <div class="member-callout">
-    Book by the hour or the day &nbsp;·&nbsp; Club, Resident, Office &amp; Enterprise members enjoy <strong>20% off all meeting rooms</strong> when booked from your member portal &nbsp;·&nbsp;
+    Book by the hour or the day &nbsp;·&nbsp; Club, Resident, Office &amp; Enterprise members enjoy <strong>big savings off all meeting rooms</strong> when booked from your member portal &nbsp;·&nbsp;
     <a href="https://den1880.optixapp.com/inquiry/">Team Offsite packages available →</a>
   </div>
 
