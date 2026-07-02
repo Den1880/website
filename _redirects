@@ -28,10 +28,9 @@
 # -- Gallery (same path; explicit for clarity) --
 /gallery                    /gallery        301
 
-# -- Old events pages -> new private-events venue page --
-/eventsatden                /private-events 301
-/eventsatden/*              /private-events 301
-/events                     /private-events 301
+# -- Old events pages -> events hub --
+/eventsatden                /events 301
+/eventsatden/*              /events 301
 # NOTE: private-events, weddings, holiday-parties, team-offsites,
 # bookanevent, and eventinquiry are now real rebuilt pages -- no redirect needed.
 
