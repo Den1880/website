@@ -25,9 +25,6 @@
 # -- Performance Club (now its own site) --
 /performance-club           https://performanceclub.ca/  301
 
-# -- Gallery (same path; explicit for clarity) --
-/gallery                    /gallery        301
-
 # -- Old events pages -> new private-events venue page --
 /eventsatden                /private-events 301
 /eventsatden/*              /private-events 301
@@ -35,10 +32,7 @@
 # NOTE: private-events, weddings, holiday-parties, team-offsites,
 # bookanevent, and eventinquiry are now real rebuilt pages -- no redirect needed.
 
-# -- Blog & content (no blog on the new site -- consider porting later) --
-/blog                       /               301
-/10-inspiring-ways-teams-use-our-spaces                         /  301
-/best-cafs-lunch-spots-near-uptown-waterloo-coworking-spaces    /  301
+# -- Blog & content (blog and both posts are now real pages -- no redirect needed) --
 /whatshappening             /blog           301
 /whatshappening-1           /blog           301
 
@@ -58,7 +52,6 @@
 /careers                    /               301
 /applytoden1880             /               301
 /tour                       /               301
-/the-vault-podcast-studio   /               301
 
 # -- Legal --
 /privacy-policy-1           /privacy-policy 301
