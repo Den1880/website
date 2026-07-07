@@ -63,3 +63,32 @@
 /berightback                /               301
 /thank-you                  /               301
 /thank-you-2                /               301
+
+# -- UTM vanity short-links (ported from old Squarespace URL redirects; added July 2026) --
+# These paths are printed on physical signage, postcards, banners, Kijiji ads,
+# email signatures, and bitly links (see UTM Tracking Link Generator sheet).
+# Netlify passes ?utm_... query strings through 301s automatically.
+/0001             /   301
+/0002             /   301
+/0003             /   301
+/0004             /   301
+/0005             /   301
+/0006             /   301
+/0007             /   301
+/0008             /   301
+/0009             /   301
+/qr1              /   301
+/qr2              /   301
+/qr3              /   301
+/qr4              /   301
+/email_signatures /   301
+/0014             /memberships   301
+/0015             /memberships   301
+/0016             https://den1880.optixapp.com/book/tour/   301
+/0017             /   301
+/0018             /   301
+/0019             /   301
+/0020             /   301
+/0021             /private-offices   301
+/0022             /   301
+/book_a_tour      https://den1880.optixapp.com/book/tour/   301
