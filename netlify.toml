@@ -1,7 +1,15 @@
 # Den 1880 — static site. No build step; Netlify serves the repo root as-is.
-# This file only adds the Google Reviews feature (scheduled fetch + edge render).
+# This file only adds the Google Reviews feature (scheduled fetch + edge render)
+# and the Optix -> Google Ads conversions feed function.
 [build]
   publish = "."
+
+# OPTIX_ORG_ID is the Optix venue id (25734), not a secret — it appears both as an
+# env var and hardcoded as a fallback in netlify/functions/optix-feed.mjs, which
+# trips Netlify's secrets scanner. Exclude it (the real secrets, OPTIX_ORG_TOKEN
+# and FEED_PASS, are never written into the build and stay scanned).
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "OPTIX_ORG_ID"
 
 [functions]
   node_bundler = "esbuild"
