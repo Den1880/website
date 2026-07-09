@@ -16,6 +16,10 @@
 // scheduled-upload config must be set to "Unhashed customer data" so Google hashes
 // them on ingest. The URL exposes customer emails, so it is protected by Basic Auth
 // and must only ever be shared with the Google Ads scheduled upload.
+//
+// Auth note: bad/missing credentials return 403 (NOT 401 with WWW-Authenticate), so
+// browsers and other clients don't pop a credential dialog. Google Ads scheduled
+// uploads send the Basic header proactively, so no 401 challenge is needed.
 
 const OPTIX_ENDPOINT = "https://api.optixapp.com/graphql";
 const CONV_NAME = "Optix booking completed (offline)";
@@ -44,18 +48,18 @@ function torontoIso(unixSec) {
 export default async (req) => {
   const user = process.env.FEED_USER;
   const pass = process.env.FEED_PASS;
-  const auth = req.headers.get("authorization") || "";
-  const expected = "Basic " + Buffer.from(`${user}:${pass}`).toString("base64");
-  if (!user || !pass || auth !== expected) {
-    return new Response("Unauthorized", {
-      status: 401,
-      headers: { "WWW-Authenticate": 'Basic realm="optix-feed"' },
-    });
-  }
-
   const token = process.env.OPTIX_ORG_TOKEN;
   const orgId = process.env.OPTIX_ORG_ID || "25734";
   const windowDays = parseInt(process.env.WINDOW_DAYS || "21", 10);
+
+  const auth = req.headers.get("authorization") || "";
+  const expected = user && pass ? "Basic " + Buffer.from(`${user}:${pass}`).toString("base64") : null;
+  if (!expected || auth !== expected) {
+    return new Response(
+      JSON.stringify({ ok: false, reason: "auth-failed", envConfigured: { FEED_USER: !!user, FEED_PASS: !!pass, OPTIX_ORG_TOKEN: !!token } }),
+      { status: 403, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } }
+    );
+  }
   if (!token) return new Response("Missing OPTIX_ORG_TOKEN", { status: 500 });
 
   const query = `{ bookings(organization_id:"${orgId}", limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp user{email} invoice_items{total} } } }`;
@@ -107,5 +111,4 @@ export default async (req) => {
   });
 };
 
-// Route this function at a clean path.
 export const config = { path: "/optix-feed" };
