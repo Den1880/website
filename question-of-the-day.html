@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4BTKWZ6');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F7F4EE">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
+  <title>Question of the Day | Den 1880 Coworking, Uptown Waterloo</title>
+  <meta name="description" content="One question, 24 hours, live results. Vote in today's Question of the Day from the Den 1880 community in Uptown Waterloo." />
+  <link rel="canonical" href="https://den1880.co/question-of-the-day" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Question of the Day | Den 1880" />
+  <meta property="og:description" content="One question, 24 hours, live results. Have your say, then see how the Den 1880 community voted." />
+  <meta property="og:url" content="https://den1880.co/question-of-the-day" />
+  <meta property="og:image" content="https://den1880.co/assets/qotd/qd-001-hero-og.jpg" />
+  <meta property="og:site_name" content="Den 1880" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Question of the Day","url":"https://den1880.co/question-of-the-day","description":"A daily one-question poll from the Den 1880 coworking community in Uptown Waterloo.","isPartOf":{"@id":"https://den1880.co/#business"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Anton&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#0E0E0E;--ink-2:#2A2A2A;--paper:#F7F4EE;--line:#E6E1D6;--muted:#6F6A60;--lime:#C8E020;--lime-deep:#9DB315;--plum:#6B4E8E;--shadow:0 1px 2px rgba(14,14,14,.04),0 8px 32px rgba(14,14,14,.06);--radius:14px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    html,body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0;}
+    h1{font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-0.025em;}
+    h2{font-size:clamp(24px,3vw,34px);line-height:1.12;}
+    h3{font-size:clamp(19px,2vw,23px);}
+    p{margin:0 0 1em;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px;}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,244,238,0.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+    .logo{display:inline-flex;align-items:center;}
+    .nav-links{display:flex;gap:10px;align-items:center;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;}
+    .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+    .btn-lime{background:var(--lime);color:var(--ink);}
+    .btn-sm{padding:9px 16px;font-size:13px;}
+    .nav-links .btn-ghost{border-color:transparent;}
+    .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink);}
+    .nav-links .btn-lime{background:var(--ink);color:#fff;}
+    .nav-links .btn-lime:hover{background:#333;}
+    .nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
+    .nav-pipe{color:var(--line);font-family:'Anton',sans-serif;font-size:22px;line-height:1;user-select:none}
+    .nav-pc-link{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--muted);}
+    .nav-pc-link:hover{color:var(--plum);}
+    .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:0;flex-shrink:0;}
+    .hamburger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;z-index:99;background:rgba(247,244,238,0.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{display:block;padding:14px 0;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line);}
+    .mobile-menu a:hover{color:var(--lime-deep);}
+    .mobile-menu .mobile-cta{background:var(--lime);color:var(--ink);text-align:center;margin-top:12px;padding:14px;border-radius:999px;font-weight:700;border-bottom:none;}
+    @media(max-width:1100px){.topbar{padding:14px 20px;}.nav-links{display:none;}.hamburger{display:flex;}.nav-brand{margin-right:0}}
+    .post-hero{padding:130px 0 26px;text-align:center;}
+    .post-eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+    .post-hero h1 em{font-style:italic;color:var(--plum);}
+    .post-meta{margin-top:18px;color:var(--muted);font-size:14px;}
+    .post-cover{display:block;width:100%;max-width:920px;margin:8px auto 0;padding:0 24px;}
+    .post-cover img{width:100%;height:auto;border-radius:16px;display:block;box-shadow:var(--shadow);}
+    .site-footer{position:relative;background-image:url('https://den1880.co/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
+    .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+    .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+    .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
+    .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
+    .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+    .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
+    .footer-col a:hover{color:#fff}
+    .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
+    .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+    .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35)}
+    .footer-bottom-links{display:flex;gap:24px;align-items:center}
+    .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+    .footer-bottom-links a:hover{color:#fff}
+    .footer-social{display:flex;gap:16px;margin-top:8px}
+    .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+    .footer-social a:hover{color:#fff}
+    @media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.footer-bottom{padding:16px 24px}}
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+    /* ---- Question of the Day widget ---- */
+    .qotd-wrap{max-width:680px;margin:34px auto 0;padding:0 24px;}
+    .qotd-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:32px 30px;}
+    .qotd-status{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .qotd-status .dot{width:8px;height:8px;border-radius:50%;background:var(--lime-deep);}
+    .qotd-status.closed .dot{background:var(--plum);}
+    .qotd-q{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,28px);line-height:1.18;margin-bottom:22px;}
+    .qotd-q em{font-style:italic;color:var(--plum);}
+    .qotd-opts{display:flex;flex-direction:column;gap:10px;}
+    .qotd-opt{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;padding:15px 18px;background:var(--paper);border:1px solid var(--line);border-radius:12px;font-family:'Inter',sans-serif;font-size:15.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s,transform .1s;}
+    .qotd-opt:hover{border-color:var(--ink);background:#fff;}
+    .qotd-opt:active{transform:scale(.99);}
+    .qotd-opt .arrow{color:var(--muted);font-weight:400;transition:transform .15s;}
+    .qotd-opt:hover .arrow{transform:translateX(3px);color:var(--ink);}
+    .qotd-note{margin:16px 0 0;font-size:12.5px;color:var(--muted);}
+    .qotd-note strong{color:var(--ink);}
+    .qotd-voted{padding:6px 0 0;}
+    .qotd-voted .big{font-family:'Playfair Display',Georgia,serif;font-size:22px;margin-bottom:8px;}
+    .qotd-countdown{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--ink-2);margin-top:6px;}
+    .qotd-results{display:flex;flex-direction:column;gap:14px;margin-top:4px;}
+    .qotd-row .lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;font-weight:600;margin-bottom:6px;}
+    .qotd-row .lbl .pct{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;}
+    .qotd-bar{height:14px;background:var(--paper);border:1px solid var(--line);border-radius:999px;overflow:hidden;}
+    .qotd-bar i{display:block;height:100%;width:0;background:#D9D3C5;border-radius:999px;transition:width .9s cubic-bezier(.2,.7,.2,1);}
+    .qotd-row.win .qotd-bar i{background:var(--lime);}
+    .qotd-row.win .lbl .pct{color:var(--lime-deep);}
+    .qotd-blurb{margin-top:24px;padding:20px 22px;background:var(--paper);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;}
+    .qotd-blurb p{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-2);}
+    .qotd-blurb .closer{margin-top:10px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:17px;color:var(--plum);}
+    .qotd-meta-line{margin-top:18px;font-size:12px;color:var(--muted);}
+    .qotd-section-head{max-width:680px;margin:44px auto 0;padding:0 24px;}
+    .qotd-section-head h2{font-size:clamp(20px,2.4vw,26px);}
+    .qotd-section-head p{color:var(--muted);font-size:14px;margin:6px 0 0;}
+    .qotd-archive{max-width:680px;margin:16px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:22px;}
+    .qotd-past{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+    .qotd-past .qotd-past-img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid var(--line);}
+    .qotd-past .inner{padding:24px 24px 26px;}
+    .qotd-past .qotd-q{font-size:clamp(19px,2.4vw,23px);margin-bottom:18px;}
+    .qotd-past .qotd-results{gap:11px;}
+    .qotd-past .qotd-bar{height:11px;}
+    .qotd-past .lbl{font-size:13.5px;}
+    .qotd-past .lbl .pct{font-size:14.5px;}
+    .qotd-past .qotd-blurb{margin-top:18px;padding:16px 18px;}
+    .qotd-past .qotd-blurb p{font-size:14px;}
+    .qotd-past .qotd-blurb .closer{font-size:15.5px;}
+    .qotd-comments{margin-top:22px;border-top:1px solid var(--line);padding-top:18px;}
+    .qotd-comments h4{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    .qotd-clist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 14px;padding:0;}
+    .qotd-clist li{font-size:14px;line-height:1.5;color:var(--ink-2);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;}
+    .qotd-clist li .who{color:var(--plum);font-weight:600;font-size:12.5px;}
+    .qotd-clist li.pending{opacity:.55;font-style:italic;}
+    .qotd-cform{display:flex;gap:8px;}
+    .qotd-cform input[type=text]{border:1px solid var(--line);border-radius:999px;background:var(--paper);font-family:'Inter',sans-serif;font-size:16px;color:var(--ink);padding:10px 14px;}
+    .qotd-cform input:focus{border-color:var(--ink);background:#fff;outline:none;}
+    .qotd-cform input:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+    .qotd-cform .c-text{flex:1;min-width:0;}
+    .qotd-cform .c-name{width:110px;flex-shrink:0;}
+    .qotd-cform button{padding:10px 18px;border-radius:999px;border:none;background:var(--ink);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;cursor:pointer;flex-shrink:0;}
+    .qotd-cform button:hover{background:var(--plum);}
+    .qotd-cform button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+    .qotd-cnote{font-size:11.5px;color:var(--muted);margin:8px 0 0;}
+    @media(max-width:560px){.qotd-cform{flex-wrap:wrap;}.qotd-cform .c-text{flex-basis:100%;}.qotd-cform .c-name{flex:1;width:auto;}}
+    .qotd-suggest{max-width:680px;margin:16px auto 64px;padding:0 24px;}
+    .qotd-suggest .card{background:#fff;border:1px dashed var(--line);border-radius:16px;padding:26px 26px;}
+    .qotd-suggest h3{font-size:19px;margin-bottom:6px;}
+    .qotd-suggest p{font-size:13.5px;color:var(--muted);margin-bottom:14px;}
+    .qotd-suggest form{display:flex;gap:10px;}
+    .qotd-suggest input{flex:1;min-width:0;padding:13px 16px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-family:'Inter',sans-serif;font-size:16px;color:var(--ink);}
+    .qotd-suggest input:focus{border-color:var(--ink);background:#fff;outline:none;}
+    .qotd-suggest input:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+    .qotd-opt:focus-visible,.qotd-suggest button:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+    .qotd-suggest button{padding:13px 22px;border-radius:999px;border:none;background:var(--ink);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;cursor:pointer;}
+    .qotd-suggest button:hover{background:var(--plum);}
+    .qotd-suggest .thanks{display:none;font-size:14px;color:var(--lime-deep);font-weight:600;margin-top:10px;}
+    @media(max-width:520px){.qotd-suggest form{flex-direction:column;}.qotd-suggest button{width:100%;}}
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="topbar" id="topbar">
+  <div class="nav-brand">
+    <a class="logo" href="https://den1880.co/"><img src="https://den1880.co/assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+    <span class="nav-pipe">/</span>
+    <a class="nav-pc-link" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  </div>
+  <nav class="nav-links">
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/memberships">Memberships</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/corporate/">For Teams</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/meeting-rooms">Meeting Rooms</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/events">Events</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/gallery">Gallery</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.co/the-vault-podcast-studio">Podcast Studio</a>
+    <a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+    <a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://den1880.co/memberships">Memberships</a>
+  <a href="https://den1880.co/corporate/">For Teams</a>
+  <a href="https://den1880.co/meeting-rooms">Meeting Rooms</a>
+  <a href="https://den1880.co/events">Events</a>
+  <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <a href="https://den1880.co/gallery">Gallery</a>
+  <a href="https://den1880.co/the-vault-podcast-studio">Podcast Studio</a>
+  <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+  <a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<section class="post-hero">
+  <div class="container">
+    <h1>Question of the <em>Day</em></h1>
+    <p class="post-meta">Explore the weird and wonderful corners of the community's brain!</p>
+  </div>
+</section>
+
+<div class="post-cover">
+  <img id="qotdHero" src="" alt="" width="1600" height="1000" fetchpriority="high" style="aspect-ratio:16/10" />
+</div>
+
+<div class="qotd-wrap">
+  <div class="qotd-card" id="qotdCard">
+    <noscript><p>The Question of the Day needs JavaScript to count your vote. Come say hi at 14 Erb St. West instead.</p></noscript>
+  </div>
+  <div class="qotd-card" id="qotdCurrentComments" style="margin-top:14px;display:none"></div>
+</div>
+
+<div class="qotd-section-head" id="qotdArchiveHead" style="display:none">
+  <h2>Previous questions</h2>
+  <p>How the community answered, one day at a time.</p>
+</div>
+<div class="qotd-archive" id="qotdArchive"></div>
+
+<div class="qotd-suggest">
+  <div class="card">
+    <h3>Got a better question?</h3>
+    <p>Suggest tomorrow's Question of the Day. If we run it, it's yours to brag about.</p>
+    <form id="qotdSuggestForm">
+      <input id="qotdSuggestInput" type="text" maxlength="200" aria-label="Suggest a question of the day" placeholder="e.g. Standing desk: life-changing or just standing?" autocomplete="off" />
+      <button type="submit">Suggest it</button>
+    </form>
+    <div class="thanks" id="qotdSuggestThanks">In the hat. We read every one.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <img src="https://den1880.co/assets/den1880-logo-black.svg" alt="Den 1880">
+      <p>A heritage coworking space for founders, creatives, and teams in the heart of Uptown Waterloo.</p>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://www.instagram.com/den1880.co/" target="_blank" rel="noopener">@den1880.co</a>
+        <a href="https://ca.linkedin.com/company/den-1880" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="https://den1880.co/memberships">Memberships</a>
+      <a href="https://den1880.co/corporate/">For Teams</a>
+      <a href="https://den1880.co/meeting-rooms">Meeting Rooms</a>
+      <a href="https://den1880.co/events">Events</a>
+      <a href="https://den1880.co/gallery">Gallery</a>
+      <a href="https://den1880.co/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <div class="hours-label">Office</div>
+      <div class="hours-line">Mon &#8211; Fri<br>8:00 am &#8211; 8:00 pm</div>
+      <div class="hours-label">Team Members</div>
+      <div class="hours-line">24/7 Access</div>
+      <div class="hours-label">Performance Club</div>
+      <div class="hours-line">Mon &#8211; Fri<br>6:00 am &#8211; 8:00 pm</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@den1880.co">hello@den1880.co</a>
+      <a href="tel:5197831505">(519) 783-1505</a>
+      <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Den 1880. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a href="https://den1880.optixapp.com/signup/">Get Started</a>
+      <a href="https://den1880.co/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/qotd/questions.js"></script>
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+  hb.addEventListener('click',function(){var o=mm.classList.toggle('open');hb.setAttribute('aria-expanded',o);});
+  mm.querySelectorAll('a').forEach(function(l){l.addEventListener('click',function(){mm.classList.remove('open');});});
+
+  var API = window.QOTD_API || '';
+  var LIVE = API.indexOf('http') === 0;
+  var POLL_MS = window.QOTD_POLL_MS || 60000;
+  var FALLBACK = window.QOTD_QUESTIONS || [];
+  var card = document.getElementById('qotdCard');
+  var heroImg = document.getElementById('qotdHero');
+  var D = null, lastSig = '', QS = [], q = null, opensAt = 0, closesAt = 0, timer = null, flipTimer = null;
+
+  function token(){
+    try{
+      var t = localStorage.getItem('qotd_token');
+      if(!t){ t = (self.crypto && crypto.randomUUID) ? crypto.randomUUID() : 't' + Date.now() + Math.floor(Math.random()*1e9); localStorage.setItem('qotd_token', t); }
+      return t;
+    }catch(e){ return 'anon'; }
+  }
+  function votedFor(id){ try{ var v = localStorage.getItem('qotd_voted_' + id); return v === null ? null : parseInt(v,10); }catch(e){ return null; } }
+  function markVoted(id, i){ try{ localStorage.setItem('qotd_voted_' + id, String(i)); }catch(e){} }
+  function dl(ev, extra){ window.dataLayer = window.dataLayer || []; var o = {event: ev, qotd_id: q ? q.id : ''}; for (var k in extra) o[k] = extra[k]; window.dataLayer.push(o); }
+  function esc(s){ var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function stars(s){ return esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>'); }
+  function fmtTime(ts){ return new Date(ts).toLocaleString('en-CA', {weekday:'short', hour:'numeric', minute:'2-digit'}); }
+  function fmtDate(iso){ return new Date(iso).toLocaleDateString('en-CA', {month:'long', day:'numeric', year:'numeric'}); }
+
+  function toPercents(counts){
+    var total = counts.reduce(function(a,b){return a+b;},0);
+    if (!total) return counts.map(function(){return 0;});
+    var exact = counts.map(function(c){return c*100/total;});
+    var floors = exact.map(Math.floor);
+    var rem = 100 - floors.reduce(function(a,b){return a+b;},0);
+    var order = exact.map(function(v,i){return [v-floors[i], i];}).sort(function(a,b){return b[0]-a[0];});
+    for (var k=0; k<rem; k++) floors[order[k % order.length][1]]++;
+    return floors;
+  }
+
+  var dataP = null;
+  function getData(force){
+    if (!LIVE) return Promise.resolve(null);
+    if (force || !dataP) {
+      dataP = fetch(API, {method:'GET'}).then(function(r){return r.json();}).then(function(j){
+        return (j && j.ok) ? {questions: j.questions || [], counts: j.counts || {}, comments: j.comments || {}} : null;
+      }).catch(function(){ return null; });
+    }
+    return dataP;
+  }
+
+  function normalize(raw, fromSheet){
+    var o = {};
+    for (var k in raw) o[k] = raw[k];
+    o.qhtml = fromSheet ? stars(String(raw.question || '')) : raw.question;
+    o.plain = fromSheet ? String(raw.question || '').replace(/\*/g, '') : (raw.questionPlain || String(raw.question || '').replace(/<[^>]*>/g, ''));
+    if (!o.eyebrow) {
+      var num = (String(o.id || '').match(/\d+/) || [''])[0];
+      o.eyebrow = 'Question of the Day' + (num ? ' · No. ' + num : '');
+    }
+    o._opensAt = new Date(o.opensAt).getTime();
+    o._closesAt = o._opensAt + (o.durationHours || 24) * 3600 * 1000;
+    return o;
+  }
+  function isClosed(qq){ return !!qq.finalized || Date.now() > qq._closesAt; }
+
+  // ---- comments ----
+  function commentsHTML(qid, comments){
+    var list = (comments && comments[qid]) || [];
+    var html = '<div class="qotd-comments" data-qid="' + qid + '"><h4>Peanut gallery' + (list.length ? ' · ' + list.length : '') + '</h4>';
+    if (list.length) {
+      html += '<ul class="qotd-clist">';
+      list.forEach(function(c){
+        html += '<li>' + esc(c[1]) + (c[0] ? ' <span class="who">' + esc(c[0]) + '</span>' : '') + '</li>';
+      });
+      html += '</ul>';
+    } else {
+      html += '<ul class="qotd-clist" style="display:none"></ul>';
+    }
+    html += '<form class="qotd-cform"><input class="c-text" type="text" maxlength="280" aria-label="Add a comment" placeholder="Add your two cents…" autocomplete="off"><input class="c-name" type="text" maxlength="24" aria-label="Your name (optional)" placeholder="Name (opt.)" autocomplete="off"><button type="submit">Post</button></form>';
+    html += '<p class="qotd-cnote">Comments show up once a human at the Den has eyeballed them.</p></div>';
+    return html;
+  }
+  function wireComments(root){
+    root.querySelectorAll('.qotd-comments').forEach(function(block){
+      var qid = block.dataset.qid;
+      var form = block.querySelector('.qotd-cform');
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var ti = form.querySelector('.c-text'), ni = form.querySelector('.c-name');
+        var text = (ti.value || '').trim(), name = (ni.value || '').trim();
+        if (text.length < 2) { ti.focus(); return; }
+        if (LIVE) {
+          fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+            body: JSON.stringify({type:'comment', questionId:qid, text:text, name:name, token:token()})}).catch(function(){});
+        }
+        dl('qotd_comment', {qotd_comment_qid: qid});
+        var ul = block.querySelector('.qotd-clist');
+        ul.style.display = '';
+        ul.insertAdjacentHTML('afterbegin', '<li class="pending">' + esc(text) + (name ? ' <span class="who">' + esc(name) + '</span>' : '') + ' <span style="font-size:11px">(awaiting approval)</span></li>');
+        ti.value = ''; ni.value = '';
+      });
+    });
+  }
+
+  function resultsHTML(qq, counts){
+    counts = counts.slice();
+    while (counts.length < qq.options.length) counts.push(0);
+    var pcts = toPercents(counts);
+    var winI = 0; pcts.forEach(function(p,i){ if (p > pcts[winI]) winI = i; });
+    var tie = pcts.filter(function(p){ return p === pcts[winI]; }).length > 1;
+    var mine = votedFor(qq.id);
+    var html = '<div class="qotd-results">';
+    qq.options.forEach(function(opt, i){
+      html += '<div class="qotd-row' + (i === winI && !tie ? ' win' : '') + '"><div class="lbl"><span>' + esc(opt) + (mine === i ? ' <span style="color:var(--plum);font-size:12px">(your pick)</span>' : '') + '</span><span class="pct">' + pcts[i] + '%</span></div>' +
+        '<div class="qotd-bar"><i data-w="' + pcts[i] + '"></i></div></div>';
+    });
+    html += '</div>';
+    var aud = qq.audience || 'the Den 1880 community';
+    var blurb = tie
+      ? 'A dead heat at ' + pcts[winI] + '% apiece. ' + aud.charAt(0).toUpperCase() + aud.slice(1) + ' could not pick a side.'
+      : (qq.blurbTemplate || '{pct}% of {audience} say {answer}.')
+          .replace('{pct}', pcts[winI])
+          .replace('{audience}', qq.audience || 'the Den 1880 community')
+          .replace('{answer}', (qq.answerPhrases && qq.answerPhrases[winI]) || qq.options[winI].toLowerCase());
+    var closer = tie ? (qq.tieCloser || '') : ((qq.closers && qq.closers[winI]) || qq.closer || '');
+    html += '<div class="qotd-blurb"><p>' + esc(blurb) + '</p>' + (closer ? '<p class="closer">' + esc(closer) + '</p>' : '') + '</div>';
+    return html;
+  }
+  function animateBars(root){
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      root.querySelectorAll('.qotd-bar i').forEach(function(bar){ bar.style.width = bar.dataset.w + '%'; });
+    });});
+  }
+
+  function renderOpen(){
+    var voted = votedFor(q.id);
+    if (voted !== null) { renderVoted(voted); return; }
+    var html = '<span class="qotd-status"><span class="dot"></span>Voting open · closes ' + fmtTime(closesAt) + '</span>';
+    html += '<div class="qotd-q">' + q.qhtml + '</div>';
+    html += '<div class="qotd-opts" role="group" aria-label="Vote">';
+    q.options.forEach(function(opt, i){
+      html += '<button class="qotd-opt" data-i="' + i + '">' + esc(opt) + '<span class="arrow">&#8594;</span></button>';
+    });
+    html += '</div><p class="qotd-note">One vote per person. Results revealed when the question closes. <strong>Percentages only, no names.</strong></p>';
+    card.innerHTML = html;
+    card.querySelectorAll('.qotd-opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var i = parseInt(btn.dataset.i, 10);
+        btn.style.borderColor = 'var(--lime-deep)';
+        markVoted(q.id, i);
+        dl('qotd_vote', {qotd_option_index: i, qotd_option: q.options[i]});
+        if (LIVE) {
+          fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+            body: JSON.stringify({type:'vote', questionId:q.id, option:i, token:token()})}).catch(function(){});
+        }
+        renderVoted(i);
+      });
+    });
+  }
+
+  function renderVoted(i){
+    var html = '<span class="qotd-status"><span class="dot"></span>Vote recorded</span>';
+    html += '<div class="qotd-voted"><div class="big">You said: &ldquo;' + esc(q.options[i]) + '&rdquo;</div>';
+    html += '<p style="color:var(--muted);font-size:14px;margin:0 0 10px">No peeking. The results drop when the question closes. Come back to see if the room agrees with you.</p>';
+    html += '<span class="qotd-countdown" id="qotdCountdown"></span></div>';
+    card.innerHTML = html;
+    tickCountdown();
+    clearInterval(timer);
+    timer = setInterval(tickCountdown, 30000);
+  }
+
+  function tickCountdown(){
+    var el = document.getElementById('qotdCountdown');
+    if (!el) return;
+    var ms = closesAt - Date.now();
+    if (ms <= 0) { clearInterval(timer); reboot(); return; }
+    var hrs = Math.floor(ms/3600000), mins = Math.round((ms%3600000)/60000);
+    el.textContent = 'Results in ' + (hrs > 0 ? hrs + 'h ' : '') + mins + 'm';
+  }
+
+  function renderClosed(){
+    var counts = (D && D.counts && D.counts[q.id]) ? D.counts[q.id].slice() : null;
+    var html = '<span class="qotd-status closed"><span class="dot"></span>Closed · ' + fmtDate(q.opensAt) + '</span>';
+    html += '<div class="qotd-q">' + q.qhtml + '</div>';
+    if (!D && LIVE) {
+      html += '<p style="color:var(--muted)">Results are taking a moment to load. Give it a refresh in a minute.</p>';
+      card.innerHTML = html;
+      return;
+    }
+    if (!counts || !counts.reduce(function(a,b){return a+b;},0)) {
+      html += '<p style="color:var(--muted)">' + (LIVE ? 'Quiet round, no votes this time. Tomorrow&rsquo;s a new day.' : 'Results will appear here once the vote server is connected.') + '</p>';
+      card.innerHTML = html;
+      return;
+    }
+    var total = counts.reduce(function(a,b){return a+b;},0);
+    html += resultsHTML(q, counts);
+    html += '<p class="qotd-meta-line">' + total + ' votes over ' + (q.durationHours || 24) + ' hours' + (q.whiteboardTotal ? ' · includes ' + q.whiteboardTotal + ' from the whiteboard at the Den' : '') + ' · answers shown as share of votes · suggest the next one below</p>';
+    card.innerHTML = html;
+    animateBars(card);
+    dl('qotd_results_view', {qotd_total_votes: total});
+  }
+
+  function renderUpcoming(){
+    var html = '<span class="qotd-status"><span class="dot"></span>Next question</span>';
+    html += '<div class="qotd-q">' + q.qhtml + '</div>';
+    html += '<p style="color:var(--muted)">Voting opens ' + fmtTime(opensAt) + '. Set a mental alarm.</p>';
+    card.innerHTML = html;
+  }
+
+  function boot(){
+    var raw = (D && D.questions && D.questions.length) ? D.questions.map(function(x){ return normalize(x, true); })
+                                                        : FALLBACK.map(function(x){ return normalize(x, false); });
+    raw.sort(function(a,b){ return b._opensAt - a._opensAt; });
+    QS = raw;
+    if (!QS.length) { card.innerHTML = '<p style="color:var(--muted)">No question yet. Check back soon.</p>'; return; }
+    var now = Date.now(), ci = -1;
+    for (var i = 0; i < QS.length; i++) { if (QS[i]._opensAt <= now) { ci = i; break; } }
+    if (ci < 0) ci = QS.length - 1; // nothing open yet: show the soonest upcoming
+    q = QS[ci]; opensAt = q._opensAt; closesAt = q._closesAt;
+
+    if (q.hero && heroImg.getAttribute('src') !== q.hero) heroImg.src = q.hero;
+    heroImg.alt = q.heroAlt || q.plain;
+
+    clearInterval(timer); clearTimeout(flipTimer);
+    if (now < opensAt && !q.finalized) {
+      renderUpcoming();
+      flipTimer = setTimeout(reboot, Math.min(opensAt - now, 2147000000) + 500);
+    } else if (!isClosed(q)) {
+      renderOpen();
+      flipTimer = setTimeout(reboot, Math.min(closesAt - now, 2147000000) + 500);
+    } else {
+      renderClosed();
+    }
+
+    // comments on the current question
+    var box = document.getElementById('qotdCurrentComments');
+    box.innerHTML = commentsHTML(q.id, D && D.comments);
+    var cb = box.querySelector('.qotd-comments');
+    cb.style.borderTop = 'none'; cb.style.marginTop = '0'; cb.style.paddingTop = '0';
+    box.style.display = 'block';
+    wireComments(box);
+
+    // archive: everything after the current question that has closed
+    var past = QS.slice(ci + 1).filter(isClosed);
+    var head = document.getElementById('qotdArchiveHead');
+    var wrap = document.getElementById('qotdArchive');
+    wrap.innerHTML = '';
+    head.style.display = past.length ? 'block' : 'none';
+    past.forEach(function(p){
+      var counts = (D && D.counts && D.counts[p.id]) ? D.counts[p.id] : [];
+      var total = counts.reduce(function(a,b){return a+b;},0);
+      var html = '<div class="qotd-past">';
+      if (p.hero) html += '<img class="qotd-past-img" src="' + esc(p.hero) + '" alt="' + esc(p.heroAlt || p.plain) + '" loading="lazy">';
+      html += '<div class="inner">';
+      html += '<span class="qotd-status closed"><span class="dot"></span>' + esc(p.eyebrow) + ' · ' + fmtDate(p.opensAt) + '</span>';
+      html += '<div class="qotd-q">' + p.qhtml + '</div>';
+      html += total ? resultsHTML(p, counts) : '<p style="color:var(--muted);margin:0">No votes recorded for this one.</p>';
+      html += commentsHTML(p.id, D && D.comments);
+      html += '</div></div>';
+      wrap.insertAdjacentHTML('beforeend', html);
+    });
+    animateBars(wrap);
+    wireComments(wrap);
+  }
+
+  function reboot(){
+    if (!LIVE) { boot(); return; }
+    getData(true).then(function(d){ if (d) { D = d; lastSig = JSON.stringify(d); } boot(); });
+  }
+
+  // the page keeps itself current: re-check the sheet every minute
+  function poll(){
+    getData(true).then(function(d){
+      if (!d) return;
+      var sig = JSON.stringify(d);
+      if (sig === lastSig) return;
+      var ae = document.activeElement;
+      if (ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA')) return; // don't clobber typing; next poll catches it
+      D = d; lastSig = sig;
+      boot();
+    });
+  }
+  if (LIVE) setInterval(poll, POLL_MS);
+
+  getData().then(function(d){ D = d; lastSig = d ? JSON.stringify(d) : ''; boot(); });
+
+  // ---- suggestions ----
+  var form = document.getElementById('qotdSuggestForm');
+  var input = document.getElementById('qotdSuggestInput');
+  var thanks = document.getElementById('qotdSuggestThanks');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var text = (input.value || '').trim();
+    if (text.length < 5) { input.focus(); return; }
+    if (LIVE) {
+      fetch(API, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({type:'suggest', text:text, token:token()})}).catch(function(){});
+    }
+    dl('qotd_suggest', {});
+    input.value = '';
+    thanks.style.display = 'block';
+    setTimeout(function(){ thanks.style.display = 'none'; }, 6000);
+  });
+})();
+
+</script>
+</body>
+</html>
