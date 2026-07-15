@@ -125,6 +125,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .post-card p{color:var(--ink-2);font-size:14px;line-height:1.55;margin-bottom:14px;flex-grow:1;}
     .post-card-more{font-weight:600;font-size:14px;color:var(--plum);}
     @media(max-width:720px){.post-grid{grid-template-columns:1fr;}}
+    .qotd-strip{max-width:1000px;margin:0 auto;padding:0 24px 8px;}
+    .qotd-strip a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 22px;border:1px dashed var(--line);border-radius:12px;background:transparent;transition:border-color .15s,background .15s;}
+    .qotd-strip a:hover{border-color:var(--ink);background:#fff;}
+    .qotd-strip .t{font-family:'Playfair Display',Georgia,serif;font-size:16px;color:var(--ink);}
+    .qotd-strip .t em{font-style:italic;color:var(--plum);}
+    .qotd-strip .s{font-size:12.5px;color:var(--muted);}
+    .qotd-strip .go{font-weight:600;font-size:13px;color:var(--lime-deep);white-space:nowrap;}
+    @media(max-width:560px){.qotd-strip a{flex-direction:column;align-items:flex-start;gap:4px;}}
     html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
 </style>
@@ -249,6 +257,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </a>
   </div>
+</div>
+<div class="qotd-strip">
+  <a href="/question-of-the-day">
+    <span><span class="t">Question of the <em>Day</em></span> <span class="s">· one question, 24 hours, live results from the community</span></span>
+    <span class="go">Cast your vote &#8594;</span>
+  </a>
 </div>
 <div class="post-cta">
   <h3>Come see the space</h3>
