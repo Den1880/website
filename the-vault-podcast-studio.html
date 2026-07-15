@@ -11,7 +11,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F7F4EE">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
   <title>Podcast &amp; Recording Studio in Waterloo | The Vault</title>
   <meta name="description" content="The Vault is Den 1880's broadcast-grade podcast and content studio in Uptown Waterloo, built inside a 1900s bond safe. Three cameras, four Shure mics, soundproofed." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     /* ── NAV ── */
-    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); }
     .logo { display: inline-flex; align-items: center; }
     .nav-links { display: flex; gap: 10px; align-items: center; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; }
@@ -66,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; transition: color .15s ease; }
     .mobile-menu a:last-of-type { border-bottom: none; }
@@ -167,6 +177,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY (appended; original CSS above untouched).
+   Restyles only the .hero into a full-bleed studio photo with a
+   dark scrim + white text. Remove this block to revert. Matches
+   the corporate / memberships / meeting-rooms / events heroes.
+   ============================================================ */
+.hero{
+  background:linear-gradient(180deg,rgba(14,14,14,.40),rgba(14,14,14,.74)),url('/assets/photos/vault-hero.jpg') center 50%/cover no-repeat !important;
+  min-height:clamp(440px,60vh,580px);
+  display:flex;align-items:center;justify-content:center;
+  padding:96px 24px 64px !important;
+  overflow:hidden;
+}
+.hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center}
+.hero,.hero h1,.hero p,.hero .lede,.hero .eyebrow{color:#fff !important}
+.hero .eyebrow{text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.hero h1 em{color:var(--lime) !important}
+.hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.hero .btn-primary:hover{background:var(--lime-deep) !important;transform:translateY(-1px)}
+.hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,.55) !important}
+.hero .btn-ghost:hover{background:#fff !important;color:var(--ink) !important}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/the-vault-podcast-studio" />
@@ -249,8 +285,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="intro-text">
         <span class="eyebrow">About The Vault</span>
         <h2>Where <em>great content</em> gets made.</h2>
-        <p>The Vault is housed inside Den 1880's original 1900s bank vault — a space with 12-inch steel-reinforced walls that provides natural soundproofing unlike any purpose-built studio. The history inside these walls is as compelling as the content recorded here.</p>
-        <p>Three track-mounted cameras capture every angle automatically. Four Shure microphones, broadcast-grade lighting, and a Frame TV branding display mean your production looks polished from the first session — no crew required.</p>
+        <p>The Vault is housed inside Den 1880's original 1900s bank vault, a space with 12-inch steel-reinforced walls that provides natural soundproofing unlike any purpose-built studio. The history inside these walls is as compelling as the content recorded here.</p>
+        <p>Three track-mounted cameras capture every angle automatically. Four Shure microphones, broadcast-grade lighting, and a Frame TV branding display mean your production looks polished from the first session, no crew required.</p>
         <p>Toronto studios of this calibre average $100/hr. The Vault delivers the same quality at boutique rates, ten minutes from downtown Kitchener and steps from the LRT.</p>
         <a class="btn btn-primary" href="https://den1880.optixapp.com/book/resource/619270" style="margin-top:8px">Book a Session</a>
       </div>
@@ -309,35 +345,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <tr>
                 <th>Rate</th>
                 <th>Hourly</th>
-                <th>4-Hr Block</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>Day Pass + Cadence members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td>
                 <td>$95</td>
-                <td>$340</td>
               </tr>
               <tr class="member-row">
                 <td><strong>Club + Resident Members</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
                 <td>$76</td>
-                <td>$272</td>
               </tr>
               <tr class="member-row">
                 <td><strong>Team Offices</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td>
                 <td>$76</td>
-                <td>$272</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="pricing-note" style="text-align:left;margin-top:12px">Enterprise plans include pooled studio credits — contact us for details. Toronto comparables average $100/hr.</p>
+        <p class="pricing-note" style="text-align:left;margin-top:12px">Enterprise plans include pooled studio credits, contact us for details. Toronto comparables average $100/hr.</p>
         <div style="margin-top:28px">
           <h3 style="margin-bottom:16px">Ready to <em style="font-style:italic;color:var(--plum)">record?</em></h3>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <a class="btn btn-primary" href="https://den1880.optixapp.com/book/resource/619270">Book The Vault</a>
             <a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a Tour First</a>
           </div>
+        </div>
+        <div class="bundle-card" style="margin-top:28px;padding:22px 24px;border:2px solid var(--lime);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)">
+          <div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-deep);font-weight:700;margin-bottom:8px">Best Value</div>
+          <h3 style="margin-bottom:6px">Podcast Bundle &middot; 10 hours for $760</h3>
+          <p style="color:var(--muted);font-size:15px;margin-bottom:14px">That works out to $76/hr instead of $95, 20% off the standard rate. Use your hours whenever you like within 6 months of purchase.</p>
+          <a class="btn btn-primary" href="https://den1880.optixapp.com/signup/?location=27903&amp;products=48415">Buy the Podcast Bundle</a>
         </div>
       </div>
       <div>
@@ -351,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="about-banner">
   <div class="container">
     <h2>Nothing like it <em>in the Region.</em></h2>
-    <p>Den 1880 is Uptown Waterloo's premium coworking space — with a private gym, recovery amenities, boutique event venue, and The Vault, all under one heritage roof. Members record here regularly. You can too.</p>
+    <p>Den 1880 is Uptown Waterloo's premium coworking space, with a private gym, recovery amenities, boutique event venue, and The Vault, all under one heritage roof. Members record here regularly. You can too.</p>
     <a class="btn btn-lime" href="memberships.html">See Memberships</a>
   </div>
 </section>
@@ -376,6 +414,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/gallery">Gallery</a>
       <a href="/the-vault-podcast-studio">Podcast Studio</a>
       <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
       <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
     </div>
     <div class="footer-col">
