@@ -58,13 +58,20 @@ function torontoIso(unixSec) {
 }
 
 // Resolve an Optix booking's resource to one of our known rooms.
-// Prefer a real resource id; fall back to the display title if the API doesn't give one.
+//
+// ID ONLY. There is deliberately no title fallback.
+//
+// Titles cannot be trusted for attribution: Optix runs several near-identical names
+// ("Theatre Meeting" vs "Theatre Event Booking"), so a title match can hand a booking the
+// resourceId of a DIFFERENT room and credit it to the wrong click. Under-reporting is
+// acceptable; mis-attributing revenue is not. If the id is absent or unknown, we return
+// null and the booking is skipped — visible in ?debug=1 as noRoom, never as a silent
+// wrong number.
 export function resolveRoom(resource) {
   if (!resource) return null;
   const rid = resource.resource_id ?? resource.id ?? null;
-  if (rid != null && BY_RESOURCE_ID[String(rid)]) return BY_RESOURCE_ID[String(rid)];
-  const t = normaliseTitle(resource.title);
-  return t && BY_TITLE[t] ? BY_TITLE[t] : null;
+  if (rid == null) return null;
+  return BY_RESOURCE_ID[String(rid)] || null;
 }
 
 // Join bookings to logged clicks.
@@ -177,23 +184,41 @@ export default async (req) => {
   const scopeArg = locId ? `location_id:"${locId}", ` : "";
   const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ title } invoice_items{total} } } }`;
 
-  // ?debug=resource introspects the Resource type's fields, so we can move the join off
-  // fragile titles and onto a stable id. Titles broke once already (see optix-rooms.js).
+  // ?debug=resource follows Booking.resource to its REAL type and lists that type's
+  // fields. Introspecting a type literally named "Resource" was itself a guess: it has
+  // `name` and no `title`, yet our query resolves `resource{ title }` fine — so the field
+  // is a different type. Guessing field names is what caused the title mis-attribution
+  // bug; this asks instead.
   if (new URL(req.url).searchParams.get("debug") === "resource") {
-    const q = `{ __type(name:"Resource"){ fields{ name type{ name kind ofType{ name kind } } } } }`;
-    try {
+    const ask = async (query) => {
       const r = await fetch(OPTIX_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
-        body: JSON.stringify({ query: q }),
+        body: JSON.stringify({ query }),
       });
-      const d = await r.json();
-      if (d.errors) return new Response(JSON.stringify({ ok: false, errors: d.errors }, null, 2), { status: 200, headers: { "Content-Type": "application/json" } });
-      const fields = ((d.data && d.data.__type && d.data.__type.fields) || []).map((f) => f.name);
+      return r.json();
+    };
+    try {
+      // 1. What type is Booking.resource?
+      const b = await ask(`{ __type(name:"Booking"){ fields{ name type{ name kind ofType{ name kind ofType{ name } } } } } }`);
+      if (b.errors) return new Response(JSON.stringify({ ok: false, step: "Booking", errors: b.errors }, null, 2), { status: 200, headers: { "Content-Type": "application/json" } });
+      const bf = ((b.data && b.data.__type && b.data.__type.fields) || []);
+      const rf = bf.find((f) => f.name === "resource");
+      const unwrap = (t) => (!t ? null : t.name || unwrap(t.ofType));
+      const typeName = rf ? unwrap(rf.type) : null;
+      if (!typeName) {
+        return new Response(JSON.stringify({ ok: false, reason: "no resource field on Booking", bookingFields: bf.map((f) => f.name).sort() }, null, 2), { status: 200, headers: { "Content-Type": "application/json" } });
+      }
+      // 2. What fields does THAT type actually have?
+      const t2 = await ask(`{ __type(name:"${typeName}"){ fields{ name type{ name kind ofType{ name } } } } }`);
+      const fields = ((t2.data && t2.data.__type && t2.data.__type.fields) || []).map((f) => f.name);
       return new Response(JSON.stringify({
         ok: true,
-        resourceFields: fields.sort(),
-        idFieldCandidates: fields.filter((f) => /id$/i.test(f)),
+        bookingResourceTypeName: typeName,
+        fieldsOnThatType: fields.sort(),
+        idFieldCandidates: fields.filter((f) => /(^id$|_id$)/i.test(f)),
+        hasTitle: fields.includes("title"),
+        hasResourceId: fields.includes("resource_id"),
       }, null, 2), { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
     } catch (e) {
       return new Response(JSON.stringify({ ok: false, error: e.message }), { status: 502 });

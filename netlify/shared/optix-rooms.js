@@ -12,8 +12,15 @@
 // (verified against ?debug=1 resourceTitlesSeen on 2026-07-16). Do not "clean them up":
 // "The Vault Podcast Studio" is not "The Vault", and "Theatre Event Booking" is not
 // "The Theatre". An earlier version guessed these and the join silently matched nothing
-// on 15 of 23 bookings while reporting ok:true. Title matching is only the FALLBACK —
-// resolveRoom prefers resource_id, which survives renames. Titles do not.
+// on 15 of 23 bookings while reporting ok:true. resolveRoom now matches on resource_id
+// ONLY — titles are diagnostics, never attribution.
+//
+// WHY TITLES ARE NOT SAFE FOR ATTRIBUTION (learned the hard way, 2026-07-16):
+// Optix has several similarly-named resources. 634941 is "Theatre Meeting"; there is a
+// SEPARATE "Theatre Event Booking". An earlier version paired resourceId 634941 with the
+// title "Theatre Event Booking", so a booking of one room would have resolved by title
+// and been credited to a click on the other. Wrong room, wrong revenue, silently.
+// Every title below was then verified against that resource's own live booking page.
 //
 // resourceId: the Optix resource this click is *for*. A click with no resourceId
 // (e.g. the generic "Book a Room" button) is still logged for funnel visibility but
@@ -91,13 +98,13 @@ export const DEST = {
   theatre: {
     url: `${OPTIX_BASE}/book/resource/634941`,
     resourceId: "634941",
-    title: "Theatre Event Booking",
+    title: "Theatre Meeting",
     conversionName: CONV_EVENT_SPACE,
   },
   library: {
     url: `${OPTIX_BASE}/book/resource/634942`,
     resourceId: "634942",
-    title: "The Library",
+    title: "Library Meeting",
     conversionName: CONV_EVENT_SPACE,
   },
 
