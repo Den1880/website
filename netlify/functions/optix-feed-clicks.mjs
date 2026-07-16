@@ -167,9 +167,41 @@ export default async (req) => {
 
   const debug = new URL(req.url).searchParams.get("debug") === "1";
 
-  // resource is requested with both id and title so the join can prefer the id and
-  // fall back to the title. If Optix rejects `resource_id`, ?debug=1 will show it.
-  const query = `{ bookings(organization_id:"${orgId}", limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ title } invoice_items{total} } } }`;
+  // NOTE ON SCOPING ARGUMENTS
+  // An organization token is already scoped to the org, so `bookings` does NOT accept
+  // organization_id (it errors "Unknown argument ... Did you mean location_id?"). That
+  // argument only exists for the session-token schema, which is what the July 2026
+  // manual uploads used. Scope by location_id only if OPTIX_LOCATION_ID is set;
+  // otherwise let the token's own scope apply.
+  const locId = process.env.OPTIX_LOCATION_ID;
+  const scopeArg = locId ? `location_id:"${locId}", ` : "";
+  const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ title } invoice_items{total} } } }`;
+
+  // ?debug=schema asks Optix which arguments `bookings` accepts for THIS token type.
+  // Cheaper than guessing: the arg names differ between session and organization tokens.
+  if (new URL(req.url).searchParams.get("debug") === "schema") {
+    const introspect = `{ __type(name:"Query"){ fields{ name args{ name type{ name kind ofType{ name kind } } } } } }`;
+    try {
+      const r = await fetch(OPTIX_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+        body: JSON.stringify({ query: introspect }),
+      });
+      const s = await r.json();
+      if (s.errors) return new Response(JSON.stringify({ ok: false, introspectionErrors: s.errors }, null, 2), { status: 200, headers: { "Content-Type": "application/json" } });
+      const fields = ((s.data && s.data.__type && s.data.__type.fields) || []);
+      const bookings = fields.find((f) => f.name === "bookings");
+      return new Response(JSON.stringify({
+        ok: true,
+        tokenWorks: true,
+        bookingsArgs: bookings ? bookings.args.map((a) => a.name) : null,
+        bookingsArgDetail: bookings ? bookings.args : null,
+        queryFieldsAvailable: fields.map((f) => f.name).sort(),
+      }, null, 2), { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
+    } catch (e) {
+      return new Response(JSON.stringify({ ok: false, error: e.message }), { status: 502 });
+    }
+  }
 
   let j;
   try {
