@@ -174,6 +174,13 @@ export default async (req) => {
 
   const debug = new URL(req.url).searchParams.get("debug") === "1";
 
+  // FIELD CHOICE: resource_id + name, never title.
+  // Introspection of the Resource type reports hasTitle:false, yet `resource{ title }`
+  // resolves fine — so `title` is DEPRECATED (introspection hides deprecated fields by
+  // default). Depending on it meant depending on a field Optix can delete in any release,
+  // and we'd only find out when attribution silently went to zero. `name` is the current
+  // field; `resource_id` is what we actually match on.
+  //
   // NOTE ON SCOPING ARGUMENTS
   // An organization token is already scoped to the org, so `bookings` does NOT accept
   // organization_id (it errors "Unknown argument ... Did you mean location_id?"). That
@@ -182,7 +189,7 @@ export default async (req) => {
   // otherwise let the token's own scope apply.
   const locId = process.env.OPTIX_LOCATION_ID;
   const scopeArg = locId ? `location_id:"${locId}", ` : "";
-  const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ title } invoice_items{total} } } }`;
+  const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ resource_id name } invoice_items{total} } } }`;
 
   // ?debug=resource follows Booking.resource to its REAL type and lists that type's
   // fields. Introspecting a type literally named "Resource" was itself a guess: it has
@@ -272,7 +279,7 @@ export default async (req) => {
     .map((b) => ({
       created_timestamp: b.created_timestamp,
       value: (b.invoice_items || []).reduce((s, i) => s + (i.total || 0), 0),
-      resourceTitle: (b.resource && b.resource.title) || null,
+      resourceTitle: (b.resource && b.resource.name) || null,
       room: resolveRoom(b.resource),
     }));
 
