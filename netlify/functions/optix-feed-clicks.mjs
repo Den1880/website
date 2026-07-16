@@ -177,6 +177,29 @@ export default async (req) => {
   const scopeArg = locId ? `location_id:"${locId}", ` : "";
   const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ title } invoice_items{total} } } }`;
 
+  // ?debug=resource introspects the Resource type's fields, so we can move the join off
+  // fragile titles and onto a stable id. Titles broke once already (see optix-rooms.js).
+  if (new URL(req.url).searchParams.get("debug") === "resource") {
+    const q = `{ __type(name:"Resource"){ fields{ name type{ name kind ofType{ name kind } } } } }`;
+    try {
+      const r = await fetch(OPTIX_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+        body: JSON.stringify({ query: q }),
+      });
+      const d = await r.json();
+      if (d.errors) return new Response(JSON.stringify({ ok: false, errors: d.errors }, null, 2), { status: 200, headers: { "Content-Type": "application/json" } });
+      const fields = ((d.data && d.data.__type && d.data.__type.fields) || []).map((f) => f.name);
+      return new Response(JSON.stringify({
+        ok: true,
+        resourceFields: fields.sort(),
+        idFieldCandidates: fields.filter((f) => /id$/i.test(f)),
+      }, null, 2), { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } });
+    } catch (e) {
+      return new Response(JSON.stringify({ ok: false, error: e.message }), { status: 502 });
+    }
+  }
+
   // ?debug=schema asks Optix which arguments `bookings` accepts for THIS token type.
   // Cheaper than guessing: the arg names differ between session and organization tokens.
   if (new URL(req.url).searchParams.get("debug") === "schema") {
@@ -251,6 +274,9 @@ export default async (req) => {
           // Confirms whether the resource titles Optix returns actually line up with
           // the map in netlify/shared/optix-rooms.js.
           resourceTitlesSeen: [...new Set(bookings.map((b) => b.resourceTitle))],
+          // Rooms Optix knows about that our map does NOT. Non-empty here means the
+          // join is silently skipping real bookings — treat it as a failure, not a note.
+          roomsResolved: bookings.filter((b) => b.room).length,
           unmatchedTitles: [...new Set(bookings.filter((b) => !b.room).map((b) => b.resourceTitle))],
           sampleRows: matched.slice(0, 3).map((m) => ({
             room: m.booking.room.slug,

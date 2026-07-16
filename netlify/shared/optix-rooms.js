@@ -8,6 +8,13 @@
 // the-vault-podcast-studio.html. If a slug here has no matching CTA (or vice versa)
 // the click is simply never logged/joined — it fails quiet, not loud.
 //
+// TITLES ARE NOT GUESSES. Each `title` below is the exact resource name Optix returns
+// (verified against ?debug=1 resourceTitlesSeen on 2026-07-16). Do not "clean them up":
+// "The Vault Podcast Studio" is not "The Vault", and "Theatre Event Booking" is not
+// "The Theatre". An earlier version guessed these and the join silently matched nothing
+// on 15 of 23 bookings while reporting ok:true. Title matching is only the FALLBACK —
+// resolveRoom prefers resource_id, which survives renames. Titles do not.
+//
 // resourceId: the Optix resource this click is *for*. A click with no resourceId
 // (e.g. the generic "Book a Room" button) is still logged for funnel visibility but
 // is NEVER joined to a booking — we can't tell which room it became, and guessing
@@ -30,7 +37,7 @@ export const DEST = {
   vault: {
     url: `${OPTIX_BASE}/book/resource/619270`,
     resourceId: "619270",
-    title: "The Vault",
+    title: "The Vault Podcast Studio",
     conversionName: CONV_VAULT,
   },
   "podcast-bundle": {
@@ -46,7 +53,7 @@ export const DEST = {
   grand: {
     url: `${OPTIX_BASE}/book/resource/619268`,
     resourceId: "619268",
-    title: "The Grand",
+    title: "The Grand Boardroom",
     conversionName: CONV_MEETING,
   },
   "olive-laurel": {
@@ -84,7 +91,7 @@ export const DEST = {
   theatre: {
     url: `${OPTIX_BASE}/book/resource/634941`,
     resourceId: "634941",
-    title: "The Theatre",
+    title: "Theatre Event Booking",
     conversionName: CONV_EVENT_SPACE,
   },
   library: {
