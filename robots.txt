@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# /go/* are booking handoffs to Optix (302 out to den1880.optixapp.com), not content.
+# Blocked so they can't bloat the index. The links are also rel="nofollow" and the
+# redirect sends X-Robots-Tag: noindex. Belt and braces.
+Disallow: /go/
+
 Sitemap: https://den1880.co/sitemap.xml

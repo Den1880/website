@@ -14,7 +14,8 @@
 [functions]
   node_bundler = "esbuild"
 # Functions dir: netlify/functions (default). Edge dir: netlify/edge-functions (default).
-# The edge function declares its own routes via `export const config` (/, /memberships).
+# Edge functions declare their own routes via `export const config`:
+#   inject-reviews.js -> "/" and "/memberships"   |   go.js -> "/go/*"
 
 # Serve the web app manifest with the correct MIME type (not octet-stream).
 [[headers]]
