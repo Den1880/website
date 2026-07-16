@@ -439,6 +439,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
 </script>
+<!-- Den 1880 — capture the Google click id for the /go/ booking handoff (netlify/edge-functions/go.js).
+     Booking CTAs leave for Optix, a domain we can't tag, so the click id is stashed here on landing
+     and read back at handoff. 90 days = Google's offline-conversion import limit.
+     TODO: move this into GTM (All Pages) so multi-page journeys keep their gclid too. -->
+<script>
+(function(){try{var p=new URLSearchParams(location.search);["gclid","gbraid","wbraid"].forEach(function(k){var v=p.get(k);if(v){document.cookie="_den_"+k+"="+encodeURIComponent(v)+"; path=/; max-age=7776000; SameSite=Lax"+(location.protocol==="https:"?"; Secure":"");}});}catch(e){}})();
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -527,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$1,120</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619268" class="room-cta">Book The Grand →</a>
+        <a rel="nofollow" href="/go/grand" class="room-cta">Book The Grand →</a>
       </div>
     </div>
 
@@ -554,7 +561,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$740</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619267" class="room-cta">Book Olive &amp; Laurel →</a>
+        <a rel="nofollow" href="/go/olive-laurel" class="room-cta">Book Olive &amp; Laurel →</a>
       </div>
     </div>
 
@@ -581,7 +588,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$350</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619264" class="room-cta">Book The Oak →</a>
+        <a rel="nofollow" href="/go/oak" class="room-cta">Book The Oak →</a>
       </div>
     </div>
 
@@ -608,7 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$510</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619269" class="room-cta">Book The Dominion →</a>
+        <a rel="nofollow" href="/go/dominion" class="room-cta">Book The Dominion →</a>
       </div>
     </div>
 
@@ -635,7 +642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$350</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619265" class="room-cta">Book The Olive →</a>
+        <a rel="nofollow" href="/go/olive" class="room-cta">Book The Olive →</a>
       </div>
     </div>
 
@@ -662,7 +669,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">$500</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/619266" class="room-cta">Book The Laurel →</a>
+        <a rel="nofollow" href="/go/laurel" class="room-cta">Book The Laurel →</a>
       </div>
     </div>
 
@@ -685,7 +692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">Inquire for custom &amp; event pricing</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/634941" class="room-cta">Book The Theatre →</a>
+        <a rel="nofollow" href="/go/theatre" class="room-cta">Book The Theatre →</a>
       </div>
     </div>
 
@@ -708,7 +715,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="price-value">Inquire for custom &amp; event pricing</span>
           </div>
         </div>
-        <a href="https://den1880.optixapp.com/book/resource/634942" class="room-cta">Book The Library →</a>
+        <a rel="nofollow" href="/go/library" class="room-cta">Book The Library →</a>
       </div>
     </div>
 
@@ -763,7 +770,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <p class="price-note">Certain memberships save on hourly rates. Enterprise plans include pooled studio credits for podcast and corporate communications content.</p>
-        <a href="https://den1880.optixapp.com/book/resource/619270" class="room-cta">Book The Vault →</a>
+        <a rel="nofollow" href="/go/vault" class="room-cta">Book The Vault →</a>
         <a href="the-vault-podcast-studio.html" class="room-cta" style="background:transparent;color:var(--black);border:1.5px solid var(--border);margin-top:8px">Learn More →</a>
       </div>
     </div>
@@ -795,7 +802,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>Ready to book your next <em>great meeting?</em></h2>
     <p>Browse availability and reserve your space in minutes. Members get 20% off, no membership required to book.</p>
     <div class="actions">
-      <a href="https://den1880.optixapp.com/book/" class="btn-primary">Book a Meeting Room</a>
+      <a rel="nofollow" href="/go/book" class="btn-primary">Book a Meeting Room</a>
       <a href="https://den1880.optixapp.com/book/tour/" class="btn-outline">Book a Tour</a>
     </div>
   </section>
