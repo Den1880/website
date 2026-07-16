@@ -32,7 +32,7 @@
 // to confirm the resource field names once OPTIX_ORG_TOKEN is set.
 
 import { getStore } from "@netlify/blobs";
-import { BY_RESOURCE_ID, BY_TITLE, normaliseTitle } from "../shared/optix-rooms.js";
+import { BY_RESOURCE_ID, DEST } from "../shared/optix-rooms.js";
 
 const OPTIX_ENDPOINT = "https://api.optixapp.com/graphql";
 const GCLID_MAX_AGE_DAYS = 90; // Google's offline import limit; prune the log past this.
@@ -280,6 +280,7 @@ export default async (req) => {
       created_timestamp: b.created_timestamp,
       value: (b.invoice_items || []).reduce((s, i) => s + (i.total || 0), 0),
       resourceTitle: (b.resource && b.resource.name) || null,
+      resourceRaw: b.resource || null,
       room: resolveRoom(b.resource),
     }));
 
@@ -306,6 +307,12 @@ export default async (req) => {
           // Confirms whether the resource titles Optix returns actually line up with
           // the map in netlify/shared/optix-rooms.js.
           resourceTitlesSeen: [...new Set(bookings.map((b) => b.resourceTitle))],
+          // BOTH SIDES OF THE JOIN, side by side. If these two lists don't overlap, the
+          // ids in optix-rooms.js came from the wrong identifier space (e.g. lifted from
+          // a booking URL rather than the API) and nothing will ever match.
+          resourceIdsFromOptix: [...new Set(bookings.map((b) => (b.resourceRaw ? b.resourceRaw.resource_id : null)))],
+          resourceIdsInOurMap: Object.values(DEST).filter((d) => d.resourceId).map((d) => d.resourceId),
+          sampleRawResource: bookings.find((b) => b.resourceRaw)?.resourceRaw ?? null,
           // Rooms Optix knows about that our map does NOT. Non-empty here means the
           // join is silently skipping real bookings — treat it as a failure, not a note.
           roomsResolved: bookings.filter((b) => b.room).length,
