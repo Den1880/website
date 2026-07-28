@@ -220,6 +220,7 @@ footer a{color:var(--plum)}
 .tm-row:last-child{border-bottom:none}
 .tm-row .when{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);min-width:92px}
 .tm-row .what{font-size:15px;color:var(--ink-2)}
+.sticky-cta{display:none}@media(max-width:760px){.sticky-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(247,244,238,.97);border-top:1.5px solid var(--line);z-index:98}}
 </style></head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -256,11 +257,11 @@ footer a{color:var(--plum)}
 <section class="page-hero">
 <div class="container">
 <span class="eyebrow" style="margin-top:24px">Private Events &middot; Uptown Waterloo</span>
-<h1>A heritage backdrop for the moments that <span class="purple">matter</span></h1>
-<p class="lede">Milestone birthdays, anniversaries, showers, and graduations in a boutique heritage room. Rent the space, bring the people and the vendors you love, and let us handle the rest.</p>
+<h1>A heritage party venue for the moments that <span class="purple">matter</span></h1>
+<p class="lede">Milestone birthdays, anniversaries, showers, and graduations in a boutique heritage room. Rent the space, bring your people, and let us handle the rest.</p>
 <div class="hero-actions" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-<a class="btn btn-primary" href="#inquiry">Check your date</a>
-<a class="btn btn-ghost" href="#inquiry">Start an inquiry</a>
+<a class="btn btn-primary" href="#inquiry">Check my date</a>
+<p style="width:100%;margin:10px 0 0;font-size:13px"><a href="https://den1880.optixapp.com/book/tour/" style="color:inherit;text-decoration:underline">Want to see the rooms first? Book a tour.</a></p>
 </div>
 </div>
 </section>
@@ -284,7 +285,7 @@ footer a{color:var(--plum)}
 <li>Rent the room and make it yours; catering is arranged through the venue</li>
 <li>Several rooms for a ceremony, a dinner, and a party</li>
 <li>Photographs beautifully, day or night</li>
-<li>Intimate dinners to full-floor celebrations</li>
+<li>Intimate dinners to 140-guest cocktail parties</li>
 <li>Two minutes from the LRT, parking nearby</li>
 </ul>
 </div>
@@ -381,6 +382,7 @@ hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('ope
 mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
 document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
 </script>
+<div class="sticky-cta"><a class="btn btn-primary" href="#inquiry" style="width:100%;text-align:center;display:block">Check my date</a></div>
 </body>
 </html>
 
