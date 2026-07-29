@@ -220,6 +220,7 @@ footer a{color:var(--plum)}
 .tm-row:last-child{border-bottom:none}
 .tm-row .when{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);min-width:92px}
 .tm-row .what{font-size:15px;color:var(--ink-2)}
+.sticky-cta{display:none}@media(max-width:760px){.sticky-cta{display:block;position:fixed;bottom:0;left:0;right:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(247,244,238,.97);border-top:1.5px solid var(--line);z-index:98}}
 </style></head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -257,10 +258,10 @@ footer a{color:var(--plum)}
 <div class="container">
 <span class="eyebrow" style="margin-top:24px">Weddings &middot; Uptown Waterloo</span>
 <h1>Say 'I do' in a heritage <span class="purple">room</span></h1>
-<p class="lede">A boutique 1880 building for the ceremony, the dinner, and the dancefloor. Rent the room, style it your way, and make the day feel like yours.</p>
+<p class="lede">A boutique wedding venue in an original 1880 building: the ceremony, the dinner, and the dancefloor under one roof. Style it your way and make the day feel like yours.</p>
 <div class="hero-actions" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
 <a class="btn btn-primary" href="#inquiry">Check your date</a>
-<a class="btn btn-ghost" href="https://den1880.optixapp.com/book/tour/">Book a tour</a>
+<p style="width:100%;margin:10px 0 0;font-size:13px"><a href="https://den1880.optixapp.com/book/tour/" style="color:inherit;text-decoration:underline">Prefer to see it first? Book a tour.</a></p>
 </div>
 </div>
 </section>
@@ -272,7 +273,7 @@ footer a{color:var(--plum)}
 <li>A heritage building with real character, not a banquet hall</li>
 <li>Bring your own planner, florist, and decor; catering is arranged through the venue</li>
 <li>Separate spaces for a ceremony, a dinner, and a party</li>
-<li>Intimate elopements to a full reception</li>
+<li>Intimate elopements to a 140-guest reception</li>
 <li>Photographs beautifully in every light</li>
 <li>Uptown Waterloo, two minutes from the LRT, parking nearby</li>
 </ul>
@@ -306,6 +307,14 @@ footer a{color:var(--plum)}
       e=b.getElementsByTagName(s)[0];e.parentNode.insertBefore(t,e);
     })(window,document,"script","https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js","672a801c7adef60019dbea18");
   </script>
+</div>
+</div>
+</section>
+<section class="section" id="reviews">
+<div class="container">
+<div class="sec-head"><span class="eyebrow">From Google reviews</span><h2>What guests say on <em>Google</em></h2></div>
+<div class="uc-grid" style="max-width:860px;margin:0 auto">
+<div class="uc"><div style="display:flex;align-items:center;gap:12px"><img src="/assets/photos/reviews/tonya-veltman.jpg" alt="Tonya Veltman" width="44" height="44" style="border-radius:50%;display:block"><div><div style="font-weight:700;font-size:13px">Tonya Veltman</div><div style="color:#E7A500;font-size:12px;letter-spacing:2px">★★★★★</div></div></div><p style="margin-top:12px">&ldquo;From the very first moment we stepped into Den1880 and met our hostess Paige, we knew we had found the perfect venue for our wedding. ... Paige went above and beyond every step of the way ... and ensured our wedding day was seamless and perfect.&rdquo;</p><p class="ex" style="font-style:normal;margin-top:8px">Google review</p></div><div class="uc"><div style="display:flex;align-items:center;gap:12px"><img src="/assets/photos/reviews/maddie.jpg" alt="Maddie" width="44" height="44" style="border-radius:50%;display:block"><div><div style="font-weight:700;font-size:13px">Maddie</div><div style="color:#E7A500;font-size:12px;letter-spacing:2px">★★★★★</div></div></div><p style="margin-top:12px">&ldquo;Incredible space &amp; team! Every detail is thoughtfully curated, I took a million pictures. Amazing place to host or attend an event in a space that wows...&rdquo;</p><p class="ex" style="font-style:normal;margin-top:8px">Google review</p></div>
 </div>
 </div>
 </section>
@@ -358,6 +367,7 @@ footer a{color:var(--plum)}
       <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
       <a href="https://den1880.optixapp.com/signup/">Get Started</a>
       <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/lp-review-index" style="color:var(--lime);font-weight:700">&#9889; Review: all landing pages</a>
     </div>
   </div>
 </footer>
@@ -368,6 +378,7 @@ hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('ope
 mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
 document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
 </script>
+<div class="sticky-cta"><a class="btn btn-primary" href="#inquiry" style="width:100%;text-align:center;display:block">Check your date</a></div>
 </body>
 </html>
 
