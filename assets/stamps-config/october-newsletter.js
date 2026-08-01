@@ -1,0 +1,38 @@
+/* Den 1880 stamp layer - october-newsletter */
+window.DEN_STAMPS = {
+  "assetBase": "/assets/stamps/",
+  "z": 2,
+  "clusters": [
+    {
+      "id": "hero",
+      "anchor": ".post-hero",
+      "ground": "Cream",
+      "stamps": [
+        {
+          "mark": "88-oval",
+          "color": "Purple",
+          "w": 10,
+          "x": 93.4,
+          "y": 55.5,
+          "rot": 12
+        },
+        {
+          "mark": "lion-outline",
+          "color": "Gold",
+          "w": 15,
+          "x": 93,
+          "y": 73.5,
+          "rot": -15
+        },
+        {
+          "mark": "combo-circle",
+          "combo": 8,
+          "w": 6,
+          "x": 99,
+          "y": 89.5,
+          "rot": -12
+        }
+      ]
+    }
+  ]
+};
