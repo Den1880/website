@@ -14,7 +14,10 @@ window.DEN_STAMPS = {
           "w": 13,
           "x": 22,
           "y": 98,
-          "rot": -13
+          "rot": -13,
+          "mobileX": -3.7,
+          "mobileY": 153.4,
+          "mobileW": 26
         },
         {
           "mark": "combo-circle",
@@ -22,7 +25,10 @@ window.DEN_STAMPS = {
           "w": 6.5,
           "x": 30,
           "y": 107,
-          "rot": 11
+          "rot": 11,
+          "mobileX": 52,
+          "mobileY": 107,
+          "mobileW": 12
         }
       ],
       "note": "Crosses the video band's bottom edge into the cream intro."
@@ -38,7 +44,10 @@ window.DEN_STAMPS = {
           "w": 14,
           "x": 5.2,
           "y": 30,
-          "rot": 14
+          "rot": 14,
+          "mobileX": 0,
+          "mobileY": 30,
+          "mobileW": 26
         },
         {
           "mark": "88-oval",
@@ -46,7 +55,8 @@ window.DEN_STAMPS = {
           "w": 9,
           "x": 4,
           "y": 58,
-          "rot": -13
+          "rot": -13,
+          "mobileHide": true
         },
         {
           "mark": "combo-circle",
@@ -54,7 +64,10 @@ window.DEN_STAMPS = {
           "w": 5.5,
           "x": 2,
           "y": 74,
-          "rot": 11
+          "rot": 11,
+          "mobileX": 26,
+          "mobileY": 74,
+          "mobileW": 12
         }
       ],
       "note": "Left gutter, clear of the three path cards."
@@ -84,5 +97,10 @@ window.DEN_STAMPS = {
       ],
       "note": "Watermark behind the black Performance Club panel."
     }
-  ]
+  ],
+  "mobile": {
+    "maxStamps": 2,
+    "scale": 1,
+    "hide": false
+  }
 };

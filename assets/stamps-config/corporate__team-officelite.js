@@ -14,7 +14,8 @@ window.DEN_STAMPS = {
           "w": 10,
           "x": 4,
           "y": 70,
-          "rot": 14
+          "rot": 14,
+          "mobileHide": true
         },
         {
           "mark": "lion-outline",
@@ -22,7 +23,10 @@ window.DEN_STAMPS = {
           "w": 15,
           "x": 9,
           "y": 42,
-          "rot": -16
+          "rot": -16,
+          "mobileX": 0,
+          "mobileY": 42,
+          "mobileW": 26
         },
         {
           "mark": "combo-circle",
@@ -30,7 +34,10 @@ window.DEN_STAMPS = {
           "w": 6,
           "x": 15,
           "y": 24,
-          "rot": 12
+          "rot": 12,
+          "mobileX": 1.3,
+          "mobileY": 24,
+          "mobileW": 12
         }
       ],
       "note": "Pricing block at the top left clean."
@@ -46,7 +53,10 @@ window.DEN_STAMPS = {
           "w": 11.1,
           "x": 89,
           "y": 30,
-          "rot": -14
+          "rot": -14,
+          "mobileX": 103.8,
+          "mobileY": -135.9,
+          "mobileW": 26
         },
         {
           "mark": "88-oval",
@@ -54,7 +64,8 @@ window.DEN_STAMPS = {
           "w": 7.1,
           "x": 97,
           "y": 58,
-          "rot": 13
+          "rot": 13,
+          "mobileHide": true
         },
         {
           "mark": "combo-circle",
@@ -62,9 +73,17 @@ window.DEN_STAMPS = {
           "w": 4.3,
           "x": 99,
           "y": 74,
-          "rot": -11
+          "rot": -11,
+          "mobileX": 98.7,
+          "mobileY": 74,
+          "mobileW": 12
         }
       ]
     }
-  ]
+  ],
+  "mobile": {
+    "maxStamps": 2,
+    "scale": 1,
+    "hide": false
+  }
 };

@@ -14,7 +14,8 @@ window.DEN_STAMPS = {
           "w": 10,
           "x": 93.4,
           "y": 55.5,
-          "rot": 12
+          "rot": 12,
+          "mobileHide": true
         },
         {
           "mark": "lion-outline",
@@ -22,7 +23,10 @@ window.DEN_STAMPS = {
           "w": 15,
           "x": 93,
           "y": 73.5,
-          "rot": -15
+          "rot": -15,
+          "mobileX": 103.8,
+          "mobileY": 702.6,
+          "mobileW": 26
         },
         {
           "mark": "combo-circle",
@@ -30,9 +34,17 @@ window.DEN_STAMPS = {
           "w": 6,
           "x": 99,
           "y": 89.5,
-          "rot": -12
+          "rot": -12,
+          "mobileX": 98.7,
+          "mobileY": 89.5,
+          "mobileW": 12
         }
       ]
     }
-  ]
+  ],
+  "mobile": {
+    "maxStamps": 2,
+    "scale": 1,
+    "hide": false
+  }
 };

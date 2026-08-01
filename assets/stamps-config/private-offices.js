@@ -14,7 +14,10 @@ window.DEN_STAMPS = {
           "w": 14,
           "x": 89,
           "y": 32.7,
-          "rot": -14
+          "rot": -14,
+          "mobileX": 100,
+          "mobileY": 32.7,
+          "mobileW": 26
         },
         {
           "mark": "88-oval",
@@ -22,7 +25,8 @@ window.DEN_STAMPS = {
           "w": 9,
           "x": 97,
           "y": 60.7,
-          "rot": 13
+          "rot": 13,
+          "mobileHide": true
         },
         {
           "mark": "combo-circle",
@@ -30,7 +34,10 @@ window.DEN_STAMPS = {
           "w": 5.5,
           "x": 99,
           "y": 76.7,
-          "rot": -11
+          "rot": -11,
+          "mobileX": 98.7,
+          "mobileY": 76.7,
+          "mobileW": 12
         }
       ]
     },
@@ -69,7 +76,8 @@ window.DEN_STAMPS = {
           "w": 10,
           "x": 4,
           "y": 70,
-          "rot": 14
+          "rot": 14,
+          "mobileHide": true
         },
         {
           "mark": "lion-outline",
@@ -77,7 +85,10 @@ window.DEN_STAMPS = {
           "w": 15,
           "x": 6.7,
           "y": 42,
-          "rot": -16
+          "rot": -16,
+          "mobileX": 0,
+          "mobileY": 42,
+          "mobileW": 26
         },
         {
           "mark": "combo-circle",
@@ -85,9 +96,17 @@ window.DEN_STAMPS = {
           "w": 6,
           "x": 15,
           "y": 24,
-          "rot": 12
+          "rot": 12,
+          "mobileX": 26,
+          "mobileY": 24,
+          "mobileW": 12
         }
       ]
     }
-  ]
+  ],
+  "mobile": {
+    "maxStamps": 2,
+    "scale": 1,
+    "hide": false
+  }
 };
