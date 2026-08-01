@@ -92,3 +92,8 @@
 /0021             /private-offices   301
 /0022             /   301
 /book_a_tour      https://den1880.optixapp.com/book/tour/   301
+
+# -- /coworking vanity URL -> memberships (added Aug 2026) --
+# "coworking" is the term people search/type; the real page is /memberships.
+/coworking        /memberships   301
+/coworking/*      /memberships   301
