@@ -195,6 +195,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero p.lede{margin:0 auto}
   }
 
+
+  /* ---- treatment t08: Copy sits low on desktop, bottom left of the frame. ---- */
+  .hero{align-items:flex-end}
+  .hero .container{padding-bottom:clamp(56px,9vh,108px)}
+
+  /* ---- Phone copy: one centred line, nothing ragged ------------------- */
+  @media(max-width:768px){
+    .hero .container{text-align:center}
+    .hero .hero-copy{max-width:none;margin:0 auto}
+    .hero .eyebrow{display:block;text-align:center;letter-spacing:.22em;font-size:11px}
+    /* sized so "Elevate your Passion" holds a single line at 360px and up */
+    .hero h1{font-size:clamp(27px,7.6vw,38px);text-align:center;white-space:nowrap}
+    .hero h1 .brk{display:inline}
+    .hero p.lede{margin:0 auto;max-width:20em;text-align:center}
+  }
+
   /* ── PATHS SECTION ── */
   .paths{padding:72px 0 80px;background:var(--paper)}
   .paths-header{text-align:center;margin-bottom:48px}
@@ -352,9 +368,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="container">
    <div class="hero-copy">
-    <span class="eyebrow">Uptown Waterloo · 14 Erb St. West</span>
-    <h1>Where <em>Work</em><br>Comes to <em>Life.</em></h1>
-    <p class="lede">Premium coworking, a private gym, recovery amenities, a podcast studio, and a community of professionals, all under one heritage roof.</p>
+    <span class="eyebrow">Events · Work · Wellness</span>
+    <h1>Elevate your <em>Passion</em></h1>
+    <p class="lede">Work, gather, and move in spaces designed to inspire.</p>
    </div>
   </div>
 </section>
