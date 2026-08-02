@@ -155,44 +155,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border:none;
   }
 
-  /* MOBILE, let hero shrink to the video's natural 16:9 height so nothing is cropped */
-  @media(max-width:768px){
-    .hero{
-      height:auto;
-      aspect-ratio:16/9;
-      min-height:unset;
-    }
-    .hero-video-wrap iframe{
-      top:0;left:0;
-      width:100%;
-      height:100%;
-      min-width:unset;
-      min-height:unset;
-      transform:none;
-    }
+  /* Scrim over the video so the overlaid copy stays legible on every frame.
+     Same two-stop gradient /memberships uses over its hero photo. */
+  .hero-video-wrap::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(14,14,14,.34),rgba(14,14,14,.72));
+    pointer-events:none;
   }
 
-  /* INTRO TEXT SECTION (below video) */
-  .intro-text{padding:72px 0 0;text-align:center;background:var(--paper);position:relative;overflow:hidden}
-  .intro-text .eyebrow{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:16px}
-  .intro-text h1{margin-bottom:20px;position:relative;z-index:1}
-  .intro-text h1 em{font-style:italic;color:var(--plum)}
-  .intro-text h1 .purple{color:var(--plum)}
-  .intro-text p.lede{color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);max-width:620px;margin:0 auto;line-height:1.65;position:relative;z-index:1}
+  /* HERO COPY, overlaid on the video.
+     Desktop: left of frame, so the person in the poster/first frame stays
+     clear on the right. Phones get a different placement, see the media
+     query below. */
+  .hero{justify-content:flex-start}
+  .hero .container{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:0 24px;text-align:left}
+  .hero .hero-copy{max-width:620px}
+  .hero .eyebrow{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;margin-bottom:16px;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+  .hero h1{margin-bottom:20px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+  .hero h1 em{font-style:italic;color:var(--lime)}
+  .hero h1 .purple{color:var(--lime)}
+  .hero p.lede{color:#fff;font-size:clamp(16px,1.6vw,19px);max-width:520px;margin:0;line-height:1.65;text-shadow:0 1px 12px rgba(0,0,0,.45)}
   .hero-lion{
     position:absolute;
-    right:8%;
+    right:6%;
     top:50%;
     transform:translateY(-50%) rotate(25deg);
     width:clamp(90px,15vw,190px);
     height:auto;
-    opacity:0.15;
+    opacity:0.22;
     pointer-events:none;
     z-index:0;
   }
 
+  /* MOBILE, the hero now carries the copy, so it keeps a real height and the
+     video goes back to covering it instead of sitting at a fixed 16:9 */
+  @media(max-width:768px){
+    /* Phones get the other placement: there is no left third to sit in, and
+       the crop puts the person's face near the left edge, so the copy drops
+       to the bottom of the frame and centres instead. */
+    .hero{
+      height:auto;
+      min-height:clamp(520px,82svh,660px);
+      padding:96px 0 0;
+      align-items:flex-end;
+      justify-content:center;
+    }
+    .hero .container{text-align:center;padding-bottom:56px}
+    .hero .hero-copy{max-width:none}
+    .hero p.lede{margin:0 auto}
+    .hero-lion{display:none}
+  }
+
   /* ── PATHS SECTION ── */
-  .paths{padding:48px 0 80px;background:var(--paper)}
+  .paths{padding:72px 0 80px;background:var(--paper)}
   .paths-header{text-align:center;margin-bottom:48px}
   .paths-header .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:600}
   .paths-header h2{margin-bottom:10px}
@@ -345,15 +361,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       allowfullscreen>
     </iframe>
   </div>
-</section>
-
-<!-- INTRO TEXT -->
-<section class="intro-text">
   <img class="hero-lion" src="assets/lion-outline-lime.svg" alt="" aria-hidden="true">
   <div class="container">
+   <div class="hero-copy">
     <span class="eyebrow">Uptown Waterloo · 14 Erb St. West</span>
     <h1>Where <em>Work</em><br>Comes to <em>Life.</em></h1>
     <p class="lede">Premium coworking, a private gym, recovery amenities, a podcast studio, and a community of professionals, all under one heritage roof.</p>
+   </div>
   </div>
 </section>
 
