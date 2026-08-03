@@ -9,29 +9,38 @@ window.DEN_STAMPS = {
       "ground": "Photo",
       "stamps": [
         {
+          "mark": "88-oval",
+          "color": "White",
+          "w": 10,
+          "x": 79,
+          "y": 44,
+          "rot": -13,
+          "mobileHide": true
+        },
+        {
           "mark": "lion-outline",
           "color": "Beige",
-          "w": 13,
-          "x": 22,
-          "y": 98,
-          "rot": -13,
-          "mobileX": -3.7,
-          "mobileY": 153.4,
+          "w": 15,
+          "x": 100.9,
+          "y": 28,
+          "rot": -14,
+          "mobileX": 100,
+          "mobileY": 28,
           "mobileW": 26
         },
         {
           "mark": "combo-circle",
           "combo": 8,
-          "w": 6.5,
-          "x": 30,
-          "y": 107,
-          "rot": 11,
-          "mobileX": 52,
-          "mobileY": 107,
+          "w": 6,
+          "x": 86,
+          "y": 62,
+          "rot": 12,
+          "mobileX": 100,
+          "mobileY": 62,
           "mobileW": 12
         }
       ],
-      "note": "Crosses the video band's bottom edge into the cream intro."
+      "note": "Over the video, right side. The copy sits in the left third on desktop and the subject is centre-left, so the right half is the free ground."
     },
     {
       "id": "paths",
@@ -65,7 +74,7 @@ window.DEN_STAMPS = {
           "x": 2,
           "y": 74,
           "rot": 11,
-          "mobileX": 26,
+          "mobileX": 0,
           "mobileY": 74,
           "mobileW": 12
         }
