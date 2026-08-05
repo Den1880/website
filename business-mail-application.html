@@ -105,7 +105,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .eyebrow{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:14px}
   .hero-sub{font-size:16px;color:var(--ink-2);margin-top:10px;max-width:580px;line-height:1.6}
   .plan-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(139,197,63,.18);border:1px solid rgba(157,179,21,.35);border-radius:999px;padding:8px 16px;margin-top:20px;font-size:13px;font-weight:600;color:var(--ink)}
-  .plan-badge .price{font-family:'Monschone',Georgia,serif;font-size:17px;font-weight:700}
+  .plan-badge .price{font-family:'Monschone',Georgia,serif;font-size:17px;font-weight:400}
 
   /* Form layout */
   .form-section{padding:56px 0 80px}
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* Section headers inside form */
   .form-group-header{margin:36px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
   .form-group-header:first-child{margin-top:0}
-  .form-group-header h3{font-family:'Monschone',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .form-group-header h3{font-family:'Monschone',Georgia,serif;font-size:18px;font-weight:400;color:var(--ink);margin-bottom:4px}
   .form-group-header p{font-size:13px;color:var(--muted);margin:0}
 
   /* Field rows */
@@ -203,24 +203,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
   /* ===== Unified site footer ===== */
-  footer.site-footer{padding:0;text-align:left;font-size:16px;margin:0;border:none;}
-  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+  footer.site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:transparent;z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
-  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
-  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
   .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
   .footer-bottom-links{display:flex;gap:24px;align-items:center}
-  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
   .footer-bottom-links a:hover{color:#fff}
   .footer-social{display:flex;gap:16px;margin-top:8px}
-  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
@@ -634,7 +634,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="mailto:hello@den1880.co">hello@den1880.co</a>
       <a href="tel:5197831505">(519) 783-1505</a>
       <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
-      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
     </div>
   </div>
   <div class="footer-bottom">

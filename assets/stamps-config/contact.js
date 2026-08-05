@@ -63,7 +63,7 @@ window.DEN_STAMPS = {
           "w": 9,
           "x": 4,
           "y": 58,
-          "rot": 13,
+          "rot": -13,
           "mobileHide": true
         },
         {
@@ -72,7 +72,7 @@ window.DEN_STAMPS = {
           "w": 5.5,
           "x": 2,
           "y": 74,
-          "rot": -11,
+          "rot": 11,
           "mobileX": -1.7,
           "mobileY": 74,
           "mobileW": 12

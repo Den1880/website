@@ -64,7 +64,7 @@ window.DEN_STAMPS = {
           "w": 5.5,
           "x": 99,
           "y": 74,
-          "rot": 11,
+          "rot": -11,
           "mobileX": 98.7,
           "mobileY": 74,
           "mobileW": 12

@@ -183,7 +183,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .perworker .pwd-label{font-weight:500;color:var(--ink-2)}
   .plan.featured .perworker .pwd{color:var(--ink)}
   .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(139,197,63,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
-  .plan .perday .perday-num{font-family:'Monschone',Georgia,serif;font-size:16px;font-weight:700;color:var(--lime-deep)}
+  .plan .perday .perday-num{font-family:'Monschone',Georgia,serif;font-size:16px;font-weight:400;color:var(--lime-deep)}
   .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
   .plan .price-sub{font-size:12px;color:var(--muted);margin-bottom:6px}
   .plan .anchor{font-size:12px;color:var(--muted);margin-bottom:16px}
@@ -237,7 +237,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .compare .lite{color:var(--muted);font-size:13px}
   .compare tr:last-child td{border-bottom:0}
 
-  .teams-band{background:var(--green);color:#fff;border-radius:0;padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:var(--shadow-lift)}
+  .teams-band{background:var(--green);color:#fff;border-radius:0;padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:none}
   @media (max-width:880px){.teams-band{grid-template-columns:1fr}}
   .teams-band h2{text-align:left;color:#fff}
   .teams-band .scarce{display:inline-block;background:rgba(139,197,63,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:0;margin-bottom:18px}
@@ -273,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cm-card .cc-status{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:4px}
   .cm-card .cc-headline{font-family:'Monschone',Georgia,serif;font-weight:400;font-size:20px;letter-spacing:-.01em;line-height:1.1;color:#fff}
   .cm-card .cc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;position:relative;z-index:1}
-  .cm-card .cc-detail-label{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:2px;font-weight:700}
+  .cm-card .cc-detail-label{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:2px;font-weight:700}
   .cm-card .cc-detail-value{font-size:11px;font-weight:600;color:#fff;letter-spacing:.02em;line-height:1.2}
   .cm-card-terms{font-size:12px;color:var(--muted);line-height:1.5;text-align:center;max-width:340px}
   .cm-card-terms s{color:rgba(27,28,28,.34)}
@@ -354,11 +354,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   font-size:clamp(34px, 4.6vw, 52px);
   line-height:1.05;
   margin:0 0 10px;
-  font-weight:800;
+  font-weight:400;
   letter-spacing:-0.02em;
 }
 .cat-banner .cat-title .cat-suffix {
-  font-weight:500;
+  font-weight:400;
   font-style:italic;
   color:rgba(27,28,28,.52);
 }
@@ -418,24 +418,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
   /* ===== Unified site footer ===== */
-  footer.site-footer{padding:0;text-align:left;font-size:16px;margin:0;border:none;}
-  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+  footer.site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:transparent;z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
-  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
-  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
   .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
   .footer-bottom-links{display:flex;gap:24px;align-items:center}
-  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
   .footer-bottom-links a:hover{color:#fff}
   .footer-social{display:flex;gap:16px;margin-top:8px}
-  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
@@ -872,7 +872,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="mailto:hello@den1880.co">hello@den1880.co</a>
       <a href="tel:5197831505">(519) 783-1505</a>
       <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
-      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
     </div>
   </div>
   <div class="footer-bottom">

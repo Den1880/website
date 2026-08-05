@@ -125,7 +125,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .intro-text h2 { margin-bottom: 18px; }
     .intro-text h2 em { font-style: italic; color: var(--plum); }
     .intro-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
-    .intro-img { width: 100%; height: 460px; object-fit: cover; border-radius: 0; box-shadow: var(--shadow-lift); }
+    .intro-img { width: 100%; height: 460px; object-fit: cover; border-radius: 0; box-shadow:none; }
     @media(max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 36px; } .intro-img { height: 280px; } }
 
     /* ── OFFICE GRID ── */
@@ -143,10 +143,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .included-header { text-align: center; margin-bottom: 56px; }
     .included-header h2 { color: #fff; margin-bottom: 12px; }
     .included-header h2 em { font-style: italic; color: var(--lime); }
-    .included-header p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; font-size: 16px; }
+    .included-header p { color:rgba(255,255,255,0.76); max-width: 540px; margin: 0 auto; font-size: 16px; }
     .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .included-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0; padding: 28px; }
-    .included-card h3 { color: var(--lime); font-size: 15px; font-weight: 600; margin-bottom: 14px; font-family: 'Inter', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+    .included-card h3 { color: var(--lime); font-size: 15px; font-weight: 500; margin-bottom: 14px; font-family: 'Oswald',Impact,sans-serif; letter-spacing: .18em; text-transform: uppercase; }
     .included-card ul { list-style: none; padding: 0; }
     .included-card li { font-size: 14px; color: rgba(255,255,255,0.78); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
     .included-card li:last-child { border-bottom: none; }
@@ -178,7 +178,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .amenity-item { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid var(--line); border-radius: 0; box-shadow: var(--shadow); }
     .amenity-item .icon { margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
-    .amenity-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .amenity-item h4 { font-size: 15px; font-weight:400; margin-bottom: 6px; }
     .amenity-item p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
     @media(max-width: 768px) { .amenities-grid { grid-template-columns: repeat(2, 1fr); } }
     @media(max-width: 480px) { .amenities-grid { grid-template-columns: 1fr; } }
@@ -193,8 +193,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .final-cta .scarce { display: inline-block; background: rgba(139,197,63,.14); color: var(--lime); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 0; margin-bottom: 24px; }
 
     /* ── FOOTER ── */
-    footer { background:#16331A; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
-    footer a { color: rgba(255,255,255,0.4); }
+    footer { background:#16331A; color:rgba(255,255,255,0.72); text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color:rgba(255,255,255,0.72); }
     footer a:hover { color: #fff; }
   
   /* ── NAV (tracked caps) ── */
@@ -207,24 +207,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
   /* ===== Unified site footer ===== */
-  footer.site-footer{padding:0;text-align:left;font-size:16px;margin:0;border:none;}
-  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+  footer.site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:transparent;z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
-  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
-  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
   .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
   .footer-bottom-links{display:flex;gap:24px;align-items:center}
-  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
   .footer-bottom-links a:hover{color:#fff}
   .footer-social{display:flex;gap:16px;margin-top:8px}
-  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
@@ -310,10 +310,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="background:var(--green);padding:40px 0">
   <div class="container">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center">
-      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">1–35</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Team sizes</div></div>
-      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">24/7</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Secure access</div></div>
-      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">80%+</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Currently leased</div></div>
-      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">$0</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Furniture &amp; setup</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">1–35</div><div style="font-size:13px;color:rgba(255,255,255,0.74);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Team sizes</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">24/7</div><div style="font-size:13px;color:rgba(255,255,255,0.74);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Secure access</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">80%+</div><div style="font-size:13px;color:rgba(255,255,255,0.74);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Currently leased</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">$0</div><div style="font-size:13px;color:rgba(255,255,255,0.74);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Furniture &amp; setup</div></div>
     </div>
   </div>
 </section>
@@ -441,31 +441,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding:72px 0;background:var(--green)">
   <div class="container" style="max-width:1100px">
     <h2 style="color:#fff;margin-bottom:10px">The Performance Club is <em style="font-style:italic;color:var(--lime)">included, too</em></h2>
-    <p style="color:rgba(255,255,255,0.65);font-size:16px;margin-bottom:32px;max-width:640px">Your private office on the Teams Floor includes Performance Club gym access for every seat on your plan. 8 hours of work, 8 hours of play, all under one roof.</p>
+    <p style="color:rgba(255,255,255,0.76);font-size:16px;margin-bottom:32px;max-width:640px">Your private office on the Teams Floor includes Performance Club gym access for every seat on your plan. 8 hours of work, 8 hours of play, all under one roof.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Strength Training</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Multi-functional power rig, Smith machine, Olympic bars and plates, full range of dumbbells.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">Multi-functional power rig, Smith machine, Olympic bars and plates, full range of dumbbells.</div>
       </div>
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Cardio</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Peloton Bike, Tread, and Row. Studio-grade gear for a 20-minute reset or a full-distance day.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">Peloton Bike, Tread, and Row. Studio-grade gear for a 20-minute reset or a full-distance day.</div>
       </div>
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Functional Training</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">TRX, battle ropes, plyo boxes, GORUCK weighted rucks.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">TRX, battle ropes, plyo boxes, GORUCK weighted rucks.</div>
       </div>
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Reset &amp; Recovery</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Mobility zone with yoga mats and ballet barre. Stocked recovery fridge.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">Mobility zone with yoga mats and ballet barre. Stocked recovery fridge.</div>
       </div>
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Steps from Your Desk</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">The hardest part of working out is getting there. Performance Club is steps from your suite, so it actually happens.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">The hardest part of working out is getting there. Performance Club is steps from your suite, so it actually happens.</div>
       </div>
       <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Premium Wellness Add-on</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Upgrade for sauna, cold plunge, hot tub, massage chairs, nap pods, plus towel and robe service.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.76);line-height:1.55">Upgrade for sauna, cold plunge, hot tub, massage chairs, nap pods, plus towel and robe service.</div>
       </div>
     </div>
   </div>
@@ -573,7 +573,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Tours run weekday mornings and afternoons. See the available suites, meet the team, ask anything. We'll show you exactly what your team would be walking into.</p>
     <div class="actions">
       <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#fff" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.72);color:#fff" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
     </div>
   </div>
 </section>
@@ -611,7 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="mailto:hello@den1880.co">hello@den1880.co</a>
       <a href="tel:5197831505">(519) 783-1505</a>
       <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
-      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
     </div>
   </div>
   <div class="footer-bottom">
