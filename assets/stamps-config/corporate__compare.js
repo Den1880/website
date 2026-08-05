@@ -10,7 +10,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "lion-outline",
-          "color": "Red",
+          "color": "Brown",
           "w": 14,
           "x": 91.9,
           "y": 30,
@@ -49,7 +49,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "lion-outline",
-          "color": "Green",
+          "color": "Blue",
           "w": 13,
           "x": 24,
           "y": 98,
@@ -60,7 +60,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 10,
+          "combo": 6,
           "w": 6.5,
           "x": 32,
           "y": 107,

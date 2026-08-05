@@ -35,32 +35,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: normal; font-style: normal; font-display: swap;
   }
 :root{
-    /* Den 1880 official kit. Every value below is one of the designer's
-       fourteen colours, or one of them held back with opacity. Nothing here
-       is sampled off the old site. */
-    --green:#16331A;        /* primary dark - the brand at rest */
-    --ink:#1B1C1C;          /* Black - line art, stamps, type on light */
-    --ink-2:#16331A;        /* second dark surface = the brand's dark */
+    /* Den 1880 - Midnight Blue + Mustard. The scheme approved for the ad
+       landing pages, now carrying the whole site, so a paid click lands on a
+       page that matches the ad it came from.
+       Every value is one of the designer's fourteen, or one of them held back
+       with opacity. */
+    --blue:#062241;
+    --green:#062241;        /* the dark ground - Blue, not Green */
+    --ink:#1B1C1C;          /* Black - type on light */
+    --ink-2:#062241;        /* second dark surface */
     --paper:#F2F1EA;        /* the deck's page ground */
-    --beige:#EFD3AE;        /* warm light band ground */
+    --beige:#EFD3AE;        /* light text on Blue, and the warm band ground */
     --card:#FFFFFF;
     --gold:#C3996B;
-    --lime:#8BC53F;         /* NOT the old #8BC53F */
-    --lime-deep:#16331A;    /* the kit's darker green is Green */
-    --plum:#652D90;         /* Purple - NOT the old #652D90 */
-    --orange:#DF5526;       /* the one interactive colour */
+    --lime:#D3A92A;         /* the accent - pills, badges, eyebrows on dark */
+    --lime-deep:#062241;    /* the accent's job on a light ground: Mustard fails
+                               AA as small text on cream, so Blue takes it */
+    --plum:#652D90;         /* Purple - category marks */
+    --orange:#DF5526;       /* hover and focus - a role, not decoration */
     --mustard:#D3A92A;
-    --blue:#062241;
     --teal:#00927C;
     --warn:#BB3F30;         /* Red */
     --brown:#68391F;
     --neon:#EDFF00;
-    /* The kit has no grey. Opacity is the legal way to get a quieter tone;
-       inventing a shade is not. */
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone. */
     --muted:rgba(27,28,28,.64);
     --line:rgba(27,28,28,.14);
-    /* The kit bars corner radius and drop shadows. --shadow becomes a
-       hairline ring (no offset, no blur), --shadow-lift an Orange one. */
     --shadow:0 0 0 1px rgba(27,28,28,.14);
     --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
     --radius:0px;
@@ -136,7 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .reg-price .limited{display:inline-block;background:var(--warn);color:#fff;padding:2px 8px;border-radius:0;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 
   /* VALUE STACK callout per card */
-  .plan .value-stack{margin:14px 0 12px;padding:14px 16px;background:linear-gradient(135deg,rgba(139,197,63,0.14) 0%,rgba(157,179,21,0.08) 100%);border:1.5px solid var(--lime-deep);border-radius:0}
+  .plan .value-stack{margin:14px 0 12px;padding:14px 16px;background:linear-gradient(135deg,rgba(211,169,42,0.14) 0%,rgba(211,169,42,0.08) 100%);border:1.5px solid var(--lime-deep);border-radius:0}
   .plan .vs-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-deep);font-weight:800;margin-bottom:8px;text-align:center}
   .plan .vs-row{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--ink-2);padding:3px 0;gap:8px}
   .plan .vs-row .vs-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -149,7 +149,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* plan card secondary "Try for free" CTA (Box-style: outlined link button below primary CTA) */
   .plan .cta-stack{display:flex;flex-direction:column;gap:8px;margin-top:auto}
-  .plan .try-free{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border:1.5px dashed var(--lime-deep);border-radius:0;background:rgba(139,197,63,0.08);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;transition:all .15s ease}
+  .plan .try-free{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border:1.5px dashed var(--lime-deep);border-radius:0;background:rgba(211,169,42,0.08);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;transition:all .15s ease}
   .plan .try-free:hover{background:var(--orange);border-style:solid;transform:translateY(-1px)}
   .plan .try-free .tf-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:11px;font-weight:800;flex-shrink:0}
   .plan .try-free .tf-arrow{margin-left:2px}
@@ -182,7 +182,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .perworker .pwd{font-family:'Monschone',Georgia,serif;font-weight:400;font-size:17px;color:var(--lime-deep);letter-spacing:-.01em}
   .plan .perworker .pwd-label{font-weight:500;color:var(--ink-2)}
   .plan.featured .perworker .pwd{color:var(--ink)}
-  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(139,197,63,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
+  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(211,169,42,.18);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(211,169,42,.35)}
   .plan .perday .perday-num{font-family:'Monschone',Georgia,serif;font-size:16px;font-weight:400;color:var(--lime-deep)}
   .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
   .plan .price-sub{font-size:12px;color:var(--muted);margin-bottom:6px}
@@ -197,7 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .cta{margin-top:auto}
   .plan .cta a{width:100%;justify-content:center}
   .plan .micro{margin-top:10px;font-size:11px;color:var(--muted);text-align:center}
-  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:8px 10px;background:rgba(139,197,63,.14);border:1px dashed var(--lime-deep);border-radius:0;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
+  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:8px 10px;background:rgba(211,169,42,.14);border:1px dashed var(--lime-deep);border-radius:0;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
   .plan .guarantee-badge svg{color:var(--lime-deep);flex-shrink:0}
 
   /* DAY PASS BUNDLES, mini section like the consumer chart */
@@ -240,7 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .teams-band{background:var(--green);color:#fff;border-radius:0;padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:none}
   @media (max-width:880px){.teams-band{grid-template-columns:1fr}}
   .teams-band h2{text-align:left;color:#fff}
-  .teams-band .scarce{display:inline-block;background:rgba(139,197,63,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:0;margin-bottom:18px}
+  .teams-band .scarce{display:inline-block;background:rgba(211,169,42,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:0;margin-bottom:18px}
   .teams-band p{color:rgba(27,28,28,.22)}
   .teams-band .team-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
   .teams-band .stat{background:rgba(255,255,255,.05);padding:18px;border-radius:0}
@@ -263,8 +263,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cm-payback-seal svg{color:var(--lime);flex:0 0 18px}
   /* CREDIT-CARD style member card for Community Membership */
   .cm-cardwrap{display:flex;flex-direction:column;align-items:center;gap:14px}
-  .cm-card{background:linear-gradient(135deg,#1B1C1C 0%,#16331A 50%,#1B1C1C 100%);border:1px solid rgba(255,255,255,0.12);border-radius:0;padding:20px 22px;color:#fff;width:100%;max-width:340px;aspect-ratio:1.586/1;position:relative;display:flex;flex-direction:column;justify-content:space-between;box-shadow:none;overflow:hidden}
-  .cm-card::before{content:'';position:absolute;top:-30%;left:-20%;width:90%;height:160%;background:radial-gradient(ellipse,rgba(139,197,63,0.10) 0%,transparent 60%);pointer-events:none}
+  .cm-card{background:linear-gradient(135deg,#1B1C1C 0%,#062241 50%,#1B1C1C 100%);border:1px solid rgba(255,255,255,0.12);border-radius:0;padding:20px 22px;color:#fff;width:100%;max-width:340px;aspect-ratio:1.586/1;position:relative;display:flex;flex-direction:column;justify-content:space-between;box-shadow:none;overflow:hidden}
+  .cm-card::before{content:'';position:absolute;top:-30%;left:-20%;width:90%;height:160%;background:radial-gradient(ellipse,rgba(211,169,42,0.10) 0%,transparent 60%);pointer-events:none}
   .cm-card::after{content:'';position:absolute;bottom:-40%;right:-30%;width:80%;height:140%;background:radial-gradient(ellipse,rgba(101,45,144,0.15) 0%,transparent 60%);pointer-events:none}
   .cm-card .cc-top{display:flex;justify-content:flex-end;align-items:center;position:relative;z-index:1}
   .cm-card .cc-wordmark{font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;letter-spacing:.16em;color:#fff}
@@ -420,7 +420,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ===== Unified site footer ===== */
   footer.site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
   .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,51,26,.86),rgba(22,51,26,.92));z-index:0}
+  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,34,65,.86),rgba(6,34,65,.92));z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
   .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
@@ -735,27 +735,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <h2 style="font-size:clamp(20px,2.4vw,26px);text-align:center;margin-bottom:24px">Explore other options</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:1080px;margin:0 auto">
-        <a href="../private-offices.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+        <a href="../private-offices.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">Team Office</div>
           <div style="font-size:13px;color:var(--ink-2)">Private offices on the Teams Floor</div>
         </a>
-        <a href="team-officelite.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+        <a href="team-officelite.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">Team OfficeLite</div>
           <div style="font-size:13px;color:var(--ink-2)">Per-user team plans, 5+ seats</div>
         </a>
-        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+        <a href="team-officeflex.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">Team OfficeFlex</div>
           <div style="font-size:13px;color:var(--ink-2)">Pooled day passes</div>
         </a>
-        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+        <a href="drop-in.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">Drop-In &amp; Team Meets</div>
           <div style="font-size:13px;color:var(--ink-2)">Single passes + bulk credit promo</div>
         </a>
-                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+                <a href="enterprise.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">Enterprise</div>
           <div style="font-size:13px;color:var(--ink-2)">25+ seats, custom contracts</div>
         </a>
-        <a href="faq.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(157,179,21,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
+        <a href="faq.html" style="display:block;padding:18px;border:1.5px solid var(--line);border-radius:0;text-decoration:none;color:var(--ink);transition:all .18s ease" onmouseover="this.style.borderColor='var(--lime-deep)';this.style.boxShadow='0 6px 18px rgba(211,169,42,.15)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'">
           <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:16px;margin-bottom:4px">FAQ</div>
           <div style="font-size:13px;color:var(--ink-2)">Common questions</div>
         </a>

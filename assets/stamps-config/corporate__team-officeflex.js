@@ -21,7 +21,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "88-oval",
-          "color": "Green",
+          "color": "Blue",
           "w": 9,
           "x": 4,
           "y": 58,
@@ -30,7 +30,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 2,
+          "combo": 6,
           "w": 5.5,
           "x": 2,
           "y": 74,
@@ -49,7 +49,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "lion-outline",
-          "color": "Neon",
+          "color": "Mustard",
           "w": 14,
           "x": 89,
           "y": 30,
@@ -60,7 +60,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "88-oval",
-          "color": "Teal",
+          "color": "Blue",
           "w": 9,
           "x": 97,
           "y": 58,
@@ -69,7 +69,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 9,
+          "combo": 7,
           "w": 5.5,
           "x": 99,
           "y": 74,

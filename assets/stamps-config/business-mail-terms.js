@@ -10,7 +10,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "88-oval",
-          "color": "Neon",
+          "color": "Mustard",
           "w": 10,
           "x": 82,
           "y": 6,

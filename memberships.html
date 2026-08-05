@@ -35,32 +35,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: normal; font-style: normal; font-display: swap;
   }
   :root{
-    /* Den 1880 official kit. Every value below is one of the designer's
-       fourteen colours, or one of them held back with opacity. Nothing here
-       is sampled off the old site. */
-    --green:#16331A;        /* primary dark - the brand at rest */
-    --ink:#1B1C1C;          /* Black - line art, stamps, type on light */
-    --ink-2:#16331A;        /* second dark surface = the brand's dark */
+    /* Den 1880 - Midnight Blue + Mustard. The scheme approved for the ad
+       landing pages, now carrying the whole site, so a paid click lands on a
+       page that matches the ad it came from.
+       Every value is one of the designer's fourteen, or one of them held back
+       with opacity. */
+    --blue:#062241;
+    --green:#062241;        /* the dark ground - Blue, not Green */
+    --ink:#1B1C1C;          /* Black - type on light */
+    --ink-2:#062241;        /* second dark surface */
     --paper:#F2F1EA;        /* the deck's page ground */
-    --beige:#EFD3AE;        /* warm light band ground */
+    --beige:#EFD3AE;        /* light text on Blue, and the warm band ground */
     --card:#FFFFFF;
     --gold:#C3996B;
-    --lime:#8BC53F;         /* NOT the old #8BC53F */
-    --lime-deep:#16331A;    /* the kit's darker green is Green */
-    --plum:#652D90;         /* Purple - NOT the old #652D90 */
-    --orange:#DF5526;       /* the one interactive colour */
+    --lime:#D3A92A;         /* the accent - pills, badges, eyebrows on dark */
+    --lime-deep:#062241;    /* the accent's job on a light ground: Mustard fails
+                               AA as small text on cream, so Blue takes it */
+    --plum:#652D90;         /* Purple - category marks */
+    --orange:#DF5526;       /* hover and focus - a role, not decoration */
     --mustard:#D3A92A;
-    --blue:#062241;
     --teal:#00927C;
     --warn:#BB3F30;         /* Red */
     --brown:#68391F;
     --neon:#EDFF00;
-    /* The kit has no grey. Opacity is the legal way to get a quieter tone;
-       inventing a shade is not. */
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone. */
     --muted:rgba(27,28,28,.64);
     --line:rgba(27,28,28,.14);
-    /* The kit bars corner radius and drop shadows. --shadow becomes a
-       hairline ring (no offset, no blur), --shadow-lift an Orange one. */
     --shadow:0 0 0 1px rgba(27,28,28,.14);
     --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
     --radius:0px;
@@ -120,7 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .annual-pill{position:absolute;top:-28px;right:0;background:var(--lime);color:var(--ink);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:none;border:1.5px solid var(--ink);animation:bobble 2.4s ease-in-out infinite;pointer-events:none}
   .annual-pill::after{content:'';position:absolute;bottom:-5px;right:28px;transform:rotate(45deg);width:8px;height:8px;background:var(--lime);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
   @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-  .save-tag{font-size:12px;color:var(--lime-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(139,197,63,.18);padding:6px 10px;border-radius:0}
+  .save-tag{font-size:12px;color:var(--lime-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(211,169,42,.18);padding:6px 10px;border-radius:0}
 
   /* PLAN GRID, 3 tier */
   .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px auto 12px;align-items:stretch;max-width:1080px}
@@ -143,7 +143,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .reg-price{font-size:13px;color:var(--muted);margin-bottom:2px;display:flex;align-items:center;gap:8px}
   .plan .reg-price s{color:rgba(27,28,28,.34);font-variant-numeric:tabular-nums}
   .plan .reg-price .limited{display:inline-block;background:var(--warn);color:#fff;padding:2px 8px;border-radius:0;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(139,197,63,.18);color:var(--ink);padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(157,179,21,.35)}
+  .plan .perday{display:inline-flex;align-items:baseline;gap:6px;background:rgba(211,169,42,.18);color:var(--ink);padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;margin:8px 0 6px;border:1px solid rgba(211,169,42,.35)}
   .plan .perday .perday-num{font-family:'Monschone',Georgia,serif;font-size:15px;font-weight:400;color:var(--lime-deep)}
   .plan.featured .perday{background:var(--lime);border-color:var(--lime-deep)}
   .plan .annual-note{display:none;font-size:11px;color:var(--plum);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
@@ -161,7 +161,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .cta{margin-top:auto}
   .plan .cta a{width:100%;justify-content:center}
   .plan .micro{margin-top:10px;font-size:11px;color:var(--muted);text-align:center}
-  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:7px 9px;background:rgba(139,197,63,.14);border:1px dashed var(--lime-deep);border-radius:0;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
+  .plan .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding:7px 9px;background:rgba(211,169,42,.14);border:1px dashed var(--lime-deep);border-radius:0;font-size:11px;font-weight:600;color:var(--ink);letter-spacing:.02em;text-align:center}
   .plan .guarantee-badge svg{color:var(--lime-deep);flex-shrink:0}
   /* MEMBERSHIPS: container around the 3-card plans grid */
   .memberships{max-width:1200px;margin:24px auto 0;background:transparent;border:1px solid var(--line);border-radius:0;padding:36px 32px 32px}
@@ -180,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .dp-header p{font-size:14px;color:var(--ink-2);margin:0 auto;max-width:620px}
   .dp-options{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;padding-top:8px;max-width:720px;margin:0 auto}
   @media (max-width:760px){.dp-options{grid-template-columns:1fr;gap:14px;max-width:420px}}
-  .dp-monthly-note{background:rgba(139,197,63,.18);border:1px solid rgba(157,179,21,.4);border-radius:0;padding:10px 12px;font-size:11px;color:var(--ink-2);margin:12px 0 0;line-height:1.4;text-align:center}
+  .dp-monthly-note{background:rgba(211,169,42,.18);border:1px solid rgba(211,169,42,.4);border-radius:0;padding:10px 12px;font-size:11px;color:var(--ink-2);margin:12px 0 0;line-height:1.4;text-align:center}
   .dp-monthly-note strong{color:var(--ink);font-family:'Monschone',Georgia,serif;font-weight:400;font-size:14px;display:block;margin-bottom:2px}
   .dp-option .dp-cta{display:flex;flex-direction:column;gap:8px;margin-top:14px}
   .dp-option .dp-cta a{display:flex;width:100%;justify-content:center}
@@ -227,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .teams{background:var(--green);color:#fff;border-radius:0;padding:48px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;box-shadow:none}
   @media (max-width:880px){.teams{grid-template-columns:1fr}}
   .teams h2{text-align:left;color:#fff}
-  .teams .scarce{display:inline-block;background:rgba(139,197,63,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:0;margin-bottom:18px}
+  .teams .scarce{display:inline-block;background:rgba(211,169,42,.16);color:var(--lime);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:0;margin-bottom:18px}
   .teams p{color:#EFD3AE}
   .teams .team-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
   .teams .stat{background:rgba(255,255,255,.05);padding:18px;border-radius:0}
@@ -302,7 +302,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ===== Unified site footer ===== */
   footer.site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
   .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,51,26,.86),rgba(22,51,26,.92));z-index:0}
+  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,34,65,.86),rgba(6,34,65,.92));z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
   .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
@@ -674,7 +674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section id="enterprise">
   <div class="container">
-    <div class="teams" style="background:linear-gradient(135deg,#1B1C1C 0%,#16331A 100%)">
+    <div class="teams" style="background:linear-gradient(135deg,#1B1C1C 0%,#062241 100%)">
       <div>
         <span class="scarce">Custom plans · Corporate health benefit · Third-space syncing</span>
         <h2>Enterprise</h2>
@@ -715,8 +715,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </thead>
         <tbody>
           <tr><td style="padding:14px 18px;border-bottom:1px solid var(--line)"><strong>Day Pass + Cadence Members</strong> <span style="color:var(--muted);font-size:13px">(no discount)</span></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)">$95</td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)">$340</td></tr>
-          <tr style="background:rgba(139,197,63,.10)"><td style="padding:14px 18px;border-bottom:1px solid var(--line)"><strong>Club member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$272</strong></td></tr>
-          <tr style="background:rgba(139,197,63,.10)"><td style="padding:14px 18px"><strong>Resident member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right"><strong>$272</strong></td></tr>
+          <tr style="background:rgba(211,169,42,.10)"><td style="padding:14px 18px;border-bottom:1px solid var(--line)"><strong>Club member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)"><strong>$272</strong></td></tr>
+          <tr style="background:rgba(211,169,42,.10)"><td style="padding:14px 18px"><strong>Resident member</strong> <span style="color:var(--muted);font-size:13px">(20% off)</span></td><td style="padding:14px 18px;text-align:right"><strong>$76</strong></td><td style="padding:14px 18px;text-align:right"><strong>$272</strong></td></tr>
         </tbody>
       </table>
     </div>
