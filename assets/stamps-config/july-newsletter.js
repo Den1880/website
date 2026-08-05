@@ -30,11 +30,11 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 11,
+          "combo": 6,
           "w": 6,
           "x": 99,
           "y": 89.5,
-          "rot": -12,
+          "rot": 12,
           "mobileX": 98.7,
           "mobileY": 89.5,
           "mobileW": 12

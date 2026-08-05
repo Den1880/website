@@ -127,7 +127,7 @@
         watermark: c.watermark === true,
         crop: c.crop === true || c.watermark === true,
         z: isNum(c.z) ? c.z : (c.watermark ? 0 : out.z),
-        opacity: isNum(c.opacity) ? c.opacity : (c.watermark ? 0.35 : 1),
+        opacity: isNum(c.opacity) ? c.opacity : (c.watermark ? 0.15 : 1),
         mobile: Object.assign({}, out.mobile, c.mobile || {}),
         note: c.note || '',
         stamps: []

@@ -16,36 +16,59 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#F7F4EE">
+<meta name="theme-color" content="#F2F1EA">
 <meta name="application-name" content="Den 1880">
 <meta name="apple-mobile-web-app-title" content="Den 1880">
-<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-TileColor" content="#F2F1EA">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="format-detection" content="telephone=no">
 <title>Gallery · Den 1880</title>
 <meta name="description" content="Take a look inside Den 1880, Uptown Waterloo's premium coworking space with a high-end fitness facility, recovery amenities, and boutique event venues." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('/assets/fonts/Monschone.woff2') format('woff2'),
+         url('/assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+  }
 :root{
-    --ink:#0E0E0E;
-    --ink-2:#2A2A2A;
-    --paper:#F7F4EE;
+    /* Den 1880 - Midnight Blue + Mustard. The scheme approved for the ad
+       landing pages, now carrying the whole site, so a paid click lands on a
+       page that matches the ad it came from.
+       Every value is one of the designer's fourteen, or one of them held back
+       with opacity. */
+    --blue:#062241;
+    --green:#062241;        /* the dark ground - Blue, not Green */
+    --ink:#1B1C1C;          /* Black - type on light */
+    --ink-2:#062241;        /* second dark surface */
+    --paper:#F2F1EA;        /* the deck's page ground */
+    --beige:#EFD3AE;        /* light text on Blue, and the warm band ground */
     --card:#FFFFFF;
-    --line:#E6E1D6;
-    --muted:#6F6A60;
-    --lime:#C8E020;
-    --lime-deep:#9DB315;
-    --plum:#6B4E8E;
-    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
-    --shadow-lift:0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
-    --radius:14px;
+    --gold:#C3996B;
+    --lime:#D3A92A;         /* the accent - pills, badges, eyebrows on dark */
+    --lime-deep:#062241;    /* the accent's job on a light ground: Mustard fails
+                               AA as small text on cream, so Blue takes it */
+    --plum:#652D90;         /* Purple - category marks */
+    --orange:#DF5526;       /* hover and focus - a role, not decoration */
+    --mustard:#D3A92A;
+    --teal:#00927C;
+    --warn:#BB3F30;         /* Red */
+    --brown:#68391F;
+    --neon:#EDFF00;
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone. */
+    --muted:rgba(27,28,28,.64);
+    --line:rgba(27,28,28,.14);
+    --shadow:0 0 0 1px rgba(27,28,28,.14);
+    --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
+    --radius:0px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0}
+  h1,h2,h3{font-family:'Monschone',Georgia,serif;font-weight:400;letter-spacing:-0.01em;margin:0}
   h1{font-size:clamp(38px,5.5vw,68px);line-height:1.05;letter-spacing:-0.025em}
   h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
   p{margin:0 0 .8em}
@@ -57,28 +80,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:flex;justify-content:space-between;align-items:center;
     padding:14px 32px;
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(247,244,238,0.96);
+    background:rgba(242,241,234,0.96);
     -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   .logo{display:inline-flex;align-items:center}
   .nav-links{display:flex;gap:10px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap}
-  .btn-primary{background:var(--ink);color:#fff}
-  .btn-primary:hover{background:var(--plum);transform:translateY(-1px)}
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:var(--orange);transform:translateY(-1px)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-ghost:hover{background:var(--orange);color:#1B1C1C}
   .btn-lime{background:var(--lime);color:var(--ink);border-color:transparent}
-  .btn-lime:hover{background:var(--lime-deep)}
+  .btn-lime:hover{background:var(--orange)}
   .btn-sm{padding:9px 16px;font-size:13px}
-  .btn-ghost.active{background:var(--ink);color:#fff}
+  .btn-ghost.active{background:var(--orange);color:#1B1C1C}
 
   /* ── HAMBURGER (mobile only) ── */
   .hamburger{
     display:none;
     flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;
   }
-  .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--green);border-radius:0;transition:all .25s}
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .hamburger.open span:nth-child(2){opacity:0}
   .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -135,8 +158,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     break-inside:avoid;
     margin-bottom:16px;
     overflow:hidden;
-    border-radius:var(--radius);
-    background:#E6E1D6;
+    border-radius:0;
+    background:rgba(27,28,28,.14);
     cursor:pointer;
     position:relative;
   }
@@ -154,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .lightbox{
     display:none;
     position:fixed;inset:0;z-index:200;
-    background:rgba(14,14,14,.92);
+    background:rgba(27,28,28,.92);
     -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
     align-items:center;justify-content:center;
     padding:20px;
@@ -171,8 +194,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     max-width:100%;
     max-height:88vh;
     object-fit:contain;
-    border-radius:10px;
-    box-shadow:0 30px 100px rgba(0,0,0,.5);
+    border-radius:0;
+    box-shadow:none;
   }
   .lb-close{
     position:fixed;top:20px;right:24px;
@@ -200,7 +223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.24)}
   .lb-counter{
     position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-    color:rgba(255,255,255,.5);font-size:13px;font-weight:500;letter-spacing:.06em;
+    color:rgba(255,255,255,.74);font-size:13px;font-weight:500;letter-spacing:.06em;
     z-index:201;
   }
   @media(max-width:600px){
@@ -218,45 +241,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
   /* ── FOOTER ── */
-  .footer{background:var(--ink);color:rgba(255,255,255,.5);padding:48px 32px 40px;text-align:center;font-size:13px}
+  .footer{background:var(--green);color:rgba(255,255,255,.74);padding:48px 32px 40px;text-align:center;font-size:13px}
   .footer a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
   .footer a:hover{color:#fff}
-  .footer-logo{font-family:'Fraunces';font-weight:800;font-size:18px;color:#fff;letter-spacing:.04em;display:block;margin-bottom:20px}
+  .footer-logo{font-family:'Monschone',Georgia,serif;font-weight:400;font-size:18px;color:#fff;letter-spacing:.04em;display:block;margin-bottom:20px}
   .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;margin-top:8px}
   /* Nav: borderless links, dark CTA */
   .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
+  .nav-links .btn-ghost:hover{background:rgba(27,28,28,.07);color:var(--ink)}
+  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--green);color:#fff}
+  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:rgba(27,28,28,.82);color:#fff}
 
-  /* ── NAV REBRAND (Space Grotesk style) ── */
+  /* ── NAV (tracked caps) ── */
   .nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
-  .nav-pipe{color:var(--line);font-family:'Anton',sans-serif;font-size:22px;line-height:1;user-select:none}
-  .nav-pc-link{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
+  .nav-pipe{color:var(--line);font-family:'Oswald',Impact,sans-serif;font-size:22px;line-height:1;user-select:none}
+  .nav-pc-link{font-family:'Oswald',Impact,sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
   .nav-pc-link:hover{opacity:1}
-  .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
-  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, #666);transform:none;box-shadow:none}
+  .nav-links .btn.btn-ghost.btn-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, rgba(27,28,28,.64));transform:none;box-shadow:none}
 
   /* ===== Unified site footer ===== */
-  footer.site-footer{padding:0;text-align:left;font-size:16px;margin:0;border:none;}
-  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;color:#fff;overflow:hidden}
-  .site-footer::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.62);z-index:0}
+  footer.site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,34,65,.86),rgba(6,34,65,.92));z-index:0}
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
-  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
-  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
   .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
   .footer-bottom-links{display:flex;gap:24px;align-items:center}
-  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
   .footer-bottom-links a:hover{color:#fff}
   .footer-social{display:flex;gap:16px;margin-top:8px}
-  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
   .footer-social a:hover{color:#fff}
   @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
 
@@ -389,7 +412,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="mailto:hello@den1880.co">hello@den1880.co</a>
       <a href="tel:5197831505">(519) 783-1505</a>
       <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
-      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45)">Get Directions &#8599;</a>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
     </div>
   </div>
   <div class="footer-bottom">

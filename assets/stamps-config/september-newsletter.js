@@ -21,7 +21,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "88-oval",
-          "color": "Neon",
+          "color": "Mustard",
           "w": 9,
           "x": 4,
           "y": 83.6,

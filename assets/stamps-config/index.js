@@ -9,29 +9,38 @@ window.DEN_STAMPS = {
       "ground": "Photo",
       "stamps": [
         {
-          "mark": "lion-outline",
-          "color": "Beige",
-          "w": 13,
-          "x": 22,
-          "y": 98,
+          "mark": "88-oval",
+          "color": "White",
+          "w": 10,
+          "x": 88,
+          "y": 70,
           "rot": -13,
-          "mobileX": -3.7,
-          "mobileY": 153.4,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "combo-circle",
-          "combo": 8,
-          "w": 6.5,
-          "x": 30,
-          "y": 107,
-          "rot": 11,
-          "mobileX": 52,
-          "mobileY": 107,
-          "mobileW": 12
+          "combo": 6,
+          "w": 6,
+          "x": 90,
+          "y": 18,
+          "rot": 12,
+          "mobileX": 100,
+          "mobileY": 44,
+          "mobileW": 13
+        },
+        {
+          "mark": "lion-outline",
+          "color": "Beige",
+          "w": 15,
+          "x": 96,
+          "y": 44,
+          "rot": -14,
+          "mobileX": 100,
+          "mobileY": 22,
+          "mobileW": 30
         }
       ],
-      "note": "Crosses the video band's bottom edge into the cream intro."
+      "note": "Spread down the right margin on desktop (v06); on phones the lion runs bigger off the right edge with the badge under it (v08)."
     },
     {
       "id": "paths",
@@ -40,7 +49,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "lion-outline",
-          "color": "Teal",
+          "color": "Blue",
           "w": 14,
           "x": 5.2,
           "y": 30,
@@ -51,7 +60,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "88-oval",
-          "color": "Purple",
+          "color": "Mustard",
           "w": 9,
           "x": 4,
           "y": 58,
@@ -60,12 +69,12 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 12,
+          "combo": 7,
           "w": 5.5,
           "x": 2,
           "y": 74,
           "rot": 11,
-          "mobileX": 26,
+          "mobileX": 0,
           "mobileY": 74,
           "mobileW": 12
         }
@@ -80,7 +89,7 @@ window.DEN_STAMPS = {
       "stamps": [
         {
           "mark": "88-icon",
-          "color": "Green",
+          "color": "Blue",
           "w": 30,
           "x": 14,
           "y": 42,
@@ -88,7 +97,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "lion-outline",
-          "color": "Green",
+          "color": "Mustard",
           "w": 22,
           "x": 88,
           "y": 62,

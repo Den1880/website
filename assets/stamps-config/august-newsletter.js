@@ -21,7 +21,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "88-oval",
-          "color": "Green",
+          "color": "Blue",
           "w": 9,
           "x": 97,
           "y": 94.3,
@@ -30,7 +30,7 @@ window.DEN_STAMPS = {
         },
         {
           "mark": "combo-circle",
-          "combo": 2,
+          "combo": 7,
           "w": 5.5,
           "x": 99,
           "y": 110.3,
