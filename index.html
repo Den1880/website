@@ -164,34 +164,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     pointer-events:none;
   }
 
-  /* HERO COPY, overlaid on the video */
-  .hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 24px;text-align:center}
+  /* HERO COPY, overlaid on the video.
+     Desktop: left of frame, so the person in the poster/first frame stays
+     clear on the right. Phones get a different placement, see the media
+     query below. */
+  .hero{justify-content:flex-start}
+  .hero .container{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:0 24px;text-align:left}
+  .hero .hero-copy{max-width:620px}
   .hero .eyebrow{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;margin-bottom:16px;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
   .hero h1{margin-bottom:20px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.4)}
   .hero h1 em{font-style:italic;color:var(--lime)}
   .hero h1 .purple{color:var(--lime)}
-  .hero p.lede{color:#fff;font-size:clamp(16px,1.6vw,19px);max-width:620px;margin:0 auto;line-height:1.65;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-  .hero-lion{
-    position:absolute;
-    right:6%;
-    top:50%;
-    transform:translateY(-50%) rotate(25deg);
-    width:clamp(90px,15vw,190px);
-    height:auto;
-    opacity:0.22;
-    pointer-events:none;
-    z-index:0;
-  }
+  .hero p.lede{color:#fff;font-size:clamp(16px,1.6vw,19px);max-width:520px;margin:0;line-height:1.65;text-shadow:0 1px 12px rgba(0,0,0,.45)}
 
   /* MOBILE, the hero now carries the copy, so it keeps a real height and the
      video goes back to covering it instead of sitting at a fixed 16:9 */
   @media(max-width:768px){
+    /* Phones get the other placement: there is no left third to sit in, and
+       the crop puts the person's face near the left edge, so the copy drops
+       to the bottom of the frame and centres instead. */
     .hero{
       height:auto;
       min-height:clamp(520px,82svh,660px);
-      padding:96px 0 72px;
+      padding:96px 0 0;
+      align-items:flex-end;
+      justify-content:center;
     }
-    .hero-lion{display:none}
+    .hero .container{text-align:center;padding-bottom:56px}
+    .hero .hero-copy{max-width:none}
+    .hero p.lede{margin:0 auto}
+  }
+
+
+  /* ---- treatment t08: Copy sits low on desktop, bottom left of the frame. ---- */
+  .hero{align-items:flex-end}
+  .hero .container{padding-bottom:clamp(56px,9vh,108px)}
+
+  /* ---- Phone copy: one centred line, nothing ragged ------------------- */
+  @media(max-width:768px){
+    .hero .container{text-align:center}
+    .hero .hero-copy{max-width:none;margin:0 auto}
+    .hero .eyebrow{display:block;text-align:center;letter-spacing:.22em;font-size:11px}
+    /* sized so "Elevate your Passion" holds a single line at 360px and up */
+    .hero h1{font-size:clamp(27px,7.6vw,38px);text-align:center;white-space:nowrap}
+    .hero h1 .brk{display:inline}
+    .hero p.lede{margin:0 auto;max-width:20em;text-align:center}
   }
 
   /* ── PATHS SECTION ── */
@@ -349,11 +366,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       allowfullscreen>
     </iframe>
   </div>
-  <img class="hero-lion" src="assets/lion-outline-lime.svg" alt="" aria-hidden="true">
   <div class="container">
-    <span class="eyebrow">Uptown Waterloo · 14 Erb St. West</span>
-    <h1>Where <em>Work</em><br>Comes to <em>Life.</em></h1>
-    <p class="lede">Premium coworking, a private gym, recovery amenities, a podcast studio, and a community of professionals, all under one heritage roof.</p>
+   <div class="hero-copy">
+    <span class="eyebrow">Events · Work · Wellness</span>
+    <h1>Elevate your <em>Passion</em></h1>
+    <p class="lede">Work, gather, and move in spaces designed to inspire.</p>
+   </div>
   </div>
 </section>
 
