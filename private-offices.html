@@ -16,37 +16,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#F7F4EE">
+<meta name="theme-color" content="#F2F1EA">
 <meta name="application-name" content="Den 1880">
 <meta name="apple-mobile-web-app-title" content="Den 1880">
-<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-TileColor" content="#F2F1EA">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="format-detection" content="telephone=no">
   <title>Private Offices for Teams in Uptown Waterloo | Den 1880</title>
   <meta name="description" content="20+ fully furnished private offices for teams of 1 to 35 on Den 1880's secure Teams Floor in Uptown Waterloo. 24/7 access, sit-to-stand desks, private kitchenette, and no commercial lease required." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink: #0E0E0E;
-      --ink-2: #2A2A2A;
-      --paper: #F7F4EE;
-      --card: #F7F4EE;
-      --line: #E6E1D6;
-      --muted: #6F6A60;
-      --lime: #C8E020;
-      --lime-deep: #9DB315;
-      --plum: #6B4E8E;
-      --shadow: 0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
-      --shadow-lift: 0 2px 6px rgba(14,14,14,.06), 0 24px 60px rgba(14,14,14,.12);
-      --radius: 14px;
-    }
+  @font-face {
+    font-family: 'Monschone';
+    src: url('/assets/fonts/Monschone.woff2') format('woff2'),
+         url('/assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+  }
+    :root{
+    /* Den 1880 official kit. Every value below is one of the designer's
+       fourteen colours, or one of them held back with opacity. Nothing here
+       is sampled off the old site. */
+    --green:#16331A;        /* primary dark - the brand at rest */
+    --ink:#1B1C1C;          /* Black - line art, stamps, type on light */
+    --ink-2:#16331A;        /* second dark surface = the brand's dark */
+    --paper:#F2F1EA;        /* the deck's page ground */
+    --beige:#EFD3AE;        /* warm light band ground */
+    --card:#FFFFFF;
+    --gold:#C3996B;
+    --lime:#8BC53F;         /* NOT the old #8BC53F */
+    --lime-deep:#16331A;    /* the kit's darker green is Green */
+    --plum:#652D90;         /* Purple - NOT the old #652D90 */
+    --orange:#DF5526;       /* the one interactive colour */
+    --mustard:#D3A92A;
+    --blue:#062241;
+    --teal:#00927C;
+    --warn:#BB3F30;         /* Red */
+    --brown:#68391F;
+    --neon:#EDFF00;
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone;
+       inventing a shade is not. */
+    --muted:rgba(27,28,28,.64);
+    --line:rgba(27,28,28,.14);
+    /* The kit bars corner radius and drop shadows. --shadow becomes a
+       hairline ring (no offset, no blur), --shadow-lift an Orange one. */
+    --shadow:0 0 0 1px rgba(27,28,28,.14);
+    --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
+    --radius:0px;
+  }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    h1, h2, h3, h4 { font-family: 'Monschone', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
     h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.025em; }
     h2 { font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; }
     h3 { font-size: clamp(18px, 1.8vw, 24px); }
@@ -55,33 +78,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     /* ── NAV ── */
-    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,244,238,0.96); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(242,241,234,0.96); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); }
     .logo { display: inline-flex; align-items: center; }
     .nav-links { display: flex; gap: 10px; align-items: center; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; font-family: 'Inter', sans-serif; }
-    .btn-primary { background: var(--ink); color: #fff; }
-    .btn-primary:hover { background: var(--plum); transform: translateY(-1px); }
+    .btn-primary { background:var(--green); color: #fff; }
+    .btn-primary:hover { background: var(--orange); transform: translateY(-1px); }
     .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
-    .btn-ghost:hover { background: var(--ink); color: #fff; }
+    .btn-ghost:hover { background:var(--orange); color:#1B1C1C; }
     .btn-lime { background: var(--lime); color: var(--ink); }
-    .btn-lime:hover { background: var(--lime-deep); }
+    .btn-lime:hover { background: var(--orange); }
     .btn-sm { padding: 9px 16px; font-size: 13px; }
     .nav-links .btn-ghost { border-color: transparent; }
-    .nav-links .btn-ghost:hover { background: rgba(14,14,14,.07); color: var(--ink); }
-    .nav-links .btn-lime { background: var(--ink); color: #fff; }
-    .nav-links .btn-lime:hover { background: #333; }
-    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; padding: 0; flex-shrink: 0; }
-    .hamburger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .25s ease; }
+    .nav-links .btn-ghost:hover { background: rgba(27,28,28,.07); color: var(--ink); }
+    .nav-links .btn-lime { background:var(--green); color: #fff; }
+    .nav-links .btn-lime:hover { background: rgba(27,28,28,.82); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 0; cursor: pointer; padding: 0; flex-shrink: 0; }
+    .hamburger span { display: block; width: 18px; height: 2px; background:var(--green); border-radius: 0; transition: all .25s ease; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(247,244,238,0.98); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: 0 8px 24px rgba(14,14,14,0.08); }
+    .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(242,241,234,0.98); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: none; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; transition: color .15s ease; }
     .mobile-menu a:last-of-type { border-bottom: none; }
-    .mobile-menu a:hover { color: var(--lime-deep); }
+    .mobile-menu a:hover { color: var(--orange); }
     .mobile-menu .mobile-cta { background: var(--lime); color: var(--ink); text-align: center; margin-top: 12px; padding: 14px; border-radius: 999px; font-weight: 700; border-bottom: none; }
-    .mobile-menu .mobile-cta:hover { background: var(--lime-deep); }
+    .mobile-menu .mobile-cta:hover { background: var(--orange); }
     @media(max-width: 1100px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
 
     /* ── HERO ── */
@@ -91,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero h1 em { font-style: italic; color: var(--plum); }
     .hero p.lede { max-width: 640px; margin: 0 auto 28px; color: var(--ink-2); font-size: 18px; line-height: 1.65; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(107,78,142,.08); border: 1px solid rgba(107,78,142,.2); color: var(--plum); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+    .availability-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(101,45,144,.08); border: 1px solid rgba(101,45,144,.2); color: var(--plum); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
     .availability-badge::before { content: ''; width: 7px; height: 7px; background: var(--plum); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
@@ -102,13 +125,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .intro-text h2 { margin-bottom: 18px; }
     .intro-text h2 em { font-style: italic; color: var(--plum); }
     .intro-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
-    .intro-img { width: 100%; height: 460px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-lift); }
+    .intro-img { width: 100%; height: 460px; object-fit: cover; border-radius: 0; box-shadow: var(--shadow-lift); }
     @media(max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 36px; } .intro-img { height: 280px; } }
 
     /* ── OFFICE GRID ── */
     .office-gallery { padding: 0 0 80px; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius); display: block; transition: transform .3s ease; }
+    .gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 0; display: block; transition: transform .3s ease; }
     .gallery-grid img:hover { transform: scale(1.02); }
     .gallery-grid .large { grid-column: span 2; }
     .gallery-grid .large img { height: 280px; }
@@ -116,13 +139,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media(max-width: 500px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-grid .large { grid-column: span 1; } }
 
     /* ── WHAT'S INCLUDED ── */
-    .included { padding: 80px 0; background: var(--ink); color: #fff; }
+    .included { padding: 80px 0; background:var(--green); color: #fff; }
     .included-header { text-align: center; margin-bottom: 56px; }
     .included-header h2 { color: #fff; margin-bottom: 12px; }
     .included-header h2 em { font-style: italic; color: var(--lime); }
     .included-header p { color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; font-size: 16px; }
     .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .included-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 28px; }
+    .included-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0; padding: 28px; }
     .included-card h3 { color: var(--lime); font-size: 15px; font-weight: 600; margin-bottom: 14px; font-family: 'Inter', sans-serif; letter-spacing: .04em; text-transform: uppercase; }
     .included-card ul { list-style: none; padding: 0; }
     .included-card li { font-size: 14px; color: rgba(255,255,255,0.78); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
@@ -139,7 +162,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pairing-text h2 em { font-style: italic; color: var(--plum); }
     .pairing-text p { color: var(--ink-2); font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
     .plan-cards { display: flex; flex-direction: column; gap: 14px; }
-    .plan-card { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+    .plan-card { background: var(--card); border: 1.5px solid var(--line); border-radius: 0; padding: 22px 24px; box-shadow: var(--shadow); }
     .plan-card h4 { font-size: 17px; margin-bottom: 6px; }
     .plan-card p { font-size: 14px; color: var(--ink-2); margin: 0; }
     .plan-card a { font-size: 13px; font-weight: 600; color: var(--lime-deep); display: inline-block; margin-top: 10px; }
@@ -153,7 +176,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .amenities-header h2 em { font-style: italic; color: var(--plum); }
     .amenities-header p { color: var(--ink-2); font-size: 16px; max-width: 560px; margin: 0 auto; }
     .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .amenity-item { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .amenity-item { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid var(--line); border-radius: 0; box-shadow: var(--shadow); }
     .amenity-item .icon { margin-bottom: 16px; display: flex; align-items: center; justify-content: center; }
     .amenity-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
     .amenity-item p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
@@ -161,26 +184,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media(max-width: 480px) { .amenities-grid { grid-template-columns: 1fr; } }
 
     /* ── FINAL CTA ── */
-    .final-cta { padding: 80px 24px; text-align: center; background: var(--ink); color: #fff; }
+    .final-cta { padding: 80px 24px; text-align: center; background:var(--green); color: #fff; }
     .final-cta .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 14px; }
     .final-cta h2 { color: #fff; margin-bottom: 14px; }
     .final-cta h2 em { font-style: italic; color: var(--lime); }
     .final-cta p { color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto 32px; font-size: 16px; line-height: 1.7; }
     .final-cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .final-cta .scarce { display: inline-block; background: rgba(200,224,32,.14); color: var(--lime); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 6px; margin-bottom: 24px; }
+    .final-cta .scarce { display: inline-block; background: rgba(139,197,63,.14); color: var(--lime); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 0; margin-bottom: 24px; }
 
     /* ── FOOTER ── */
-    footer { background: #080808; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer { background:#16331A; color: rgba(255,255,255,0.4); text-align: center; padding: 28px 24px; font-size: 13px; }
     footer a { color: rgba(255,255,255,0.4); }
     footer a:hover { color: #fff; }
   
-  /* ── NAV REBRAND (Space Grotesk style) ── */
+  /* ── NAV (tracked caps) ── */
   .nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
-  .nav-pipe{color:var(--line);font-family:'Anton',sans-serif;font-size:22px;line-height:1;user-select:none}
-  .nav-pc-link{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
+  .nav-pipe{color:var(--line);font-family:'Oswald',Impact,sans-serif;font-size:22px;line-height:1;user-select:none}
+  .nav-pc-link{font-family:'Oswald',Impact,sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
   .nav-pc-link:hover{opacity:1}
-  .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
-  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, #666);transform:none;box-shadow:none}
+  .nav-links .btn.btn-ghost.btn-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, rgba(27,28,28,.64));transform:none;box-shadow:none}
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
   /* ===== Unified site footer ===== */
@@ -190,7 +213,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
   .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
@@ -284,13 +307,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <!-- STATS -->
-<section style="background:var(--ink);padding:40px 0">
+<section style="background:var(--green);padding:40px 0">
   <div class="container">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center">
-      <div><div style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">1–35</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Team sizes</div></div>
-      <div><div style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">24/7</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Secure access</div></div>
-      <div><div style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">80%+</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Currently leased</div></div>
-      <div><div style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">$0</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Furniture &amp; setup</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">1–35</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Team sizes</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">24/7</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Secure access</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">80%+</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Currently leased</div></div>
+      <div><div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:clamp(32px,4vw,48px);color:var(--lime);line-height:1">$0</div><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;text-transform:uppercase;letter-spacing:.06em">Furniture &amp; setup</div></div>
     </div>
   </div>
 </section>
@@ -386,27 +409,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 style="margin-bottom:10px">Coworking is <em style="font-style:italic;color:var(--plum)">included, too</em></h2>
     <p style="color:var(--ink-2);font-size:16px;margin-bottom:32px;max-width:640px">Your private office on the Teams Floor includes full main-floor coworking access whenever you want to step out of the suite, and so does every one of your team's seats.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Workspace</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Hot desking in the Library, Theatre, and Kitchen. Phone and meeting booths. Fast Wi-Fi, printing, scanning, and on-site tech support.</div>
       </div>
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Hospitality</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Complimentary espresso, tea, and fruit. A full member kitchen and lounges with big-screen TVs.</div>
       </div>
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Wellness</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Free weekly yoga and Pilates classes. 15% off at hustl+flow. Built for balance through the workday.</div>
       </div>
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Privacy &amp; Meetings</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Phone booths, quiet zones, and tech-equipped boardrooms. Member booking rates on additional usage.</div>
       </div>
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Community</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Workshops, networking socials, bagel days, and member events. A vibrant network of top professionals.</div>
       </div>
-      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px">Admin Support</div>
         <div style="font-size:13px;color:var(--ink-2);line-height:1.55">Our Member Experience team handles reception, mail, and basic tech support so your team can focus on work.</div>
       </div>
@@ -415,32 +438,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- PERFORMANCE CLUB INCLUDED -->
-<section style="padding:72px 0;background:var(--ink)">
+<section style="padding:72px 0;background:var(--green)">
   <div class="container" style="max-width:1100px">
     <h2 style="color:#fff;margin-bottom:10px">The Performance Club is <em style="font-style:italic;color:var(--lime)">included, too</em></h2>
     <p style="color:rgba(255,255,255,0.65);font-size:16px;margin-bottom:32px;max-width:640px">Your private office on the Teams Floor includes Performance Club gym access for every seat on your plan. 8 hours of work, 8 hours of play, all under one roof.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Strength Training</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Multi-functional power rig, Smith machine, Olympic bars and plates, full range of dumbbells.</div>
       </div>
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Cardio</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Peloton Bike, Tread, and Row. Studio-grade gear for a 20-minute reset or a full-distance day.</div>
       </div>
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Functional Training</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">TRX, battle ropes, plyo boxes, GORUCK weighted rucks.</div>
       </div>
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Reset &amp; Recovery</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Mobility zone with yoga mats and ballet barre. Stocked recovery fridge.</div>
       </div>
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Steps from Your Desk</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">The hardest part of working out is getting there. Performance Club is steps from your suite, so it actually happens.</div>
       </div>
-      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius)">
+      <div style="padding:20px 22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:0">
         <div style="font-weight:600;font-size:15px;margin-bottom:6px;color:#fff">Premium Wellness Add-on</div>
         <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.55">Upgrade for sauna, cold plunge, hot tub, massage chairs, nap pods, plus towel and robe service.</div>
       </div>
@@ -492,10 +515,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="amenity-item">
         <div class="icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="20" width="8" height="8" rx="2" stroke="#9DB315" stroke-width="2"/>
-            <rect x="36" y="20" width="8" height="8" rx="2" stroke="#9DB315" stroke-width="2"/>
-            <line x1="12" y1="24" x2="36" y2="24" stroke="#9DB315" stroke-width="2.5" stroke-linecap="round"/>
-            <rect x="16" y="18" width="16" height="12" rx="3" stroke="#9DB315" stroke-width="2"/>
+            <rect x="4" y="20" width="8" height="8" rx="2" stroke="#16331A" stroke-width="2"/>
+            <rect x="36" y="20" width="8" height="8" rx="2" stroke="#16331A" stroke-width="2"/>
+            <line x1="12" y1="24" x2="36" y2="24" stroke="#16331A" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="16" y="18" width="16" height="12" rx="3" stroke="#16331A" stroke-width="2"/>
           </svg>
         </div>
         <h4>The Performance Club</h4>
@@ -504,10 +527,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="amenity-item">
         <div class="icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="18" y="8" width="12" height="20" rx="6" stroke="#6B4E8E" stroke-width="2"/>
-            <path d="M12 26c0 6.627 5.373 12 12 12s12-5.373 12-12" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
-            <line x1="24" y1="38" x2="24" y2="44" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18" y1="44" x2="30" y2="44" stroke="#6B4E8E" stroke-width="2" stroke-linecap="round"/>
+            <rect x="18" y="8" width="12" height="20" rx="6" stroke="#652D90" stroke-width="2"/>
+            <path d="M12 26c0 6.627 5.373 12 12 12s12-5.373 12-12" stroke="#652D90" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="38" x2="24" y2="44" stroke="#652D90" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18" y1="44" x2="30" y2="44" stroke="#652D90" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <h4>The Vault Studio</h4>
@@ -516,12 +539,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="amenity-item">
         <div class="icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="10" width="36" height="26" rx="3" stroke="#C8E020" stroke-width="2"/>
-            <line x1="6" y1="36" x2="42" y2="36" stroke="#C8E020" stroke-width="2"/>
-            <line x1="16" y1="36" x2="12" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
-            <line x1="32" y1="36" x2="36" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
-            <line x1="10" y1="42" x2="38" y2="42" stroke="#C8E020" stroke-width="2" stroke-linecap="round"/>
-            <polyline points="18,28 24,20 30,28" stroke="#C8E020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="6" y="10" width="36" height="26" rx="3" stroke="#8BC53F" stroke-width="2"/>
+            <line x1="6" y1="36" x2="42" y2="36" stroke="#8BC53F" stroke-width="2"/>
+            <line x1="16" y1="36" x2="12" y2="42" stroke="#8BC53F" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="36" x2="36" y2="42" stroke="#8BC53F" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="42" x2="38" y2="42" stroke="#8BC53F" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="18,28 24,20 30,28" stroke="#8BC53F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h4>Event Venue</h4>
@@ -530,8 +553,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="amenity-item">
         <div class="icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 6C17.373 6 12 11.373 12 18c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" stroke="#0E0E0E" stroke-width="2"/>
-            <circle cx="24" cy="18" r="4" stroke="#0E0E0E" stroke-width="2"/>
+            <path d="M24 6C17.373 6 12 11.373 12 18c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" stroke="#1B1C1C" stroke-width="2"/>
+            <circle cx="24" cy="18" r="4" stroke="#1B1C1C" stroke-width="2"/>
           </svg>
         </div>
         <h4>Uptown Waterloo</h4>

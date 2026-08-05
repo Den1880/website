@@ -17,60 +17,87 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#F7F4EE">
+<meta name="theme-color" content="#F2F1EA">
 <meta name="application-name" content="Den 1880">
 <meta name="apple-mobile-web-app-title" content="Den 1880">
-<meta name="msapplication-TileColor" content="#F7F4EE">
+<meta name="msapplication-TileColor" content="#F2F1EA">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="format-detection" content="telephone=no">
 <title>Application Received | Den 1880</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  h1,h2,h3,h4{font-family:'Monschone',Georgia,serif;font-weight:400;letter-spacing:-0.01em}
+  @font-face {
+    font-family: 'Monschone';
+    src: url('/assets/fonts/Monschone.woff2') format('woff2'),
+         url('/assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+  }
   :root{
-    --ink:#0E0E0E;
-    --paper:#F7F4EE;
+    /* Den 1880 official kit. Every value below is one of the designer's
+       fourteen colours, or one of them held back with opacity. Nothing here
+       is sampled off the old site. */
+    --green:#16331A;        /* primary dark - the brand at rest */
+    --ink:#1B1C1C;          /* Black - line art, stamps, type on light */
+    --ink-2:#16331A;        /* second dark surface = the brand's dark */
+    --paper:#F2F1EA;        /* the deck's page ground */
+    --beige:#EFD3AE;        /* warm light band ground */
     --card:#FFFFFF;
-    --line:#E6E1D6;
-    --muted:#6F6A60;
-    --lime:#C8E020;
-    --plum:#6B4E8E;
-    --shadow:0 1px 2px rgba(14,14,14,.04), 0 8px 32px rgba(14,14,14,.06);
-    --radius:14px;
+    --gold:#C3996B;
+    --lime:#8BC53F;         /* NOT the old #8BC53F */
+    --lime-deep:#16331A;    /* the kit's darker green is Green */
+    --plum:#652D90;         /* Purple - NOT the old #652D90 */
+    --orange:#DF5526;       /* the one interactive colour */
+    --mustard:#D3A92A;
+    --blue:#062241;
+    --teal:#00927C;
+    --warn:#BB3F30;         /* Red */
+    --brown:#68391F;
+    --neon:#EDFF00;
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone;
+       inventing a shade is not. */
+    --muted:rgba(27,28,28,.64);
+    --line:rgba(27,28,28,.14);
+    /* The kit bars corner radius and drop shadows. --shadow becomes a
+       hairline ring (no offset, no blur), --shadow-lift an Orange one. */
+    --shadow:0 0 0 1px rgba(27,28,28,.14);
+    --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
+    --radius:0px;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-  h1,h2{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
+  h1,h2{font-family:'Monschone',Georgia,serif;font-weight:400;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
   .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:var(--paper)}
   .logo{display:inline-flex;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:transform .15s ease, background .15s ease}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-ghost:hover{background:var(--orange);color:#1B1C1C}
   .btn-sm{padding:9px 16px;font-size:13px}
   .main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:52px 48px;box-shadow:var(--shadow);text-align:center;max-width:520px;width:100%}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:0;padding:52px 48px;box-shadow:var(--shadow);text-align:center;max-width:520px;width:100%}
   .check-circle{width:72px;height:72px;border-radius:50%;background:var(--lime);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
   .card h1{font-size:clamp(24px,3vw,34px);margin-bottom:14px}
-  .card p{color:#4A453D;font-size:15px;line-height:1.7;margin-bottom:18px}
+  .card p{color:rgba(27,28,28,.72);font-size:15px;line-height:1.7;margin-bottom:18px}
   .card .divider{border:0;border-top:1px solid var(--line);margin:24px 0}
-  .card .next-steps{text-align:left;background:#F7F4EE;border-radius:10px;padding:18px 20px;font-size:14px;color:#4A453D}
+  .card .next-steps{text-align:left;background:#F2F1EA;border-radius:0;padding:18px 20px;font-size:14px;color:rgba(27,28,28,.72)}
   .card .next-steps ol{padding-left:18px;margin:8px 0 0;line-height:1.8}
   .card .cta-links{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
   footer{padding:16px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
   /* Nav: borderless links, dark CTA */
   .nav-links .btn-ghost{border-color:transparent}
-  .nav-links .btn-ghost:hover{background:rgba(14,14,14,.07);color:var(--ink)}
-  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--ink);color:#fff}
-  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:#333;color:#fff}
+  .nav-links .btn-ghost:hover{background:rgba(27,28,28,.07);color:var(--ink)}
+  .nav-links .btn-lime,.nav-links .btn-primary{background:var(--green);color:#fff}
+  .nav-links .btn-lime:hover,.nav-links .btn-primary:hover{background:rgba(27,28,28,.82);color:#fff}
 
-  /* ── NAV REBRAND (Space Grotesk style) ── */
+  /* ── NAV (tracked caps) ── */
   .nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
-  .nav-pipe{color:var(--line);font-family:'Anton',sans-serif;font-size:22px;line-height:1;user-select:none}
-  .nav-pc-link{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
+  .nav-pipe{color:var(--line);font-family:'Oswald',Impact,sans-serif;font-size:22px;line-height:1;user-select:none}
+  .nav-pc-link{font-family:'Oswald',Impact,sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
   .nav-pc-link:hover{opacity:1}
-  .nav-links .btn.btn-ghost.btn-sm{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
-  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, #666);transform:none;box-shadow:none}
+  .nav-links .btn.btn-ghost.btn-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, rgba(27,28,28,.64));transform:none;box-shadow:none}
   @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
   /* ===== Unified site footer ===== */
@@ -80,7 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
   .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
   .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);max-width:240px}
-  .footer-col h4{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px}
   .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
   .footer-col a:hover{color:#fff}
   .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
