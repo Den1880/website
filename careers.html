@@ -217,9 +217,11 @@ footer a:hover { color: #fff; }
 {"@context":"https://schema.org","@type":"JobPosting","title":"Event Staff","datePosted":"2026-08-05","employmentType":"PART_TIME","description":"Help bring events to life from setup through teardown \u2014 venue operations, bar service, and guest hospitality at Den 1880.","hiringOrganization":{"@type":"Organization","name":"Den 1880","sameAs":"https://den1880.co","logo":"https://den1880.co/assets/den1880-logo-black.svg"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"}},"directApply":true,"url":"https://den1880.co/careers"}]
 </script>
   <link rel="stylesheet" href="/assets/den-stamps.css">
+<script>document.documentElement.classList.add('nav-preload');</script>
 <style id="nav3-css">
 /* ===== NAV REDESIGN: dropdown sections + hide-down/show-up sticky header ===== */
 .topbar{transition:transform .28s ease}
+html.nav-preload .topbar{transform:translateY(-100%)}
 .topbar.topbar-hidden{transform:translateY(-100%)}
 .nav-group{position:relative}
 .nav-drop-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;
@@ -623,17 +625,21 @@ hamburger.setAttribute('aria-expanded', false);
     btn.addEventListener('click',function(){var open=g.classList.toggle('open');btn.setAttribute('aria-expanded',open);});
   });
   /* Hide on scroll down, show on scroll up */
-  var lastY=window.pageYOffset,ticking=false;
+  var lastY=window.pageYOffset,ticking=false,navRevealed=false,navGrace=0;
+  function revealNav(){if(!navRevealed){navRevealed=true;navGrace=Date.now()+1200;lastY=window.pageYOffset;topbar.classList.remove('topbar-hidden');document.documentElement.classList.remove('nav-preload');}}
+  window.addEventListener('wheel',revealNav,{passive:true,once:true});
+  window.addEventListener('touchmove',revealNav,{passive:true,once:true});
+  topbar.addEventListener('focusin',revealNav);
   function onScroll(){
     var y=window.pageYOffset;
     var menuOpen=menu&&menu.classList.contains('open');
     if(!menuOpen){
-      if(y>lastY&&y>120){topbar.classList.add('topbar-hidden');closeAll(null);}
+      if(y>lastY&&y>120&&Date.now()>navGrace){topbar.classList.add('topbar-hidden');closeAll(null);}
       else if(y<lastY||y<=10){topbar.classList.remove('topbar-hidden');}
     }
     lastY=y;ticking=false;
   }
-  window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+  window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
 </body>
