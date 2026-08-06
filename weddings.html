@@ -238,6 +238,39 @@ footer a{color:var(--plum)}
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
 </script>
   <link rel="stylesheet" href="/assets/den-stamps.css">
+<script>document.documentElement.classList.add('nav-preload');</script>
+<style id="nav3-css">
+/* ===== NAV REDESIGN: dropdown sections + hide-down/show-up sticky header ===== */
+.topbar{transition:transform .28s ease}
+html.nav-preload .topbar{transform:translateY(-100%)}
+html.nav-preload body{margin-top:calc(0px - var(--nav-off,0px))}
+html:not(.nav-preload) body{transition:margin-top .3s ease}
+.topbar.topbar-hidden{transform:translateY(-100%)}
+.nav-group{position:relative}
+.nav-drop-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;
+  font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink,#1B1C1C);padding:14px 10px;line-height:1.1}
+.nav-drop-btn:hover,.nav-group.open .nav-drop-btn{color:#DF5526}
+.nav-caret{transition:transform .2s ease}
+.nav-group.open .nav-caret{transform:rotate(180deg)}
+.nav-drop{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:224px;
+  background:#F2F1EA;box-shadow:0 0 0 1px rgba(27,28,28,.14);padding:6px 0;z-index:120}
+.nav-group.open .nav-drop{display:block}
+.nav-drop a{display:block;padding:11px 18px;font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--ink,#1B1C1C);text-decoration:none;white-space:nowrap}
+.nav-drop a:hover{color:#DF5526}
+/* Mobile drawer accordions */
+.mm-group{border-bottom:1px solid var(--line,rgba(27,28,28,.14))}
+.mm-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:transparent;border:none;
+  cursor:pointer;padding:14px 0;font-family:'Oswald',Impact,sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink,#1B1C1C)}
+.mm-toggle .mm-plus{font-family:'Inter',sans-serif;font-size:18px;line-height:1;transition:transform .2s ease}
+.mm-group.open .mm-toggle{color:#DF5526}
+.mm-group.open .mm-plus{transform:rotate(45deg);color:#DF5526}
+.mm-panel{display:none;padding:0 0 8px 14px}
+.mm-group.open .mm-panel{display:block}
+.mobile-menu .mm-panel a{border-bottom:none;padding:10px 0;font-size:14px}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -247,33 +280,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <header class="topbar" id="topbar">
-<div class="nav-brand">
-    <a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
-    <span class="nav-pipe">/</span>
-    <a class="nav-pc-link" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+  <div class="nav-brand">
+    <a class="logo" href="/"><img src="/assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
   </div>
-<nav class="nav-links">
-<a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
-<a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
-<a class="btn btn-ghost btn-sm" href="/meeting-rooms">Meeting Rooms</a>
-<a class="btn btn-ghost btn-sm" href="private-events.html">Events</a>
-<a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
-<a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
-<a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-<a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
-</nav>
-<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+  <!-- Desktop nav: three dropdown sections + CTA -->
+  <nav class="nav-links" aria-label="Primary">
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Events<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Events">
+      <a href="/private-events">Private Events</a>
+      <a href="/weddings">Weddings</a>
+      <a href="/holiday-parties">Holiday Parties</a>
+      <a href="/team-offsites">Team Offsites</a>
+      <a href="/gallery">Gallery</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Work<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Work">
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-offices">Private Offices</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/business-mail">Business Mail</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Wellness<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Wellness">
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">The Performance Club</a>
+      <a href="https://performanceclub.ca/gym.html" target="_blank" rel="noopener">Gym</a>
+      <a href="https://performanceclub.ca/wellness.html" target="_blank" rel="noopener">Wellness</a>
+      <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
+      </div>
+    </div>
+    <a class="btn btn-lime btn-sm" href="/get-started">Get Started</a>
+  </nav>
+
+  <!-- Mobile: hamburger only -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-<a href="memberships.html">Memberships</a>
-<a href="corporate/">For Teams</a>
-<a href="/meeting-rooms">Meeting Rooms</a>
-<a href="private-events.html">Events</a>
-<a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
-<a href="gallery.html">Gallery</a>
-<a href="the-vault-podcast-studio.html">Podcast Studio</a>
-<a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
-<a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Events<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="/private-events">Private Events</a>
+      <a href="/weddings">Weddings</a>
+      <a href="/holiday-parties">Holiday Parties</a>
+      <a href="/team-offsites">Team Offsites</a>
+      <a href="/gallery">Gallery</a>
+    </div>
+  </div>
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Work<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-offices">Private Offices</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/business-mail">Business Mail</a>
+    </div>
+  </div>
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Wellness<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">The Performance Club</a>
+      <a href="https://performanceclub.ca/gym.html" target="_blank" rel="noopener">Gym</a>
+      <a href="https://performanceclub.ca/wellness.html" target="_blank" rel="noopener">Wellness</a>
+      <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
+    </div>
+  </div>
+  <a href="/get-started" class="mobile-cta">Get Started</a>
 </div>
 
 <section class="page-hero">
@@ -408,5 +490,50 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
 </script>
   <script src="/assets/stamps-config/weddings.js"></script>
   <script src="/assets/den-stamps.js" defer></script>
+<script id="nav3-js">
+(function(){
+  var topbar=document.getElementById('topbar');
+  var menu=document.getElementById('mobileMenu');
+  /* Desktop dropdowns: open on hover or click, close on outside click / Escape */
+  var groups=Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+  function closeAll(except){groups.forEach(function(g){if(g!==except){g.classList.remove('open');var b=g.querySelector('.nav-drop-btn');if(b)b.setAttribute('aria-expanded','false');}});}
+  groups.forEach(function(g){
+    var btn=g.querySelector('.nav-drop-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();var open=g.classList.toggle('open');btn.setAttribute('aria-expanded',open);closeAll(open?g:null);});
+    g.addEventListener('mouseenter',function(){closeAll(g);g.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    g.addEventListener('mouseleave',function(){g.classList.remove('open');btn.setAttribute('aria-expanded','false');});
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  /* Mobile drawer accordions */
+  Array.prototype.slice.call(document.querySelectorAll('.mm-group')).forEach(function(g){
+    var btn=g.querySelector('.mm-toggle');
+    btn.addEventListener('click',function(){var open=g.classList.toggle('open');btn.setAttribute('aria-expanded',open);});
+  });
+  /* Hide on scroll down, show on scroll up */
+  var lastY=window.pageYOffset,ticking=false,navRevealed=false,navGrace=0;
+  function revealNav(){if(!navRevealed){navRevealed=true;navGrace=Date.now()+1200;lastY=window.pageYOffset;topbar.classList.remove('topbar-hidden');document.documentElement.classList.remove('nav-preload');}}
+  window.addEventListener('wheel',revealNav,{passive:true,once:true});
+  window.addEventListener('touchmove',revealNav,{passive:true,once:true});
+  topbar.addEventListener('focusin',revealNav);
+  if(document.documentElement.classList.contains('nav-preload')){
+    var kids=document.body.children,firstContent=null;
+    for(var ki=0;ki<kids.length;ki++){var kel=kids[ki];
+      if(kel!==topbar&&!/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(kel.tagName)&&kel.offsetHeight>0&&getComputedStyle(kel).position!=='fixed'){firstContent=kel;break;}}
+    if(firstContent){var navOff=firstContent.getBoundingClientRect().top+window.pageYOffset;
+      if(navOff>0&&navOff<240)document.documentElement.style.setProperty('--nav-off',navOff+'px');}
+  }
+  function onScroll(){
+    var y=window.pageYOffset;
+    var menuOpen=menu&&menu.classList.contains('open');
+    if(!menuOpen){
+      if(y>lastY&&y>120&&Date.now()>navGrace){topbar.classList.add('topbar-hidden');closeAll(null);}
+      else if(y<lastY||y<=10){topbar.classList.remove('topbar-hidden');}
+    }
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+})();
+</script>
 </body>
 </html>
