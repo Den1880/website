@@ -457,6 +457,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ===== NAV REDESIGN: dropdown sections + hide-down/show-up sticky header ===== */
 .topbar{transition:transform .28s ease}
 html.nav-preload .topbar{transform:translateY(-100%)}
+html.nav-preload body{margin-top:calc(0px - var(--nav-off,0px))}
+html:not(.nav-preload) body{transition:margin-top .3s ease}
 .topbar.topbar-hidden{transform:translateY(-100%)}
 .nav-group{position:relative}
 .nav-drop-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;
@@ -830,6 +832,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('wheel',revealNav,{passive:true,once:true});
   window.addEventListener('touchmove',revealNav,{passive:true,once:true});
   topbar.addEventListener('focusin',revealNav);
+  if(document.documentElement.classList.contains('nav-preload')){
+    var kids=document.body.children,firstContent=null;
+    for(var ki=0;ki<kids.length;ki++){var kel=kids[ki];
+      if(kel!==topbar&&!/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(kel.tagName)&&kel.offsetHeight>0&&getComputedStyle(kel).position!=='fixed'){firstContent=kel;break;}}
+    if(firstContent){var navOff=firstContent.getBoundingClientRect().top+window.pageYOffset;
+      if(navOff>0&&navOff<240)document.documentElement.style.setProperty('--nav-off',navOff+'px');}
+  }
   function onScroll(){
     var y=window.pageYOffset;
     var menuOpen=menu&&menu.classList.contains('open');
