@@ -104,6 +104,7 @@ a{color:inherit;text-decoration:none}
 .form-section{padding:36px 0 80px}
 .form-wrap{max-width:660px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:0;padding:36px;box-shadow:none}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-row[hidden]{display:none}
 @media(max-width:560px){.form-row{grid-template-columns:1fr}}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
@@ -415,6 +416,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <input id="interestOther" type="text" name="Interested In (Other)" />
 </div>
 
+<div class="form-row" id="eventDetailWrap" hidden>
+<div class="field">
+<label for="evDate">Rough event date <span style="font-weight:400;color:var(--muted)">(if you have one)</span></label>
+<input id="evDate" type="text" name="Event Date" placeholder="e.g. September 2026" />
+</div>
+<div class="field">
+<label for="evGuests">Guest count <span style="font-weight:400;color:var(--muted)">(estimate)</span></label>
+<input id="evGuests" type="text" name="Guest Count" inputmode="numeric" />
+</div>
+</div>
+
+<div class="field">
+<label for="notes">Anything else we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+<textarea id="notes" name="Notes" rows="3" placeholder="Tell us a bit about what you're planning or what you need."></textarea>
+</div>
+
 <button type="submit" class="btn btn-lime">Send Inquiry</button>
 </div>
 
@@ -457,6 +474,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       reachedUsVia:'Website - Get Started',
       heard:(function(){var v=form.querySelector('#heard').value;var o2=form.querySelector('#heardOther').value;return v==='Other'&&o2?'Other - '+o2:v})(),
       interestedIn:(function(){var v=form.querySelector('#interest').value;var o2=form.querySelector('#interestOther').value;return v==='Other'&&o2?'Other - '+o2:v})(),
+      notes:(function(){var parts=[];var ed=form.querySelector('#evDate').value.trim();var gc=form.querySelector('#evGuests').value.trim();var nt=form.querySelector('#notes').value.trim();if(ed)parts.push('Event date: '+ed);if(gc)parts.push('Guests: '+gc);if(nt)parts.push(nt);return parts.join(' | ')})(),
       status:status,
       utm:{} };
     ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","gbraid","wbraid","fbclid","msclkid","li_fat_id"].forEach(function(k){
@@ -488,7 +506,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   /* Show the free-text field when Other is picked */
   form.querySelector('#heard').addEventListener('change',function(){document.getElementById('heardOtherWrap').hidden=this.value!=='Other'});
-  form.querySelector('#interest').addEventListener('change',function(){document.getElementById('interestOtherWrap').hidden=this.value!=='Other'});
+  var EVENT_INTERESTS=['Weddings','Corporate Event','Milestone Party','Corporate Offsite','Theatre / Presentation Rental'];
+  form.querySelector('#interest').addEventListener('change',function(){
+    document.getElementById('interestOtherWrap').hidden=this.value!=='Other';
+    document.getElementById('eventDetailWrap').hidden=EVENT_INTERESTS.indexOf(this.value)===-1;
+  });
 
   /* Final submit -> full row to the sheet, then let Netlify take the POST
      (redirects to /event-inquiry-success, which fires the conversion tags). */
