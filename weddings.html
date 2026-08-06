@@ -176,6 +176,49 @@ footer a{color:var(--plum)}
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ============================================================
+   HERO IMAGE-OVERLAY - weddings (appended; original CSS above
+   untouched). Full-bleed wedding photo on the Midnight Blue +
+   Mustard scheme: Blue scrim, copy left of the bride on desktop,
+   copy dropped below her on mobile. Remove this block to revert.
+   ============================================================ */
+.page-hero{
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.84) 30%,rgba(6,34,65,.42) 58%,rgba(6,34,65,.16) 100%),
+    url('/assets/photos/weddings-hero.jpg') 50% 30%/cover no-repeat;
+  background-color:var(--blue);
+  min-height:clamp(500px,68vh,640px);
+  display:flex;align-items:center;
+  padding:96px 0 64px;
+  text-align:left;
+}
+.page-hero .container{width:100%}
+.page-hero .breadcrumb{padding:0 0 6px;color:rgba(239,211,174,.72)}
+.page-hero .breadcrumb a{color:rgba(239,211,174,.72)}
+.page-hero .breadcrumb a:hover{color:var(--beige)}
+.page-hero .eyebrow{color:var(--mustard);background:rgba(239,211,174,.10)}
+.page-hero h1{color:#fff;margin:0 0 18px;max-width:16ch}
+.page-hero h1 .purple{color:var(--mustard)}
+.page-hero p.lede{color:var(--beige);margin:0 0 28px;max-width:560px}
+.page-hero .hero-cta{justify-content:flex-start}
+.page-hero .btn-primary{background:var(--mustard);color:var(--ink)}
+.page-hero .btn-primary:hover{background:var(--orange)}
+.page-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.page-hero .btn-ghost:hover{background:var(--orange);border-color:transparent;color:var(--ink)}
+@media(max-width:768px){
+  .page-hero{
+    min-height:0;
+    background:
+      linear-gradient(180deg,rgba(6,34,65,.55) 0%,rgba(6,34,65,.14) 18%,rgba(6,34,65,.14) 34%,rgba(6,34,65,.86) 52%,rgba(6,34,65,.97) 72%),
+      url('/assets/photos/weddings-hero.jpg') 62% 0%/cover no-repeat;
+    background-color:var(--blue);
+    align-items:flex-end;
+    padding:clamp(400px,55vh,470px) 0 44px;
+  }
+  .page-hero p.lede{font-size:15px;line-height:1.6}
+}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/weddings" />
@@ -257,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="photo-row">
   <img src="assets/parties/EverythingYes-75.jpg" alt="Wedding at Den 1880" />
   <img src="assets/parties/DSC_3276.jpg" alt="Wedding reception at Den 1880" />
-  <img src="assets/parties/DSC_5861.jpg" alt="Celebration at Den 1880" />
+  <img src="assets/parties/DSC_5736.jpg" alt="Bride and groom celebrating with friends at Den 1880" />
 </div>
 </div>
 </section>
