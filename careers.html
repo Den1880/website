@@ -100,21 +100,49 @@ a { color: inherit; }
 @media(max-width: 1100px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
 @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
 
-/* LEGAL CONTENT */
-.legal-hero { padding: 96px 0 24px; margin-top: 57px; }
-.legal-hero .eyebrow { display:inline-block; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:14px; }
-.legal-hero h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin-bottom: 12px; }
-.legal-hero h1 em { font-style: italic; color: var(--plum); }
-.legal-hero .updated { color: var(--muted); font-size: 14px; }
-.legal-body { padding: 24px 0 80px; }
-.legal-body h2 { font-size: clamp(20px, 2.4vw, 26px); margin: 36px 0 12px; }
-.legal-body p { color: var(--ink-2); margin-bottom: 14px; }
-.legal-body ul { margin: 0 0 14px 20px; color: var(--ink-2); }
-.legal-body li { margin-bottom: 8px; }
-.legal-body a { color: var(--plum); text-decoration: underline; }
+/* CAREERS PHOTO HERO ==========================================
+   Weddings-pattern photo hero on the Blue + Mustard scheme.
+   Copy sits left over the heavy end of the scrim; the lit bar and
+   bottles (the photo's focal point) stay right of the text on
+   desktop. On mobile the photo shows on top and the copy drops
+   below it over the dark end of a vertical scrim. */
+.page-hero{
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.84) 34%,rgba(6,34,65,.40) 62%,rgba(6,34,65,.14) 100%),
+    url('/assets/photos/careers-hero.jpg') 50% 52%/cover no-repeat;
+  background-color:var(--blue);
+  min-height:clamp(460px,62vh,600px);
+  display:flex;align-items:center;
+  padding:120px 0 64px;
+  text-align:left;
+}
+.page-hero .container{width:100%;max-width:1100px}
+.page-hero .breadcrumb{padding:0 0 18px;font-size:13px;color:rgba(239,211,174,.72)}
+.page-hero .breadcrumb a{color:rgba(239,211,174,.72);text-decoration:none}
+.page-hero .breadcrumb a:hover{color:var(--beige)}
+.page-hero .eyebrow{display:inline-block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--mustard);background:rgba(239,211,174,.10);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.page-hero h1{font-size:clamp(38px,5.4vw,60px);line-height:1.05;color:#fff;margin:0 0 16px;max-width:14ch}
+.page-hero h1 .accent{font-style:italic;color:var(--mustard)}
+.page-hero p.lede{color:var(--beige);font-size:clamp(16px,1.6vw,19px);line-height:1.65;margin:0 0 28px;max-width:440px}
+.page-hero .btn-hero{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--mustard);color:var(--ink);font-weight:600;font-size:14px;text-decoration:none;transition:background .2s ease}
+.page-hero .btn-hero:hover{background:var(--orange)}
+@media(max-width:768px){
+  .page-hero{
+    min-height:0;
+    background:
+      linear-gradient(180deg,rgba(6,34,65,.60) 0%,rgba(6,34,65,.18) 16%,rgba(6,34,65,.18) 34%,rgba(6,34,65,.88) 56%,rgba(6,34,65,.97) 74%),
+      url('/assets/photos/careers-hero.jpg') 50% 42%/cover no-repeat;
+    background-color:var(--blue);
+    align-items:flex-end;
+    padding:clamp(380px,52vh,450px) 0 40px;
+  }
+  .page-hero h1{font-size:clamp(34px,9vw,44px)}
+  .page-hero p.lede{font-size:15px;line-height:1.6}
+}
 
 /* CAREERS */
-.jobs { padding: 8px 0 88px; }
+.jobs { padding: 64px 0 88px; scroll-margin-top: 57px; }
 .jobs .container { max-width: 860px; }
 .jobs-intro { color: var(--ink-2); max-width: 640px; margin-bottom: 40px; }
 details.job { border-top: 1px solid var(--line); }
@@ -231,17 +259,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- HERO -->
-<section class="legal-hero">
-<div class="container" style="max-width:860px">
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> Careers</div>
 <span class="eyebrow">A space for dreamers, doers and people who love their work.</span>
-<h1>Work at the <em>Den</em></h1>
+<h1>Work at the <span class="accent">Den</span></h1>
+<p class="lede">Den 1880 is a premium coworking and event venue in the heart of Uptown Waterloo. As our events and hospitality program grows, so does the team.</p>
+<a class="btn-hero" href="#roles">See Open Roles</a>
 </div>
 </section>
 
 <!-- JOBS -->
-<section class="jobs">
+<section class="jobs" id="roles">
 <div class="container">
-<p class="jobs-intro">Den 1880 is a premium coworking and event venue in the heart of Uptown Waterloo. As our events and hospitality program grows, so does the team. Open roles are listed below — click a title to read the full description.</p>
+<p class="jobs-intro">Open roles are listed below — click a title to read the full description.</p>
 
 <details class="job" id="bar-hospitality-program-manager">
 <summary>
