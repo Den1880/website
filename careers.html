@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4BTKWZ6');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F2F1EA">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F2F1EA">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
+<title>Careers · Den 1880</title>
+<meta name="description" content="Open roles at Den 1880, a premium coworking and event venue in Uptown Waterloo. Join the team behind our events, bar, and hospitality program." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('/assets/fonts/Monschone.woff2') format('woff2'),
+         url('/assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+  }
+:root{
+    /* Den 1880 - Midnight Blue + Mustard. The scheme approved for the ad
+       landing pages, now carrying the whole site, so a paid click lands on a
+       page that matches the ad it came from.
+       Every value is one of the designer's fourteen, or one of them held back
+       with opacity. */
+    --blue:#062241;
+    --green:#062241;        /* the dark ground - Blue, not Green */
+    --ink:#1B1C1C;          /* Black - type on light */
+    --ink-2:#062241;        /* second dark surface */
+    --paper:#F2F1EA;        /* the deck's page ground */
+    --beige:#EFD3AE;        /* light text on Blue, and the warm band ground */
+    --card:#FFFFFF;
+    --gold:#C3996B;
+    --lime:#D3A92A;         /* the accent - pills, badges, eyebrows on dark */
+    --lime-deep:#062241;    /* the accent's job on a light ground: Mustard fails
+                               AA as small text on cream, so Blue takes it */
+    --plum:#652D90;         /* Purple - category marks */
+    --orange:#DF5526;       /* hover and focus - a role, not decoration */
+    --mustard:#D3A92A;
+    --teal:#00927C;
+    --warn:#BB3F30;         /* Red */
+    --brown:#68391F;
+    --neon:#EDFF00;
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone. */
+    --muted:rgba(27,28,28,.64);
+    --line:rgba(27,28,28,.14);
+    --shadow:0 0 0 1px rgba(27,28,28,.14);
+    --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
+    --radius:0px;
+  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: 'Monschone', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+a { color: inherit; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 32px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(242,241,234,0.96); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); }
+.logo { display: inline-flex; align-items: center; }
+.nav-links { display: flex; gap: 10px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1px solid transparent; transition: all .2s ease; cursor: pointer; white-space: nowrap; font-family: 'Inter', sans-serif; }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-lime { background:var(--green); color: #fff; }
+.btn-lime:hover { background: rgba(27,28,28,.82); }
+.btn-sm { padding: 9px 16px; font-size: 13px; }
+.nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
+.nav-pipe{color:var(--line);font-family:'Oswald',Impact,sans-serif;font-size:22px;line-height:1;user-select:none}
+.nav-pc-link{font-family:'Oswald',Impact,sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
+.nav-pc-link:hover{opacity:1}
+.nav-links .btn.btn-ghost.btn-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
+.nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted);transform:none;box-shadow:none}
+.nav-links .btn-lime { background:var(--green); color: #fff; }
+.hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 38px; height: 38px; background: transparent; border: 1px solid var(--line); border-radius: 0; cursor: pointer; padding: 0; flex-shrink: 0; }
+.hamburger span { display: block; width: 18px; height: 2px; background:var(--green); border-radius: 0; transition: all .25s ease; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; z-index: 99; background: rgba(242,241,234,0.98); -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; flex-direction: column; gap: 0; box-shadow: none; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { display: block; padding: 14px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; border: none; border-bottom: 1px solid var(--line); background: transparent; }
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu .mobile-cta { background: var(--lime); color: var(--ink); text-align: center; margin-top: 12px; padding: 14px; border-radius: 999px; font-weight: 700; border-bottom: none; }
+@media(max-width: 1100px) { .topbar { padding: 14px 20px; } .nav-links { display: none; } .hamburger { display: flex; } }
+@media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
+
+/* CAREERS PHOTO HERO ==========================================
+   Weddings-pattern photo hero on the Blue + Mustard scheme.
+   Copy sits left over the heavy end of the scrim; the lit bar and
+   bottles (the photo's focal point) stay right of the text on
+   desktop. On mobile the photo shows on top and the copy drops
+   below it over the dark end of a vertical scrim. */
+.page-hero{
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.84) 34%,rgba(6,34,65,.40) 62%,rgba(6,34,65,.14) 100%),
+    url('/assets/photos/careers-hero.jpg') 50% 52%/cover no-repeat;
+  background-color:var(--blue);
+  min-height:clamp(460px,62vh,600px);
+  display:flex;align-items:center;
+  padding:120px 0 64px;
+  text-align:left;
+}
+.page-hero .container{width:100%;max-width:1100px}
+.page-hero .breadcrumb{padding:0 0 18px;font-size:13px;color:rgba(239,211,174,.72)}
+.page-hero .breadcrumb a{color:rgba(239,211,174,.72);text-decoration:none}
+.page-hero .breadcrumb a:hover{color:var(--beige)}
+.page-hero .eyebrow{display:inline-block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--mustard);background:rgba(239,211,174,.10);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.page-hero h1{font-size:clamp(38px,5.4vw,60px);line-height:1.05;color:#fff;margin:0 0 16px;max-width:14ch}
+.page-hero h1 .accent{font-style:italic;color:var(--mustard)}
+.page-hero p.lede{color:var(--beige);font-size:clamp(16px,1.6vw,19px);line-height:1.65;margin:0 0 28px;max-width:440px}
+.page-hero .btn-hero{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--mustard);color:var(--ink);font-weight:600;font-size:14px;text-decoration:none;transition:background .2s ease}
+.page-hero .btn-hero:hover{background:var(--orange)}
+@media(max-width:768px){
+  .page-hero{
+    min-height:0;
+    background:
+      linear-gradient(180deg,rgba(6,34,65,.60) 0%,rgba(6,34,65,.18) 16%,rgba(6,34,65,.18) 34%,rgba(6,34,65,.88) 56%,rgba(6,34,65,.97) 74%),
+      url('/assets/photos/careers-hero.jpg') 50% 42%/cover no-repeat;
+    background-color:var(--blue);
+    align-items:flex-end;
+    padding:clamp(380px,52vh,450px) 0 40px;
+  }
+  .page-hero h1{font-size:clamp(34px,9vw,44px)}
+  .page-hero p.lede{font-size:15px;line-height:1.6}
+}
+
+/* CAREERS */
+.jobs { padding: 64px 0 88px; scroll-margin-top: 57px; }
+.jobs .container { max-width: 860px; }
+.jobs-intro { color: var(--ink-2); max-width: 640px; margin-bottom: 40px; }
+details.job { border-top: 1px solid var(--line); }
+details.job:last-of-type { border-bottom: 1px solid var(--line); }
+details.job summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 0; }
+details.job summary::-webkit-details-marker { display: none; }
+.job-title h2 { font-size: clamp(24px, 3.4vw, 36px); line-height: 1.1; transition: color .2s ease; }
+.job-meta { display: block; font-family: 'Oswald', Impact, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.job-toggle { position: relative; flex-shrink: 0; width: 40px; height: 40px; border: 1px solid var(--line); transition: border-color .2s ease; }
+.job-toggle::before, .job-toggle::after { content: ''; position: absolute; top: 50%; left: 50%; width: 16px; height: 2px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .25s ease, background .2s ease; }
+.job-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+details.job summary:hover .job-title h2 { color: var(--orange); }
+details.job summary:hover .job-toggle { border-color: var(--orange); }
+details.job summary:hover .job-toggle::before, details.job summary:hover .job-toggle::after { background: var(--orange); }
+details.job[open] { border-top: 2px solid var(--orange); }
+details.job[open] summary .job-title h2 { color: var(--orange); }
+details.job[open] summary .job-toggle { border-color: var(--orange); }
+details.job[open] summary .job-toggle::before, details.job[open] summary .job-toggle::after { background: var(--orange); }
+details.job[open] summary .job-toggle::after { transform: translate(-50%, -50%) rotate(0deg); }
+.job-body { max-width: 720px; padding: 4px 0 44px; }
+.job-body h3 { font-family: 'Oswald', Impact, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--lime-deep); margin: 32px 0 12px; }
+.job-body h3:first-child { margin-top: 0; }
+.job-body h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); margin: 20px 0 8px; }
+.job-body p { color: var(--ink-2); margin-bottom: 14px; }
+.job-body ul { margin: 0 0 14px 20px; color: var(--ink-2); }
+.job-body li { margin-bottom: 8px; }
+.job-facts { font-size: 14px; color: var(--ink-2); margin-bottom: 6px; }
+.job-facts strong { font-weight: 600; }
+.btn-apply { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 13px 26px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 600; font-size: 14px; text-decoration: none; transition: background .2s ease; }
+.btn-apply:hover { background: var(--orange); }
+.job-apply-note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+/* FOOTER */
+footer { background:#062241; color:rgba(255,255,255,0.72); text-align: center; padding: 28px 24px; font-size: 13px; }
+footer a { color:rgba(255,255,255,0.72); }
+footer a:hover { color: #fff; }
+
+  /* ===== Unified site footer ===== */
+  footer.site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,34,65,.86),rgba(6,34,65,.92));z-index:0}
+  .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+  .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
+  .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
+  .footer-col a:hover{color:#fff}
+  .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
+  .footer-bottom-links{display:flex;gap:24px;align-items:center}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
+  .footer-bottom-links a:hover{color:#fff}
+  .footer-social{display:flex;gap:16px;margin-top:8px}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
+  .footer-social a:hover{color:#fff}
+  @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
+
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+</style>
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="canonical" href="https://den1880.co/careers" />
+<!-- SEO:LocalBusiness -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
+</script>
+<!-- SEO:JobPosting -->
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"JobPosting","title":"Bar & Hospitality Program Manager","datePosted":"2026-08-05","employmentType":"FULL_TIME","description":"Lead event and bar operations, coach the event team, and build Den 1880\u2019s bar, menu, and hospitality retail program.","hiringOrganization":{"@type":"Organization","name":"Den 1880","sameAs":"https://den1880.co","logo":"https://den1880.co/assets/den1880-logo-black.svg"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"}},"directApply":true,"url":"https://den1880.co/careers"},
+{"@context":"https://schema.org","@type":"JobPosting","title":"Event Staff","datePosted":"2026-08-05","employmentType":"PART_TIME","description":"Help bring events to life from setup through teardown \u2014 venue operations, bar service, and guest hospitality at Den 1880.","hiringOrganization":{"@type":"Organization","name":"Den 1880","sameAs":"https://den1880.co","logo":"https://den1880.co/assets/den1880-logo-black.svg"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"}},"directApply":true,"url":"https://den1880.co/careers"}]
+</script>
+  <link rel="stylesheet" href="/assets/den-stamps.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- NAV -->
+<header class="topbar" id="topbar">
+<div class="nav-brand">
+<a class="logo" href="/"><img src="assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+<span class="nav-pipe">/</span>
+<a class="nav-pc-link" href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+</div>
+<nav class="nav-links">
+<a class="btn btn-ghost btn-sm" href="memberships.html">Memberships</a>
+<a class="btn btn-ghost btn-sm" href="corporate/">For Teams</a>
+<a class="btn btn-ghost btn-sm" href="meeting-rooms.html">Meeting Rooms</a>
+<a class="btn btn-ghost btn-sm" href="/private-events">Events</a>
+<a class="btn btn-ghost btn-sm" href="gallery.html">Gallery</a>
+<a class="btn btn-ghost btn-sm" href="the-vault-podcast-studio.html">Podcast Studio</a>
+<a class="btn btn-ghost btn-sm" href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+<a class="btn btn-lime btn-sm" href="https://den1880.optixapp.com/signup/">Get Started</a>
+</nav>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<a href="memberships.html">Memberships</a>
+<a href="corporate/">For Teams</a>
+<a href="meeting-rooms.html">Meeting Rooms</a>
+<a href="/private-events">Events</a>
+<a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club</a>
+<a href="gallery.html">Gallery</a>
+<a href="the-vault-podcast-studio.html">Podcast Studio</a>
+<a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+<a href="https://den1880.optixapp.com/signup/" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> Careers</div>
+<span class="eyebrow">A space for dreamers, doers and people who love their work.</span>
+<h1>Work at the <span class="accent">Den</span></h1>
+<p class="lede">Den 1880 is a premium coworking and event venue in the heart of Uptown Waterloo. As our events and hospitality program grows, so does the team.</p>
+<a class="btn-hero" href="#roles">See Open Roles</a>
+</div>
+</section>
+
+<!-- JOBS -->
+<section class="jobs" id="roles">
+<div class="container">
+<p class="jobs-intro">Open roles are listed below — click a title to read the full description.</p>
+
+<details class="job" id="bar-hospitality-program-manager">
+<summary>
+  <span class="job-title">
+    <h2>Bar &amp; Hospitality Program Manager</h2>
+    <span class="job-meta">Full-Time &nbsp;·&nbsp; Evenings, Wed–Sun &nbsp;·&nbsp; Uptown Waterloo</span>
+  </span>
+  <span class="job-toggle" aria-hidden="true"></span>
+</summary>
+<div class="job-body">
+  <p class="job-facts"><strong>Location:</strong> Den 1880, 14 Erb St. West, Uptown Waterloo, ON</p>
+  <p class="job-facts"><strong>Reports To:</strong> Director of Hospitality</p>
+  <p class="job-facts"><strong>Position Type:</strong> Full-Time</p>
+  <p class="job-facts" style="margin-bottom:18px"><strong>Schedule:</strong> Evenings, Wednesday–Sunday, with some flexibility required for events as required</p>
+
+  <h3>About Den 1880</h3>
+  <p>At Den 1880, we’ve reimagined what a workspace can be. Located in the heart of Uptown Waterloo, we’re a premium coworking and event venue where people come to work, connect, and celebrate. From weekday coworking and networking events to weddings, private celebrations, and corporate functions, no two days are ever the same.</p>
+  <p>As we continue to grow our events business and expand our hospitality offerings, we’re looking for someone who wants to help shape the future of Den 1880’s bar program and overall hospitality experience.</p>
+
+  <h3>Position Overview</h3>
+  <p>The Bar &amp; Hospitality Program Manager plays a key role in bringing Den 1880’s hospitality experience to life. This position combines event leadership, bar operations, staff development, and program development, with the opportunity to build and continuously improve the systems that support an exceptional guest experience.</p>
+  <p>This is an opportunity to take ownership of a growing hospitality program and help shape how Den 1880’s events and evening experiences continue to evolve.</p>
+  <p>You’ll lead the execution of our events, coach and support the event team, oversee our bar program, and help develop Den 1880’s food and beverage offerings, from an evening menu of shareable bites to our tuck shop and daily pastry selection.</p>
+  <p>This is an ideal role for someone who enjoys both the fast-paced energy of event nights and the creativity of building something that continues to evolve.</p>
+
+  <h3>Key Responsibilities</h3>
+  <h4>Event Leadership &amp; Hospitality</h4>
+  <ul>
+    <li>Lead the hospitality and bar operations during events, ensuring everything runs smoothly from setup through teardown.</li>
+    <li>Coordinate event staff by leading pre-event meetings, assigning responsibilities, providing coaching throughout events, and supporting the team wherever needed.</li>
+    <li>Serve as an onsite contact for hospitality-related questions from guests, vendors, and event staff, resolving issues professionally and confidently.</li>
+    <li>Execute events according to floor plans, timelines, and Den 1880’s hospitality standards.</li>
+    <li>Support the Director of Hospitality by taking ownership of hospitality operations during event execution.</li>
+  </ul>
+  <h4>Bar &amp; Hospitality Program</h4>
+  <ul>
+    <li>Develop and maintain Den 1880’s bar menu, ensuring it reflects the needs of corporate events, private functions, and evening programming.</li>
+    <li>Create and continuously improve service standards, training materials, and operating procedures that help deliver a consistent guest experience.</li>
+    <li>Train, mentor, and support event staff while fostering a positive, team-oriented culture.</li>
+    <li>Look for opportunities to improve workflows, service, and the overall guest experience.</li>
+  </ul>
+  <h4>Menu Development &amp; Hospitality Retail</h4>
+  <ul>
+    <li>Develop and maintain Den 1880’s food and beverage menus, including evening bites, charcuterie boards, seasonal features, and other hospitality offerings.</li>
+    <li>Oversee Den 1880’s hospitality retail offerings, including the tuck shop, pastries, grab-and-go items, and non-alcoholic beverages.</li>
+    <li>Manage sourcing, pricing, inventory, merchandising, and presentation to ensure offerings remain well stocked, profitable, and aligned with the Den 1880 brand.</li>
+    <li>Continuously evaluate and refine menu and retail offerings based on member feedback, event needs, and seasonal opportunities.</li>
+  </ul>
+  <h4>Evening Programming &amp; Member Experience</h4>
+  <ul>
+    <li>Help bring evening programming to life, including networking events, sporting events, live music, social gatherings, and member experiences.</li>
+    <li>Support event setup, guest experience, and hospitality throughout these programs while working closely with the Director of Hospitality and leadership team.</li>
+    <li>Share ideas and feedback that help shape future programming and continue building a vibrant evening community.</li>
+  </ul>
+  <h4>Client &amp; Member Support</h4>
+  <ul>
+    <li>Answer general questions from prospective event clients regarding venue setup, event logistics, and hospitality services.</li>
+    <li>Provide venue tours when the Director of Hospitality is unavailable.</li>
+    <li>Gather information from inquiries and ensure qualified leads are passed along for follow-up.</li>
+    <li>Welcome members and guests during evening hours, answering phones, responding to questions, assisting with meeting room inquiries, and providing a knowledgeable, welcoming point of contact throughout the building.</li>
+  </ul>
+  <h4>Inventory, Compliance &amp; Administration</h4>
+  <ul>
+    <li>Maintain inventory of alcohol, beverages, glassware, hospitality retail products, and event supplies, coordinating ordering and pickups as needed.</li>
+    <li>Manage cash floats, point-of-sale accuracy, and end-of-event reconciliation.</li>
+    <li>Ensure compliance with AGCO regulations, Smart Serve requirements, and Den 1880 policies while maintaining responsible alcohol service at all times.</li>
+    <li>Complete post-event reporting, inventory counts, and venue resets to prepare for upcoming events.</li>
+  </ul>
+
+  <h3>Qualifications</h3>
+  <ul>
+    <li>Valid Smart Serve Certification (required).</li>
+    <li>Minimum 3 years experience in hospitality, bartending, food and beverage, or event management.</li>
+    <li>Leadership or supervisory experience is considered an asset.</li>
+    <li>Strong written and verbal communication skills.</li>
+    <li>Excellent interpersonal and leadership skills, with the ability to confidently lead a team and create exceptional guest experiences.</li>
+    <li>Excellent organizational skills with experience managing multiple priorities.</li>
+    <li>Experience with POS systems, cash handling, inventory management, merchandising, or ordering is considered an asset.</li>
+    <li>Ability to lift and move event equipment, furniture, and beverage inventory.</li>
+    <li>Reliable transportation to and from work.</li>
+  </ul>
+
+  <h3>What We’re Looking For</h3>
+  <p>We’re looking for someone who genuinely enjoys creating memorable experiences and wants to play a meaningful role in shaping Den 1880’s hospitality program.</p>
+  <p>You’re someone who notices opportunities for improvement, takes initiative without being asked, and enjoys leading by example. You thrive in fast-paced environments, stay calm under pressure, and take pride in delivering exceptional service while helping others do the same.</p>
+  <p>Most importantly, you’re excited by the opportunity to build something, not simply maintain what’s already there. Whether it’s refining a cocktail menu, curating retail offerings, mentoring staff, or helping create new member experiences, you’re motivated by seeing your ideas come to life.</p>
+
+  <h3>Why Join Den 1880?</h3>
+  <ul>
+    <li>Complimentary coworking and gym membership.</li>
+    <li>The opportunity to build and shape Den 1880’s bar and hospitality program from the ground up.</li>
+    <li>Creative ownership over our evolving menus and hospitality retail offerings.</li>
+    <li>Professional growth as our events, hospitality, and membership experiences continue to expand.</li>
+    <li>Work in one of Waterloo Region’s most unique hospitality and event venues alongside a collaborative, supportive team.</li>
+    <li>A dynamic environment where no two days, or evenings, are ever the same.</li>
+  </ul>
+  <p>If you’re someone who loves hospitality, enjoys leading a team, and wants the opportunity to help build something meaningful, we’d love to hear from you.</p>
+
+  <h3>How to Apply</h3>
+  <p>Please submit your resume and cover letter to <a href="mailto:info@den1880.co?subject=Bar%20%26%20Hospitality%20Program%20Manager">info@den1880.co</a>. Please include “Bar &amp; Hospitality Program Manager” in the subject line.</p>
+  <a class="btn-apply" href="mailto:info@den1880.co?subject=Bar%20%26%20Hospitality%20Program%20Manager">Apply Now</a>
+</div>
+</details>
+
+<details class="job" id="event-staff">
+<summary>
+  <span class="job-title">
+    <h2>Event Staff</h2>
+    <span class="job-meta">Casual / Event-Based &nbsp;·&nbsp; Evenings &amp; Weekends &nbsp;·&nbsp; Uptown Waterloo</span>
+  </span>
+  <span class="job-toggle" aria-hidden="true"></span>
+</summary>
+<div class="job-body">
+  <p class="job-facts"><strong>Location:</strong> Den 1880, 14 Erb St. West, Uptown Waterloo, ON</p>
+  <p class="job-facts"><strong>Position Type:</strong> Casual / Event-Based</p>
+  <p class="job-facts"><strong>Pay:</strong> Hourly + gratuities</p>
+  <p class="job-facts" style="margin-bottom:18px"><strong>Availability Required:</strong> Evenings, weekends, and occasional holidays</p>
+
+  <h3>About Den 1880</h3>
+  <p>At Den 1880, we’ve reimagined what a workspace can be. Located in the heart of Uptown Waterloo, we’re a premium coworking and event venue where people come to work, connect, and celebrate. From busy weekday coworking to evening networking events, weddings, and private celebrations, no two days are ever the same.</p>
+  <p>We’re looking for professional, personable, and dependable team members who help create exceptional guest experiences while keeping our space safe and welcoming.</p>
+
+  <h3>Position Overview</h3>
+  <p>As an Event Staff team member, you’ll help bring events to life from setup through teardown, playing a hands-on role in creating exceptional experiences for our guests. This role combines venue operations, bar service, and guest hospitality, so no two shifts are ever the same. The ideal candidate is organized, proactive, personable, and takes pride in delivering excellent service while maintaining Den 1880’s high standards for hospitality, safety, and presentation.</p>
+
+  <h3>Key Responsibilities</h3>
+  <h4>Event Setup &amp; Bar Service</h4>
+  <ul>
+    <li>Assist with venue setup according to event floor plans, including arranging furniture and preparing signage, menus, décor, and event materials.</li>
+    <li>Prepare and stock bars and beverage stations — alcohol, mixers, glassware, ice, and garnishes.</li>
+    <li>Provide friendly, professional bar service for open, host, and cash bars, including processing purchases and cash transactions when required.</li>
+    <li>Maintain accurate beverage counts and keep bar areas clean, stocked, and organized throughout events.</li>
+  </ul>
+  <h4>Guest Experience &amp; Safety</h4>
+  <ul>
+    <li>Deliver exceptional service to clients, guests, vendors, and members while creating a welcoming and inclusive atmosphere.</li>
+    <li>Monitor guest behaviour, sobriety, and venue safety; intervene appropriately and escalate concerns when necessary, in compliance with AGCO regulations and Smart Serve standards.</li>
+    <li>Complete incident reports for injuries, guest concerns, or service issues, and uphold Den 1880’s Code of Conduct.</li>
+    <li>Support the event manager throughout the event and stay aware of timelines to help ensure everything runs smoothly.</li>
+  </ul>
+  <h4>Cleanup &amp; Venue Reset</h4>
+  <ul>
+    <li>Collect and clear glassware, dishes, rentals, and event materials; wash, polish, and store properly.</li>
+    <li>Return furniture and equipment to storage, dispose of waste and recycling, and complete end-of-event resets.</li>
+    <li>Assist with inventory counts and restocking.</li>
+    <li>Leave the venue clean, organized, and ready for the next day.</li>
+  </ul>
+
+  <h3>Qualifications</h3>
+  <ul>
+    <li>Valid Smart Serve Certification (required).</li>
+    <li>Reliable transportation to and from work.</li>
+    <li>Previous experience in hospitality, bartending, events, restaurants, or customer service is considered an asset but not required.</li>
+    <li>Comfortable working evenings, weekends, and occasional holidays.</li>
+    <li>Strong communication and interpersonal skills; calm and professional in fast-paced environments.</li>
+    <li>Ability to lift and move event equipment, furniture, and beverage inventory.</li>
+  </ul>
+
+  <h3>What We’re Looking For</h3>
+  <p>We’re looking for someone who genuinely enjoys taking care of people and takes pride in creating memorable experiences. You’re proactive, dependable, and team-oriented, with the confidence to take ownership of your work and adapt to the unique needs of each event. You notice what needs to be done, step in without being asked, and are always looking for ways to support your team and deliver an exceptional experience for every guest.</p>
+
+  <h3>Why Join Den 1880?</h3>
+  <ul>
+    <li>Flexible event-based scheduling</li>
+    <li>Complimentary coworking and gym membership</li>
+    <li>Gain experience across hospitality, venue operations, and events</li>
+    <li>Work in one of Waterloo Region’s most unique event venues alongside a collaborative, supportive team</li>
+    <li>Opportunities to grow with a team that values initiative, hospitality, and exceptional service.</li>
+  </ul>
+  <p>If you’re someone who loves creating memorable experiences, enjoys working in a fast-paced hospitality environment, and takes pride in delivering exceptional service, we’d love to hear from you.</p>
+
+  <h3>How to Apply</h3>
+  <p>Please submit your resume and Smart Serve certification to <a href="mailto:info@den1880.co?subject=Event%20Staff%20Application">info@den1880.co</a>. Please include “Event Staff Application” in the subject line.</p>
+  <a class="btn-apply" href="mailto:info@den1880.co?subject=Event%20Staff%20Application">Apply Now</a>
+</div>
+</details>
+
+</div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <img src="/assets/den1880-logo-black.svg" alt="Den 1880">
+      <p>A heritage coworking space for founders, creatives, and teams in the heart of Uptown Waterloo.</p>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://www.instagram.com/den1880.co/" target="_blank" rel="noopener">@den1880.co</a>
+        <a href="https://ca.linkedin.com/company/den-1880" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-events">Events</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/blog">Blog</a>
+      <a href="/careers">Careers</a>
+      <a href="/contact">Contact</a>
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <div class="hours-label">Office</div><div class="hours-line">Mon &#8211; Fri<br>8:00 am &#8211; 8:00 pm</div>
+      <div class="hours-label">Team Members</div><div class="hours-line">24/7 Access</div>
+      <div class="hours-label">Performance Club</div><div class="hours-line">Mon &#8211; Fri<br>6:00 am &#8211; 8:00 pm</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@den1880.co">hello@den1880.co</a>
+      <a href="tel:5197831505">(519) 783-1505</a>
+      <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Den 1880. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a href="https://den1880.optixapp.com/signup/">Get Started</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+const isOpen = mobileMenu.classList.toggle('open');
+hamburger.classList.toggle('open', isOpen);
+hamburger.setAttribute('aria-expanded', isOpen);
+mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.remove('open');
+hamburger.classList.remove('open');
+hamburger.setAttribute('aria-expanded', false);
+});
+});
+document.addEventListener('click', (e) => {
+if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+mobileMenu.classList.remove('open');
+hamburger.classList.remove('open');
+hamburger.setAttribute('aria-expanded', false);
+}
+});
+</script>
+  <script src="/assets/stamps-config/careers.js"></script>
+  <script src="/assets/den-stamps.js" defer></script>
+</body>
+</html>
