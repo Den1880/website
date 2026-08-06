@@ -121,11 +121,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .mobile-menu a{padding:12px 0;font-size:15px;font-weight:500;border-bottom:1px solid var(--line);color:var(--ink)}
   .mobile-menu a:last-child{border-bottom:none}
   .mobile-menu .mobile-cta{margin-top:12px;background:var(--lime);color:var(--ink);text-align:center;padding:14px;border-radius:999px;font-weight:700;border-bottom:none}
-  @media(max-width:860px){
+  @media(max-width:1100px){
     .nav-links{display:none}
     .hamburger{display:flex}
     .topbar{padding:14px 20px}
   }
+  /* Match the sitewide header: the brand's Performance Club link comes off
+     on phones, otherwise it pushes the hamburger past the right edge. */
+  @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none}}
 
   /* ── PAGE HEADER ── */
   .page-header{
@@ -489,7 +492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Den 1880. All rights reserved.</p>
+    <p>&copy; 2026 Den 1880. All rights reserved.</p>
     <div class="footer-bottom-links">
       <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
       <a href="https://den1880.optixapp.com/signup/">Get Started</a>
