@@ -298,6 +298,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--orange);box-shadow:none}
   .form-field textarea{min-height:118px;resize:vertical}
   .form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .form-field .req{color:var(--plum)}
+  .form-foot{font-size:12px;color:var(--muted);margin-top:14px}
+  #cfForm [hidden]{display:none !important}
   .contact-aside{background:#fff;border:1px solid var(--line);border-radius:0;padding:28px;box-shadow:none}
   .contact-aside h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:0 0 16px;font-family:'Oswald',Impact,sans-serif;font-weight:700}
   .contact-aside h3:not(:first-child){margin-top:4px}
@@ -574,32 +577,198 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="contact-split">
       <div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="contact-success.html">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="contact-success.html" id="cfForm">
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="Lead ID" />
+          <input type="hidden" name="Captured By" value="Website" />
+          <input type="hidden" name="Reached Us Via" value="Website - Contact" />
+          <input type="hidden" name="Status" value="New" />
+          <input type="hidden" name="utm_source" />
+          <input type="hidden" name="utm_medium" />
+          <input type="hidden" name="utm_campaign" />
+          <input type="hidden" name="utm_term" />
+          <input type="hidden" name="utm_content" />
+          <input type="hidden" name="gclid" />
+          <input type="hidden" name="gbraid" />
+          <input type="hidden" name="wbraid" />
+          <input type="hidden" name="fbclid" />
+          <input type="hidden" name="msclkid" />
+          <input type="hidden" name="li_fat_id" />
           <p class="form-hp"><label>Leave this empty: <input name="bot-field" /></label></p>
-          <div class="form-row">
-            <div class="form-field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required></div>
-            <div class="form-field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+
+          <!-- STEP 1: minimum capture -->
+          <div id="cfStep1">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name <span class="req">*</span></label>
+                <input id="name" type="text" name="Lead Name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" type="email" name="Email" autocomplete="email" required />
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="cfContinue" style="width:auto">Continue</button>
           </div>
-          <div class="form-row">
-            <div class="form-field"><label for="cf-phone">Phone <span style="color:var(--muted);font-weight:400">(optional)</span></label><input id="cf-phone" name="phone" type="tel" autocomplete="tel"></div>
-            <div class="form-field"><label for="cf-reason">What's this about?</label>
-              <select id="cf-reason" name="reason">
-                <option>General question</option>
-                <option>Book a tour</option>
-                <option>Membership</option>
-                <option>Meeting room booking</option>
-                <option>Host an event</option>
-                <option>Business address &amp; mail</option>
-                <option>Podcast studio</option>
-                <option>Media / press</option>
-                <option>Something else</option>
+
+          <!-- STEP 2: the rest of the lead -->
+          <div id="cfStep2" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="company">Company <span style="font-weight:400;color:var(--muted)">(if applicable)</span></label>
+                <input id="company" type="text" name="Company" autocomplete="organization" />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" type="tel" name="Phone" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="heard">How did you hear about us? <span class="req">*</span></label>
+              <select id="heard" name="Heard About Us (Channel)">
+                <option value="">Select an option</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>Google</option>
+                <option>LinkedIn</option>
+                <option>TikTok</option>
+                <option>Mailer</option>
+                <option>Referral</option>
+                <option>Walk by / Signage</option>
+                <option>Word of mouth</option>
+                <option>Events at Den</option>
+                <option>Other</option>
               </select>
             </div>
+            <div class="form-field" id="heardOtherWrap" hidden>
+              <label for="heardOther">Tell us where</label>
+              <input id="heardOther" type="text" name="Heard About Us (Other)" />
+            </div>
+
+            <div class="form-field">
+              <label for="interest">What are you interested in? <span class="req">*</span></label>
+              <select id="interest" name="Interested In">
+                <option value="">Select an option</option>
+                <option>Coworking</option>
+                <option>Day Pass</option>
+                <option>Private Office</option>
+                <option>Meeting Rooms</option>
+                <option>Podcast Studio</option>
+                <option>Weddings</option>
+                <option>Corporate Event</option>
+                <option>Milestone Party</option>
+                <option>Corporate Offsite</option>
+                <option>Theatre / Presentation Rental</option>
+                <option>Business Address &amp; Mail</option>
+                <option>Gym &amp; Wellness</option>
+                <option>Not sure yet</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field" id="interestOtherWrap" hidden>
+              <label for="interestOther">Tell us what you have in mind</label>
+              <input id="interestOther" type="text" name="Interested In (Other)" />
+            </div>
+
+            <div class="form-row" id="eventDetailWrap" hidden>
+              <div class="form-field">
+                <label for="evDate">Rough event date <span style="font-weight:400;color:var(--muted)">(if you have one)</span></label>
+                <input id="evDate" type="text" name="Event Date" placeholder="e.g. September 2026" />
+              </div>
+              <div class="form-field">
+                <label for="evGuests">Guest count <span style="font-weight:400;color:var(--muted)">(estimate)</span></label>
+                <input id="evGuests" type="text" name="Guest Count" inputmode="numeric" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="notes">Anything else we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+              <textarea id="notes" name="Notes" rows="3" placeholder="Tell us a bit about what you're planning or what you need."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:auto">Send Message</button>
           </div>
-          <div class="form-field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" placeholder="A line or two about what you're looking for." required></textarea></div>
-          <button class="btn btn-primary" type="submit" style="width:auto">Send message</button>
+
+          <p class="form-foot">Prefer to reach us directly? Email <a href="mailto:hello@den1880.co">hello@den1880.co</a> or call (519) 783-1505.</p>
         </form>
+
+        <script>
+        (function(){
+          /* ---- Lead Log endpoint (Apps Script web app). Same plumbing as /get-started:
+             when set, every step posts a row into the "Den 1880 Lead Log" Google Sheet.
+             Netlify Forms stays on as backup either way. ---- */
+          var LEAD_ENDPOINT = ""; /* e.g. https://script.google.com/macros/s/.../exec */
+
+          var form=document.getElementById('cfForm');
+          var step1=document.getElementById('cfStep1'), step2=document.getElementById('cfStep2');
+          var cont=document.getElementById('cfContinue');
+
+          /* Carry ad-click identity into the lead */
+          var params=new URLSearchParams(window.location.search);
+          ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","gbraid","wbraid","fbclid","msclkid","li_fat_id"].forEach(function(k){
+            var el=form.querySelector('input[name="'+k+'"]');
+            if(el&&params.get(k)) el.value=params.get(k);
+          });
+
+          /* Lead ID: DEN-YYYYMMDD-HHMMSS-WEB, matching the Lead Log convention */
+          function pad(n){return (n<10?'0':'')+n}
+          var now=new Date();
+          var leadId='DEN-'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'-'+pad(now.getHours())+pad(now.getMinutes())+pad(now.getSeconds())+'-WEB';
+          form.querySelector('input[name="Lead ID"]').value=leadId;
+
+          function payload(status){
+            var d=new Date();
+            var o={ leadId:leadId, date:d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),
+              time:pad(d.getHours())+':'+pad(d.getMinutes()), capturedBy:'Website',
+              leadName:form.querySelector('#name').value, email:form.querySelector('#email').value,
+              company:form.querySelector('#company').value, phone:form.querySelector('#phone').value,
+              reachedUsVia:'Website - Contact',
+              heard:(function(){var v=form.querySelector('#heard').value;var o2=form.querySelector('#heardOther').value;return v==='Other'&&o2?'Other - '+o2:v})(),
+              interestedIn:(function(){var v=form.querySelector('#interest').value;var o2=form.querySelector('#interestOther').value;return v==='Other'&&o2?'Other - '+o2:v})(),
+              notes:(function(){var parts=[];var ed=form.querySelector('#evDate').value.trim();var gc=form.querySelector('#evGuests').value.trim();var nt=form.querySelector('#notes').value.trim();if(ed)parts.push('Event date: '+ed);if(gc)parts.push('Guests: '+gc);if(nt)parts.push(nt);return parts.join(' | ')})(),
+              status:status,
+              utm:{} };
+            ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","gbraid","wbraid","fbclid","msclkid","li_fat_id"].forEach(function(k){
+              var el=form.querySelector('input[name="'+k+'"]'); if(el&&el.value) o.utm[k]=el.value;
+            });
+            return o;
+          }
+          function sendToSheet(status){
+            if(!LEAD_ENDPOINT) return;
+            try{
+              var body=JSON.stringify(payload(status));
+              if(navigator.sendBeacon){ navigator.sendBeacon(LEAD_ENDPOINT, new Blob([body],{type:'text/plain'})); }
+              else{ fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:body}); }
+            }catch(e){}
+          }
+
+          /* Step 1 -> capture the minimum immediately, then reveal step 2 */
+          cont.addEventListener('click',function(){
+            var name=form.querySelector('#name'), email=form.querySelector('#email');
+            if(!name.value.trim()){name.reportValidity();return}
+            if(!email.value.trim()||!email.checkValidity()){email.reportValidity();return}
+            sendToSheet('Partial - website');
+            step1.querySelectorAll('input').forEach(function(i){i.readOnly=true});
+            cont.hidden=true; cont.style.display='none'; step2.hidden=false;
+            form.querySelector('#heard').setAttribute('required','');
+            form.querySelector('#interest').setAttribute('required','');
+            step2.scrollIntoView({behavior:'smooth',block:'nearest'});
+          });
+
+          /* Show the free-text field when Other is picked */
+          form.querySelector('#heard').addEventListener('change',function(){document.getElementById('heardOtherWrap').hidden=this.value!=='Other'});
+          var EVENT_INTERESTS=['Weddings','Corporate Event','Milestone Party','Corporate Offsite','Theatre / Presentation Rental'];
+          form.querySelector('#interest').addEventListener('change',function(){
+            document.getElementById('interestOtherWrap').hidden=this.value!=='Other';
+            document.getElementById('eventDetailWrap').hidden=EVENT_INTERESTS.indexOf(this.value)===-1;
+          });
+
+          /* Final submit -> full row to the sheet, then let Netlify take the POST
+             (redirects to /contact-success, which fires the contact conversion tag). */
+          form.addEventListener('submit',function(){ sendToSheet('New'); });
+        })();
+        </script>
       </div>
 
       <aside class="contact-aside">
