@@ -1,9 +1,10 @@
 # Den 1880 content editor config (Sveltia CMS -- a drop-in, actively maintained
 # GUI editor compatible with the same config format Decap/Netlify CMS used).
 #
-# PILOT: only the homepage's plain-text copy blocks are wired up so far
-# (content/homepage.json, injected into index.html by the small script at the
-# bottom of that file). Nothing else on the site is editable here yet.
+# Every page on den1880.co worth editing is wired up: plain-text copy blocks
+# (content/<slug>.json, injected by assets/js/cms-loader.js -- or by an inline
+# copy of the same script on the homepage), plus content photography and the
+# homepage's hero video, both editable from the "Assets"/image fields below.
 #
 # Backend: saves commit directly to GitHub's "main" branch, which Netlify
 # auto-deploys. Logging in requires the GitHub OAuth app + Netlify env vars
@@ -16,7 +17,7 @@ backend:
   base_url: https://den1880.co
   auth_endpoint: /auth
 
-# Where uploaded images would land if/when a media field is added later.
+# Where images uploaded through an "image" field (or the Assets tab) land.
 media_folder: "assets/cms-uploads"
 public_folder: "/assets/cms-uploads"
 
@@ -28,6 +29,10 @@ collections:
         label: "Homepage — Hero & Memberships Section"
         name: "homepage"
         fields:
+          - label: "Hero video — Vimeo video ID"
+            name: "hero_video_id"
+            widget: "string"
+            hint: "The numeric ID from the Vimeo video's URL, e.g. the \"1197825413\" in vimeo.com/1197825413. Only the ID -- the autoplay/loop/mute settings already on the page are kept as-is."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -52,6 +57,9 @@ collections:
         label: "Blog — 10 Inspiring Ways Teams Use Our Spaces"
         name: "10-inspiring-ways-teams-use-our-spaces"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -71,6 +79,9 @@ collections:
         label: "Newsletter — August"
         name: "august-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -93,6 +104,9 @@ collections:
         label: "Blog — Best Cafés & Lunch Spots Near Uptown Waterloo"
         name: "best-cafs-lunch-spots-near-uptown-waterloo-coworking-spaces"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -718,6 +732,9 @@ collections:
         label: "July Newsletter"
         name: "july-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -740,6 +757,9 @@ collections:
         label: "June Newsletter"
         name: "june-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -762,6 +782,9 @@ collections:
         label: "May Newsletter"
         name: "may-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -784,6 +807,36 @@ collections:
         label: "Meeting Rooms — Hero, Offsites & Filming, Footer CTA"
         name: "meeting-rooms"
         fields:
+          - label: "Room photo — The Grand Boardroom"
+            name: "room_grand_photo"
+            widget: "image"
+          - label: "Room photo — Olive & Laurel (combined)"
+            name: "room_olivelaurel_photo"
+            widget: "image"
+          - label: "Room photo — The Oak"
+            name: "room_oak_photo"
+            widget: "image"
+          - label: "Room photo — The Dominion"
+            name: "room_dominion_photo"
+            widget: "image"
+          - label: "Room photo — The Olive"
+            name: "room_olive_photo"
+            widget: "image"
+          - label: "Room photo — The Laurel"
+            name: "room_laurel_photo"
+            widget: "image"
+          - label: "Room photo — The Theatre"
+            name: "room_theatre_photo"
+            widget: "image"
+          - label: "Room photo — The Library"
+            name: "room_library_photo"
+            widget: "image"
+          - label: "Room photo — The Cellar"
+            name: "room_cellar_photo"
+            widget: "image"
+          - label: "Room photo — The Vault (Podcast Studio)"
+            name: "room_vault_photo"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -932,6 +985,9 @@ collections:
         label: "October Newsletter — Header & Closing CTA"
         name: "october-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Post header — small tag above the title"
             name: "post_eyebrow"
             widget: "string"
@@ -951,6 +1007,15 @@ collections:
         label: "Private Events — Hero, Intro & Hub Section"
         name: "private-events"
         fields:
+          - label: "Photo strip — image 1"
+            name: "gallery_photo_1"
+            widget: "image"
+          - label: "Photo strip — image 2"
+            name: "gallery_photo_2"
+            widget: "image"
+          - label: "Photo strip — image 3"
+            name: "gallery_photo_3"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -982,6 +1047,24 @@ collections:
         label: "Private Offices — Hero, Sections & CTA"
         name: "private-offices"
         fields:
+          - label: "Intro photo (Teams Floor section)"
+            name: "intro_photo"
+            widget: "image"
+          - label: "Office gallery — large photo"
+            name: "gallery_photo_1"
+            widget: "image"
+          - label: "Office gallery — photo 2"
+            name: "gallery_photo_2"
+            widget: "image"
+          - label: "Office gallery — photo 3"
+            name: "gallery_photo_3"
+            widget: "image"
+          - label: "Office gallery — photo 4"
+            name: "gallery_photo_4"
+            widget: "image"
+          - label: "Office gallery — photo 5"
+            name: "gallery_photo_5"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1044,6 +1127,9 @@ collections:
         label: "September Newsletter — Header"
         name: "september-newsletter"
         fields:
+          - label: "Cover photo"
+            name: "post_cover_photo"
+            widget: "image"
           - label: "Header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1088,6 +1174,12 @@ collections:
         label: "The Vault Podcast Studio — Hero, Sections & Pricing"
         name: "the-vault-podcast-studio"
         fields:
+          - label: "Hero photo"
+            name: "hero_photo"
+            widget: "image"
+          - label: "The Vault door photo"
+            name: "door_photo"
+            widget: "image"
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1113,6 +1205,15 @@ collections:
         label: "Weddings"
         name: "weddings"
         fields:
+          - label: "Photo strip — image 1"
+            name: "gallery_photo_1"
+            widget: "image"
+          - label: "Photo strip — image 2"
+            name: "gallery_photo_2"
+            widget: "image"
+          - label: "Photo strip — image 3"
+            name: "gallery_photo_3"
+            widget: "image"
           - label: "Weddings — Hero eyebrow"
             name: "hero_eyebrow"
             widget: "string"

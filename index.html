@@ -469,6 +469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero">
   <div class="hero-video-wrap">
     <iframe
+      data-cms-vimeo-id="hero_video_id"
       src="https://player.vimeo.com/video/1197825413?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&start_time=8#t=8s"
       title="Den 1880, a tour of the space"
       loading="lazy"
@@ -696,6 +697,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('[data-cms]').forEach(function(el){
         var val = data[el.getAttribute('data-cms')];
         if(typeof val === 'string' && val.trim() !== ''){ el.textContent = val; }
+      });
+      document.querySelectorAll('[data-cms-vimeo-id]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms-vimeo-id')];
+        if(typeof val === 'string' && /^\d+$/.test(val.trim())){
+          el.src = el.src.replace(/\/video\/\d+/, '/video/' + val.trim());
+        }
       });
     })
     .catch(function(){ /* fetch failed offline/blocked -- HTML's own text stands as-is */ });
