@@ -1,0 +1,46 @@
+# Den 1880 content editor config (Sveltia CMS -- a drop-in, actively maintained
+# GUI editor compatible with the same config format Decap/Netlify CMS used).
+#
+# PILOT: only the homepage's plain-text copy blocks are wired up so far
+# (content/homepage.json, injected into index.html by the small script at the
+# bottom of that file). Nothing else on the site is editable here yet.
+#
+# Backend: saves commit directly to GitHub's "main" branch, which Netlify
+# auto-deploys. Logging in requires the GitHub OAuth app + Netlify env vars
+# described in netlify/functions/auth.mjs -- see PILOT_README.md at the repo
+# root for the one-time setup Andrew needs to do in his GitHub/Netlify accounts.
+backend:
+  name: github
+  repo: Den1880/website
+  branch: main
+  base_url: https://den1880.co
+  auth_endpoint: /auth
+
+# Where uploaded images would land if/when a media field is added later.
+media_folder: "assets/cms-uploads"
+public_folder: "/assets/cms-uploads"
+
+collections:
+  - name: "homepage"
+    label: "Homepage Text"
+    files:
+      - file: "content/homepage.json"
+        label: "Homepage — Hero & Memberships Section"
+        name: "homepage"
+        fields:
+          - label: "Hero — small tag above the headline"
+            name: "hero_eyebrow"
+            widget: "string"
+            hint: "Shows as \"EVENTS · WORK · WELLNESS\" above the big headline."
+          - label: "Hero — line under the headline"
+            name: "hero_subhead"
+            widget: "text"
+          - label: "Memberships section — small tag above the heading"
+            name: "paths_eyebrow"
+            widget: "string"
+          - label: "Memberships section — heading"
+            name: "paths_headline"
+            widget: "string"
+          - label: "Memberships section — line under the heading"
+            name: "paths_subhead"
+            widget: "text"

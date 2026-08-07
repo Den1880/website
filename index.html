@@ -478,9 +478,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="container">
    <div class="hero-copy">
-    <span class="eyebrow">Events · Work · Wellness</span>
+    <span class="eyebrow" data-cms="hero_eyebrow">Events · Work · Wellness</span>
     <h1>Where <em>You</em><br class="dbrk"> come to <em>Life.</em></h1>
-    <p class="lede">Work, gather, and move in spaces designed to inspire.</p>
+    <p class="lede" data-cms="hero_subhead">Work, gather, and move in spaces designed to inspire.</p>
    </div>
   </div>
 </section>
@@ -489,9 +489,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="paths">
   <div class="container">
     <div class="paths-header">
-      <span class="eyebrow">Find your fit</span>
-      <h2>Memberships &amp; Plans</h2>
-      <p>Whether you work solo or bring a team, there's a plan built around how you actually use the space.</p>
+      <span class="eyebrow" data-cms="paths_eyebrow">Find your fit</span>
+      <h2 data-cms="paths_headline">Memberships &amp; Plans</h2>
+      <p data-cms="paths_subhead">Whether you work solo or bring a team, there's a plan built around how you actually use the space.</p>
     </div>
     <div class="paths-grid">
 
@@ -680,6 +680,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     lastY=y;ticking=false;
   }
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+})();
+</script>
+
+<!-- CMS content loader (pilot). Text edited at /admin lives in content/homepage.json;
+     this fills it in on load. Only touches elements marked data-cms, and only
+     overwrites if the JSON loads and has a non-empty value for that key, so a slow/
+     failed fetch just leaves the HTML's own text showing -- nothing ever goes blank. -->
+<script>
+(function(){
+  fetch('/content/homepage.json', {cache:'no-store'})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if(!data) return;
+      document.querySelectorAll('[data-cms]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms')];
+        if(typeof val === 'string' && val.trim() !== ''){ el.textContent = val; }
+      });
+    })
+    .catch(function(){ /* fetch failed offline/blocked -- HTML's own text stands as-is */ });
 })();
 </script>
 </body>
