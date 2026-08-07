@@ -599,9 +599,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">14 Erb St. West · Uptown Waterloo</p>
+    <p class="hero-eyebrow" data-cms="hero_eyebrow">14 Erb St. West · Uptown Waterloo</p>
     <h1>Beautifully designed rooms for <em>every kind of meeting.</em></h1>
-    <p class="hero-desc">
+    <p class="hero-desc" data-cms="hero_desc">
       Available on demand for members and guests alike. A range of sizes, built-in AV, Smart TVs, whiteboards, and curated aesthetics, each space built to support productive conversations, creative thinking, and professional gatherings.
     </p>
   </section>
@@ -889,15 +889,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="extras-section">
     <div class="extras-inner">
       <div class="extra-block">
-        <h3>Team Offsites &amp; Events</h3>
-        <p>
+        <h3 data-cms="extras_offsites_heading">Team Offsites &amp; Events</h3>
+        <p data-cms="extras_offsites_desc">
           Den 1880 ensures a seamless and rewarding offsite experience, from customized itinerary planning and exclusive local discounts to hands-on pre-event and onsite support. All-inclusive single and multi-day packages available. Let us handle the details so your team can focus on what matters.
         </p>
         <a href="https://den1880.optixapp.com/inquiry/" class="btn-primary">Inquire about Offsites</a>
       </div>
       <div class="extra-block">
-        <h3>Filming &amp; Photography</h3>
-        <p>
+        <h3 data-cms="extras_filming_heading">Filming &amp; Photography</h3>
+        <p data-cms="extras_filming_desc">
           All filming and photography within Den 1880 requires approval from our team in advance and may be subject to additional fees. Contact us directly for rates and availability.
         </p>
         <a href="mailto:hello@den1880.co" class="btn-primary">Contact Us</a>
@@ -908,7 +908,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- FOOTER CTA -->
   <section class="footer-cta">
     <h2>Ready to book your next <em>great meeting?</em></h2>
-    <p>Browse availability and reserve your space in minutes. Members get 20% off, no membership required to book.</p>
+    <p data-cms="footer_cta_subhead">Browse availability and reserve your space in minutes. Members get 20% off, no membership required to book.</p>
     <div class="actions">
       <a rel="nofollow" href="/go/book" class="btn-primary">Book a Meeting Room</a>
       <a href="https://den1880.optixapp.com/book/tour/" class="btn-outline">Book a Tour</a>
@@ -1055,5 +1055,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

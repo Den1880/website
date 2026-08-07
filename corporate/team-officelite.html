@@ -606,8 +606,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="memberships" id="team-plans" style="scroll-margin-top:24px">
       <div class="mb-header">
-        <h2>Dedicated team ready to come in regularly?</h2>
-        <p>Three tiers built around how your team will actually use the space. Each seat is a membership, assigned to a specific named employee at your company. Higher tiers unlock perks, pooled team services, and amenities.</p>
+        <h2 data-cms="team_plans_headline">Dedicated team ready to come in regularly?</h2>
+        <p data-cms="team_plans_sub">Three tiers built around how your team will actually use the space. Each seat is a membership, assigned to a specific named employee at your company. Higher tiers unlock perks, pooled team services, and amenities.</p>
       </div>
       <div class="toggle-wrap" style="margin:8px 0 40px">
         <div class="toggle" role="tablist" aria-label="Billing cadence">
@@ -798,8 +798,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHAT'S INCLUDED IN COWORKING -->
 <section id="coworking-included" style="padding:32px 0 16px;scroll-margin-top:24px">
   <div class="container" style="max-width:960px">
-    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every membership: Coworking access</h2>
-    <p class="sub" style="margin-bottom:18px">Every Lite plan seat gets full Club Membership coworking access on the main floor. Here's what that means.</p>
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px" data-cms="coworking_headline">What's included with every membership: Coworking access</h2>
+    <p class="sub" style="margin-bottom:18px" data-cms="coworking_sub">Every Lite plan seat gets full Club Membership coworking access on the main floor. Here's what that means.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
       <div style="padding:16px 18px;background:#FFFFFF;border:1px solid var(--line);border-radius:0">
         <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:15px;margin-bottom:4px">Workspace</div>
@@ -832,8 +832,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHAT'S INCLUDED IN PERFORMANCE CLUB -->
 <section id="fitness-included" style="padding:32px 0 16px;scroll-margin-top:24px">
   <div class="container" style="max-width:960px">
-    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every membership: Performance Club access</h2>
-    <p class="sub" style="margin-bottom:18px">Every Lite plan seat unlocks the full Performance Club: gym, cardio, functional, and recovery floor. The hardest part of working out is getting there. Here, it's right inside Den 1880.</p>
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px" data-cms="fitness_headline">What's included with every membership: Performance Club access</h2>
+    <p class="sub" style="margin-bottom:18px" data-cms="fitness_sub">Every Lite plan seat unlocks the full Performance Club: gym, cardio, functional, and recovery floor. The hardest part of working out is getting there. Here, it's right inside Den 1880.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
       <div style="padding:16px 18px;background:#FFFFFF;border:1px solid var(--line);border-radius:0">
         <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:15px;margin-bottom:4px">Strength Training</div>
@@ -868,8 +868,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- RETENTION HOOK -->
 <section style="padding-top:0;padding-bottom:24px">
   <div class="container" style="max-width:820px;text-align:center">
-    <h2 style="font-size:clamp(24px,3vw,34px);line-height:1.1">Have you always wanted to retain your top talent without raising salaries?</h2>
-    <p class="sub" style="margin-top:14px">Every Team Plan seat includes workspace, Performance Club gym, recovery suite, member events, and a heritage workplace your team will not want to give up. A daily experience that competes with Big Tech perks on an SMB budget.</p>
+    <h2 style="font-size:clamp(24px,3vw,34px);line-height:1.1" data-cms="retention_headline">Have you always wanted to retain your top talent without raising salaries?</h2>
+    <p class="sub" style="margin-top:14px" data-cms="retention_sub">Every Team Plan seat includes workspace, Performance Club gym, recovery suite, member events, and a heritage workplace your team will not want to give up. A daily experience that competes with Big Tech perks on an SMB budget.</p>
   </div>
 </section>
 
@@ -910,8 +910,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding-bottom:96px">
   <div class="container">
     <div class="final-cta">
-      <h2>Bring your team in to see it.</h2>
-      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <h2 data-cms="final_cta_headline">Bring your team in to see it.</h2>
+      <p data-cms="final_cta_sub">We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
       <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
       <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
     </div>
@@ -1076,5 +1076,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

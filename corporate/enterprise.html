@@ -602,9 +602,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="teams-band" style="background:linear-gradient(135deg,#1B1C1C 0%,#062241 100%)">
       <div>
-        <span class="scarce">Custom contracts · 25+ seats · Bespoke venue access</span>
-        <h2>Enterprise</h2>
-        <p>For 25+ seat contracts with bespoke needs (event venue access, onboarding, vendor of record for HR procurement, etc.). Scaled pooled credits and plans, quarterly business reviews, and custom commercial terms. Per-seat rates, inclusions and exclusions are fully custom at this scale, talk to our sales team for details.</p>
+        <span class="scarce" data-cms="enterprise_eyebrow">Custom contracts · 25+ seats · Bespoke venue access</span>
+        <h2 data-cms="enterprise_heading">Enterprise</h2>
+        <p data-cms="enterprise_intro">For 25+ seat contracts with bespoke needs (event venue access, onboarding, vendor of record for HR procurement, etc.). Scaled pooled credits and plans, quarterly business reviews, and custom commercial terms. Per-seat rates, inclusions and exclusions are fully custom at this scale, talk to our sales team for details.</p>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn btn-lime" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a>
           <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
@@ -626,20 +626,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- USE CASES section, two-persona pivot -->
 <section style="padding-top:0">
   <div class="container">
-    <h2>Two reasons companies sign team contracts</h2>
-    <p class="sub">Either you have remote workers in KW who need somewhere to sync, or you're a local team that wants the wellness and amenities without paying for your own office. Both get the gym.</p>
+    <h2 data-cms="usecases_heading">Two reasons companies sign team contracts</h2>
+    <p class="sub" data-cms="usecases_intro">Either you have remote workers in KW who need somewhere to sync, or you're a local team that wants the wellness and amenities without paying for your own office. Both get the gym.</p>
     <div class="usecases" style="grid-template-columns:repeat(2,1fr);max-width:980px;margin:0 auto">
       <div class="usecase" style="display:flex;flex-direction:column">
-        <span class="uc-pill">Distributed Teams</span>
-        <h3>Want your KW remote workers back together in person?</h3>
-        <p>If you have a distributed workforce with employees in Waterloo Region, they need a real place to work, train, and sync in person. Shareable Day Pass Bundles let any of your local team walk in and use the space. Full Team plans give them daily access plus The Performance Club and wellness amenities, the kind of health benefit that bigger companies pay a vendor for. One corporate contract, transferable seats, single invoice.</p>
-        <div class="uc-who">For: HR, People Ops, and Workforce leads at large corporations</div>
+        <span class="uc-pill" data-cms="usecase1_pill">Distributed Teams</span>
+        <h3 data-cms="usecase1_heading">Want your KW remote workers back together in person?</h3>
+        <p data-cms="usecase1_body">If you have a distributed workforce with employees in Waterloo Region, they need a real place to work, train, and sync in person. Shareable Day Pass Bundles let any of your local team walk in and use the space. Full Team plans give them daily access plus The Performance Club and wellness amenities, the kind of health benefit that bigger companies pay a vendor for. One corporate contract, transferable seats, single invoice.</p>
+        <div class="uc-who" data-cms="usecase1_who">For: HR, People Ops, and Workforce leads at large corporations</div>
       </div>
       <div class="usecase" style="display:flex;flex-direction:column">
-        <span class="uc-pill">Local Small Teams</span>
-        <h3>Want to run your business here without owning an office?</h3>
+        <span class="uc-pill" data-cms="usecase2_pill">Local Small Teams</span>
+        <h3 data-cms="usecase2_heading">Want to run your business here without owning an office?</h3>
         <p>If you're a 2 to 15 person team operating in Waterloo Region, your own office costs $17,000+/month all-in by the time you've paid for buildout, furniture, IT, cleaning, reception, parking, and separate gym memberships for your team. Den 1880 bundles all of that into one membership. <strong>Plus The Performance Club, wellness amenities, podcast studio, and event venue your team would never get on their own.</strong> See the cost comparison below.</p>
-        <div class="uc-who">For: Founders, COOs, Ops leads of small teams</div>
+        <div class="uc-who" data-cms="usecase2_who">For: Founders, COOs, Ops leads of small teams</div>
       </div>
     </div>
   </div>
@@ -684,8 +684,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding-bottom:96px">
   <div class="container">
     <div class="final-cta">
-      <h2>Bring your team in to see it.</h2>
-      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <h2 data-cms="final_cta_heading">Bring your team in to see it.</h2>
+      <p data-cms="final_cta_intro">We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
       <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
       <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
     </div>
@@ -851,5 +851,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

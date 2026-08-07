@@ -330,7 +330,7 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <section class="post-hero">
   <div class="container">
     <h1>Question of the <em>Day</em></h1>
-    <p class="post-meta">Explore the weird and wonderful corners of the community's brain!</p>
+    <p class="post-meta" data-cms="hero_subhead">Explore the weird and wonderful corners of the community's brain!</p>
   </div>
 </section>
 
@@ -346,15 +346,15 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 
 <div class="qotd-section-head" id="qotdArchiveHead" style="display:none">
-  <h2>Previous questions</h2>
-  <p>How the community answered, one day at a time.</p>
+  <h2 data-cms="archive_heading">Previous questions</h2>
+  <p data-cms="archive_subhead">How the community answered, one day at a time.</p>
 </div>
 <div class="qotd-archive" id="qotdArchive"></div>
 
 <div class="qotd-suggest">
   <div class="card">
-    <h3>Got a better question?</h3>
-    <p>Suggest tomorrow's Question of the Day. If we run it, it's yours to brag about.</p>
+    <h3 data-cms="suggest_heading">Got a better question?</h3>
+    <p data-cms="suggest_subhead">Suggest tomorrow's Question of the Day. If we run it, it's yours to brag about.</p>
     <form id="qotdSuggestForm">
       <input id="qotdSuggestInput" type="text" maxlength="200" aria-label="Suggest a question of the day" placeholder="e.g. Standing desk: life-changing or just standing?" autocomplete="off" />
       <button type="submit">Suggest it</button>
@@ -723,6 +723,7 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </script>
   <script src="/assets/stamps-config/question-of-the-day.js"></script>
   <script src="/assets/den-stamps.js" defer></script>
+  <script src="/assets/js/cms-loader.js"></script>
 <script id="nav3-js">
 (function(){
   var topbar=document.getElementById('topbar');

@@ -295,9 +295,9 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Uptown Waterloo</span>
+    <span class="post-eyebrow" data-cms="hero_eyebrow">Den 1880 · Uptown Waterloo</span>
     <h1>The <em>Den 1880</em> Blog</h1>
-    <p class="post-meta">News, guides and community updates from Uptown Waterloo</p>
+    <p class="post-meta" data-cms="hero_meta">News, guides and community updates from Uptown Waterloo</p>
   </div>
 </section>
 
@@ -489,5 +489,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

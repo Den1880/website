@@ -620,9 +620,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- FLEX DAY PASS PLANS - mirrors Team Plans -->
     <div class="memberships" id="flex" style="margin-top:28px;scroll-margin-top:24px">
       <div class="mb-header">
-        <span class="mb-eyebrow">Flexible day pass plans · Recurring monthly · 5+ team minimum</span>
-        <h2>Don't know who, when, or how often?</h2>
-        <p>Pay for flexibility, not commitment. Pooled day passes that recur monthly, shareable across your team, full Club access on each visit. Upgrade between Flex tiers anytime, or pair with a Team Plan above when your team needs both dedicated seats and on-demand flexibility.</p>
+        <span class="mb-eyebrow" data-cms="flex_eyebrow">Flexible day pass plans · Recurring monthly · 5+ team minimum</span>
+        <h2 data-cms="flex_headline">Don't know who, when, or how often?</h2>
+        <p data-cms="flex_sub">Pay for flexibility, not commitment. Pooled day passes that recur monthly, shareable across your team, full Club access on each visit. Upgrade between Flex tiers anytime, or pair with a Team Plan above when your team needs both dedicated seats and on-demand flexibility.</p>
       </div>
       <div class="toggle-wrap" style="margin:8px 0 40px">
         <div class="toggle" role="tablist" aria-label="Billing cadence">
@@ -776,8 +776,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHAT'S INCLUDED IN COWORKING -->
 <section id="coworking-included" style="padding:32px 0 16px;scroll-margin-top:24px">
   <div class="container" style="max-width:960px">
-    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every pass: Coworking access</h2>
-    <p class="sub" style="margin-bottom:18px">Every Flex day pass unlocks the full Club for that day. Here's what that means.</p>
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px" data-cms="coworking_headline">What's included with every pass: Coworking access</h2>
+    <p class="sub" style="margin-bottom:18px" data-cms="coworking_sub">Every Flex day pass unlocks the full Club for that day. Here's what that means.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
       <div style="padding:16px 18px;background:#FFFFFF;border:1px solid var(--line);border-radius:0">
         <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:15px;margin-bottom:4px">Workspace</div>
@@ -810,8 +810,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHAT'S INCLUDED IN PERFORMANCE CLUB -->
 <section id="fitness-included" style="padding:32px 0 16px;scroll-margin-top:24px">
   <div class="container" style="max-width:960px">
-    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px">What's included with every pass: Performance Club access</h2>
-    <p class="sub" style="margin-bottom:18px">Every Flex day pass also unlocks the full Performance Club for the day. Work and a workout, all on one pass.</p>
+    <h2 style="font-size:clamp(22px,2.6vw,28px);margin-bottom:10px" data-cms="fitness_headline">What's included with every pass: Performance Club access</h2>
+    <p class="sub" style="margin-bottom:18px" data-cms="fitness_sub">Every Flex day pass also unlocks the full Performance Club for the day. Work and a workout, all on one pass.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
       <div style="padding:16px 18px;background:#FFFFFF;border:1px solid var(--line);border-radius:0">
         <div style="font-family:'Monschone',Georgia,serif;font-weight:400;font-size:15px;margin-bottom:4px">Strength Training</div>
@@ -880,8 +880,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding-bottom:96px">
   <div class="container">
     <div class="final-cta">
-      <h2>Bring your team in to see it.</h2>
-      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <h2 data-cms="final_cta_headline">Bring your team in to see it.</h2>
+      <p data-cms="final_cta_sub">We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
       <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
       <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
     </div>
@@ -1048,5 +1048,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

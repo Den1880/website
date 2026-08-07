@@ -276,14 +276,14 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Uptown Waterloo</span>
+    <span class="post-eyebrow" data-cms="hero_eyebrow">Den 1880 · Uptown Waterloo</span>
     <h1>Best Cafés &amp; Lunch Spots Near <em>Uptown Waterloo</em></h1>
-    <p class="post-meta">A local's guide to coffee and lunch around the office</p>
+    <p class="post-meta" data-cms="hero_meta">A local's guide to coffee and lunch around the office</p>
   </div>
 </section>
 <div class="post-cover"><img src="https://static1.squarespace.com/static/6410c70d80b5921aadfd981e/t/687fb46b2a22961e03154dbd/1753199723746/DSCF27586.JPG" alt="A café near Den 1880 in Uptown Waterloo" /></div>
 <article class="post">
-<p>One of the best perks of working from a coworking space in Uptown Waterloo? You're surrounded by some of the city’s best cafés and local lunch spots. Whether you're stepping out for a mid-morning coffee, taking a client to lunch, or just grabbing something quick between meetings, there's no shortage of delicious options just steps from Den 1880.</p>
+<p data-cms="intro_paragraph">One of the best perks of working from a coworking space in Uptown Waterloo? You're surrounded by some of the city’s best cafés and local lunch spots. Whether you're stepping out for a mid-morning coffee, taking a client to lunch, or just grabbing something quick between meetings, there's no shortage of delicious options just steps from Den 1880.</p>
 <p>Here are a few of our favourites from the neighbourhood:</p>
 <h2>Cafés to Power Your Workday</h2>
 <h3>Poppy’s Bagels – Bagels & brews done right</h3>
@@ -313,8 +313,8 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <p>Want to experience the vibe for yourself? Book a coworking tour at Den 1880.</p>
 </article>
 <div class="post-cta">
-  <h3>Want to experience the vibe for yourself?</h3>
-  <p>A premium place to work, in a walkable neighbourhood full of places to step out to.</p>
+  <h3 data-cms="cta_heading">Want to experience the vibe for yourself?</h3>
+  <p data-cms="cta_subhead">A premium place to work, in a walkable neighbourhood full of places to step out to.</p>
   <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a tour</a> <a class="btn btn-ghost" href="https://den1880.co/memberships">Explore memberships</a>
 </div>
 <footer class="site-footer">
@@ -418,5 +418,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

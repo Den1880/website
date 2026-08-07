@@ -276,14 +276,14 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Community Newsletter</span>
-    <h1>July at Den 1880: Summer Celebrations, New Faces & Exciting Updates</h1>
-    <p class="post-meta">Community Newsletter · July 2025</p>
+    <span class="post-eyebrow" data-cms="hero_eyebrow">Den 1880 · Community Newsletter</span>
+    <h1 data-cms="hero_headline">July at Den 1880: Summer Celebrations, New Faces & Exciting Updates</h1>
+    <p class="post-meta" data-cms="hero_meta">Community Newsletter · July 2025</p>
   </div>
 </section>
 <div class="post-cover"><img src="https://static1.squarespace.com/static/6410c70d80b5921aadfd981e/t/6867d6490ca01d00cb8d2832/1753197231862/NEWSLETTER+WEB+IMAGES.jpg" alt="July at Den 1880" /></div>
 <article class="post">
-<p>Summer has officially arrived, and things are heating up at Den 1880, your go-to coworking space in Uptown Waterloo. From heartfelt goodbyes to exciting hellos, June was packed with milestones, laughter, and memorable events, and we’re just getting started.</p>
+<p data-cms="intro_paragraph">Summer has officially arrived, and things are heating up at Den 1880, your go-to coworking space in Uptown Waterloo. From heartfelt goodbyes to exciting hellos, June was packed with milestones, laughter, and memorable events, and we’re just getting started.</p>
 <figure class="post-figure"><img src="https://images.squarespace-cdn.com/content/v1/6410c70d80b5921aadfd981e/4f1fe094-9d7a-4342-8ef0-6bd591d950e6/DSC_3079.jpg" alt="" loading="lazy"></figure>
 <h2>Farewell to a Team Member</h2>
 <p>This month, we said a bittersweet goodbye to Sonvin, who’s heading off to an exciting new chapter in Toronto. As one of Den’s earliest team members, Sonvin has played an instrumental role in shaping our coworking community. Her warmth, energy, and tireless dedication have left a lasting mark, and she’ll always be part of the Den family. Thank you for everything, Sonvin. We’ll miss you dearly!</p>
@@ -311,8 +311,8 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <p>From all of us at Den 1880, happy summer! - Team Den</p>
 </article>
 <div class="post-cta">
-  <h3>Come see Den 1880 for yourself</h3>
-  <p>Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
+  <h3 data-cms="cta_headline">Come see Den 1880 for yourself</h3>
+  <p data-cms="cta_subhead">Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
   <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a tour</a> <a class="btn btn-ghost" href="https://den1880.co/memberships">Explore memberships</a>
 </div>
 <footer class="site-footer">
@@ -416,5 +416,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>
