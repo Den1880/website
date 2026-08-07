@@ -601,9 +601,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <section class="hero">
   <div class="container">
-    <span class="eyebrow">Options for your Team</span>
+    <span class="eyebrow" data-cms="hero_eyebrow">Options for your Team</span>
     <h1><em>In-person productivity</em> without an expensive boring long-term lease.</h1>
-    <p class="lede">Attract and retain your best team with culture, mentorship, and health and wellness opportunities for a small fraction of the cost. Den 1880 is a premium space paid by the seat, not by the square foot. We are located in the core of Uptown Waterloo near the LRT and countless restaurants. It includes coworking spaces, a full high-end fitness facility, The Vault podcast studio, a boutique event venue, and more, all on one simple corporate plan. Provide your team with a world-class offer most companies can't afford to make.</p>
+    <p class="lede" data-cms="hero_subhead">Attract and retain your best team with culture, mentorship, and health and wellness opportunities for a small fraction of the cost. Den 1880 is a premium space paid by the seat, not by the square foot. We are located in the core of Uptown Waterloo near the LRT and countless restaurants. It includes coworking spaces, a full high-end fitness facility, The Vault podcast studio, a boutique event venue, and more, all on one simple corporate plan. Provide your team with a world-class offer most companies can't afford to make.</p>
 
   </div>
 </section>
@@ -611,27 +611,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding:32px 0 16px">
   <div class="container">
     <div class="path-selector">
-      <span class="path-eyebrow">Find your fit</span>
-      <h2>How Do You Want to Work?</h2>
+      <span class="path-eyebrow" data-cms="paths_eyebrow">Find your fit</span>
+      <h2 data-cms="paths_headline">How Do You Want to Work?</h2>
       <div class="path-options">
         <a href="../private-offices.html" class="path-card">
-          <h3>Team Office</h3>
-          <p>Dedicated office space, lockable, 24/7, fully-furnished.</p>
+          <h3 data-cms="path_office_title">Team Office</h3>
+          <p data-cms="path_office_desc">Dedicated office space, lockable, 24/7, fully-furnished.</p>
           <span class="path-cta">See Offices</span>
         </a>
         <a href="team-officelite.html" class="path-card">
-          <h3>Team OfficeLite</h3>
-          <p>Team memberships for coworking and fitness.</p>
+          <h3 data-cms="path_officelite_title">Team OfficeLite</h3>
+          <p data-cms="path_officelite_desc">Team memberships for coworking and fitness.</p>
           <span class="path-cta">See OfficeLite Plans</span>
         </a>
         <a href="team-officeflex.html" class="path-card">
-          <h3>Team OfficeFlex</h3>
-          <p>Team day passes for coworking and fitness.</p>
+          <h3 data-cms="path_officeflex_title">Team OfficeFlex</h3>
+          <p data-cms="path_officeflex_desc">Team day passes for coworking and fitness.</p>
           <span class="path-cta">See OfficeFlex Plans</span>
         </a>
         <a href="drop-in.html#beyondmeet" class="path-card">
-          <h3>Team Meets</h3>
-          <p>Bulk meeting room credit promotion.</p>
+          <h3 data-cms="path_meets_title">Team Meets</h3>
+          <p data-cms="path_meets_desc">Bulk meeting room credit promotion.</p>
           <span class="path-cta">See the Offer</span>
         </a>
       </div>
@@ -658,8 +658,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FAQ TEASER -->
 <section style="padding-top:0;padding-bottom:24px">
   <div class="container" style="max-width:820px;text-align:center">
-    <h2>Common questions</h2>
-    <p class="sub">A few of the most common asks before procurement. See the full list on the FAQ page.</p>
+    <h2 data-cms="faq_teaser_headline">Common questions</h2>
+    <p class="sub" data-cms="faq_teaser_sub">A few of the most common asks before procurement. See the full list on the FAQ page.</p>
     <div style="text-align:left;margin-top:24px">
       <details><summary>Which plan fits my team?</summary><p>Pick by what services your team will actually use. Starter for the essentials, Base for hybrid teams, Scale for executive teams. Every plan has a 5-user minimum and a 3-month minimum term. <a href="faq.html" style="color:var(--plum);font-weight:600">See full FAQ &rarr;</a></p></details>
       <details><summary>How do transferable seats work?</summary><p>Each seat is tied to your company contract, not to an individual. HR or your account contact can reassign seats when someone leaves or joins. No paperwork. <a href="faq.html" style="color:var(--plum);font-weight:600">See full FAQ &rarr;</a></p></details>
@@ -673,8 +673,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section style="padding-bottom:96px">
   <div class="container">
     <div class="final-cta">
-      <h2>Bring your team in to see it.</h2>
-      <p>We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
+      <h2 data-cms="final_cta_headline">Bring your team in to see it.</h2>
+      <p data-cms="final_cta_sub">We can accommodate tours daily, Monday to Friday. Walk the Library, Theatre, The Vault podcast studio, The Performance Club, and Teams Floor. Meet the Den 1880 team, grab an espresso, ask anything. No pressure.</p>
       <a class="btn btn-lime" href="https://den1880.optixapp.com/book/tour/">Book a Team Tour</a>
       <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="https://den1880.optixapp.com/inquiry/">Skip the tour, just talk to sales</a>
     </div>
@@ -840,5 +840,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

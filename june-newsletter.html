@@ -276,14 +276,14 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Community Newsletter</span>
-    <h1>June at Den 1880: Big Events & Our Magazine Debut</h1>
-    <p class="post-meta">Community Newsletter · June 2025</p>
+    <span class="post-eyebrow" data-cms="hero_eyebrow">Den 1880 · Community Newsletter</span>
+    <h1 data-cms="hero_headline">June at Den 1880: Big Events & Our Magazine Debut</h1>
+    <p class="post-meta" data-cms="hero_meta">Community Newsletter · June 2025</p>
   </div>
 </section>
 <div class="post-cover"><img src="https://static1.squarespace.com/static/6410c70d80b5921aadfd981e/t/68547cc42eea6715dcb55f70/1751635491488/2.jpg" alt="June at Den 1880" /></div>
 <article class="post">
-<p>Summer has officially arrived at Den 1880, and there’s no better time to be part of our thriving coworking community in Uptown Waterloo.</p>
+<p data-cms="intro_paragraph">Summer has officially arrived at Den 1880, and there’s no better time to be part of our thriving coworking community in Uptown Waterloo.</p>
 <figure class="post-figure"><img src="https://images.squarespace-cdn.com/content/v1/6410c70d80b5921aadfd981e/67f16f17-4cbd-4448-a145-ef8aba73fad6/toque+cover+linkedin.jpeg" alt="" loading="lazy"></figure>
 <h2>Den 1880 featured on Toque Magazine’s Design Issue Cover</h2>
 <p>We’re incredibly proud to share that Den 1880 is on the cover of Toque Magazine’s Design Issue! The feature includes an in-depth interview with our COO, Jacklyn Warmington, spotlighting the intentional design behind our coworking space and the role it plays in building community. Stop by the kitchen to pick up your copy and join us at Member Happy Hour to celebrate.</p>
@@ -309,8 +309,8 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <p>– Team Den</p>
 </article>
 <div class="post-cta">
-  <h3>Come see Den 1880 for yourself</h3>
-  <p>Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
+  <h3 data-cms="cta_headline">Come see Den 1880 for yourself</h3>
+  <p data-cms="cta_subhead">Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
   <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a tour</a> <a class="btn btn-ghost" href="https://den1880.co/memberships">Explore memberships</a>
 </div>
 <footer class="site-footer">
@@ -414,5 +414,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

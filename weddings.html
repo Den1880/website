@@ -361,9 +361,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="private-events.html">Events</a> <span>&rsaquo;</span> Weddings</div>
-<span class="eyebrow" style="margin-top:24px">Weddings &middot; Uptown Waterloo</span>
+<span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Weddings &middot; Uptown Waterloo</span>
 <h1>Where <span class="purple">Love</span><br>Comes To Life</h1>
-<p class="lede">Den 1880 is the perfect setting for your dream wedding, located in the heart of Uptown Waterloo. With its historic charm, unique character, and beautifully designed spaces, Den offers a truly unforgettable boutique backdrop for saying "I do."</p>
+<p class="lede" data-cms="hero_subhead">Den 1880 is the perfect setting for your dream wedding, located in the heart of Uptown Waterloo. With its historic charm, unique character, and beautifully designed spaces, Den offers a truly unforgettable boutique backdrop for saying "I do."</p>
 <div class="hero-cta">
 <a href="#inquiry" class="btn btn-primary">Inquire About Your Wedding</a>
 </div>
@@ -372,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="band">
 <div class="container">
-<p>Den 1880 has partnered with some of the region's top vendors to offer an all-inclusive wedding experience. From catering and rentals to bar service and more, every detail is thoughtfully handled so you can enjoy a seamless, stress-free planning process and focus on the experience, not the logistics.</p>
+<p data-cms="band_intro">Den 1880 has partnered with some of the region's top vendors to offer an all-inclusive wedding experience. From catering and rentals to bar service and more, every detail is thoughtfully handled so you can enjoy a seamless, stress-free planning process and focus on the experience, not the logistics.</p>
 </div>
 </section>
 
@@ -389,9 +389,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="incl">
 <div class="container">
 <div class="head">
-<span class="eyebrow">What's Included</span>
-<h2>All-Inclusive Wedding Packages</h2>
-<p>Inquire for our custom all-inclusive wedding packages, tailored to your celebration.</p>
+<span class="eyebrow" data-cms="incl_eyebrow">What's Included</span>
+<h2 data-cms="incl_heading">All-Inclusive Wedding Packages</h2>
+<p data-cms="incl_intro">Inquire for our custom all-inclusive wedding packages, tailored to your celebration.</p>
 </div>
 <div class="incl-grid">
 <div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Venue Rental</div>
@@ -414,10 +414,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 <div class="inquiry-inner">
   <div class="inquiry-text">
-    <span style="display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px">Get in Touch</span>
+    <span style="display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px" data-cms="inquiry_eyebrow">Get in Touch</span>
     <h2>Let's plan your <em>perfect day.</em></h2>
-    <p>Tell us about your vision and we'll be in touch within one business day to put together a custom all-inclusive package.</p>
-    <p style="color:var(--muted);font-size:14px;margin-top:12px">No commitment required, just a conversation.</p>
+    <p data-cms="inquiry_intro">Tell us about your vision and we'll be in touch within one business day to put together a custom all-inclusive package.</p>
+    <p style="color:var(--muted);font-size:14px;margin-top:12px" data-cms="inquiry_note">No commitment required, just a conversation.</p>
     <p style="margin-top:20px;font-size:14px">Questions? <a href="mailto:hello@den1880.co" style="color:var(--plum);text-decoration:underline;text-underline-offset:3px">hello@den1880.co</a></p>
   </div>
   <div class="hb-embed-wrap">
@@ -535,5 +535,6 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

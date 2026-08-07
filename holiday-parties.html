@@ -289,9 +289,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="private-events.html">Events</a> <span>&rsaquo;</span> Holiday Parties</div>
-<span class="eyebrow" style="margin-top:24px">Holiday Parties &middot; Uptown Waterloo</span>
+<span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Holiday Parties &middot; Uptown Waterloo</span>
 <h1>The Perfect Venue For All Your <span class="purple">Holiday Celebrations</span></h1>
-<p class="lede">Den 1880 is the perfect venue for corporate and private holiday events. Whether you're planning an intimate gathering or a large company-wide event, our all-inclusive experience means every detail will be handled with care, so you can be fully present and party in style.</p>
+<p class="lede" data-cms="hero_subhead">Den 1880 is the perfect venue for corporate and private holiday events. Whether you're planning an intimate gathering or a large company-wide event, our all-inclusive experience means every detail will be handled with care, so you can be fully present and party in style.</p>
 <div class="hero-cta">
 <a href="eventinquiry.html" class="btn btn-primary">Inquire About Your Party</a>
 <a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
@@ -302,9 +302,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="incl">
 <div class="container">
 <div class="head">
-<span class="eyebrow">What's Included</span>
-<h2>An All-Inclusive Holiday Experience</h2>
-<p>Everything you need for a memorable celebration, handled by our dedicated events team.</p>
+<span class="eyebrow" data-cms="incl_eyebrow">What's Included</span>
+<h2 data-cms="incl_headline">An All-Inclusive Holiday Experience</h2>
+<p data-cms="incl_subhead">Everything you need for a memorable celebration, handled by our dedicated events team.</p>
 </div>
 <div class="incl-grid">
 <div class="incl-item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Venue Rental</div>
@@ -322,9 +322,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="final-cta">
 <div class="container">
 <div class="final-cta-inner">
-<span class="eyebrow">Book Your Holiday Event</span>
-<h2>Party In Style This Season</h2>
-<p>View our event spaces online or contact us to book a tour. Share your details and our team will craft the perfect holiday package for your group.</p>
+<span class="eyebrow" data-cms="cta_eyebrow">Book Your Holiday Event</span>
+<h2 data-cms="cta_headline">Party In Style This Season</h2>
+<p data-cms="cta_subhead">View our event spaces online or contact us to book a tour. Share your details and our team will craft the perfect holiday package for your group.</p>
 <div class="final-cta-btns">
 <a href="eventinquiry.html" class="btn btn-lime">Submit a Holiday Inquiry</a>
 <a href="gallery.html" class="btn btn-outline-light">View Event Spaces</a>
@@ -433,5 +433,6 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

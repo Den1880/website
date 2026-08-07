@@ -331,9 +331,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="page-hero">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> Private Events</div>
-<span class="eyebrow" style="margin-top:24px">Private Events &middot; Uptown Waterloo</span>
+<span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Private Events &middot; Uptown Waterloo</span>
 <h1>8 Hours Of <span class="purple">Work.</span><br>8 Hours Of <span class="purple">Play.</span></h1>
-<p class="lede">In a world with 24-hour days, we're here to supercharge the 16 hours you spend awake. Den 1880 is a design-forward, historic backdrop for unforgettable occasions and events.</p>
+<p class="lede" data-cms="hero_subhead">In a world with 24-hour days, we're here to supercharge the 16 hours you spend awake. Den 1880 is a design-forward, historic backdrop for unforgettable occasions and events.</p>
 <div class="hero-cta">
 <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
 <a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
@@ -343,16 +343,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="band">
 <div class="container">
-<p>We provide the stage and space to help bring your vision to life and create memorable experiences for you and your guests. Versatile, beautifully designed, and full of character. Each room at Den 1880 can be customized to suit your event style, whether you're planning a polished presentation, a stylish celebration, or something totally one-of-a-kind.</p>
+<p data-cms="band_intro">We provide the stage and space to help bring your vision to life and create memorable experiences for you and your guests. Versatile, beautifully designed, and full of character. Each room at Den 1880 can be customized to suit your event style, whether you're planning a polished presentation, a stylish celebration, or something totally one-of-a-kind.</p>
 </div>
 </section>
 
 <section class="hub">
 <div class="container">
 <div class="head">
-<span class="eyebrow">What We Host</span>
-<h2>An Occasion For Every Space</h2>
-<p>From milestone celebrations to company-wide gatherings, our team handles the details so you can focus on the experience.</p>
+<span class="eyebrow" data-cms="hub_eyebrow">What We Host</span>
+<h2 data-cms="hub_heading">An Occasion For Every Space</h2>
+<p data-cms="hub_subhead">From milestone celebrations to company-wide gatherings, our team handles the details so you can focus on the experience.</p>
 </div>
 <div class="hub-grid">
 <a class="hub-card" href="weddings.html">
@@ -409,10 +409,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 <div class="inquiry-inner">
   <div class="inquiry-text">
-    <span style="display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px">Get in Touch</span>
+    <span style="display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px" data-cms="inquiry_eyebrow">Get in Touch</span>
     <h2>Let's plan your <em>next event.</em></h2>
-    <p>Tell us what you're thinking and our events team will be in touch within one business day.</p>
-    <p style="color:var(--muted);font-size:14px;margin-top:12px">No commitment required, just a conversation.</p>
+    <p data-cms="inquiry_subhead">Tell us what you're thinking and our events team will be in touch within one business day.</p>
+    <p style="color:var(--muted);font-size:14px;margin-top:12px" data-cms="inquiry_note">No commitment required, just a conversation.</p>
     <p style="margin-top:20px;font-size:14px">Questions? <a href="mailto:hello@den1880.co" style="color:var(--plum);text-decoration:underline;text-underline-offset:3px">hello@den1880.co</a></p>
   </div>
   <div class="hb-embed-wrap">
@@ -530,5 +530,6 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

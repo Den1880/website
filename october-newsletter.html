@@ -276,9 +276,9 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Community Newsletter</span>
-    <h1>October at Den 1880: Music, Community and Connections</h1>
-    <p class="post-meta">Community Newsletter · October 2025</p>
+    <span class="post-eyebrow" data-cms="post_eyebrow">Den 1880 · Community Newsletter</span>
+    <h1 data-cms="post_title">October at Den 1880: Music, Community and Connections</h1>
+    <p class="post-meta" data-cms="post_meta">Community Newsletter · October 2025</p>
   </div>
 </section>
 <div class="post-cover"><img src="https://static1.squarespace.com/static/6410c70d80b5921aadfd981e/t/68f64cc137dfbf0434a1c274/1760971969490/6.png" alt="October at Den 1880" /></div>
@@ -304,8 +304,8 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <p>Here’s to making fall a season to remember at Den 1880. – Team Den</p>
 </article>
 <div class="post-cta">
-  <h3>Come see Den 1880 for yourself</h3>
-  <p>Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
+  <h3 data-cms="cta_heading">Come see Den 1880 for yourself</h3>
+  <p data-cms="cta_subhead">Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
   <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a tour</a> <a class="btn btn-ghost" href="https://den1880.co/memberships">Explore memberships</a>
 </div>
 <footer class="site-footer">
@@ -409,5 +409,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

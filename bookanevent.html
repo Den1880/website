@@ -283,9 +283,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="page-hero">
 <div class="container">
-<span class="eyebrow">Book An Event</span>
+<span class="eyebrow" data-cms="hero_eyebrow">Book An Event</span>
 <h1>Your Event <span class="purple">Starts Here</span></h1>
-<p class="lede">Share a few details and our events team will be in touch shortly to bring your vision to life. From weddings to corporate launches, Den 1880 is your design-forward venue in the heart of Uptown Waterloo.</p>
+<p class="lede" data-cms="hero_lede">Share a few details and our events team will be in touch shortly to bring your vision to life. From weddings to corporate launches, Den 1880 is your design-forward venue in the heart of Uptown Waterloo.</p>
 <div class="hero-cta">
 <a href="eventinquiry.html" class="btn btn-primary">Start an Event Inquiry</a>
 <a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
@@ -296,14 +296,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hub">
 <div class="container">
 <div class="head">
-<span class="eyebrow">What We Host</span>
-<h2>Find Your Event</h2>
+<span class="eyebrow" data-cms="hub_eyebrow">What We Host</span>
+<h2 data-cms="hub_headline">Find Your Event</h2>
 </div>
 <div class="hub-grid">
-<a class="hub-card" href="weddings.html"><h3>Weddings</h3><p>All-inclusive boutique wedding packages in a heritage setting.</p></a>
-<a class="hub-card" href="holiday-parties.html"><h3>Holiday Parties</h3><p>Corporate and private holiday celebrations, fully handled.</p></a>
-<a class="hub-card" href="team-offsites.html"><h3>Team Offsites</h3><p>Strategy sessions, retreats, and days of deep work.</p></a>
-<a class="hub-card" href="/meeting-rooms"><h3>Meetings</h3><p>Boardrooms and meeting spaces with built-in AV.</p></a>
+<a class="hub-card" href="weddings.html"><h3 data-cms="card_weddings_title">Weddings</h3><p data-cms="card_weddings_desc">All-inclusive boutique wedding packages in a heritage setting.</p></a>
+<a class="hub-card" href="holiday-parties.html"><h3 data-cms="card_holiday_title">Holiday Parties</h3><p data-cms="card_holiday_desc">Corporate and private holiday celebrations, fully handled.</p></a>
+<a class="hub-card" href="team-offsites.html"><h3 data-cms="card_offsites_title">Team Offsites</h3><p data-cms="card_offsites_desc">Strategy sessions, retreats, and days of deep work.</p></a>
+<a class="hub-card" href="/meeting-rooms"><h3 data-cms="card_meetings_title">Meetings</h3><p data-cms="card_meetings_desc">Boardrooms and meeting spaces with built-in AV.</p></a>
 </div>
 </div>
 </section>
@@ -416,5 +416,6 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>

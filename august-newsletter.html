@@ -276,14 +276,14 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 </div>
 <section class="post-hero">
   <div class="container">
-    <span class="post-eyebrow">Den 1880 · Community Newsletter</span>
-    <h1>Summer Highlights: August at Den 1880</h1>
-    <p class="post-meta">Community Newsletter · August 2025</p>
+    <span class="post-eyebrow" data-cms="hero_eyebrow">Den 1880 · Community Newsletter</span>
+    <h1 data-cms="hero_headline">Summer Highlights: August at Den 1880</h1>
+    <p class="post-meta" data-cms="hero_meta">Community Newsletter · August 2025</p>
   </div>
 </section>
 <div class="post-cover"><img src="https://static1.squarespace.com/static/6410c70d80b5921aadfd981e/t/68f1262352224579ef2ad18b/1760970421187/4.png" alt="August at Den 1880" /></div>
 <article class="post">
-<p>It’s hard to believe August is already here! We hope you’re soaking up every bit of sunshine and enjoying the long days of summer. Things have been buzzing here at Den 1880, and we’ve loved welcoming so many new members into the space these past few weeks.</p>
+<p data-cms="intro_paragraph">It’s hard to believe August is already here! We hope you’re soaking up every bit of sunshine and enjoying the long days of summer. Things have been buzzing here at Den 1880, and we’ve loved welcoming so many new members into the space these past few weeks.</p>
 <div class="post-gallery"><img src="https://images.squarespace-cdn.com/content/v1/6410c70d80b5921aadfd981e/2d7f090d-4e52-4c33-93d8-ead871325c00/DSC_5094.jpeg" alt="" loading="lazy"><img src="https://images.squarespace-cdn.com/content/v1/6410c70d80b5921aadfd981e/bfef49ac-c456-42c6-a61b-d2975007a25b/DSC_5251.jpg" alt="" loading="lazy"></div>
 <h2>A Look Back: Music Trivia Madness</h2>
 <p>A huge shoutout to Host Wanted Productions and everyone who joined us for Music Trivia Night in July. You all brought the energy (and the deep-cut song knowledge). Congratulations to our winning team, Warmingtunes, your music skills seriously rocked.</p>
@@ -300,8 +300,8 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <p>Here’s to a sunny, social, and inspiring August ahead. – Team Den</p>
 </article>
 <div class="post-cta">
-  <h3>Come see Den 1880 for yourself</h3>
-  <p>Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
+  <h3 data-cms="cta_heading">Come see Den 1880 for yourself</h3>
+  <p data-cms="cta_subhead">Book a tour of our Uptown Waterloo coworking space, or explore the membership options.</p>
   <a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Book a tour</a> <a class="btn btn-ghost" href="https://den1880.co/memberships">Explore memberships</a>
 </div>
 <footer class="site-footer">
@@ -405,5 +405,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
+<script src="/assets/js/cms-loader.js"></script>
 </body>
 </html>
