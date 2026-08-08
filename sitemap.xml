@@ -41,4 +41,10 @@
   <url><loc>https://den1880.co/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://den1880.co/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://den1880.co/get-started</loc></url>
+  <url><loc>https://den1880.co/customer-appreciation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/panel-discussions</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/presentation-space</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/theatre</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/reviews</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://den1880.co/memorial-reception-venue</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

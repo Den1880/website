@@ -113,7 +113,10 @@ a{color:inherit;text-decoration:none}
 .hub .head .eyebrow{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px}
 .hub .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
 .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto}
-@media(max-width:860px){.hub-grid{grid-template-columns:1fr}}
+/* 13 cards in a 3-col grid leaves one orphan in the last row — centre it deliberately
+   rather than leave two blank cells beside it (den-1880-brand: "edges are part of the design"). */
+.hub-grid > a:last-child:nth-child(3n+1){grid-column:2/3}
+@media(max-width:860px){.hub-grid{grid-template-columns:1fr}.hub-grid > a:last-child:nth-child(3n+1){grid-column:1/-1}}
 .hub-card{display:flex;flex-direction:column;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:0;padding:30px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
 .hub-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--orange)}
 .hub-card .tag{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;background:rgba(101,45,144,.1);color:var(--plum);border-radius:999px}
@@ -336,7 +339,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p class="lede" data-cms="hero_subhead">In a world with 24-hour days, we're here to supercharge the 16 hours you spend awake. Den 1880 is a design-forward, historic backdrop for unforgettable occasions and events.</p>
 <div class="hero-cta">
 <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
-<a href="https://den1880.optixapp.com/book/tour/" class="btn btn-ghost">Book a Tour</a>
 </div>
 </div>
 </section>
@@ -390,6 +392,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3>The Gallery</h3>
 <p>Take a look inside Den 1880's heritage rooms, lounges, and event spaces before you book your tour.</p>
 <span class="go">View the gallery</span>
+</a>
+<a class="hub-card" href="/customer-appreciation">
+<span class="tag">Client Events</span>
+<h3>Customer Appreciation</h3>
+<p>Thank your best clients in style — cocktail receptions, client dinners and awards nights, fully hosted.</p>
+<span class="go">Plan a client night</span>
+</a>
+<a class="hub-card" href="/panel-discussions">
+<span class="tag">Talks</span>
+<h3>Panel Discussions</h3>
+<p>Panels, fireside chats and Q&amp;A nights with elevated bleacher seating for up to 100 guests.</p>
+<span class="go">Plan your panel</span>
+</a>
+<a class="hub-card" href="/presentation-space">
+<span class="tag">Corporate</span>
+<h3>Presentation Space</h3>
+<p>AGMs, launches and town halls on a 16-foot video wall, with wireless mics and seating for 100.</p>
+<span class="go">See the setup</span>
+</a>
+<a class="hub-card" href="/theatre">
+<span class="tag">The Room</span>
+<h3>The Theatre</h3>
+<p>Seats up to 100 under a 16-foot video wall, then opens into the Lobby Bar for cocktails up to 140.</p>
+<span class="go">See the Theatre</span>
+</a>
+<a class="hub-card" href="/reviews">
+<span class="tag">Reviews</span>
+<h3>What People Say</h3>
+<p>Real Google reviews from event hosts, teams and members — in their own words, unedited.</p>
+<span class="go">Read the reviews</span>
+</a>
+<a class="hub-card" href="https://den1880.optixapp.com/book/tour/">
+<span class="tag">Visit</span>
+<h3>Book a Venue Tour</h3>
+<p>Walk the rooms with us before you decide — weekday mornings and afternoons.</p>
+<span class="go">Book a tour</span>
+</a>
+<a class="hub-card" href="/memorial-reception-venue">
+<span class="tag">In Memory</span>
+<h3>Celebration of Life</h3>
+<p>A private, all-inclusive room to gather and honour a life, handled quietly and completely.</p>
+<span class="go">Learn more</span>
 </a>
 </div>
 </div>
