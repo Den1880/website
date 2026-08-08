@@ -480,7 +480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
    <div class="hero-copy">
     <span class="eyebrow" data-cms="hero_eyebrow">Events · Work · Wellness</span>
-    <h1>Where <em>You</em><br class="dbrk"> come to <em>Life.</em></h1>
+    <h1 data-cms-md="hero_headline" data-cms-md-br-class="dbrk">Where <em>You</em><br class="dbrk"> come to <em>Life.</em></h1>
     <p class="lede" data-cms="hero_subhead">Work, gather, and move in spaces designed to inspire.</p>
    </div>
   </div>
@@ -702,6 +702,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var val = data[el.getAttribute('data-cms-vimeo-id')];
         if(typeof val === 'string' && /^\d+$/.test(val.trim())){
           el.src = el.src.replace(/\/video\/\d+/, '/video/' + val.trim());
+        }
+      });
+      document.querySelectorAll('[data-cms-md]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms-md')];
+        if(typeof val === 'string' && val.trim() !== ''){
+          var accentClass = el.getAttribute('data-cms-md-accent') || 'purple';
+          var brClass = el.getAttribute('data-cms-md-br-class') || '';
+          var out = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          out = out.replace(/\*\*(.+?)\*\*/g, function(m,inner){ return '<span class="' + accentClass + '">' + inner + '</span>'; });
+          out = out.replace(/\*(.+?)\*/g, function(m,inner){ return '<em>' + inner + '</em>'; });
+          var brTag = brClass ? '<br class="' + brClass + '">' : '<br>';
+          el.innerHTML = out.split('\n').join(brTag);
         }
       });
     })
