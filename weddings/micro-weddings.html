@@ -357,6 +357,19 @@ a{color:inherit;text-decoration:none}
 <!-- SEO:LocalBusiness -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://den1880.co/"}, {"@type": "ListItem", "position": 2, "name": "Weddings", "item": "https://den1880.co/weddings"}, {"@type": "ListItem", "position": 3, "name": "Micro Weddings", "item": "https://den1880.co/weddings/micro-weddings"}]}</script>
+<script>document.documentElement.classList.add('nav-preload');</script>
+<style id="nav3-css">
+/* ===== HIDE-ON-SCROLL HEADER: brought in line with the rest of den1880.co =====
+   Wedding pages already ship the same three-group dropdown nav (Events/Work/
+   Wellness) as the rest of the site; this block only adds the hide-until-first
+   -scroll behaviour that the nav-redesign PR gave every other page. Dropdown
+   open/close stays exactly as built (CSS :hover/:focus-within, no JS toggle). */
+.topbar{transition:transform .28s ease}
+html.nav-preload .topbar{transform:translateY(-100%)}
+html.nav-preload body{margin-top:calc(0px - var(--nav-off,0px))}
+html:not(.nav-preload) body{transition:margin-top .3s ease}
+.topbar.topbar-hidden{transform:translateY(-100%)}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -514,6 +527,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
  });
+})();
+</script>
+<script>
+/* Hide on scroll down, show on scroll up -- matches index.html's nav-redesign.
+   Self-contained: does not touch the existing hamburger/drawer IIFE above. */
+(function(){
+  var topbar=document.getElementById('topbar');
+  if(!topbar)return;
+  var lastY=window.pageYOffset,ticking=false,navRevealed=false,navGrace=0;
+  function revealNav(){
+    if(!navRevealed){
+      navRevealed=true;navGrace=Date.now()+1200;lastY=window.pageYOffset;
+      topbar.classList.remove('topbar-hidden');
+      document.documentElement.classList.remove('nav-preload');
+    }
+  }
+  window.addEventListener('wheel',revealNav,{passive:true,once:true});
+  window.addEventListener('touchmove',revealNav,{passive:true,once:true});
+  topbar.addEventListener('focusin',revealNav);
+  if(document.documentElement.classList.contains('nav-preload')){
+    var kids=document.body.children,firstContent=null;
+    for(var ki=0;ki<kids.length;ki++){
+      var kel=kids[ki];
+      if(kel!==topbar&&!/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(kel.tagName)&&kel.offsetHeight>0&&getComputedStyle(kel).position!=='fixed'){firstContent=kel;break;}
+    }
+    if(firstContent){
+      var navOff=firstContent.getBoundingClientRect().top+window.pageYOffset;
+      if(navOff>0&&navOff<240)document.documentElement.style.setProperty('--nav-off',navOff+'px');
+    }
+  }
+  function onScroll(){
+    var y=window.pageYOffset;
+    var mm=document.getElementById('mobileMenu');
+    var menuOpen=mm&&mm.classList.contains('open');
+    if(!menuOpen){
+      if(y>lastY&&y>120&&Date.now()>navGrace){topbar.classList.add('topbar-hidden');}
+      else if(y<lastY||y<=10){topbar.classList.remove('topbar-hidden');}
+    }
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
 </script>
 <script>window.DEN_STAMPS = {
