@@ -952,11 +952,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 <script>
   (function(){
+    /* Newsletter subscriber log (Apps Script web app): same plumbing as the
+       Lead Log. The page posts straight to the sheet endpoint because Netlify's
+       outgoing webhooks choke on Apps Script's redirect responses and get
+       auto-disabled. Netlify Forms stays on as backup either way. */
+    var NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbxGDHxtdgY-yoqVGm0MM4_9Yaw5vWUcwuSUXGuyecpUxgldPCBiz6NvHFRc4rP3kcMA/exec?key=f7eb88ca9687dc71933e64c6";
     var f=document.getElementById('newsletterForm');
     if(!f) return;
+    function sendToSheet(email){
+      if(!NEWSLETTER_ENDPOINT) return;
+      try{
+        var body=JSON.stringify({form_name:'newsletter', data:{email:email, referrer:location.href}});
+        if(navigator.sendBeacon){ navigator.sendBeacon(NEWSLETTER_ENDPOINT, new Blob([body],{type:'text/plain'})); }
+        else{ fetch(NEWSLETTER_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:body}); }
+      }catch(err){}
+    }
     f.addEventListener('submit', function(e){
       e.preventDefault();
-      var body=new URLSearchParams(new FormData(f)).toString();
+      var fd=new FormData(f);
+      if(!fd.get('bot-field')){ sendToSheet(String(fd.get('email')||'')); } /* honeypot: bots skip the sheet */
+      var body=new URLSearchParams(fd).toString();
       var done=function(){ f.outerHTML='<p class="newsletter-done">Thanks! You&rsquo;re on the list.</p>'; };
       fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body}).then(done).catch(done);
     });
