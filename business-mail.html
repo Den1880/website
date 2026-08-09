@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .breadcrumb span{margin:0 6px;opacity:.5}
 
   /* Hero */
-  .hero{padding:64px 0 76px;position:relative;overflow:hidden;background:var(--green) url('assets/photos/den1880-exterior.jpg') center 38%/cover no-repeat}
+  .hero{padding:64px 0 76px;position:relative;overflow:hidden;background:var(--green) var(--cms-bg, url('assets/photos/den1880-exterior.jpg')) center 38%/cover no-repeat}
   .hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
   @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:36px}}
   .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px;background:rgba(101,45,144,.08);padding:6px 12px;border-radius:999px}
@@ -395,7 +395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" data-cms-bg="hero_photo">
   <div class="container">
     <div class="breadcrumb">
       <a href="memberships.html">Memberships</a>

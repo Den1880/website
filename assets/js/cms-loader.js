@@ -9,7 +9,7 @@
  * missing, JSON malformed) it fails silently and the page just shows
  * whatever is already sitting in the HTML -- nothing can go blank.
  *
- * Four field types:
+ * Five field types:
  *   data-cms="field_name"          -- plain text, sets .textContent. Only use
  *                                      on an element with NO nested tags --
  *                                      textContent would silently strip them.
@@ -43,6 +43,23 @@
  *                                      Give an inserted <br> a class (e.g.
  *                                      the homepage's responsive "dbrk"
  *                                      break) with data-cms-md-br-class="...".
+ *   data-cms-bg="field_name"       -- a full-bleed hero photo painted with
+ *                                      CSS `background`, not an <img> tag
+ *                                      (page-hero/hero/contact-hero sections
+ *                                      that layer a gradient scrim over a
+ *                                      photo). Sets a `--cms-bg` custom
+ *                                      property on the element to a
+ *                                      `url("...")`; every such section's
+ *                                      CSS reads its photo layer through
+ *                                      `var(--cms-bg, url('/original.jpg'))`,
+ *                                      so leaving the field untouched keeps
+ *                                      the original photo (and, on pages with
+ *                                      separate desktop/mobile crops, both
+ *                                      breakpoints render identically to
+ *                                      today). Uploading a replacement here
+ *                                      swaps it at every breakpoint at once --
+ *                                      there is only one field, not a
+ *                                      desktop/mobile pair.
  *
  * Slug rule (must match how pages are named under content/):
  *   "/"                          -> "homepage"
@@ -110,6 +127,16 @@
           var accentClass = el.getAttribute("data-cms-md-accent") || "purple";
           var brClass = el.getAttribute("data-cms-md-br-class") || "";
           el.innerHTML = renderRichText(val, accentClass, brClass);
+        }
+      });
+
+      document.querySelectorAll("[data-cms-bg]").forEach(function (el) {
+        var val = data[el.getAttribute("data-cms-bg")];
+        if (typeof val === "string" && val.trim() !== "") {
+          el.style.setProperty(
+            "--cms-bg",
+            'url("' + val.trim().replace(/"/g, '\\"') + '")'
+          );
         }
       });
     })

@@ -716,6 +716,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           el.innerHTML = out.split('\n').join(brTag);
         }
       });
+      document.querySelectorAll('[data-cms-bg]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms-bg')];
+        if(typeof val === 'string' && val.trim() !== ''){
+          el.style.setProperty('--cms-bg', 'url("' + val.trim().replace(/"/g, '\\"') + '")');
+        }
+      });
     })
     .catch(function(){ /* fetch failed offline/blocked -- HTML's own text stands as-is */ });
 })();
