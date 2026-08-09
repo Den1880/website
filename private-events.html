@@ -187,7 +187,7 @@ footer a{color:var(--plum)}
    Matches the corporate / memberships / meeting-rooms heroes.
    ============================================================ */
 .page-hero{
-  background:linear-gradient(180deg,rgba(27,28,28,.38),rgba(27,28,28,.74)),url('/assets/photos/event-hero.jpg') center 50%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(27,28,28,.38),rgba(27,28,28,.74)),var(--cms-bg, url('/assets/photos/event-hero.jpg')) center 50%/cover no-repeat !important;
   min-height:clamp(440px,60vh,580px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
@@ -342,7 +342,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#inquiry" class="mobile-cta">Inquire Now</a>
 </div>
 
-<section class="page-hero">
+<section class="page-hero" data-cms-bg="hero_photo">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> Private Events</div>
 <span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Private Events &middot; Uptown Waterloo</span>

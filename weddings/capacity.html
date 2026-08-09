@@ -350,8 +350,8 @@ a{color:inherit;text-decoration:none}
 [id]{scroll-margin-top:88px}
 :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 
-.page-hero{background:linear-gradient(180deg,rgba(6,34,65,0) 40%,rgba(6,34,65,.52) 66%,rgba(6,34,65,.88) 84%,rgba(6,34,65,.94) 100%),linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.86) 32%,rgba(6,34,65,.46) 62%,rgba(6,34,65,.18) 100%),url('/assets/photos/weddings/hero-capacity-wide.jpg') 50% 50%/cover no-repeat;background-color:var(--blue)}
-@media(max-width:768px){.page-hero{background:linear-gradient(180deg,rgba(6,34,65,.46) 0%,rgba(6,34,65,.10) 18%,rgba(6,34,65,.12) 34%,rgba(6,34,65,.88) 54%,rgba(6,34,65,.97) 76%),url('/assets/photos/weddings/hero-capacity-tall.jpg') 50% 0%/cover no-repeat;background-color:var(--blue)}}
+.page-hero{background:linear-gradient(180deg,rgba(6,34,65,0) 40%,rgba(6,34,65,.52) 66%,rgba(6,34,65,.88) 84%,rgba(6,34,65,.94) 100%),linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.86) 32%,rgba(6,34,65,.46) 62%,rgba(6,34,65,.18) 100%),var(--cms-bg, url('/assets/photos/weddings/hero-capacity-wide.jpg')) 50% 50%/cover no-repeat;background-color:var(--blue)}
+@media(max-width:768px){.page-hero{background:linear-gradient(180deg,rgba(6,34,65,.46) 0%,rgba(6,34,65,.10) 18%,rgba(6,34,65,.12) 34%,rgba(6,34,65,.88) 54%,rgba(6,34,65,.97) 76%),var(--cms-bg, url('/assets/photos/weddings/hero-capacity-tall.jpg')) 50% 0%/cover no-repeat;background-color:var(--blue)}}
 </style>
 <link rel="stylesheet" href="/assets/den-stamps.css">
 <!-- SEO:LocalBusiness -->
@@ -398,11 +398,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="mm-foot">14 Erb St. West, Waterloo<br><a href="tel:5197831505" style="color:var(--mustard)">(519) 783-1505</a></div>
 </div>
 
-<section class="page-hero">
+<section class="page-hero" data-cms-bg="hero_photo">
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="/weddings">Weddings</a> <span>&rsaquo;</span> Capacity & Layouts</div>
     <span class="eyebrow" data-cms="hero_eyebrow">A historic space with a modern spirit</span>
-    <h1>Wedding <span class="accent">Capacity</span> And Layouts</h1>
+    <h1 data-cms-md="hero_headline" data-cms-md-accent="accent">Wedding <span class="accent">Capacity</span> And Layouts</h1>
     <p class="lede" data-cms="hero_lede">Four rooms that work on their own or run together as one evening. Here is what each one holds, so you can stop guessing whether your list fits. Every wedding venue in Waterloo quotes one maximum capacity; this page breaks it down room by room instead, including what works for a small wedding rather than a Kitchener banquet hall.</p>
     <div class="hero-cta"><a href="#inquiry" class="btn btn-primary">Inquire About Your Wedding</a></div>
     <div class="hero-proof"><div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;Everything from the event space, to library, private booths, podcast studio, kitchens and offices is very well put together and versatile.&rdquo;</blockquote><div class="who"><b>Zoran Kukic</b> &middot; Google review<span class="tag">Events & workspace</span></div></div>

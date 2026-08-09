@@ -435,7 +435,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    corporate + memberships hero treatment.
    ============================================================ */
 .hero{
-  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.72)),url('/assets/photos/DSC_1304-hero.jpg') center 50%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.72)),var(--cms-bg, url('/assets/photos/DSC_1304-hero.jpg')) center 50%/cover no-repeat !important;
   max-width:none !important;
   min-height:clamp(420px,58vh,560px);
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
@@ -598,7 +598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" data-cms-bg="hero_photo">
     <p class="hero-eyebrow" data-cms="hero_eyebrow">14 Erb St. West · Uptown Waterloo</p>
     <h1 data-cms-md="hero_headline">Beautifully designed rooms for <em>every kind of meeting.</em></h1>
     <p class="hero-desc" data-cms="hero_desc">
