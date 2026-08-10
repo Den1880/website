@@ -22,9 +22,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="msapplication-TileColor" content="#F2F1EA">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="format-detection" content="telephone=no">
-<title>Presentation Space For AGMs, Launches &amp; Town Halls | Den 1880 Waterloo</title>
-<meta name="description" content="A presentation space in Uptown Waterloo with a 16-ft video wall, wireless mics and seating for 100. Host AGMs, product launches and town halls at Den 1880." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Book a Tour of Den 1880 | Coworking &amp; Event Venue in Uptown Waterloo</title>
+<meta name="description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -160,18 +159,18 @@ footer a{color:var(--plum)}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
-<link rel="canonical" href="https://den1880.co/presentation-space" />
+<link rel="canonical" href="https://den1880.co/book-a-tour" />
 <!-- SEO:OpenGraph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Den 1880" />
-<meta property="og:title" content="Presentation Space For AGMs, Launches &amp; Town Halls | Den 1880 Waterloo" />
-<meta property="og:description" content="A presentation space in Uptown Waterloo with a 16-ft video wall, wireless mics and seating for 100. Host AGMs, product launches and town halls at Den 1880." />
-<meta property="og:url" content="https://den1880.co/presentation-space" />
-<meta property="og:image" content="https://den1880.co/assets/Events/12.11%20-%2038.jpg" />
+<meta property="og:title" content="Book a Tour of Den 1880 | Uptown Waterloo" />
+<meta property="og:description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself." />
+<meta property="og:url" content="https://den1880.co/book-a-tour" />
+<meta property="og:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Presentation Space For AGMs, Launches &amp; Town Halls | Den 1880 Waterloo" />
-<meta name="twitter:description" content="A presentation space in Uptown Waterloo with a 16-ft video wall, wireless mics and seating for 100. Host AGMs, product launches and town halls at Den 1880." />
-<meta name="twitter:image" content="https://den1880.co/assets/Events/12.11%20-%2038.jpg" />
+<meta name="twitter:title" content="Book a Tour of Den 1880 | Uptown Waterloo" />
+<meta name="twitter:description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself." />
+<meta name="twitter:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
 <!-- SEO:LocalBusiness -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
@@ -210,7 +209,7 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 .mm-group.open .mm-panel{display:block}
 .mobile-menu .mm-panel a{border-bottom:none;padding:10px 0;font-size:14px}
 </style>
-<link rel="preload" as="image" href="/assets/Events/12.11 - 38.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/photos/hero-poster.jpg" fetchpriority="high">
 <style id="sitelink-extra">
 /* ===== sitelink-pages additions (band, photo row, specs, quotes, related) ===== */
 .band{padding:20px 0 44px}
@@ -241,30 +240,83 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 .related-card p{font-size:14px;color:var(--ink-2);flex:1;margin:0;line-height:1.6}
 .related-card .go{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime-deep)}
 .related-card .go::after{content:' \2192'}
-/* ===== hero image overlay (same pattern as private-events / memberships) ===== */
+/* ===== HERO: still photograph, no video ============================
+   Andrew's call for this page specifically -- the booking form is the point,
+   and a moving background pulls against it. The poster is a plain <img>, so
+   it is the LCP element and there is nothing deferred to go wrong. */
 .page-hero{
-  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),url('/assets/Events/12.11 - 38.jpg') center 50%/cover no-repeat !important;
-  min-height:clamp(440px,60vh,580px);
+  position:relative;overflow:hidden;
+  min-height:clamp(460px,62vh,600px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
-  overflow:hidden;
+  background:var(--blue);
 }
-.page-hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto}
-.page-hero,.page-hero h1,.page-hero p,.page-hero .lede,.page-hero .eyebrow,.page-hero .breadcrumb,.page-hero .breadcrumb a,.page-hero .breadcrumb span{color:#fff !important}
+.hero-media{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%}
+/* Scrim over the photo. Bounded rather than sampled, so white type clears
+   AA even where the shot is blown out. */
+.hero-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  /* Left-heavy, the way /careers does it: the copy sits in the dark third and
+     the subject on the right of the photo stays readable. Bounded, not
+     sampled -- at the left edge the two stops composite to ~.91, which puts
+     white type above 8:1 no matter how blown out the pixel underneath is. */
+  background:
+    linear-gradient(90deg,rgba(6,34,65,.88) 0%,rgba(6,34,65,.72) 30%,rgba(6,34,65,.34) 58%,rgba(6,34,65,.14) 100%),
+    linear-gradient(180deg,rgba(6,34,65,.18),rgba(6,34,65,.44));
+}
+/* Copy sits low and left, the homepage's editorial placement, so it never
+   lands on the person in the middle of the frame. */
+.page-hero{align-items:flex-end;justify-content:flex-start;text-align:left}
+.page-hero .container{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;
+  padding:0 24px clamp(40px,7vh,84px);text-align:left}
+.page-hero .hero-copy{max-width:560px}
+.page-hero h1{margin:0 0 18px;max-width:15ch}
+.page-hero p.lede{margin:0 0 26px;max-width:470px}
+.page-hero .hero-cta{display:flex;justify-content:flex-start}
+.page-hero,.page-hero h1,.page-hero p,.page-hero .lede,.page-hero .eyebrow{color:#fff !important}
 .page-hero .eyebrow{background:rgba(255,255,255,.16) !important;text-shadow:none}
 .page-hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
 .page-hero h1 .purple{color:var(--lime) !important}
 .page-hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .page-hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
-.page-hero .btn-primary:hover{background:var(--orange) !important;transform:translateY(-1px)}
-.page-hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,0.74) !important}
-.page-hero .btn-ghost:hover{background:var(--orange) !important;color:#1B1C1C !important;border-color:transparent !important}
-/* centred social proof at the bottom of the hero */
-.hero-proof{margin:38px auto 0;max-width:640px;text-align:center}
-.hero-proof .stars{color:var(--mustard);font-size:15px;letter-spacing:3px;margin-bottom:10px;text-shadow:0 1px 8px rgba(0,0,0,.45)}
-.hero-proof p{font-size:16px;line-height:1.6;font-style:italic;color:#fff !important;margin:0 0 10px;text-shadow:0 1px 12px rgba(0,0,0,.55)}
-.hero-proof cite{font-style:normal;font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.78)}
-@media(max-width:600px){.hero-proof{margin-top:28px}.hero-proof p{font-size:15px}}
+.page-hero .btn-primary:hover{background:var(--orange) !important}
+
+/* ===== Optix embed =================================================
+   The form is an iframe on den1880.optixapp.com. Optix posts no height
+   messages, so the parent cannot size to content: fixed height, own scroll.
+   Desktop height fits the two-column layout (calendar left, times right)
+   without an inner scrollbar. */
+.tour-embed{padding:8px 0 64px;scroll-margin-top:76px}
+.tour-embed .container{max-width:1100px}
+.tour-frame-wrap{border:1px solid var(--line);background:var(--card)}
+.tour-frame-wrap iframe{display:block;width:100%;height:860px;border:0}
+.tour-fallback{padding:40px 24px;text-align:center}
+.tour-note{margin:14px auto 0;max-width:680px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
+@media(max-width:900px){
+  .tour-frame-wrap iframe{height:1180px}
+}
+/* Phones get the homepage's other placement: there is no left third to sit
+   in, so the copy drops to the bottom of the frame and centres. */
+@media(max-width:768px){
+  .page-hero{
+    min-height:clamp(500px,78svh,640px);
+    padding:88px 0 0 !important;
+    align-items:flex-end;justify-content:center;text-align:center;
+  }
+  .page-hero .container{text-align:center;padding:0 20px clamp(36px,6vh,56px)}
+  .page-hero .hero-copy{max-width:none;margin:0 auto}
+  .page-hero h1{max-width:none;margin:0 auto 16px}
+  .page-hero p.lede{margin:0 auto 24px;max-width:22em}
+  .page-hero .hero-cta{justify-content:center}
+  .hero-poster{object-position:center 42%}
+  /* the left-heavy wash would sit under nothing on a phone -- go vertical so
+     the dark end is beneath the centred copy */
+  .hero-media::after{
+    background:linear-gradient(180deg,rgba(6,34,65,.26) 0%,rgba(6,34,65,.50) 42%,rgba(6,34,65,.88) 100%);
+  }
+}
+@media(max-width:560px){.tour-frame-wrap iframe{height:1240px}}
 </style>
 </head>
 <body>
@@ -272,8 +324,6 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-
 <header class="topbar" id="topbar">
   <div class="nav-brand">
     <a class="logo" href="/"><img src="/assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
@@ -353,68 +403,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/eventinquiry" class="mobile-cta">Inquire Now</a>
 </div>
 
+
 <section class="page-hero">
-<div class="container">
-<div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="/private-events">Events</a> <span>&rsaquo;</span> Presentation Space</div>
-<span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Presentation Space &middot; Uptown Waterloo</span>
-<h1 data-cms-md="hero_headline">Presentations That <span class="purple">Look The Part</span></h1>
-<p class="lede" data-cms="hero_subhead">AGMs, product launches and town halls in a heritage theatre with a 16-foot video wall, wireless mics and seating for up to 100 — a room that makes your company look as good as the work.</p>
-<div class="hero-cta">
-<a href="/eventinquiry" class="btn btn-primary">Inquire About Your Event</a>
-</div>
-<figure class="hero-proof" style="margin-left:auto;margin-right:auto">
-<div class="stars" aria-label="5 star Google review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p>&ldquo;The speaker system is excellent.&rdquo;</p>
-<figcaption><cite>Rachel Prichard &middot; Google review</cite></figcaption>
-</figure>
-</div>
+  <div class="hero-media">
+    <img class="hero-poster" src="/assets/photos/hero-poster.jpg"
+         alt="Members working at the long brass-lamped table on the coworking floor at Den 1880"
+         fetchpriority="high" decoding="async" width="1920" height="1080">
+  </div>
+  <div class="container">
+   <div class="hero-copy">
+    <h1 data-cms-md="hero_headline">Book A Tour Of <span class="purple">Den 1880</span></h1>
+    <p class="lede" data-cms="hero_subhead">Pick a time below and we&rsquo;ll walk you through the coworking floor, the meeting rooms, the Theatre and the Lobby Bar. Thirty minutes, no pressure, no pitch.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-primary">Book Your Tour</a>
+    </div>
+   </div>
+  </div>
+</section>
+
+<section class="tour-embed" id="book">
+  <div class="container">
+    <div class="tour-frame-wrap">
+      <iframe
+        id="optix-tour-frame"
+        title="Book a tour at Den 1880"
+        src="https://den1880.optixapp.com/book/tour/?tracking=1&amp;tracking_origin=https://den1880.co"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <noscript>
+        <div class="tour-fallback">
+          <p>Booking needs JavaScript turned on.</p>
+          <p><a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Open the booking page</a></p>
+        </div>
+      </noscript>
+    </div>
+    <p class="tour-note"><span data-cms="embed_note">Same-day tours are closed, so today will show no times &mdash; pick any weekday from tomorrow on.</span> Prefer to talk first? <a href="/contact">Contact us</a> or call (519) 783-1505.</p>
+  </div>
 </section>
 
 <section class="band">
 <div class="container">
-<p data-cms="band_intro">Most presentation venues are a projector in a beige room. Den 1880's Theatre was built the other way around: a 16-foot video wall, Sonos sound and wireless mics inside a heritage room with real character — so the space does some of the presenting for you.</p>
+<p data-cms="band_intro">A tour takes about half an hour. You&rsquo;ll see the desks and the quiet corners, the meeting rooms and the podcast studio, and the event floor at the back &mdash; the Theatre and the Lobby Bar. Bring your laptop if you want to sit down and try the place out afterwards.</p>
 </div>
 </section>
 
 <section class="spec">
 <div class="container">
 <div class="head">
-<span class="eyebrow" data-cms="spec_eyebrow">What The Room Does</span>
-<h2 data-cms="spec_headline">Plug In And Present</h2>
-<p data-cms="spec_subhead">The screen, sound and seating are already in the room. Bring the slides.</p>
+<span class="eyebrow" data-cms="spec_eyebrow">Built for productivity. Balanced for life.</span>
+<h2 data-cms="spec_headline">Thirty Minutes, Start To Finish</h2>
+<p data-cms="spec_subhead">No sales pitch. Come and see whether the room suits how you actually work.</p>
 </div>
 <div class="spec-grid">
-<div class="spec-card"><span class="num">16 ft</span><h3>The Video Wall</h3><p>A 16-foot video wall your whole room can read — slides, video or a live feed.</p></div>
-<div class="spec-card"><span class="num">100</span><h3>Seats</h3><p>Elevated bleacher seating for up to 100, with sightlines built for presentations.</p></div>
-<div class="spec-card"><span class="num">140</span><h3>Then The Reception</h3><p>The Theatre opens into the Lobby Bar for a cocktail hour with up to 140 guests after the formal part ends.</p></div>
+<div class="spec-card"><span class="num">30</span><h3>Minutes</h3><p>Long enough to see everything, short enough to fit in a lunch break.</p></div>
+<div class="spec-card"><span class="num">14</span><h3>Erb St. West</h3><p>In the heart of Uptown Waterloo, a two-minute walk from the Square.</p></div>
+<div class="spec-card"><span class="num">1880</span><h3>Heritage Building</h3><p>A restored 1880 building with a coworking floor and a full event venue inside.</p></div>
 </div>
 </div>
 </section>
-
-<section>
-<div class="container">
-<div class="photo-row">
-  <img src="/assets/Events/823A5663.jpg" alt="The Theatre at Den 1880" loading="lazy" />
-  <img src="/assets/photos/DSC_2928-hero.jpg" alt="A meeting room at Den 1880" loading="lazy" />
-  <img src="/assets/photos/DEN02963.jpg" alt="Lounge seating at Den 1880" loading="lazy" />
-</div>
-</div>
-</section>
-
-<div class="more-reviews">
-<p><a href="/reviews">Read more reviews from hosts and guests</a></p>
-</div>
 
 <section class="related">
 <div class="container">
 <div class="head">
-<span class="eyebrow" style="display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px;font-family:'Oswald',Impact,sans-serif">Also At Den 1880</span>
-<h2 data-cms="related_headline">Keep Exploring The Venue</h2>
+<span class="eyebrow" style="display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px;font-family:'Oswald',Impact,sans-serif">8 hours of work, 8 hours of play</span>
+<h2 data-cms="related_headline">Have A Look Around First</h2>
 </div>
 <div class="related-grid">
-<a class="related-card" href="/panel-discussions"><h3>Panel Discussions</h3><p>Fireside chats and Q&amp;A nights with bleacher seating for 100.</p><span class="go">Plan a panel</span></a>
-<a class="related-card" href="/team-offsites"><h3>Offsites &amp; Town Halls</h3><p>Strategy days and team events with catering, AV and onsite staff.</p><span class="go">See offsite options</span></a>
-<a class="related-card" href="/meeting-rooms"><h3>Meeting Rooms</h3><p>Boardrooms by the hour or day for the smaller sessions.</p><span class="go">View meeting rooms</span></a>
+<a class="related-card" href="/gallery"><h3>The Gallery</h3><p>Photos of every room, from the coworking floor to the Theatre.</p><span class="go">View the gallery</span></a>
+<a class="related-card" href="/memberships"><h3>Memberships</h3><p>What a desk, an office or a team plan actually costs.</p><span class="go">See memberships</span></a>
+<a class="related-card" href="/meeting-rooms"><h3>Meeting Rooms</h3><p>The rooms you can book by the hour, members or not.</p><span class="go">See the rooms</span></a>
 </div>
 </div>
 </section>
@@ -422,12 +479,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="final-cta">
 <div class="container">
 <div class="final-cta-inner">
-<span class="eyebrow" data-cms="cta_eyebrow">Book Your Presentation</span>
-<h2 data-cms="cta_headline">Give The Big Update A Big Room</h2>
-<p data-cms="cta_subhead">Tell us your date, your headcount and what you're presenting. Our events team replies within one business day.</p>
+<span class="eyebrow" data-cms="cta_eyebrow">Where work comes to life</span>
+<h2 data-cms="cta_headline">Come And See It For Yourself</h2>
+<p data-cms="cta_subhead">Thirty minutes is all it takes. Pick a time that suits you and we&rsquo;ll show you around.</p>
 <div class="final-cta-btns">
-<a href="/eventinquiry" class="btn btn-lime">Inquire About Your Event</a>
-<a href="/gallery" class="btn btn-outline-light">View Event Spaces</a>
+<a href="#book" class="btn btn-lime">Book Your Tour</a>
 </div>
 </div>
 </div>
@@ -473,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-bottom">
     <p>&copy; 2026 Den 1880. All rights reserved.</p>
     <div class="footer-bottom-links">
-      <a href="/book-a-tour">Book a Tour</a>
+      <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
       <a href="/eventinquiry">Inquire Now</a>
       <a href="/privacy-policy">Privacy Policy</a>
     </div>
@@ -486,7 +542,7 @@ hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('ope
 mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
 document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
 </script>
-  <script src="/assets/stamps-config/presentation-space.js"></script>
+  <script src="/assets/stamps-config/book-a-tour.js"></script>
   <script src="/assets/den-stamps.js" defer></script>
 <script id="nav3-js">
 (function(){
@@ -534,5 +590,69 @@ document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileM
 })();
 </script>
 <script src="/assets/js/cms-loader.js"></script>
+
+
+<script id="optix-form-tracking">
+/* ------------------------------------------------------------------
+   Optix embedded-form conversion tracking.
+
+   Two separate jobs in here, do not merge them:
+
+   1. THE BRIDGE. Every "Book a Tour" link on the site used to point at
+      den1880.optixapp.com, and GTM counted the CLICK. Those links now point
+      here, so that click trigger will never fire again. Arriving on this page
+      IS that same click, so we re-emit it as `book_apt_page`. Point the
+      existing Book-a-Tour tags at this event and the old signal continues
+      unbroken. Without it, tour conversions go to zero across GA4, Google Ads,
+      Meta, TikTok and Bing the moment this ships.
+
+   2. THE REAL CONVERSION. Optix posts events out of the iframe. We verify the
+      origin, then push each one as optix_<event>. `optix_tour_confirmed` is a
+      COMPLETED booking carrying user_email -- what enhanced conversions need,
+      and what the click never told us.
+
+   Debug: ?optixdebug=1 logs every event. window.__optixEvents keeps a rolling
+   record regardless -- keep these hooks, they are the only way to diagnose
+   this from outside.
+------------------------------------------------------------------ */
+(function () {
+  var OPTIX_ORIGIN = 'https://den1880.optixapp.com';
+  var DEBUG = /(^|[?&])optixdebug=1(&|$)/.test(window.location.search);
+
+  window.dataLayer = window.dataLayer || [];
+  window.__optixEvents = window.__optixEvents || [];
+
+  /* 1. bridge the legacy click signal */
+  window.dataLayer.push({ event: 'book_apt_page', optix_form: 'tour' });
+
+  /* On Netlify deploy previews the origin is *.netlify.app, so the hardcoded
+     tracking_origin would not match and Optix would withhold the events. */
+  try {
+    var frame = document.getElementById('optix-tour-frame');
+    if (frame && window.location.origin && window.location.origin.indexOf('den1880.co') === -1) {
+      frame.src = frame.src.replace(/tracking_origin=[^&]*/,
+        'tracking_origin=' + encodeURIComponent(window.location.origin));
+    }
+  } catch (e) {}
+
+  /* 2. the real conversions */
+  window.addEventListener('message', function (e) {
+    if (e.origin !== OPTIX_ORIGIN) return;
+    var d = e.data;
+    if (!d || d.source !== 'optix-form') return;
+
+    var payload = d.payload || {};
+    var push = { event: 'optix_' + d.event, optix_event: d.event, optix_form: d.form };
+    for (var k in payload) {
+      if (Object.prototype.hasOwnProperty.call(payload, k)) push['optix_' + k] = payload[k];
+    }
+
+    window.__optixEvents.push(push);
+    if (window.__optixEvents.length > 50) window.__optixEvents.shift();
+    window.dataLayer.push(push);
+    if (DEBUG && window.console) console.log('[optix]', push);
+  }, false);
+})();
+</script>
 </body>
 </html>
