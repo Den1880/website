@@ -156,7 +156,7 @@ footer a{color:var(--plum)}
 
 /* ===== hero image overlay (same pattern as private-events / memberships) ===== */
 .page-hero{
-  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),url('/assets/photos/events-hub-hero.jpg') center 50%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),var(--cms-bg, url('/assets/photos/events-hub-hero.jpg')) center 50%/cover no-repeat !important;
   min-height:clamp(440px,60vh,580px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
@@ -312,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/eventinquiry" class="mobile-cta">Inquire Now</a>
 </div>
 
-<section class="page-hero">
+<section class="page-hero" data-cms-bg="hero_photo">
 <div class="container">
 <span class="eyebrow" data-cms="hero_eyebrow">Book An Event</span>
 <h1 data-cms-md="hero_headline">Your Event <span class="purple">Starts Here</span></h1>
