@@ -449,7 +449,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    Needs the image at /assets/photos/DSCF1988-hero.jpg (1600px, ~190KB).
 ===================================================================== */
 .hero{
-  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.74)),url('/assets/photos/DSCF1988-hero.jpg') center 40%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.74)),var(--cms-bg, url('/assets/photos/DSCF1988-hero.jpg')) center 40%/cover no-repeat !important;
   min-height:clamp(460px,64vh,600px);
   display:flex;align-items:center;justify-content:center;
   padding:88px 24px 64px !important;
@@ -610,7 +610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <a href="/get-started" class="mobile-cta">Get Started</a>
 </div>
-<section class="hero">
+<section class="hero" data-cms-bg="hero_photo">
   <div class="container">
     <span class="eyebrow" data-cms="hero_eyebrow">Options for your Team</span>
     <h1 data-cms-md="hero_headline"><em>In-person productivity</em> without an expensive boring long-term lease.</h1>

@@ -161,6 +161,26 @@ footer a{color:var(--plum)}
 
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ===== hero image overlay (same pattern as private-events / memberships) ===== */
+.page-hero{
+  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),var(--cms-bg, url('/assets/photos/team-offsites-hero.jpg')) center 50%/cover no-repeat !important;
+  min-height:clamp(440px,60vh,580px);
+  display:flex;align-items:center;justify-content:center;
+  padding:96px 24px 64px !important;
+  overflow:hidden;
+}
+.page-hero .container{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.page-hero,.page-hero h1,.page-hero p,.page-hero .lede,.page-hero .eyebrow,.page-hero .breadcrumb,.page-hero .breadcrumb a,.page-hero .breadcrumb span{color:#fff !important}
+.page-hero .eyebrow{background:rgba(255,255,255,.16) !important;text-shadow:none}
+.page-hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.page-hero h1 .purple{color:var(--lime) !important}
+.page-hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.page-hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.page-hero .btn-primary:hover{background:var(--orange) !important;transform:translateY(-1px)}
+.page-hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,0.74) !important}
+.page-hero .btn-ghost:hover{background:var(--orange) !important;color:#1B1C1C !important;border-color:transparent !important}
+
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/team-offsites" />
@@ -300,7 +320,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/eventinquiry" class="mobile-cta">Inquire Now</a>
 </div>
 
-<section class="page-hero">
+<section class="page-hero" data-cms-bg="hero_photo">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="private-events.html">Events</a> <span>&rsaquo;</span> Team Offsites</div>
 <span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Team Offsites &middot; Uptown Waterloo</span>

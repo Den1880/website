@@ -110,7 +110,7 @@ a { color: inherit; }
   position:relative;
   background:
     linear-gradient(90deg,rgba(6,34,65,.94) 0%,rgba(6,34,65,.84) 34%,rgba(6,34,65,.40) 62%,rgba(6,34,65,.14) 100%),
-    url('/assets/photos/careers-hero.jpg') 50% 52%/cover no-repeat;
+    var(--cms-bg, url('/assets/photos/careers-hero.jpg')) 50% 52%/cover no-repeat;
   background-color:var(--blue);
   min-height:clamp(460px,62vh,600px);
   display:flex;align-items:center;
@@ -132,7 +132,7 @@ a { color: inherit; }
     min-height:0;
     background:
       linear-gradient(180deg,rgba(6,34,65,.60) 0%,rgba(6,34,65,.18) 16%,rgba(6,34,65,.18) 34%,rgba(6,34,65,.88) 56%,rgba(6,34,65,.97) 74%),
-      url('/assets/photos/careers-hero.jpg') 50% 42%/cover no-repeat;
+      var(--cms-bg, url('/assets/photos/careers-hero.jpg')) 50% 42%/cover no-repeat;
     background-color:var(--blue);
     align-items:flex-end;
     padding:clamp(380px,52vh,450px) 0 40px;
@@ -350,7 +350,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- HERO -->
-<section class="page-hero">
+<section class="page-hero" data-cms-bg="hero_photo">
 <div class="container">
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> Careers</div>
 <span class="eyebrow" data-cms="hero_eyebrow">A space for dreamers, doers and people who love their work.</span>

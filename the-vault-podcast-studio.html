@@ -210,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    the corporate / memberships / meeting-rooms / events heroes.
    ============================================================ */
 .hero{
-  background:linear-gradient(180deg,rgba(27,28,28,.40),rgba(27,28,28,.74)),url('/assets/photos/vault-hero.jpg') center 50%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(27,28,28,.40),rgba(27,28,28,.74)),var(--cms-bg, url('/assets/photos/vault-hero.jpg')) center 50%/cover no-repeat !important;
   min-height:clamp(440px,60vh,580px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
@@ -376,7 +376,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" data-cms-bg="hero_bg_photo">
   <div class="container">
     <span class="eyebrow" data-cms="hero_eyebrow">Podcast &amp; Content Studio · Den 1880 · Uptown Waterloo</span>
     <h1 data-cms-md="hero_headline">The Vault · <em>Podcast &amp; Content Studio</em></h1>

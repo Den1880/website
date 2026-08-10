@@ -30,7 +30,15 @@
 /eventsatden/*              /private-events 301
 /events                     /private-events 301
 # NOTE: private-events, weddings, holiday-parties, team-offsites,
-# bookanevent, and eventinquiry are now real rebuilt pages -- no redirect needed.
+# and eventinquiry are now real rebuilt pages -- no redirect needed.
+
+# -- bookanevent retired Aug 2026: it was an orphaned duplicate of the
+# private-events "Find Your Event" hub (same hub grid, but nothing on the
+# site linked to it and its hub grid never got the newer sitelink pages
+# added). Nothing internal pointed here, but it was in sitemap.xml so it
+# may be indexed -- redirect preserves anyone who lands on it from search.
+/bookanevent                /private-events 301
+/bookanevent.html           /private-events 301
 
 # -- Blog & content (blog and both posts are now real pages -- no redirect needed) --
 /whatshappening             /blog           301
@@ -96,3 +104,9 @@
 # "coworking" is the term people search/type; the real page is /memberships.
 /coworking        /memberships   301
 /coworking/*      /memberships   301
+
+# -- /wellness vanity URL -> The Performance Club memberships (added Aug 2026) --
+# Mirrors /coworking. "Wellness" is the nav label on den1880.co, but gym/recovery
+# memberships live on the separate Performance Club site, so this is cross-domain.
+/wellness         https://performanceclub.ca/memberships   301
+/wellness/*       https://performanceclub.ca/memberships   301

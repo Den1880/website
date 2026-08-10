@@ -327,7 +327,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* ---- Memberships image hero (added) ---- */
 .hero{
-  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.72)),url('/assets/photos/DSC_2928-hero.jpg') center 45%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(27,28,28,.34),rgba(27,28,28,.72)),var(--cms-bg, url('/assets/photos/DSC_2928-hero.jpg')) center 45%/cover no-repeat !important;
   min-height:clamp(420px,58vh,560px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
@@ -505,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/get-started" class="mobile-cta">Get Started</a>
 </div>
 
-<section class="hero">
+<section class="hero" data-cms-bg="hero_photo">
   <div class="container">
     <span class="eyebrow" data-cms="hero_eyebrow">Focus, Connection, Balance</span>
     <h1 data-cms-md="hero_headline">Where <em>Work</em><br>Comes to <em>Life</em>.</h1>

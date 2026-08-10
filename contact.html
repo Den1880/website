@@ -245,7 +245,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   /* ===== Contact page ===== */
-  .contact-hero{position:relative;min-height:clamp(360px,56vh,560px);display:flex;align-items:center;background:var(--green) url('assets/photos/den1880-exterior.jpg') center 40%/cover no-repeat}
+  .contact-hero{position:relative;min-height:clamp(360px,56vh,560px);display:flex;align-items:center;background:var(--green) var(--cms-bg, url('assets/photos/den1880-exterior.jpg')) center 40%/cover no-repeat}
   .contact-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(27,28,28,.80),rgba(27,28,28,.28) 55%,rgba(27,28,28,.45));z-index:0}
   .contact-hero .container{position:relative;z-index:1;padding-top:72px;padding-bottom:52px;color:#fff;text-align:center}
   .contact-hero .eyebrow{display:inline-block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:14px}
@@ -482,7 +482,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- Contact hero -->
-<section class="contact-hero">
+<section class="contact-hero" data-cms-bg="hero_photo">
   <div class="container">
     <h1 data-cms="hero_heading">Come say hello.</h1>
     <p data-cms="hero_subhead">Booking a tour, planning an event, or just have a question? We're in the heart of Uptown Waterloo and we'd love to hear from you.</p>

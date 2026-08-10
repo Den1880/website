@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="msapplication-TileColor" content="#F2F1EA">
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="format-detection" content="telephone=no">
-<title>Coworking, Gym & Events in Uptown Waterloo | Den 1880</title>
+<title>Events - Work - Wellness, Uptown Waterloo | Den 1880</title>
 <meta name="description" content="Den 1880 is Uptown Waterloo's premium coworking space with gym, wellness, podcasting, and event experiences under one heritage roof." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -714,6 +714,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           out = out.replace(/\*(.+?)\*/g, function(m,inner){ return '<em>' + inner + '</em>'; });
           var brTag = brClass ? '<br class="' + brClass + '">' : '<br>';
           el.innerHTML = out.split('\n').join(brTag);
+        }
+      });
+      document.querySelectorAll('[data-cms-bg]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms-bg')];
+        if(typeof val === 'string' && val.trim() !== ''){
+          el.style.setProperty('--cms-bg', 'url("' + val.trim().replace(/"/g, '\\"') + '")');
         }
       });
     })
