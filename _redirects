@@ -96,3 +96,9 @@
 # "coworking" is the term people search/type; the real page is /memberships.
 /coworking        /memberships   301
 /coworking/*      /memberships   301
+
+# -- /wellness vanity URL -> The Performance Club memberships (added Aug 2026) --
+# Mirrors /coworking. "Wellness" is the nav label on den1880.co, but gym/recovery
+# memberships live on the separate Performance Club site, so this is cross-domain.
+/wellness         https://performanceclub.ca/memberships   301
+/wellness/*       https://performanceclub.ca/memberships   301
