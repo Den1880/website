@@ -50,7 +50,7 @@
 /contactden1880             /contact          301
 /contact-us                 /contact          301
 /applytoden1880             /careers        301
-/tour                       /               301
+/tour                       /book-a-tour    301
 
 # -- Legal --
 /privacy-policy-1           /privacy-policy 301
@@ -83,14 +83,14 @@
 /email_signatures /   301
 /0014             /memberships   301
 /0015             /memberships   301
-/0016             https://den1880.optixapp.com/book/tour/   301
+/0016             /book-a-tour                              301
 /0017             /   301
 /0018             /   301
 /0019             /   301
 /0020             /   301
 /0021             /private-offices   301
 /0022             /   301
-/book_a_tour      https://den1880.optixapp.com/book/tour/   301
+/book_a_tour      /book-a-tour                              301
 
 # -- /coworking vanity URL -> memberships (added Aug 2026) --
 # "coworking" is the term people search/type; the real page is /memberships.
