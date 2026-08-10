@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M4BTKWZ6');</script>
+<!-- End Google Tag Manager -->
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F2F1EA">
+<meta name="application-name" content="Den 1880">
+<meta name="apple-mobile-web-app-title" content="Den 1880">
+<meta name="msapplication-TileColor" content="#F2F1EA">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="format-detection" content="telephone=no">
+<title>Book a Tour of Den 1880 | Coworking &amp; Event Venue in Uptown Waterloo</title>
+<meta name="description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Monschone';
+    src: url('/assets/fonts/Monschone.woff2') format('woff2'),
+         url('/assets/fonts/Monschone.ttf') format('truetype');
+    font-weight: normal; font-style: normal; font-display: swap;
+  }
+:root{
+    /* Den 1880 - Midnight Blue + Mustard. The scheme approved for the ad
+       landing pages, now carrying the whole site, so a paid click lands on a
+       page that matches the ad it came from.
+       Every value is one of the designer's fourteen, or one of them held back
+       with opacity. */
+    --blue:#062241;
+    --green:#062241;        /* the dark ground - Blue, not Green */
+    --ink:#1B1C1C;          /* Black - type on light */
+    --ink-2:#062241;        /* second dark surface */
+    --paper:#F2F1EA;        /* the deck's page ground */
+    --beige:#EFD3AE;        /* light text on Blue, and the warm band ground */
+    --card:#FFFFFF;
+    --gold:#C3996B;
+    --lime:#D3A92A;         /* the accent - pills, badges, eyebrows on dark */
+    --lime-deep:#062241;    /* the accent's job on a light ground: Mustard fails
+                               AA as small text on cream, so Blue takes it */
+    --plum:#652D90;         /* Purple - category marks */
+    --orange:#DF5526;       /* hover and focus - a role, not decoration */
+    --mustard:#D3A92A;
+    --teal:#00927C;
+    --warn:#BB3F30;         /* Red */
+    --brown:#68391F;
+    --neon:#EDFF00;
+    /* The kit has no grey. Opacity is the legal way to get a quieter tone. */
+    --muted:rgba(27,28,28,.64);
+    --line:rgba(27,28,28,.14);
+    --shadow:0 0 0 1px rgba(27,28,28,.14);
+    --shadow-lift:0 0 0 1.5px rgba(223,85,38,.85);
+    --radius:0px;
+  }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Monschone',Georgia,serif;font-weight:400;letter-spacing:-0.01em;margin:0;text-transform:uppercase}
+h1{font-size:clamp(36px,5.2vw,64px);line-height:1.04;letter-spacing:-0.025em}
+h2{font-size:clamp(26px,3.2vw,40px);line-height:1.1}
+h3{font-size:clamp(18px,1.8vw,24px)}
+p{margin:0 0 .8em}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,241,234,0.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{display:inline-flex;align-items:center}
+.nav-links{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--orange);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--orange);color:#1B1C1C}
+.btn-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+.btn-lime:hover{background:var(--orange)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:transparent;border:1px solid var(--line);border-radius:0;cursor:pointer;padding:0;flex-shrink:0}
+.hamburger span{display:block;width:18px;height:2px;background:var(--green);border-radius:0;transition:all .25s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:52px;left:0;right:0;z-index:99;background:rgba(242,241,234,0.98);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px 20px;flex-direction:column;gap:8px;box-shadow:none}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 16px;font-size:15px;font-weight:600;color:var(--ink);border-radius:0;border:1px solid var(--line);background:#fff}
+.mobile-menu a:hover{background:var(--paper);border-color:var(--ink)}
+.mobile-menu .mobile-cta{background:var(--lime);border-color:var(--lime);text-align:center;margin-top:4px}
+@media(max-width:1100px){.nav-links{display:none}.hamburger{display:flex}.topbar{padding:14px 20px}}
+.breadcrumb{padding:84px 0 0;font-size:13px;color:var(--muted)}
+.breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--ink)}.breadcrumb span{margin:0 6px;opacity:.5}
+.page-hero{padding:30px 0 52px;text-align:center}
+.page-hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px;background:rgba(101,45,144,.08);padding:6px 14px;border-radius:999px}
+.page-hero h1{margin:0 auto 18px;max-width:18ch}
+.page-hero h1 .purple{color:var(--plum)}
+.page-hero p.lede{max-width:620px;margin:0 auto 28px;color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);line-height:1.65}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.incl{padding:64px 0;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.incl .head{text-align:center;margin-bottom:40px}
+.incl .head .eyebrow{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px}
+.incl .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
+.incl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1000px;margin:0 auto}
+@media(max-width:860px){.incl-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.incl-grid{grid-template-columns:1fr}}
+.incl-item{background:var(--paper);border:1px solid var(--line);border-radius:0;padding:18px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.incl-item svg{flex:0 0 16px;color:var(--lime-deep)}
+.final-cta{padding:72px 0}
+.final-cta-inner{background:var(--green);color:#fff;border-radius:0;padding:60px 40px;text-align:center;box-shadow:none}
+.final-cta-inner .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgb(139,197,63);font-weight:700;margin-bottom:14px;display:block}
+.final-cta-inner h2{color:#fff;margin-bottom:14px}
+.final-cta-inner p{color:#EFD3AE;max-width:520px;margin:0 auto 30px;font-size:16px;line-height:1.7}
+.final-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,0.72)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1)}
+footer{padding:24px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--plum)}
+
+  /* ── NAV (tracked caps) ── */
+  .nav-brand{display:flex;align-items:center;gap:14px;margin-right:56px}
+  .nav-pipe{color:var(--line);font-family:'Oswald',Impact,sans-serif;font-size:22px;line-height:1;user-select:none}
+  .nav-pc-link{font-family:'Oswald',Impact,sans-serif;font-size:20px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);opacity:0.85;transition:opacity .2s ease;white-space:nowrap;line-height:1}
+  .nav-pc-link:hover{opacity:1}
+  .nav-links .btn.btn-ghost.btn-sm{font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-radius:0;padding:14px 10px;color:var(--ink)}
+  .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, rgba(27,28,28,.64));transform:none;box-shadow:none}
+  @media(max-width:600px){.nav-pipe,.nav-pc-link{display:none!important}.nav-brand{margin-right:0!important}}
+
+  /* ===== Unified site footer ===== */
+  footer.site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer{position:relative;background-image:url('/assets/photos/Copy of DSC_2167.jpg');background-size:cover;background-position:center 40%;background-color:var(--green);color:#fff;overflow:hidden}
+  .site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,34,65,.86),rgba(6,34,65,.92));z-index:0}
+  .site-footer .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:72px 40px 48px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+  .footer-brand-col img{height:30px;width:auto;filter:brightness(0) invert(1);margin-bottom:20px;display:block}
+  .footer-brand-col p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.74);max-width:240px}
+  .footer-col h4{font-family:'Oswald',Impact,sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin-bottom:18px}
+  .footer-col a,.footer-col address{display:block;font-style:normal;font-size:14px;color:rgba(255,255,255,0.75);text-decoration:none;line-height:1;margin-bottom:12px;transition:color .2s}
+  .footer-col a:hover{color:#fff}
+  .footer-col .hours-line{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:10px;line-height:1.5}
+  .footer-col .hours-label{font-size:11px;color:rgba(255,255,255,0.72);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;margin-top:14px}
+  .site-footer .footer-bottom{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.12);max-width:1200px;margin:0 auto;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.72);margin:0}
+  .footer-bottom-links{display:flex;gap:24px;align-items:center}
+  .footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.72);text-decoration:none}
+  .footer-bottom-links a:hover{color:#fff}
+  .footer-social{display:flex;gap:16px;margin-top:8px}
+  .footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.76);text-decoration:none}
+  .footer-social a:hover{color:#fff}
+  @media(max-width:768px){.site-footer .footer-inner{grid-template-columns:1fr 1fr;gap:32px;padding:48px 24px 32px}.footer-brand-col{grid-column:1/-1}.site-footer .footer-bottom{padding:16px 24px}}
+
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+</style>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="canonical" href="https://den1880.co/book-a-tour" />
+<!-- SEO:OpenGraph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Den 1880" />
+<meta property="og:title" content="Book a Tour of Den 1880 | Uptown Waterloo" />
+<meta property="og:description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself." />
+<meta property="og:url" content="https://den1880.co/book-a-tour" />
+<meta property="og:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Book a Tour of Den 1880 | Uptown Waterloo" />
+<meta name="twitter:description" content="Book a free 30-minute tour of Den 1880 at 14 Erb St. West in Uptown Waterloo. Pick a time that suits you and see the coworking floor, the meeting rooms, the Theatre and the Lobby Bar for yourself." />
+<meta name="twitter:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
+<!-- SEO:LocalBusiness -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
+</script>
+  <link rel="stylesheet" href="/assets/den-stamps.css">
+<script>document.documentElement.classList.add('nav-preload');</script>
+<style id="nav3-css">
+/* ===== NAV REDESIGN: dropdown sections + hide-down/show-up sticky header ===== */
+.topbar{transition:transform .28s ease}
+html.nav-preload .topbar{transform:translateY(-100%)}
+html.nav-preload body{margin-top:calc(0px - var(--nav-off,0px))}
+html:not(.nav-preload) body{transition:margin-top .3s ease}
+.topbar.topbar-hidden{transform:translateY(-100%)}
+.nav-group{position:relative}
+.nav-drop-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;cursor:pointer;
+  font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink,#1B1C1C);padding:14px 10px;line-height:1.1}
+.nav-drop-btn:hover,.nav-group.open .nav-drop-btn{color:#DF5526}
+.nav-caret{transition:transform .2s ease}
+.nav-group.open .nav-caret{transform:rotate(180deg)}
+.nav-drop{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:224px;
+  background:#F2F1EA;box-shadow:0 0 0 1px rgba(27,28,28,.14);padding:6px 0;z-index:120}
+.nav-group.open .nav-drop{display:block}
+.nav-drop a{display:block;padding:11px 18px;font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--ink,#1B1C1C);text-decoration:none;white-space:nowrap}
+.nav-drop a:hover{color:#DF5526}
+/* Mobile drawer accordions */
+.mm-group{border-bottom:1px solid var(--line,rgba(27,28,28,.14))}
+.mm-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:transparent;border:none;
+  cursor:pointer;padding:14px 0;font-family:'Oswald',Impact,sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink,#1B1C1C)}
+.mm-toggle .mm-plus{font-family:'Inter',sans-serif;font-size:18px;line-height:1;transition:transform .2s ease}
+.mm-group.open .mm-toggle{color:#DF5526}
+.mm-group.open .mm-plus{transform:rotate(45deg);color:#DF5526}
+.mm-panel{display:none;padding:0 0 8px 14px}
+.mm-group.open .mm-panel{display:block}
+.mobile-menu .mm-panel a{border-bottom:none;padding:10px 0;font-size:14px}
+</style>
+<link rel="preload" as="image" href="/assets/photos/hero-poster.jpg" fetchpriority="high">
+<style id="sitelink-extra">
+/* ===== sitelink-pages additions (band, photo row, specs, quotes, related) ===== */
+.band{padding:20px 0 44px}
+.band .container{max-width:780px;text-align:center}
+.band p{color:var(--ink-2);font-size:17px;line-height:1.75}
+.photo-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:8px 0 48px}
+.photo-row img{width:100%;height:300px;object-fit:cover;border-radius:0}
+@media(max-width:768px){.photo-row{grid-template-columns:1fr}}
+.spec{padding:64px 0;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.spec .head{text-align:center;margin-bottom:44px}
+.spec .head .eyebrow{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px;font-family:'Oswald',Impact,sans-serif}
+.spec .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto}
+@media(max-width:860px){.spec-grid{grid-template-columns:1fr}}
+.spec-card{background:var(--paper);border:1.5px solid var(--line);border-radius:0;padding:30px 26px}
+.spec-card .num{font-family:'Monschone',Georgia,serif;font-size:34px;color:var(--lime-deep);display:block;margin-bottom:8px;text-transform:uppercase}
+.spec-card h3{font-size:20px;margin-bottom:8px}
+.spec-card p{font-size:14px;color:var(--ink-2);margin:0;line-height:1.6}
+.more-reviews{text-align:center;padding:0 24px 56px;font-size:14px}
+.more-reviews a{color:var(--lime-deep);text-decoration:underline;text-underline-offset:3px}
+.related{padding:64px 0;border-top:1px solid var(--line)}
+.related .head{text-align:center;margin-bottom:40px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto}
+@media(max-width:860px){.related-grid{grid-template-columns:1fr}}
+.related-card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1.5px solid var(--line);border-radius:0;padding:26px 24px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.related-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--orange)}
+.related-card h3{font-size:20px}
+.related-card p{font-size:14px;color:var(--ink-2);flex:1;margin:0;line-height:1.6}
+.related-card .go{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime-deep)}
+.related-card .go::after{content:' \2192'}
+/* ===== HERO: still photograph, no video ============================
+   Andrew's call for this page specifically -- the booking form is the point,
+   and a moving background pulls against it. The poster is a plain <img>, so
+   it is the LCP element and there is nothing deferred to go wrong. */
+.page-hero{
+  position:relative;overflow:hidden;
+  min-height:clamp(460px,62vh,600px);
+  display:flex;align-items:center;justify-content:center;
+  padding:96px 24px 64px !important;
+  background:var(--blue);
+}
+.hero-media{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%}
+/* Scrim over the photo. Bounded rather than sampled, so white type clears
+   AA even where the shot is blown out. */
+.hero-media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  /* Left-heavy, the way /careers does it: the copy sits in the dark third and
+     the subject on the right of the photo stays readable. Bounded, not
+     sampled -- at the left edge the two stops composite to ~.91, which puts
+     white type above 8:1 no matter how blown out the pixel underneath is. */
+  background:
+    linear-gradient(90deg,rgba(6,34,65,.88) 0%,rgba(6,34,65,.72) 30%,rgba(6,34,65,.34) 58%,rgba(6,34,65,.14) 100%),
+    linear-gradient(180deg,rgba(6,34,65,.18),rgba(6,34,65,.44));
+}
+/* Copy sits low and left, the homepage's editorial placement, so it never
+   lands on the person in the middle of the frame. */
+.page-hero{align-items:flex-end;justify-content:flex-start;text-align:left}
+.page-hero .container{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;
+  padding:0 24px clamp(40px,7vh,84px);text-align:left}
+.page-hero .hero-copy{max-width:560px}
+.page-hero h1{margin:0 0 18px;max-width:15ch}
+.page-hero p.lede{margin:0 0 26px;max-width:470px}
+.page-hero .hero-cta{display:flex;justify-content:flex-start}
+.page-hero,.page-hero h1,.page-hero p,.page-hero .lede,.page-hero .eyebrow{color:#fff !important}
+.page-hero .eyebrow{background:rgba(255,255,255,.16) !important;text-shadow:none}
+.page-hero h1{text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.page-hero h1 .purple{color:var(--lime) !important}
+.page-hero p.lede{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.page-hero .btn-primary{background:var(--lime) !important;color:var(--ink) !important;border-color:transparent !important}
+.page-hero .btn-primary:hover{background:var(--orange) !important}
+
+/* ===== Optix embed =================================================
+   The form is an iframe on den1880.optixapp.com. Optix posts no height
+   messages, so the parent cannot size to content: fixed height, own scroll.
+   Desktop height fits the two-column layout (calendar left, times right)
+   without an inner scrollbar. */
+.tour-embed{padding:8px 0 64px;scroll-margin-top:76px}
+.tour-embed .container{max-width:1100px}
+.tour-frame-wrap{border:1px solid var(--line);background:var(--card)}
+.tour-frame-wrap iframe{display:block;width:100%;height:860px;border:0}
+.tour-fallback{padding:40px 24px;text-align:center}
+.tour-note{margin:14px auto 0;max-width:680px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
+@media(max-width:900px){
+  .tour-frame-wrap iframe{height:1180px}
+}
+/* Phones get the homepage's other placement: there is no left third to sit
+   in, so the copy drops to the bottom of the frame and centres. */
+@media(max-width:768px){
+  .page-hero{
+    min-height:clamp(500px,78svh,640px);
+    padding:88px 0 0 !important;
+    align-items:flex-end;justify-content:center;text-align:center;
+  }
+  .page-hero .container{text-align:center;padding:0 20px clamp(36px,6vh,56px)}
+  .page-hero .hero-copy{max-width:none;margin:0 auto}
+  .page-hero h1{max-width:none;margin:0 auto 16px}
+  .page-hero p.lede{margin:0 auto 24px;max-width:22em}
+  .page-hero .hero-cta{justify-content:center}
+  .hero-poster{object-position:center 42%}
+  /* the left-heavy wash would sit under nothing on a phone -- go vertical so
+     the dark end is beneath the centred copy */
+  .hero-media::after{
+    background:linear-gradient(180deg,rgba(6,34,65,.26) 0%,rgba(6,34,65,.50) 42%,rgba(6,34,65,.88) 100%);
+  }
+}
+@media(max-width:560px){.tour-frame-wrap iframe{height:1240px}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4BTKWZ6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="topbar" id="topbar">
+  <div class="nav-brand">
+    <a class="logo" href="/"><img src="/assets/den1880-logo-black.svg" alt="Den 1880" height="28" style="display:block"></a>
+  </div>
+
+  <!-- Desktop nav: three dropdown sections + CTA -->
+  <nav class="nav-links" aria-label="Primary">
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Events<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Events">
+      <a href="/private-events">Private Events</a>
+      <a href="/weddings">Weddings</a>
+      <a href="/holiday-parties">Holiday Parties</a>
+      <a href="/team-offsites">Team Offsites</a>
+      <a href="/gallery">Gallery</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Work<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Work">
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-offices">Private Offices</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/business-mail">Business Mail</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Wellness<svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <div class="nav-drop" role="menu" aria-label="Wellness">
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">The Performance Club</a>
+      <a href="https://performanceclub.ca/gym.html" target="_blank" rel="noopener">Gym</a>
+      <a href="https://performanceclub.ca/wellness.html" target="_blank" rel="noopener">Wellness</a>
+      <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
+      </div>
+    </div>
+    <a class="btn btn-lime btn-sm" href="/eventinquiry">Inquire Now</a>
+  </nav>
+
+  <!-- Mobile: hamburger only -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Events<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="/private-events">Private Events</a>
+      <a href="/weddings">Weddings</a>
+      <a href="/holiday-parties">Holiday Parties</a>
+      <a href="/team-offsites">Team Offsites</a>
+      <a href="/gallery">Gallery</a>
+    </div>
+  </div>
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Work<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-offices">Private Offices</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/business-mail">Business Mail</a>
+    </div>
+  </div>
+  <div class="mm-group">
+    <button class="mm-toggle" type="button" aria-expanded="false">Wellness<span class="mm-plus" aria-hidden="true">+</span></button>
+    <div class="mm-panel">
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">The Performance Club</a>
+      <a href="https://performanceclub.ca/gym.html" target="_blank" rel="noopener">Gym</a>
+      <a href="https://performanceclub.ca/wellness.html" target="_blank" rel="noopener">Wellness</a>
+      <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
+    </div>
+  </div>
+  <a href="/eventinquiry" class="mobile-cta">Inquire Now</a>
+</div>
+
+
+<section class="page-hero">
+  <div class="hero-media">
+    <img class="hero-poster" src="/assets/photos/hero-poster.jpg"
+         alt="Members working at the long brass-lamped table on the coworking floor at Den 1880"
+         fetchpriority="high" decoding="async" width="1920" height="1080">
+  </div>
+  <div class="container">
+   <div class="hero-copy">
+    <h1 data-cms-md="hero_headline">Book A Tour Of <span class="purple">Den 1880</span></h1>
+    <p class="lede" data-cms="hero_subhead">Pick a time below and we&rsquo;ll walk you through the coworking floor, the meeting rooms, the Theatre and the Lobby Bar. Thirty minutes, no pressure, no pitch.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-primary">Book Your Tour</a>
+    </div>
+   </div>
+  </div>
+</section>
+
+<section class="tour-embed" id="book">
+  <div class="container">
+    <div class="tour-frame-wrap">
+      <iframe
+        id="optix-tour-frame"
+        title="Book a tour at Den 1880"
+        src="https://den1880.optixapp.com/book/tour/?tracking=1&amp;tracking_origin=https://den1880.co"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <noscript>
+        <div class="tour-fallback">
+          <p>Booking needs JavaScript turned on.</p>
+          <p><a class="btn btn-primary" href="https://den1880.optixapp.com/book/tour/">Open the booking page</a></p>
+        </div>
+      </noscript>
+    </div>
+    <p class="tour-note"><span data-cms="embed_note">Same-day tours are closed, so today will show no times &mdash; pick any weekday from tomorrow on.</span> Prefer to talk first? <a href="/contact">Contact us</a> or call (519) 783-1505.</p>
+  </div>
+</section>
+
+<section class="band">
+<div class="container">
+<p data-cms="band_intro">A tour takes about half an hour. You&rsquo;ll see the desks and the quiet corners, the meeting rooms and the podcast studio, and the event floor at the back &mdash; the Theatre and the Lobby Bar. Bring your laptop if you want to sit down and try the place out afterwards.</p>
+</div>
+</section>
+
+<section class="spec">
+<div class="container">
+<div class="head">
+<span class="eyebrow" data-cms="spec_eyebrow">Built for productivity. Balanced for life.</span>
+<h2 data-cms="spec_headline">Thirty Minutes, Start To Finish</h2>
+<p data-cms="spec_subhead">No sales pitch. Come and see whether the room suits how you actually work.</p>
+</div>
+<div class="spec-grid">
+<div class="spec-card"><span class="num">30</span><h3>Minutes</h3><p>Long enough to see everything, short enough to fit in a lunch break.</p></div>
+<div class="spec-card"><span class="num">14</span><h3>Erb St. West</h3><p>In the heart of Uptown Waterloo, a two-minute walk from the Square.</p></div>
+<div class="spec-card"><span class="num">1880</span><h3>Heritage Building</h3><p>A restored 1880 building with a coworking floor and a full event venue inside.</p></div>
+</div>
+</div>
+</section>
+
+<section class="related">
+<div class="container">
+<div class="head">
+<span class="eyebrow" style="display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px;font-family:'Oswald',Impact,sans-serif">8 hours of work, 8 hours of play</span>
+<h2 data-cms="related_headline">Have A Look Around First</h2>
+</div>
+<div class="related-grid">
+<a class="related-card" href="/gallery"><h3>The Gallery</h3><p>Photos of every room, from the coworking floor to the Theatre.</p><span class="go">View the gallery</span></a>
+<a class="related-card" href="/memberships"><h3>Memberships</h3><p>What a desk, an office or a team plan actually costs.</p><span class="go">See memberships</span></a>
+<a class="related-card" href="/meeting-rooms"><h3>Meeting Rooms</h3><p>The rooms you can book by the hour, members or not.</p><span class="go">See the rooms</span></a>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="container">
+<div class="final-cta-inner">
+<span class="eyebrow" data-cms="cta_eyebrow">Where work comes to life</span>
+<h2 data-cms="cta_headline">Come And See It For Yourself</h2>
+<p data-cms="cta_subhead">Thirty minutes is all it takes. Pick a time that suits you and we&rsquo;ll show you around.</p>
+<div class="final-cta-btns">
+<a href="#book" class="btn btn-lime">Book Your Tour</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <img src="/assets/den1880-logo-black.svg" alt="Den 1880">
+      <p>A heritage coworking space for founders, creatives, and teams in the heart of Uptown Waterloo.</p>
+      <div class="footer-social" style="margin-top:20px">
+        <a href="https://www.instagram.com/den1880.co/" target="_blank" rel="noopener">@den1880.co</a>
+        <a href="https://ca.linkedin.com/company/den-1880" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="/memberships">Memberships</a>
+      <a href="/corporate/">For Teams</a>
+      <a href="/meeting-rooms">Meeting Rooms</a>
+      <a href="/private-events">Events</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/the-vault-podcast-studio">Podcast Studio</a>
+      <a href="/blog">Blog</a>
+      <a href="/careers">Careers</a>
+      <a href="/contact">Contact</a>
+      <a href="https://performanceclub.ca/" target="_blank" rel="noopener">Performance Club &#8599;</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <div class="hours-label">Office</div><div class="hours-line">Mon &#8211; Fri<br>8:00 am &#8211; 8:00 pm</div>
+      <div class="hours-label">Team Members</div><div class="hours-line">24/7 Access</div>
+      <div class="hours-label">Performance Club</div><div class="hours-line">Mon &#8211; Fri<br>6:00 am &#8211; 8:00 pm</div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@den1880.co">hello@den1880.co</a>
+      <a href="tel:5197831505">(519) 783-1505</a>
+      <address style="margin-top:8px">14 Erb St. West<br>Waterloo, Ontario<br>Canada &nbsp;N2L 1S7</address>
+      <a href="https://maps.google.com/?q=14+Erb+St+West+Waterloo+Ontario" target="_blank" rel="noopener" style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.72)">Get Directions &#8599;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Den 1880. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="https://den1880.optixapp.com/book/tour/">Book a Tour</a>
+      <a href="/eventinquiry">Inquire Now</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',o);hamburger.setAttribute('aria-expanded',o);mobileMenu.setAttribute('aria-hidden',!o);});
+mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
+document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
+</script>
+  <script src="/assets/stamps-config/book-a-tour.js"></script>
+  <script src="/assets/den-stamps.js" defer></script>
+<script id="nav3-js">
+(function(){
+  var topbar=document.getElementById('topbar');
+  var menu=document.getElementById('mobileMenu');
+  /* Desktop dropdowns: open on hover or click, close on outside click / Escape */
+  var groups=Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+  function closeAll(except){groups.forEach(function(g){if(g!==except){g.classList.remove('open');var b=g.querySelector('.nav-drop-btn');if(b)b.setAttribute('aria-expanded','false');}});}
+  groups.forEach(function(g){
+    var btn=g.querySelector('.nav-drop-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();var open=g.classList.toggle('open');btn.setAttribute('aria-expanded',open);closeAll(open?g:null);});
+    g.addEventListener('mouseenter',function(){closeAll(g);g.classList.add('open');btn.setAttribute('aria-expanded','true');});
+    g.addEventListener('mouseleave',function(){g.classList.remove('open');btn.setAttribute('aria-expanded','false');});
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});
+  /* Mobile drawer accordions */
+  Array.prototype.slice.call(document.querySelectorAll('.mm-group')).forEach(function(g){
+    var btn=g.querySelector('.mm-toggle');
+    btn.addEventListener('click',function(){var open=g.classList.toggle('open');btn.setAttribute('aria-expanded',open);});
+  });
+  /* Hide on scroll down, show on scroll up */
+  var lastY=window.pageYOffset,ticking=false,navRevealed=false,navGrace=0;
+  function revealNav(){if(!navRevealed){navRevealed=true;navGrace=Date.now()+1200;lastY=window.pageYOffset;topbar.classList.remove('topbar-hidden');document.documentElement.classList.remove('nav-preload');}}
+  window.addEventListener('wheel',revealNav,{passive:true,once:true});
+  window.addEventListener('touchmove',revealNav,{passive:true,once:true});
+  topbar.addEventListener('focusin',revealNav);
+  if(document.documentElement.classList.contains('nav-preload')){
+    var kids=document.body.children,firstContent=null;
+    for(var ki=0;ki<kids.length;ki++){var kel=kids[ki];
+      if(kel!==topbar&&!/^(SCRIPT|STYLE|LINK|TEMPLATE)$/.test(kel.tagName)&&kel.offsetHeight>0&&getComputedStyle(kel).position!=='fixed'){firstContent=kel;break;}}
+    if(firstContent){var navOff=firstContent.getBoundingClientRect().top+window.pageYOffset;
+      if(navOff>0&&navOff<240)document.documentElement.style.setProperty('--nav-off',navOff+'px');}
+  }
+  function onScroll(){
+    var y=window.pageYOffset;
+    var menuOpen=menu&&menu.classList.contains('open');
+    if(!menuOpen){
+      if(y>lastY&&y>120&&Date.now()>navGrace){topbar.classList.add('topbar-hidden');closeAll(null);}
+      else if(y<lastY||y<=10){topbar.classList.remove('topbar-hidden');}
+    }
+    lastY=y;ticking=false;
+  }
+  window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
+})();
+</script>
+<script src="/assets/js/cms-loader.js"></script>
+
+
+<script id="optix-form-tracking">
+/* ------------------------------------------------------------------
+   Optix embedded-form conversion tracking.
+
+   Two separate jobs in here, do not merge them:
+
+   1. THE BRIDGE. Every "Book a Tour" link on the site used to point at
+      den1880.optixapp.com, and GTM counted the CLICK. Those links now point
+      here, so that click trigger will never fire again. Arriving on this page
+      IS that same click, so we re-emit it as `book_apt_page`. Point the
+      existing Book-a-Tour tags at this event and the old signal continues
+      unbroken. Without it, tour conversions go to zero across GA4, Google Ads,
+      Meta, TikTok and Bing the moment this ships.
+
+   2. THE REAL CONVERSION. Optix posts events out of the iframe. We verify the
+      origin, then push each one as optix_<event>. `optix_tour_confirmed` is a
+      COMPLETED booking carrying user_email -- what enhanced conversions need,
+      and what the click never told us.
+
+   Debug: ?optixdebug=1 logs every event. window.__optixEvents keeps a rolling
+   record regardless -- keep these hooks, they are the only way to diagnose
+   this from outside.
+------------------------------------------------------------------ */
+(function () {
+  var OPTIX_ORIGIN = 'https://den1880.optixapp.com';
+  var DEBUG = /(^|[?&])optixdebug=1(&|$)/.test(window.location.search);
+
+  window.dataLayer = window.dataLayer || [];
+  window.__optixEvents = window.__optixEvents || [];
+
+  /* 1. bridge the legacy click signal */
+  window.dataLayer.push({ event: 'book_apt_page', optix_form: 'tour' });
+
+  /* On Netlify deploy previews the origin is *.netlify.app, so the hardcoded
+     tracking_origin would not match and Optix would withhold the events. */
+  try {
+    var frame = document.getElementById('optix-tour-frame');
+    if (frame && window.location.origin && window.location.origin.indexOf('den1880.co') === -1) {
+      frame.src = frame.src.replace(/tracking_origin=[^&]*/,
+        'tracking_origin=' + encodeURIComponent(window.location.origin));
+    }
+  } catch (e) {}
+
+  /* 2. the real conversions */
+  window.addEventListener('message', function (e) {
+    if (e.origin !== OPTIX_ORIGIN) return;
+    var d = e.data;
+    if (!d || d.source !== 'optix-form') return;
+
+    var payload = d.payload || {};
+    var push = { event: 'optix_' + d.event, optix_event: d.event, optix_form: d.form };
+    for (var k in payload) {
+      if (Object.prototype.hasOwnProperty.call(payload, k)) push['optix_' + k] = payload[k];
+    }
+
+    window.__optixEvents.push(push);
+    if (window.__optixEvents.length > 50) window.__optixEvents.shift();
+    window.dataLayer.push(push);
+    if (DEBUG && window.console) console.log('[optix]', push);
+  }, false);
+})();
+</script>
+</body>
+</html>
