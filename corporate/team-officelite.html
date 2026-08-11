@@ -140,12 +140,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .plan .vs-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime-deep);font-weight:800;margin-bottom:8px;text-align:center}
   .plan .vs-row{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--ink-2);padding:3px 0;gap:8px}
   .plan .vs-row .vs-val{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .plan .vs-row.vs-total{font-family:'Monschone',Georgia,serif;font-weight:400;color:var(--ink);font-size:14px;border-top:1px dashed var(--lime-deep);margin-top:6px;padding-top:8px}
-  .plan .vs-row.vs-total .vs-val{font-size:15px;color:var(--ink)}
-  .plan .vs-row.vs-cost{color:var(--muted);font-size:12px;padding-top:4px}
-  .plan .vs-row.vs-cost .vs-val{color:var(--muted)}
-  .plan .vs-save{text-align:center;margin-top:8px;padding:8px 0;background:var(--lime);border-radius:0;font-family:'Monschone',Georgia,serif;font-weight:400;color:var(--ink);font-size:14px;border:1.5px solid var(--ink)}
-  .plan .vs-save .vs-pct{font-size:12px;font-weight:700;margin-left:4px;color:var(--ink)}
+  .plan .vs-row.vs-total{color:var(--muted);font-size:12px;border-top:1px dashed var(--lime-deep);margin-top:6px;padding-top:8px}
+  .plan .vs-row.vs-total .vs-val{color:var(--muted);font-weight:500;text-decoration:line-through;text-decoration-thickness:1px}
+  .plan .vs-row.vs-saving{color:var(--ink-2);font-size:12px;padding-top:2px}
+  .plan .vs-row.vs-saving .vs-val{color:var(--ink);font-weight:700}
+  .plan .vs-row.vs-saving .vs-pct{font-weight:700;color:var(--ink-2)}
+  .plan .vs-cost-box{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;padding:10px 12px;background:var(--lime);border:1.5px solid var(--ink);border-radius:0}
+  .plan .vs-cost-box .vs-cost-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+  .plan .vs-cost-box .vs-cost-amt{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap;line-height:1.1}
+  .plan .vs-cost-box .vs-cost-unit{font-size:12px;font-weight:700;letter-spacing:0}
+  .plan .vs-cost-note{text-align:center;margin-top:6px;font-size:11px;color:var(--muted);font-weight:600}
+  .plan .vs-row.vs-saving>span:first-child{white-space:nowrap}
+  .plan .vs-cost-box .vs-cost-label{white-space:nowrap}
+  @media (max-width:520px){
+    .plan .vs-cost-box{gap:6px;padding:9px 10px}
+    .plan .vs-cost-box .vs-cost-label{font-size:10px;letter-spacing:.08em}
+    .plan .vs-cost-box .vs-cost-amt{font-size:20px}
+    .plan .vs-row.vs-saving{font-size:11px}
+  }
 
   /* plan card secondary "Try for free" CTA (Box-style: outlined link button below primary CTA) */
   .plan .cta-stack{display:flex;flex-direction:column;gap:8px;margin-top:auto}
@@ -685,8 +697,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="vs-row"><span>Coworking &amp; Fitness membership <em style="color:var(--muted);font-size:11px">(gym alone is $40/day add-on)</em></span><span class="vs-val">$388/mo</span></div>
             <div class="vs-row"><span>Corporate Mailing Address</span><span class="vs-val">$88/mo</span></div>
             <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$476/seat/mo</span></div>
-            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$388/mo" data-annual="$328/mo">$328/mo</span></div>
-            <div class="vs-save"><span class="vs-save-amt" data-monthly="$88" data-annual="$148">$148</span>/seat/mo savings <span class="vs-pct" data-monthly="(18% off)" data-annual="(31% off)">(31% off)</span></div>
+            <div class="vs-row vs-saving"><span>You save</span><span class="vs-val"><span class="vs-save-amt" data-monthly="$88" data-annual="$148">$148</span>/seat/mo <span class="vs-pct" data-monthly="(18% off)" data-annual="(31% off)">(31% off)</span></span></div>
+            <div class="vs-cost-box"><span class="vs-cost-label">Your cost</span><span class="vs-cost-amt"><span class="vs-cost-val" data-monthly="$388" data-annual="$328">$328</span><span class="vs-cost-unit">/seat/mo</span></span></div>
+            <div class="vs-cost-note">Min 5 seats &middot; from <span class="perday-num" data-monthly-text="$1,940/mo" data-annual-text="$1,640/mo">$1,640/mo</span> for the team</div>
           </div>
           <div class="cta-stack">
             <div class="cta"><a class="btn btn-ghost" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
@@ -739,8 +752,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="vs-row"><span>Corporate Mailing Address</span><span class="vs-val">$88/mo</span></div>
             <div class="vs-row"><span>20% off additional bookings <em style="color:var(--muted);font-size:11px">(est. ~$250/mo bookings)</em></span><span class="vs-val">$50/mo</span></div>
             <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$691/seat/mo</span></div>
-            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$488/mo" data-annual="$408/mo">$408/mo</span></div>
-            <div class="vs-save"><span class="vs-save-amt" data-monthly="$203" data-annual="$283">$283</span>/seat/mo savings <span class="vs-pct" data-monthly="(29% off)" data-annual="(41% off)">(41% off)</span></div>
+            <div class="vs-row vs-saving"><span>You save</span><span class="vs-val"><span class="vs-save-amt" data-monthly="$203" data-annual="$283">$283</span>/seat/mo <span class="vs-pct" data-monthly="(29% off)" data-annual="(41% off)">(41% off)</span></span></div>
+            <div class="vs-cost-box"><span class="vs-cost-label">Your cost</span><span class="vs-cost-amt"><span class="vs-cost-val" data-monthly="$488" data-annual="$408">$408</span><span class="vs-cost-unit">/seat/mo</span></span></div>
+            <div class="vs-cost-note">Min 5 seats &middot; from <span class="perday-num" data-monthly-text="$2,440/mo" data-annual-text="$2,040/mo">$2,040/mo</span> for the team</div>
           </div>
           <div class="cta-stack">
             <div class="cta"><a class="btn btn-primary" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
@@ -798,8 +812,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="vs-row"><span>Corporate Mailing Address</span><span class="vs-val">$88/mo</span></div>
             <div class="vs-row"><span>30% off additional bookings <em style="color:var(--muted);font-size:11px">(est. ~$500/mo bookings)</em></span><span class="vs-val">$150/mo</span></div>
             <div class="vs-row vs-total"><span>Total value</span><span class="vs-val">$1,114/seat/mo</span></div>
-            <div class="vs-row vs-cost"><span>Your cost</span><span class="vs-val vs-cost-val" data-monthly="$688/mo" data-annual="$568/mo">$568/mo</span></div>
-            <div class="vs-save"><span class="vs-save-amt" data-monthly="$426" data-annual="$546">$546</span>/seat/mo savings <span class="vs-pct" data-monthly="(38% off)" data-annual="(49% off)">(49% off)</span></div>
+            <div class="vs-row vs-saving"><span>You save</span><span class="vs-val"><span class="vs-save-amt" data-monthly="$426" data-annual="$546">$546</span>/seat/mo <span class="vs-pct" data-monthly="(38% off)" data-annual="(49% off)">(49% off)</span></span></div>
+            <div class="vs-cost-box"><span class="vs-cost-label">Your cost</span><span class="vs-cost-amt"><span class="vs-cost-val" data-monthly="$688" data-annual="$568">$568</span><span class="vs-cost-unit">/seat/mo</span></span></div>
+            <div class="vs-cost-note">Min 5 seats &middot; from <span class="perday-num" data-monthly-text="$3,440/mo" data-annual-text="$2,840/mo">$2,840/mo</span> for the team</div>
           </div>
           <div class="cta-stack">
             <div class="cta"><a class="btn btn-ghost" href="https://den1880.optixapp.com/inquiry/">Talk to Sales</a></div>
