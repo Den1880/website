@@ -122,3 +122,7 @@
 # memberships live on the separate Performance Club site, so this is cross-domain.
 /wellness         https://performanceclub.ca/memberships   301
 /wellness/*       https://performanceclub.ca/memberships   301
+
+# -- /podcast-studio vanity URL -> The Vault Podcast Studio page (added Aug 2026) --
+/podcast-studio        /the-vault-podcast-studio   301
+/podcast-studio/*      /the-vault-podcast-studio   301
