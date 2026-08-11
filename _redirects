@@ -40,6 +40,18 @@
 /bookanevent                /private-events 301
 /bookanevent.html           /private-events 301
 
+# -- corporate/team-office and corporate/community retired Aug 2026: both
+# were bare click-through stub pages ("Redirecting to X..."), not real
+# content. team-office.html was still linked from 4 sibling corporate
+# pages (compare/drop-in/enterprise/faq) via a "Team Office" sub-nav
+# link -- those 4 links now point straight to /private-offices (the
+# stub's own stated redirect target) instead of through the stub.
+# community.html had no inbound links from anywhere on the site.
+/corporate/team-office       /private-offices 301
+/corporate/team-office.html  /private-offices 301
+/corporate/community         /                301
+/corporate/community.html    /                301
+
 # -- Blog & content (blog and both posts are now real pages -- no redirect needed) --
 /whatshappening             /blog           301
 /whatshappening-1           /blog           301
