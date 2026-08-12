@@ -6,4 +6,9 @@ Allow: /
 # redirect sends X-Robots-Tag: noindex. Belt and braces.
 Disallow: /go/
 
+# The preferred vendor sheet is password protected at the edge (see
+# netlify/edge-functions/vendor-gate.js) and sends X-Robots-Tag: noindex. Blocked
+# here too so the sign-in page itself never lands in the index.
+Disallow: /preferred-vendors
+
 Sitemap: https://den1880.co/sitemap.xml
