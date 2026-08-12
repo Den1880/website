@@ -47,6 +47,18 @@ export const DEST = {
     title: "The Vault Podcast Studio",
     conversionName: CONV_VAULT,
   },
+  "day-pass": {
+    // Single Day Pass, $45 (Optix product 48328, verified in the live signup
+    // flow 2026-08-12 -- the deep link preselects the pass and jumps straight
+    // to "Your details"). Sold via signup, not a resource booking, so no
+    // resourceId and it never joins -- logged for funnel visibility only.
+    // Sibling product for reference: 4 Pack of Day Passes = 53350.
+    url: `${OPTIX_BASE}/signup/?location=27903&products=48328`,
+    resourceId: null,
+    title: "Single Day Pass",
+    conversionName: null,
+  },
+
   "podcast-bundle": {
     // 10-hour bundle, $760 flat (Optix product 48415). Sold via signup, not a resource
     // booking, so it has no resourceId and never joins. Logged for funnel visibility.

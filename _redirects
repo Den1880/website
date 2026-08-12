@@ -10,8 +10,8 @@
 /club-membership-2          /memberships    301
 /residentdesk               /memberships    301
 /residentdesk-1             /memberships    301
-/day-passes                 /memberships    301
-/day-passes-1               /memberships    301
+/day-passes                 /day-pass       301
+/day-passes-1               /day-pass       301
 
 # -- Teams / corporate (offices, solutions, meeting rooms) --
 /business-solutions         /corporate/     301
