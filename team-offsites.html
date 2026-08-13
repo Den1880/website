@@ -12,6 +12,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<!-- The hero photo is a CSS background, so it isn't discovered by the preload
+     scanner. It's the LCP element -- preload it or it starts late. -->
+<link rel="preload" as="image" href="/assets/photos/offsites/offsite-hero.jpg" fetchpriority="high">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -164,7 +167,7 @@ footer a{color:var(--plum)}
 
 /* ===== hero image overlay (same pattern as private-events / memberships) ===== */
 .page-hero{
-  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),var(--cms-bg, url('/assets/photos/team-offsites-hero.jpg')) center 50%/cover no-repeat !important;
+  background:linear-gradient(180deg,rgba(6,34,65,.42),rgba(6,34,65,.78)),var(--cms-bg, url('/assets/photos/offsites/offsite-hero.jpg')) center 50%/cover no-repeat !important;
   min-height:clamp(440px,60vh,580px);
   display:flex;align-items:center;justify-content:center;
   padding:96px 24px 64px !important;
@@ -181,6 +184,83 @@ footer a{color:var(--plum)}
 .page-hero .btn-ghost{background:transparent !important;color:#fff !important;border-color:rgba(255,255,255,0.74) !important}
 .page-hero .btn-ghost:hover{background:var(--orange) !important;color:#1B1C1C !important;border-color:transparent !important}
 
+/* ===== HERO REVIEW PROOF (same block as /weddings/ and /holiday-parties) ===== */
+.hero-proof{margin:34px auto 0;max-width:720px;text-align:center;
+  background:transparent;
+  padding:20px 26px 22px}
+.hero-proof .stars{color:var(--mustard);letter-spacing:3px;font-size:12px;margin-bottom:10px}
+.hero-proof blockquote{margin:0;font-family:'Monschone',Georgia,serif;font-weight:400;
+  text-transform:none;font-size:clamp(16px,1.55vw,21px);line-height:1.4;color:#fff}
+.hero-proof .who{margin-top:12px;font-family:'Oswald',Impact,sans-serif;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--beige)}
+.hero-proof .who b{color:#fff;font-weight:600}
+.hero-proof .who .tag{color:var(--mustard);margin-left:8px}
+@media(max-width:768px){
+  .hero-proof{margin-top:14px;padding:16px 18px 18px;max-width:none}
+  .hero-proof blockquote{font-size:15px}
+}
+
+/* ===== PHOTO GALLERY (same grid + lightbox pattern as /holiday-parties) ===== */
+.to-gallery{padding:72px 0 80px;background:var(--paper)}
+.to-gallery .head{text-align:center;margin-bottom:36px;padding:0 24px}
+.to-gallery .head .eyebrow{display:block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lime-deep);font-weight:500;margin-bottom:12px}
+.to-gallery .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
+/* 8 photos in a 4-column grid -- the column count divides the item count, so no
+   row ends on an empty cell. Fixed-ratio tiles with object-fit:cover rather than
+   CSS masonry: masonry balances by height and leaves a hole in the last row on a
+   small mixed portrait/landscape set. This block ends square every time. */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto;padding:0 24px}
+/* Stays 2-up on phones rather than dropping to one -- eight full-width photos
+   stacked doubles the page height and buries the closing CTA. 8 divides by 2,
+   so this is four clean rows with no orphan cell and no spanning-opener hack. */
+@media(max-width:1000px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px}
+}
+.gallery-item{overflow:hidden;border-radius:0;background:rgba(27,28,28,.14);cursor:pointer;position:relative;border:0;padding:0;width:100%;display:block;font:inherit;color:inherit;text-align:left;aspect-ratio:1/1}
+.gallery-item img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease,opacity .3s ease;opacity:0}
+.gallery-item img.loaded{opacity:1}
+.gallery-item:hover img{transform:scale(1.03)}
+.gallery-item:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.to-gallery .gallery-foot{text-align:center;margin-top:32px}
+
+/* ===== TEAM REVIEW CARDS (same card as /holiday-parties, 3-up) ===== */
+.testi{padding:72px 0;background:var(--card);border-top:1px solid var(--line)}
+.testi .head{text-align:center;margin-bottom:36px}
+.testi .head .eyebrow{display:block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lime-deep);font-weight:500;margin-bottom:12px}
+.testi .head p{color:var(--muted);max-width:560px;margin:8px auto 0}
+/* 3 cards, 3 columns -- the count divides, so no row ends on an empty cell.
+   align-items:stretch + margin-top:auto on .who, so the three cards share a
+   height and the attributions line up. Quotes are never exactly equal length,
+   and ragged card bottoms read as a bug. */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;max-width:620px;margin:0 auto}}
+.testi-card{border:1px solid var(--line);padding:28px;background:var(--paper);display:flex;flex-direction:column}
+.testi-card .stars{color:var(--gold);letter-spacing:2px;font-size:13px;margin-bottom:12px}
+.testi-card blockquote{margin:0 0 16px;font-size:15px;line-height:1.8;color:var(--ink-2)}
+.testi-card .who{margin-top:auto;font-size:13px;color:var(--muted)}
+/* Name on its own line: at a third of the row, name + pill + date will not fit
+   inline and the date wraps on its own. */
+.testi-card .who b{display:block;margin-bottom:7px;color:var(--ink)}
+.testi-card .who .tag{display:inline-block;margin-left:0;margin-right:8px;font-family:'Oswald',Impact,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-deep);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
+.testi-note{margin-top:26px;padding:18px 20px;border-left:3px solid var(--lime-deep);
+  font-size:14px;color:var(--muted);background:var(--paper)}
+.testi-note a{color:var(--lime-deep);text-decoration:underline;text-underline-offset:3px}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(6,34,65,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:1100px;width:100%;max-height:90vh;display:flex;align-items:center;justify-content:center}
+.lightbox-inner img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:0;box-shadow:none}
+.lb-close{position:fixed;top:20px;right:24px;background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:201}
+.lb-close:hover{background:var(--orange)}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;width:50px;height:50px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:201}
+.lb-prev{left:20px}
+.lb-next{right:20px}
+.lb-prev:hover,.lb-next:hover{background:var(--orange)}
+.lb-close:focus-visible,.lb-prev:focus-visible,.lb-next:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:#EFD3AE;font-family:'Oswald',Impact,sans-serif;font-size:12px;letter-spacing:.14em;z-index:201}
+@media(max-width:600px){.lb-prev{left:8px}.lb-next{right:8px}}
+
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/team-offsites" />
@@ -190,11 +270,11 @@ footer a{color:var(--plum)}
 <meta property="og:title" content="Team Offsite Venue in Uptown Waterloo | Den 1880" />
 <meta property="og:description" content="Host your team offsite at Den 1880 in Uptown Waterloo — a design-forward venue for strategy sessions, celebrations and deep work, with catering." />
 <meta property="og:url" content="https://den1880.co/team-offsites" />
-<meta property="og:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
+<meta property="og:image" content="https://den1880.co/assets/photos/offsites/offsite-hero.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Team Offsite Venue in Uptown Waterloo | Den 1880" />
 <meta name="twitter:description" content="Host your team offsite at Den 1880 in Uptown Waterloo — a design-forward venue for strategy sessions, celebrations and deep work, with catering." />
-<meta name="twitter:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
+<meta name="twitter:image" content="https://den1880.co/assets/photos/offsites/offsite-hero.jpg" />
 <!-- SEO:LocalBusiness -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
@@ -325,10 +405,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="breadcrumb"><a href="/">Home</a> <span>&rsaquo;</span> <a href="/private-events">Events</a> <span>&rsaquo;</span> Team Offsites</div>
 <span class="eyebrow" style="margin-top:24px" data-cms="hero_eyebrow">Team Offsites &middot; Uptown Waterloo</span>
 <h1 data-cms-md="hero_headline">Team <span class="purple">Offsites</span></h1>
-<p class="lede" data-cms="hero_subhead">Whether you're planning a strategy session, team celebration, or a day of deep work, Den 1880 offers a stunning backdrop for meaningful connection and productivity.</p>
+<p class="lede" data-cms="hero_subhead">A theatre, breakout rooms and a commercial kitchen under one heritage roof in Uptown Waterloo &mdash; so the strategy session, the working lunch and the part where everyone finally talks to each other all happen without moving your team.</p>
 <div class="hero-cta">
-<a href="/eventinquiry" class="btn btn-primary">Inquire About an Offsite</a>
+<a href="/eventinquiry" class="btn btn-primary">Inquire About Your Offsite</a>
 </div>
+<div class="hero-proof"><div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote data-cms="hero_proof_quote">&ldquo;Den 1880 was warm, welcoming and the perfect spot for our offsite meeting&hellip; as it is central to our team location-wise we will be back.&rdquo;</blockquote><div class="who"><b data-cms="hero_proof_name">Lisa Campbell</b> &middot; Google review<span class="tag" data-cms="hero_proof_tag">Team offsite</span></div></div>
 </div>
 </section>
 
@@ -374,6 +455,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </section>
 
+<!-- PHOTO GALLERY -->
+<section class="to-gallery" id="gallery">
+<div class="head">
+<span class="eyebrow" data-cms="gallery_eyebrow">Offsites Held Here</span>
+<h2 data-cms="gallery_headline">What A Day Here Actually Looks Like</h2>
+<p data-cms="gallery_subhead">Real teams in the building &mdash; the big session, the breakout room, the break where everyone finally talks to each other.</p>
+</div>
+<div class="gallery-grid" id="galleryGrid">
+  <button class="gallery-item" type="button" aria-label="Open photo 1 of 8"><img style="object-position:center 40%" src="/assets/photos/offsites/offsite-01-workshop.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_1" alt="A team seated together listening during a workshop session at Den 1880 in Uptown Waterloo"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 2 of 8"><img style="object-position:center 45%" src="/assets/photos/offsites/offsite-02-strategy-room.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_2" alt="Colleagues working around the boardroom table in a private meeting room at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 3 of 8"><img style="object-position:center 45%" src="/assets/photos/offsites/offsite-03-team-huddle.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_3" alt="A team putting their hands together in a huddle during a team-building session at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 4 of 8"><img style="object-position:center 42%" src="/assets/photos/offsites/offsite-04-lounge-break.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_4" alt="Coworkers talking on the tiered lounge seating during a break in a team offsite at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 5 of 8"><img style="object-position:center 42%" src="/assets/photos/offsites/offsite-05-greeting.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_5" alt="Two colleagues shaking hands beside an open laptop at a team day at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 6 of 8"><img style="object-position:center 45%" src="/assets/photos/offsites/offsite-06-presentation.jpg" width="1065" height="1065" loading="lazy" decoding="async" data-cms-src="gallery_photo_6" alt="A presenter running a session on the wall screen for a team seated around the boardroom table at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 7 of 8"><img style="object-position:center 48%" src="/assets/photos/offsites/offsite-07-all-hands.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_7" alt="A full company audience seated on the tiered theatre seating for an all-hands session at Den 1880"></button>
+  <button class="gallery-item" type="button" aria-label="Open photo 8 of 8"><img style="object-position:center 45%" src="/assets/photos/offsites/offsite-08-focused-work.jpg" width="1064" height="1064" loading="lazy" decoding="async" data-cms-src="gallery_photo_8" alt="Team members working at the long shared desks by the windows at Den 1880"></button>
+</div>
+<div class="gallery-foot">
+  <a href="/eventinquiry" class="btn btn-primary">Inquire About Your Offsite</a>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous photo">&#8592;</button>
+  <div class="lightbox-inner"><img id="lbImg" src="" alt="" /></div>
+  <button class="lb-next" id="lbNext" aria-label="Next photo">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TEAM REVIEWS -->
+<section class="testi" id="reviews">
+<div class="container">
+<div class="head">
+<span class="eyebrow" data-cms="testi_eyebrow">Teams Who Booked It</span>
+<h2 data-cms="testi_headline">What They Wrote After</h2>
+<p data-cms="testi_intro">Three teams who brought their people here, in their own words. Verbatim from Google, trimmed only for length.</p>
+</div>
+<div class="testi-grid">
+<div class="testi-card">
+<div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote data-cms="testi_1_quote">&ldquo;Beautiful facility with a main meeting room and breakout rooms. The speaker system is excellent.&rdquo;</blockquote>
+<div class="who"><b data-cms="testi_1_name">Rachel Prichard</b><span class="tag" data-cms="testi_1_tag">Meeting &amp; breakouts</span><span data-cms="testi_1_date">2025</span></div>
+</div>
+<div class="testi-card">
+<div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote data-cms="testi_2_quote">&ldquo;Such a cool, convenient, and productive place to meet up for a remote working sesh or get together with coworkers! The manager was super kind &mdash; she gave us fresh baked cookies &mdash; and made sure we knew where everything was.&rdquo;</blockquote>
+<div class="who"><b data-cms="testi_2_name">Jacalyn Beales</b><span class="tag" data-cms="testi_2_tag">Team work session</span><span data-cms="testi_2_date">2025</span></div>
+</div>
+<div class="testi-card">
+<div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<blockquote data-cms="testi_3_quote">&ldquo;Den 1880 was the perfect location to co-work with my team. The staff is lovely, the vibe is exceptional, and the amenities are top notch. We&rsquo;ll definitely be back.&rdquo;</blockquote>
+<div class="who"><b data-cms="testi_3_name">Jessica Piccolotto</b><span class="tag" data-cms="testi_3_tag">Team day</span><span data-cms="testi_3_date">2025</span></div>
+</div>
+</div>
+<div class="testi-note"><b>Where these come from.</b> Den 1880&rsquo;s Google listing. Reviews from staff and their families are excluded. <a href="https://www.google.com/maps/search/Den+1880+14+Erb+St+West+Waterloo" target="_blank" rel="noopener">Read them on Google &#8599;</a> <a href="/reviews">Read the rest &rsaquo;</a></div>
+</div>
+</section>
+
 <section class="final-cta">
 <div class="container">
 <div class="final-cta-inner">
@@ -382,7 +523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-cms="cta_intro">Need something custom? We're happy to tailor a package that fits your team's unique goals. Tell us what you have in mind and we'll handle the rest.</p>
 <div class="final-cta-btns">
 <a href="/eventinquiry" class="btn btn-lime">Inquire About Your Offsite</a>
-<a href="corporate/" class="btn btn-outline-light">See Team Plans</a>
+<a href="/book-a-tour" class="btn btn-outline-light">Book a Tour</a>
 </div>
 </div>
 </div>
@@ -440,6 +581,61 @@ const hamburger=document.getElementById('hamburger');const mobileMenu=document.g
 hamburger.addEventListener('click',()=>{const o=mobileMenu.classList.toggle('open');hamburger.classList.toggle('open',o);hamburger.setAttribute('aria-expanded',o);mobileMenu.setAttribute('aria-hidden',!o);});
 mobileMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.classList.remove('open');}));
 document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){mobileMenu.classList.remove('open');hamburger.classList.remove('open');}});
+</script>
+<script id="to-gallery-js">
+/* Offsite gallery lightbox. The photos are in the HTML, not generated here, so
+   the grid still works with JS off and stays crawlable -- this only adds the
+   click-to-enlarge layer on top. */
+(function(){
+  var items=[].slice.call(document.querySelectorAll('#galleryGrid .gallery-item'));
+  var lightbox=document.getElementById('lightbox');
+  if(!items.length||!lightbox)return;
+  var lbImg=document.getElementById('lbImg'),lbCounter=document.getElementById('lbCounter');
+  var current=0,lastFocused=null;
+
+  items.forEach(function(item,idx){
+    var img=item.querySelector('img');
+    if(img.complete)img.classList.add('loaded');
+    else img.addEventListener('load',function(){img.classList.add('loaded');});
+    item.addEventListener('click',function(){open(idx);});
+  });
+
+  function render(){
+    var img=items[current].querySelector('img');
+    lbImg.src=img.currentSrc||img.src;
+    lbImg.alt=img.alt;
+    lbCounter.textContent=(current+1)+' / '+items.length;
+  }
+  function open(idx){
+    current=idx;lastFocused=document.activeElement;render();
+    lightbox.classList.add('open');document.body.style.overflow='hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    lightbox.classList.remove('open');document.body.style.overflow='';
+    if(lastFocused&&lastFocused.focus)lastFocused.focus();
+  }
+  function step(n){current=(current+n+items.length)%items.length;render();}
+
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();step(-1);});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();step(1);});
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lightbox.classList.contains('open'))return;
+    if(e.key==='Escape'){e.stopPropagation();close();}
+    else if(e.key==='ArrowLeft')step(-1);
+    else if(e.key==='ArrowRight')step(1);
+  },true);
+
+  /* Swipe on touch */
+  var x0=null;
+  lightbox.addEventListener('touchstart',function(e){x0=e.changedTouches[0].clientX;},{passive:true});
+  lightbox.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;
+    if(Math.abs(dx)>50)step(dx<0?1:-1);
+  },{passive:true});
+})();
 </script>
   <script src="/assets/stamps-config/team-offsites.js"></script>
   <script src="/assets/den-stamps.js" defer></script>
