@@ -82,29 +82,29 @@ window.DEN_STAMPS = {
     },
     {
       "id": "photos",
-      "anchor": "section:nth-of-type(4)",
-      "ground": "Photo",
+      "anchor": ".pe-gallery",
+      "ground": "Cream",
       "stamps": [
         {
           "mark": "lion-outline",
-          "color": "Beige",
-          "w": 13,
-          "x": 30,
-          "y": 4,
-          "rot": 13,
-          "mobileX": 0,
-          "mobileY": 4,
-          "mobileW": 26
+          "color": "Blue",
+          "w": 12,
+          "x": 97,
+          "y": 50,
+          "rot": -13,
+          "mobileX": 100,
+          "mobileY": 46,
+          "mobileW": 24
         },
         {
           "mark": "combo-circle",
           "combo": 7,
-          "w": 6.5,
-          "x": 38,
-          "y": -5,
-          "rot": -11,
-          "mobileX": 52,
-          "mobileY": -5,
+          "w": 5.5,
+          "x": 99,
+          "y": 78,
+          "rot": 11,
+          "mobileX": 98.7,
+          "mobileY": 78,
           "mobileW": 12
         }
       ]
