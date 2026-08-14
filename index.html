@@ -321,6 +321,161 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-links .btn.btn-ghost.btn-sm:hover{background:transparent;color:var(--muted, rgba(27,28,28,.64));transform:none;box-shadow:none}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
+
+/* ===== HOMEPAGE PROOF PASS =====================================================
+   Three additions, all namespaced .hm-* so nothing here can reach another page
+   or another section: a proof line under the hero, a photo grid of the place in
+   use, and the closing CTA the page never had. No shared stylesheet is touched. */
+
+/* ===== SAMPLE: split headline straddling the hero's focal point ==============
+   Desktop only. The two halves of the headline sit either side of the person in
+   the frame, with the eyebrow and lede centred above and below. Phones are
+   untouched -- they keep the single centred line, which is the only thing that
+   fits at 390. */
+@media(min-width:769px){
+  .hero{justify-content:center}
+  .hero .container{text-align:center}
+  .hero .hero-copy{max-width:none;margin:0 auto}
+  /* Eyebrow lifted off the copy block and parked above the subject's head, in
+     the clear band under the lamp. .container is a flex item, so dropping its
+     position:relative costs nothing -- z-index still applies to flex items --
+     and it lets this position against .hero itself. */
+  .hero .container{position:static}
+  .hero .eyebrow{
+    position:absolute;
+    top:var(--eyebrow-top,9%);
+    left:50%;
+    transform:translateX(calc(-50% + var(--straddle-shift,34px)));
+    margin:0;text-align:center;white-space:nowrap;z-index:2;
+    /* Up here the scrim is at its lightest (.34 vs .72 at the bottom), so this
+       is the most fragile element on a bright frame. Tighter, doubled shadow. */
+    text-shadow:0 1px 2px rgba(0,0,0,.6), 0 2px 16px rgba(0,0,0,.65);
+  }
+  /* Flex rather than a centred text line with padding: the gap has to be a real
+     measured width so it can be tuned to the subject, and both halves have to
+     stay on one line. */
+  .hero h1.hero-split{
+    display:flex;align-items:baseline;justify-content:center;
+    gap:var(--straddle-gap,320px);
+    white-space:nowrap;margin-bottom:20px;
+    /* the subject sits a little right of the frame's centre, so the whole line
+       shifts with him rather than sitting on the geometric centre */
+    transform:translateX(var(--straddle-shift,34px));
+  }
+  .hero h1.hero-split .hl-a,.hero h1.hero-split .hl-b{display:block}
+  .hero p.lede{margin:0 auto;text-align:center;max-width:560px}
+  /* Drop the lede so it groups with the quote instead of hanging under the
+     headline. Relative, like the quote, so the block above does not move. */
+  .hero p.lede{position:relative;top:62px}
+  /* Lift the whole copy block -- headline, lede and proof together -- off the
+     bottom of the frame. The block is bottom-aligned, so this is the container's
+     bottom padding, not a transform, and it stays inside the hero at every
+     height. */
+  .hero .container{padding-bottom:clamp(120px,17vh,190px)}
+  /* Drop the proof block on its own, without moving the headline or lede. The
+     copy block is bottom-anchored, so adding margin-top here would grow the
+     block upward and lift the headline instead. A relative offset takes the
+     proof out of the height calculation entirely: everything above stays put. */
+  .hero .hm-proof{position:relative;top:64px}
+  /* The 88-oval stamp sits at 1173-1362 and the right half of the split headline
+     runs to 1273, so they collide. The split layout needs that room; the mark is
+     decorative and the hero still carries two others. Hidden on desktop only. */
+  .hero .den-stamp[src*="88_Oval_White"]{display:none}
+}
+
+/* -- Proof, overlaid on the hero video with the rest of the hero copy. No
+   ground of its own: the video wrap already carries a two-stop scrim that is at
+   its darkest (.72) exactly where this sits, and the same text-shadow the lede
+   uses carries it over the bright frames. Deliberately quieter than the lede --
+   it is supporting the headline, not competing with it. */
+.hero .hm-proof{margin:26px auto 0;max-width:600px;text-align:center}
+.hero .hm-proof .stars{color:var(--lime);letter-spacing:3px;font-size:11px;margin-bottom:8px;
+  text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero .hm-proof blockquote{margin:0;font-family:'Monschone',Georgia,serif;font-weight:400;
+  font-size:clamp(15px,1.35vw,17px);line-height:1.5;color:#fff;
+  text-shadow:0 1px 12px rgba(0,0,0,.5);
+  /* Without this the quote wraps to a last line holding one word. Browsers that
+     do not support it just wrap normally, so there is nothing to fall back to. */
+  text-wrap:balance}
+.hero .hm-proof .who{margin-top:9px;font-family:'Oswald',Impact,sans-serif;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);
+  text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero .hm-proof .who b{color:#fff;font-weight:600}
+.hero .hm-proof .who .tag{color:var(--lime);margin-left:8px}
+@media(max-width:768px){
+  /* Matches the phone hero, which centres its copy at the bottom of the frame. */
+  .hero .hm-proof{margin:18px auto 0;max-width:24em}
+  .hero .hm-proof blockquote{font-size:15px}
+  /* At phone width "name - Google review - tag" will not hold one line and the
+     tag wraps into the source, reading as one run-on string. Own line. */
+  .hero .hm-proof .who .tag{display:block;margin-left:0;margin-top:6px}
+}
+/* Very short viewports: the hero is height-capped, so drop the quietest line
+   rather than let the copy block push the headline off the top of the frame. */
+@media(max-height:620px) and (min-width:769px){
+  .hero .hm-proof{margin-top:16px}
+  .hero .hm-proof .who{display:none}
+}
+
+/* -- Evidence grid. White ground so it separates from the paper sections either
+   side of it. */
+.hm-gallery{padding:72px 0 80px;background:var(--card)}
+.hm-gallery .head{text-align:center;margin-bottom:36px;padding:0 24px}
+.hm-gallery .head .eyebrow{display:block;font-family:'Oswald',Impact,sans-serif;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--lime-deep);font-weight:500;margin-bottom:12px}
+.hm-gallery .head p{color:var(--muted);max-width:640px;margin:8px auto 0}
+/* 9 photos in 3 columns -- the column count divides the item count, so no row
+   ends on an empty cell. Fixed-ratio tiles + object-fit:cover rather than CSS
+   masonry: masonry balances by height and leaves one column dangling on a small
+   set. This block ends square every time. */
+.hm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto;padding:0 24px}
+/* Holds 2-up on phones rather than dropping to one column -- nine full-width
+   photos stacked doubles the page height and buries the CTA. 9 does not divide
+   by 2, so the first tile spans both columns as a deliberate opener and the
+   remaining eight make four clean rows. */
+@media(max-width:1000px){
+  .hm-grid{grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px}
+  .hm-item:first-child{grid-column:span 2;aspect-ratio:16/10}
+}
+.hm-item{overflow:hidden;background:rgba(27,28,28,.14);cursor:pointer;position:relative;border:0;
+  padding:0;width:100%;display:block;font:inherit;color:inherit;text-align:left;aspect-ratio:1/1}
+/* No opacity:0 + .loaded fade here. That pattern renders the whole grid as grey
+   boxes with JavaScript off, which defeats the reason the photos are in the
+   markup at all. */
+.hm-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.hm-item:hover img{transform:scale(1.03)}
+.hm-item:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.hm-gallery .gallery-foot{text-align:center;margin-top:32px}
+
+/* -- Closing CTA. The page had no closing ask at all; the last thing before the
+   footer was the reviews block. One button, worded exactly like the header CTA. */
+.hm-cta{background:var(--green);color:#fff;padding:76px 24px;text-align:center}
+.hm-cta .eyebrow{display:block;font-family:'Oswald',Impact,sans-serif;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);font-weight:500;margin-bottom:14px}
+.hm-cta h2{margin:0;color:#fff;font-size:clamp(26px,3.4vw,40px);line-height:1.14}
+.hm-cta p{max-width:620px;margin:16px auto 28px;color:rgba(239,211,174,.86)}
+.hm-cta .btn{margin:0}
+
+/* -- Lightbox (same component as /private-offices and /team-offsites). Keyboard,
+   backdrop click and swipe all close or advance it; focus returns to the tile. */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(6,34,65,.94);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:1100px;width:100%;max-height:90vh;display:flex;align-items:center;justify-content:center}
+.lightbox-inner img{max-width:100%;max-height:88vh;object-fit:contain}
+.lb-close{position:fixed;top:20px;right:24px;background:rgba(255,255,255,.12);border:none;color:#fff;
+  width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:201}
+.lb-close:hover{background:var(--orange)}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;
+  width:50px;height:50px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:201}
+.lb-prev{left:20px}
+.lb-next{right:20px}
+.lb-prev:hover,.lb-next:hover{background:var(--orange)}
+.lb-close:focus-visible,.lb-prev:focus-visible,.lb-next:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:#EFD3AE;
+  font-family:'Oswald',Impact,sans-serif;font-size:12px;letter-spacing:.14em;z-index:201}
+@media(max-width:600px){.lb-prev{left:8px}.lb-next{right:8px}}
+
 </style>
   <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="canonical" href="https://den1880.co/" />
@@ -480,8 +635,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
    <div class="hero-copy">
     <span class="eyebrow" data-cms="hero_eyebrow">Events · Work · Wellness</span>
-    <h1 data-cms-md="hero_headline" data-cms-md-br-class="dbrk">Where <em>You</em><br class="dbrk"> come to <em>Life.</em></h1>
+    <h1 class="hero-split" data-cms-md="hero_headline" data-cms-md-split><span class="hl-a">Where <em>You</em></span> <span class="hl-b">Come to <em>Life</em></span></h1>
     <p class="lede" data-cms="hero_subhead">Work, gather, and move in spaces designed to inspire.</p>
+   </div>
+   <!-- Proof, overlaid on the video. Deliberately a SIBLING of .hero-copy, not a
+        child: .hero-copy is a 620px column pinned to the left of the frame, so a
+        centred block inside it centres on the column and still reads as sitting
+        left. Out here it centres on the container, which is the frame. -->
+   <div class="hm-proof">
+     <div class="stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+     <blockquote data-cms="hero_proof_quote">&ldquo;I&rsquo;ve tried so many coworking spaces in KW as a remote software engineer and none come even close.&rdquo;</blockquote>
+     <div class="who"><b data-cms="hero_proof_name">Setareh Foroozan</b> &middot; Google review<span class="tag" data-cms="hero_proof_tag">Remote software engineer</span></div>
    </div>
   </div>
 </section>
@@ -538,7 +702,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- EVIDENCE GRID -- the place in use. Photos live in the HTML, not in the
+     script below, so the grid survives JS being off and stays crawlable. -->
+<section class="hm-gallery" id="inside">
+  <div class="head">
+    <span class="eyebrow" data-cms="gallery_eyebrow">Inside Den 1880</span>
+    <h2 data-cms-md="gallery_headline">A Wednesday, More or Less</h2>
+    <p data-cms="gallery_subhead">The plans above tell you what you get. These are real photographs of members and guests using the building &mdash; work, gather, move. Click any of them to see it full size.</p>
+  </div>
+  <div class="hm-grid" id="hmGrid">
+    <button class="hm-item" type="button" aria-label="Open photo 1 of 9"><img src="/assets/photos/home/hm-01-live-music.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_1" alt="A saxophonist playing beside a keyboard to a standing crowd at an evening event at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 2 of 9"><img src="/assets/photos/home/hm-02-drinks-reception.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_2" alt="Guests in name tags talking over drinks at a reception in the Den 1880 lounge"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 3 of 9"><img src="/assets/photos/home/hm-03-talk-audience.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_3" alt="A seated audience listening to a talk in front of the exposed brick wall at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 4 of 9"><img src="/assets/photos/home/hm-04-focused-work.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_4" alt="Two members working at the brass-lamped communal table on the coworking floor at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 5 of 9"><img src="/assets/photos/home/hm-05-boardroom.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_5" alt="A team around the boardroom table at Den 1880 with a presentation on the screen behind them"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 6 of 9"><img src="/assets/photos/home/hm-06-greeting.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_6" alt="Two people shaking hands as a team meets in the daylit lounge at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 7 of 9"><img src="/assets/photos/home/hm-07-gym-cable.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_7" alt="A member training on the cable machine in The Performance Club gym at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 8 of 9"><img src="/assets/photos/home/hm-08-gym-stretch.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_8" alt="A member stretching beside the rack in The Performance Club gym at Den 1880"></button>
+    <button class="hm-item" type="button" aria-label="Open photo 9 of 9"><img src="/assets/photos/home/hm-09-sauna.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_9" alt="The cedar infrared sauna in the recovery suite at Den 1880, lit from within"></button>
+  </div>
+  <div class="gallery-foot">
+    <a class="btn btn-ghost btn-sm" href="/gallery">See the full gallery</a>
+  </div>
+</section>
+
 <!-- REVIEWS:SLOT -->
+
+<!-- CLOSING CTA -- the page had none. One ask, worded exactly like the header button. -->
+<section class="hm-cta">
+  <span class="eyebrow" data-cms="cta_eyebrow">14 Erb St. West, Uptown Waterloo</span>
+  <h2 data-cms-md="cta_headline">Come See It Before You Decide</h2>
+  <p data-cms="cta_subhead">Tell us how you would use the building and we will point you at the right plan &mdash; or book you a walk-through. No pressure, no lease talk on the first visit.</p>
+  <a class="btn btn-lime" href="/get-started">Get Started</a>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous photo">&#8592;</button>
+  <div class="lightbox-inner"><img id="lbImg" src="" alt="" /></div>
+  <button class="lb-next" id="lbNext" aria-label="Next photo">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <footer class="site-footer">
   <div class="footer-inner">
 
@@ -688,6 +894,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
+<script id="hm-gallery-js">
+/* Evidence-grid lightbox. The photos are already in the markup above -- this only
+   adds the click-to-enlarge layer, so nothing is lost if the script never runs. */
+(function(){
+  var items=[].slice.call(document.querySelectorAll('#hmGrid .hm-item'));
+  var lightbox=document.getElementById('lightbox');
+  if(!items.length||!lightbox)return;
+  var lbImg=document.getElementById('lbImg'),lbCounter=document.getElementById('lbCounter');
+  var current=0,lastFocused=null;
+
+  items.forEach(function(item,idx){ item.addEventListener('click',function(){open(idx);}); });
+
+  function render(){
+    var img=items[current].querySelector('img');
+    lbImg.src=img.currentSrc||img.src;
+    lbImg.alt=img.alt;
+    lbCounter.textContent=(current+1)+' / '+items.length;
+  }
+  function open(idx){
+    current=idx;lastFocused=document.activeElement;render();
+    lightbox.classList.add('open');document.body.style.overflow='hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    lightbox.classList.remove('open');document.body.style.overflow='';
+    if(lastFocused&&lastFocused.focus)lastFocused.focus();
+  }
+  function step(n){current=(current+n+items.length)%items.length;render();}
+
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();step(-1);});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();step(1);});
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lightbox.classList.contains('open'))return;
+    if(e.key==='Escape'){e.stopPropagation();close();}
+    else if(e.key==='ArrowLeft')step(-1);
+    else if(e.key==='ArrowRight')step(1);
+  },true);
+
+  var x0=null;
+  lightbox.addEventListener('touchstart',function(e){x0=e.changedTouches[0].clientX;},{passive:true});
+  lightbox.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;
+    if(Math.abs(dx)>50)step(dx<0?1:-1);
+  },{passive:true});
+})();
+</script>
+
 <!-- CMS content loader (pilot). Text edited at /admin lives in content/homepage.json;
      this fills it in on load. Only touches elements marked data-cms, and only
      overwrites if the JSON loads and has a non-empty value for that key, so a slow/
@@ -701,6 +956,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('[data-cms]').forEach(function(el){
         var val = data[el.getAttribute('data-cms')];
         if(typeof val === 'string' && val.trim() !== ''){ el.textContent = val; }
+      });
+      /* Photo swaps for the evidence grid. Mirrors the shared cms-loader.js so a
+         photo replaced at /admin lands on the page the same way it does elsewhere. */
+      document.querySelectorAll('[data-cms-src]').forEach(function(el){
+        var val = data[el.getAttribute('data-cms-src')];
+        if(typeof val === 'string' && val.trim() !== ''){ el.src = val.trim(); }
       });
       document.querySelectorAll('[data-cms-vimeo-id]').forEach(function(el){
         var val = data[el.getAttribute('data-cms-vimeo-id')];
@@ -716,8 +977,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var out = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
           out = out.replace(/\*\*(.+?)\*\*/g, function(m,inner){ return '<span class="' + accentClass + '">' + inner + '</span>'; });
           out = out.replace(/\*(.+?)\*/g, function(m,inner){ return '<em>' + inner + '</em>'; });
-          var brTag = brClass ? '<br class="' + brClass + '">' : '<br>';
-          el.innerHTML = out.split('\n').join(brTag);
+          var parts = out.split('\n');
+          if(el.hasAttribute('data-cms-md-split')){
+            /* Split headline: each line of the CMS value becomes its own span so
+               the halves can be laid out either side of the hero's subject.
+               Without this the loader would write a <br> over the hand-authored
+               spans on load and the layout would collapse -- the headline would
+               stop being editable at /admin, which is the whole point of the
+               field. Joined with a real space so the halves still read as one
+               sentence when they fall back to inline on phones. */
+            var cls = ['hl-a','hl-b'];
+            el.innerHTML = parts.map(function(part, i){
+              return '<span class="' + (cls[i] || 'hl-' + i) + '">' + part.trim() + '</span>';
+            }).join(' ');
+          } else {
+            var brTag = brClass ? '<br class="' + brClass + '">' : '<br>';
+            el.innerHTML = parts.join(brTag);
+          }
         }
       });
       document.querySelectorAll('[data-cms-bg]').forEach(function(el){
