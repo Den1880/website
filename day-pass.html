@@ -17,6 +17,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Coworking Space Waterloo | Den 1880" />
 <meta property="og:description" content="A desk in Uptown Waterloo you can use today. Library, theatre, lounges and silent phone booths, coffee and tea on the house." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://den1880.co/assets/photos/hero-poster.jpg" />
 <title>Coworking Space Waterloo | Den 1880</title>
 <meta name="description" content="A desk in Uptown Waterloo you can use today. Library, theatre, lounges and silent phone booths, coffee and tea on the house." />
 <meta name="format-detection" content="telephone=no" />
@@ -192,7 +193,10 @@ a{color:inherit}
   .hero-locator{letter-spacing:.12em}
   /* Cluster drops to two stamps on small screens so nothing lands on the CTA. */
   .stamp--dot{display:none}
-  .stamp--shout{width:104px;top:-34px!important;right:2%!important}
+  /* The stamps are rotated, so their painted box is ~22% wider than `width`.
+     At 2% the shout stamp's corner cleared the viewport by 4px and gave the page
+     a horizontal scroll on a phone. 5% leaves room for the rotation. */
+  .stamp--shout{width:104px;top:-34px!important;right:5%!important}
   .stamp--echo{width:66px;top:34px!important;right:24%!important}
   .band-watermark{width:104vw;right:-30%;top:-8%}
 }

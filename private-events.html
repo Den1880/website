@@ -259,8 +259,10 @@ footer a{color:var(--plum)}
   .gallery-grid .gallery-item:first-child{grid-column:span 2;aspect-ratio:16/10}
 }
 .gallery-item{overflow:hidden;border-radius:0;background:rgba(27,28,28,.14);cursor:pointer;position:relative;border:0;padding:0;width:100%;display:block;font:inherit;color:inherit;text-align:left;aspect-ratio:1/1}
-.gallery-item img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease,opacity .3s ease;opacity:0}
-.gallery-item img.loaded{opacity:1}
+/* Visible by default. The earlier pattern started these at opacity:0 and let JS add a
+   .loaded class -- which lost the race on some tiles, and left the whole grid blank with
+   JS off. The fade was cosmetic; correctness wins. (Backported from /meeting-rooms.) */
+.gallery-item img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease;opacity:1}
 .gallery-item:hover img{transform:scale(1.03)}
 .gallery-item:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 .pe-gallery .gallery-foot{text-align:center;margin-top:32px}
@@ -448,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="page-hero" data-cms-bg="hero_photo">
 <div class="container">
 <span class="eyebrow" data-cms="hero_eyebrow">Private Events &middot; Uptown Waterloo</span>
-<h1 data-cms-md="hero_headline">8 Hours Of <span class="purple">Work.</span><br>8 Hours Of <span class="purple">Play.</span></h1>
+<h1 data-cms-md="hero_headline">A <span class="purple">Space</span> For Your <span class="purple">Priceless</span> Moments</h1>
 <p class="lede" data-cms="hero_subhead">An 1880 heritage building in Uptown Waterloo. Seats 100 in the Theatre, 140 for cocktails in the Lobby Bar &mdash; with bar, catering, AV and staff in one booking.</p>
 <div class="hero-cta">
 <a href="#inquiry" class="btn btn-primary">Inquire About Your Event</a>
