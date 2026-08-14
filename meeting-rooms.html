@@ -510,11 +510,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .mr-gallery .mr-head h2,.mr-testi .mr-head h2{font-family:var(--font-serif);font-weight:400;
   font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;color:var(--black);margin-bottom:.6rem}
 .mr-gallery .mr-head p,.mr-testi .mr-head p{font-size:.95rem;color:var(--mid);line-height:1.7;margin:0}
-.mr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;margin:0 auto}
+.mr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1120px;margin:0 auto}
 /* Stays 2-up on phones rather than dropping to one -- eight full-width photos
    stacked doubles the page height and buries the closing CTA. 8 divides by 2,
    so this is four clean rows with no orphan cell and no spanning-opener hack. */
-@media(max-width:1000px){.mr-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+/* 9 does not divide by 2, so the first tile spans both columns as a deliberate
+     opener and the remaining eight make four clean rows with no orphan cell. */
+  @media(max-width:1000px){.mr-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .mr-grid .mr-item:first-child{grid-column:span 2;aspect-ratio:16/10}}
 .mr-item{overflow:hidden;border-radius:0;background:rgba(27,28,28,.14);cursor:pointer;position:relative;
   border:0;padding:0;width:100%;display:block;font:inherit;color:inherit;text-align:left;aspect-ratio:1/1}
 /* Visible by default. The earlier pattern started these at opacity:0 and let JS
@@ -1047,14 +1050,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p data-cms="gallery_subhead">The list above is the rooms and the rates. This is the part that matters &mdash; real sessions in these rooms. Click any photo to see it full size.</p>
     </div>
     <div class="mr-grid" id="mrGrid">
-      <button class="mr-item" type="button" aria-label="Open photo 1 of 8"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-01-dominion-meeting.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_1" alt="Six colleagues seated around the table in The Dominion meeting room at Den 1880, laptops open"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 2 of 8"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-02-long-table-work.jpg" width="800" height="800" loading="lazy" decoding="async" data-cms-src="gallery_photo_2" alt="Two people working at the long meeting table beside the windows at Den 1880"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 3 of 8"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-03-workshop.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_3" alt="A team mid-session at Den 1880, one person standing to speak while the others listen"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 4 of 8"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-04-breakout-lounge.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_4" alt="Two colleagues shaking hands over an open laptop during a breakout at Den 1880"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 5 of 8"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-05-qa-hands.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_5" alt="Hands going up for questions during a session at Den 1880"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 6 of 8"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-06-theatre-session.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_6" alt="An audience seated on the tiered seating in The Theatre at Den 1880"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 7 of 8"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-07-library-allhands.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_7" alt="A full room seated for an all-hands session in The Library at Den 1880"></button>
-      <button class="mr-item" type="button" aria-label="Open photo 8 of 8"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-08-vault-recording.jpg" width="1200" height="1200" loading="lazy" decoding="async" data-cms-src="gallery_photo_8" alt="Two people recording across the table in The Vault podcast and content studio at Den 1880"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 1 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-01-grand-boardroom-session.jpg" width="1597" height="1597" loading="lazy" decoding="async" data-cms-src="gallery_photo_1" alt="A session under way around the long table in The Grand Boardroom at Den 1880, with the presentation on the wall screen"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 2 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-02-working-session.jpg" width="1597" height="1597" loading="lazy" decoding="async" data-cms-src="gallery_photo_2" alt="Laptops, a tablet and folders spread across the walnut boardroom table during a working session at Den 1880"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 3 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-03-small-room-meeting.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_3" alt="A team meeting around the table in one of the smaller wood-panelled meeting rooms at Den 1880"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 4 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-04-reviewing-documents.jpg" width="1597" height="1597" loading="lazy" decoding="async" data-cms-src="gallery_photo_4" alt="Two people reading through a marked-up document together at a Den 1880 meeting table"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 5 of 9"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-05-after-the-meeting.jpg" width="1597" height="1597" loading="lazy" decoding="async" data-cms-src="gallery_photo_5" alt="Guests raising a toast at a long candlelit table against the exposed brick wall at Den 1880"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 6 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-06-on-the-table.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_6" alt="A Den 1880 magazine and meeting notes open on the table beside a coffee mug"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 7 of 9"><img style="object-position:center 45%" src="/assets/photos/meetings/mr-07-heads-down.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_7" alt="Someone working head-down at a laptop in a quiet panelled meeting room at Den 1880"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 8 of 9"><img style="object-position:center 50%" src="/assets/photos/meetings/mr-08-through-the-glass.jpg" width="1597" height="1597" loading="lazy" decoding="async" data-cms-src="gallery_photo_8" alt="A meeting in progress seen through the fluted glass partition of a Den 1880 boardroom"></button>
+      <button class="mr-item" type="button" aria-label="Open photo 9 of 9"><img style="object-position:center 40%" src="/assets/photos/meetings/mr-09-facilitating.jpg" width="1600" height="1600" loading="lazy" decoding="async" data-cms-src="gallery_photo_9" alt="A facilitator standing at the head of the table talking with the room during a session at Den 1880"></button>
     </div>
     <div class="mr-foot">
       <a rel="nofollow" href="/go/book" class="btn-primary">Book a Meeting Room</a>
