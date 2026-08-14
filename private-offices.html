@@ -963,6 +963,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   window.addEventListener('wheel',revealNav,{passive:true,once:true});
   window.addEventListener('touchmove',revealNav,{passive:true,once:true});
   topbar.addEventListener('focusin',revealNav);
+  /* Also reveal on a click/tap anywhere, or when the cursor reaches for the top of the screen */
+  window.addEventListener('click',revealNav,{passive:true,once:true});
+  function navTopHover(e){if(e.clientY<=90){revealNav();window.removeEventListener('mousemove',navTopHover);}}
+  window.addEventListener('mousemove',navTopHover,{passive:true});
   if(document.documentElement.classList.contains('nav-preload')){
     var kids=document.body.children,firstContent=null;
     for(var ki=0;ki<kids.length;ki++){var kel=kids[ki];
