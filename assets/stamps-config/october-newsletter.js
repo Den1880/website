@@ -24,9 +24,7 @@ window.DEN_STAMPS = {
           "x": 93,
           "y": 73.5,
           "rot": -15,
-          "mobileX": 103.8,
-          "mobileY": 702.6,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "combo-circle",
