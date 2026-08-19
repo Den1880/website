@@ -35,9 +35,7 @@ window.DEN_STAMPS = {
           "x": 99,
           "y": 74,
           "rot": -11,
-          "mobileX": 74,
-          "mobileY": 74,
-          "mobileW": 12
+          "mobileHide": true
         }
       ],
       "note": "Sits in the gutter beside the confirmation card."

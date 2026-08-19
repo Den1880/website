@@ -15,9 +15,7 @@ window.DEN_STAMPS = {
           "x": 11,
           "y": 30,
           "rot": 14,
-          "mobileX": 0,
-          "mobileY": 30,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "88-oval",
@@ -35,9 +33,7 @@ window.DEN_STAMPS = {
           "x": 2,
           "y": 74,
           "rot": 11,
-          "mobileX": 26,
-          "mobileY": 74,
-          "mobileW": 12
+          "mobileHide": true
         }
       ],
       "note": "Pricing block at the top left clean."

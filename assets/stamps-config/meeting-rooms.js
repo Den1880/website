@@ -26,9 +26,7 @@ window.DEN_STAMPS = {
           "x": 34,
           "y": 107,
           "rot": 11,
-          "mobileX": 52,
-          "mobileY": 107,
-          "mobileW": 12
+          "mobileHide": true
         }
       ],
       "note": "Photo hero. Room cards left alone; the rate card is the loudest thing."
@@ -65,9 +63,7 @@ window.DEN_STAMPS = {
           "x": 99,
           "y": 74,
           "rot": -11,
-          "mobileX": 98.7,
-          "mobileY": 74,
-          "mobileW": 12
+          "mobileHide": true
         }
       ]
     },

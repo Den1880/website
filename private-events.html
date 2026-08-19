@@ -360,6 +360,28 @@ html:not(.nav-preload) body{transition:margin-top .3s ease}
 .mobile-menu .mm-panel a{border-bottom:none;padding:10px 0;font-size:14px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://den1880.co/"}, {"@type": "ListItem", "position": 2, "name": "Private Events", "item": "https://den1880.co/private-events"}]}</script>
+<style id="mobile-fixes-aug19">
+/* Mobile formatting fixes (Aug 19 2026): footer tap targets, table scrolling,
+   iOS form-zoom guard, hamburger size. Scoped to phone widths only. */
+@media (max-width:768px){
+  .footer-col a,.footer-col address{font-size:15px;line-height:1.45;padding:5px 0;margin-bottom:4px}
+  .footer-bottom-links a{font-size:13px;display:inline-block;padding:8px 4px}
+  .footer-social a{font-size:14px;padding:6px 0}
+  /* Comparison tables scroll sideways inside their card instead of clipping */
+  .compare{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* Corporate sub-nav strip links get a real tap zone */
+  .subnav-strip a{display:inline-block;padding:8px 2px}
+  /* Footnote asterisks get a real tap zone */
+  a[href="#guarantee-terms"]{display:inline-block;padding:0 8px;margin:0 -6px}
+  /* Meeting-rooms rate-card unit labels */
+  .price-label{font-size:13px}
+  /* Inputs at 16px so iPhone Safari stops auto-zooming on focus */
+  input:not([type=hidden]):not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px!important}
+}
+@media (max-width:1100px){
+  .hamburger{width:44px;height:44px}
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->

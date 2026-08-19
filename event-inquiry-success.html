@@ -132,6 +132,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
 </script>
   <link rel="stylesheet" href="/assets/den-stamps.css">
+<style id="mobile-fixes-aug19">
+/* Mobile formatting fixes (Aug 19 2026): footer tap targets, table scrolling,
+   iOS form-zoom guard, hamburger size. Scoped to phone widths only. */
+@media (max-width:768px){
+  .footer-col a,.footer-col address{font-size:15px;line-height:1.45;padding:5px 0;margin-bottom:4px}
+  .footer-bottom-links a{font-size:13px;display:inline-block;padding:8px 4px}
+  .footer-social a{font-size:14px;padding:6px 0}
+  /* Comparison tables scroll sideways inside their card instead of clipping */
+  .compare{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* Corporate sub-nav strip links get a real tap zone */
+  .subnav-strip a{display:inline-block;padding:8px 2px}
+  /* Footnote asterisks get a real tap zone */
+  a[href="#guarantee-terms"]{display:inline-block;padding:0 8px;margin:0 -6px}
+  /* Meeting-rooms rate-card unit labels */
+  .price-label{font-size:13px}
+  /* Inputs at 16px so iPhone Safari stops auto-zooming on focus */
+  input:not([type=hidden]):not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px!important}
+}
+@media (max-width:1100px){
+  .hamburger{width:44px;height:44px}
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->

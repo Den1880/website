@@ -15,9 +15,7 @@ window.DEN_STAMPS = {
           "x": 11,
           "y": 36.4,
           "rot": 14,
-          "mobileX": 0,
-          "mobileY": 36.4,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "88-oval",

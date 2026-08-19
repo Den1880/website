@@ -15,9 +15,7 @@ window.DEN_STAMPS = {
           "x": 89,
           "y": 30,
           "rot": -14,
-          "mobileX": 100,
-          "mobileY": 30,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "88-oval",
@@ -35,9 +33,7 @@ window.DEN_STAMPS = {
           "x": 99,
           "y": 74,
           "rot": -11,
-          "mobileX": 74,
-          "mobileY": 74,
-          "mobileW": 12
+          "mobileHide": true
         }
       ]
     },
@@ -53,9 +49,7 @@ window.DEN_STAMPS = {
           "x": 11,
           "y": 30,
           "rot": 14,
-          "mobileX": 0,
-          "mobileY": 30,
-          "mobileW": 26
+          "mobileHide": true
         },
         {
           "mark": "88-oval",
