@@ -26,6 +26,8 @@
 //   FEED_PASS        Basic-auth password Google Ads sends
 //   WINDOW_DAYS      booking lookback, defaults to 21
 //   JOIN_WINDOW_MIN  max minutes between click and booking, defaults to 120
+//   BOOKING_SOURCES  comma-separated Optix `source` values eligible for the join.
+//                    Defaults to "Drop-in". Set to "*" to disable the filter.
 //
 // Diagnostics: append ?debug=1 (still behind Basic Auth) to see the raw resource shape
 // the Optix API returns plus join statistics, without touching the CSV output. Use this
@@ -72,6 +74,51 @@ export function resolveRoom(resource) {
   const rid = resource.resource_id ?? resource.id ?? null;
   if (rid == null) return null;
   return BY_RESOURCE_ID[String(rid)] || null;
+}
+
+// WHICH BOOKINGS CAN EVER BE AD-DRIVEN (verified 2026-08-20 against 327 bookings
+// back to 21 January 2026, via the Optix API).
+//
+// Optix stamps every booking with a `source`. Across seven months there are only five:
+//
+//   Admin             129   staff entering a booking in the Optix back office
+//   iOS app           104   an existing member, signed in, in the mobile app
+//   Drop-in            58   a self-serve booking made by the customer themselves
+//   Android app        30   an existing member, signed in, in the mobile app
+//   External Calendar   6   calendar sync
+//
+// Only "Drop-in" can be the far end of a /go/ click. The app sources are existing
+// members who never see den1880.co, and Admin bookings are typed by staff — `user` and
+// `created_by_user` are both the staff member, not a customer.
+//
+// This is not a refinement, it is a correctness fix. On 2026-08-20 the very first
+// conversion this feed ever uploaded to Google Ads was booking 13428651: The Vault
+// Podcast Studio, created 19 Aug 14:07:42, for 25 November, source "Admin". A real
+// /go/vault click happened the same day and the (then 1440-minute) window swept it up.
+// Nobody clicked an ad and booked that room. Without this filter the feed will keep
+// crediting Google Ads for bookings Paige typed in herself.
+//
+// It also settles the value:0 question, for free. Member bookings read $0 because the
+// booking is covered by a plan allowance, or because a future-dated booking has not
+// been invoiced yet — of 63 future-dated bookings in the sample, only 8 carried a
+// value. Every one of the 58 Drop-ins carried a real one: $124.30, $254.25, $858.80,
+// $644.10, $107.35, $268.38, $565.00, and so on. Filter to Drop-in and the value
+// column stops lying.
+//
+// The honest cost: 62 bookings were created in the 21 days to 20 August and just 2 of
+// them were Drop-ins. Real ad-driven booking volume is on the order of one a week, not
+// one a day. Anyone reading a low conversion count here should read it as the truth
+// about volume, not as the join being broken.
+export const DEFAULT_BOOKING_SOURCES = ["Drop-in"];
+
+export function parseBookingSources(raw) {
+  const v = String(raw ?? "").trim();
+  if (v === "*") return null; // "*" is the only way to switch the filter off
+  const list = v.split(",").map((x) => x.trim()).filter(Boolean);
+  // An unset or blank variable must fall back to the safe default, never to "no
+  // filter" — a typo in Netlify should not quietly start crediting Ads for Paige's
+  // back-office bookings again.
+  return list.length ? list : DEFAULT_BOOKING_SOURCES;
 }
 
 // Join bookings to logged clicks.
@@ -157,6 +204,7 @@ export default async (req) => {
   const orgId = process.env.OPTIX_ORG_ID || "25734";
   const windowDays = parseInt(process.env.WINDOW_DAYS || "21", 10);
   const joinWindowMin = parseInt(process.env.JOIN_WINDOW_MIN || "120", 10);
+  const allowedSources = parseBookingSources(process.env.BOOKING_SOURCES);
 
   const auth = req.headers.get("authorization") || "";
   const expected = user && pass ? "Basic " + Buffer.from(`${user}:${pass}`).toString("base64") : null;
@@ -189,7 +237,7 @@ export default async (req) => {
   // otherwise let the token's own scope apply.
   const locId = process.env.OPTIX_LOCATION_ID;
   const scopeArg = locId ? `location_id:"${locId}", ` : "";
-  const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp resource{ resource_id name } invoice_items{total} } } }`;
+  const query = `{ bookings(${scopeArg}limit:200, order:CREATED_TIMESTAMP_DESC, include_approved:true, include_completed:true){ data { created_timestamp source resource{ resource_id name } invoice_items{total} } } }`;
 
   // ?debug=resource follows Booking.resource to its REAL type and lists that type's
   // fields. Introspecting a type literally named "Resource" was itself a guess: it has
@@ -274,15 +322,25 @@ export default async (req) => {
   const raw = (j.data && j.data.bookings && j.data.bookings.data) || [];
   const cutoff = Math.floor(Date.now() / 1000) - windowDays * 24 * 3600;
 
-  const bookings = raw
-    .filter((b) => b.created_timestamp >= cutoff)
-    .map((b) => ({
-      created_timestamp: b.created_timestamp,
-      value: (b.invoice_items || []).reduce((s, i) => s + (i.total || 0), 0),
-      resourceTitle: (b.resource && b.resource.name) || null,
-      resourceRaw: b.resource || null,
-      room: resolveRoom(b.resource),
-    }));
+  const inWindow = raw.filter((b) => b.created_timestamp >= cutoff);
+
+  // Diagnostic only: what sources exist in this window, and how many of each. Kept in
+  // ?debug=1 so a future change in Optix's source vocabulary shows up as a number
+  // moving rather than as attribution silently dropping to zero.
+  const sourceCounts = {};
+  for (const b of inWindow) sourceCounts[b.source || "(none)"] = (sourceCounts[b.source || "(none)"] || 0) + 1;
+
+  const eligible = allowedSources ? inWindow.filter((b) => allowedSources.includes(b.source)) : inWindow;
+  const excludedBySource = inWindow.length - eligible.length;
+
+  const bookings = eligible.map((b) => ({
+    created_timestamp: b.created_timestamp,
+    source: b.source || null,
+    value: (b.invoice_items || []).reduce((s, i) => s + (i.total || 0), 0),
+    resourceTitle: (b.resource && b.resource.name) || null,
+    resourceRaw: b.resource || null,
+    room: resolveRoom(b.resource),
+  }));
 
   let clicks = [];
   let clickErr = null;
@@ -299,7 +357,11 @@ export default async (req) => {
       JSON.stringify(
         {
           ok: true,
-          bookingsInWindow: bookings.length,
+          bookingsInWindow: inWindow.length,
+          bookingsEligible: bookings.length,
+          allowedSources: allowedSources || "*",
+          excludedBySource,
+          sourceCounts,
           clicksLogged: clicks.length,
           clickStoreError: clickErr,
           joinWindowMin,
@@ -319,8 +381,10 @@ export default async (req) => {
           unmatchedTitles: [...new Set(bookings.filter((b) => !b.room).map((b) => b.resourceTitle))],
           sampleRows: matched.slice(0, 3).map((m) => ({
             room: m.booking.room.slug,
+            source: m.booking.source,
             conversionName: m.booking.room.conversionName,
             value: m.booking.value,
+            valueUploaded: m.booking.value > 0,
             time: torontoIso(m.booking.created_timestamp),
             gclidPresent: !!m.click.gclid,
           })),
@@ -338,13 +402,20 @@ export default async (req) => {
     // rare on Search traffic; they stay logged but unuploaded rather than risk a
     // malformed row rejecting the whole file.
     if (!m.click.gclid) continue;
+    // A booking with no invoice items yet is not worth $0.00 — we simply do not know
+    // what it is worth. Uploading an explicit 0.00 is a *provided* value, which
+    // overrides the conversion action's default and tells Google the click was
+    // worthless. Leaving both columns blank lets the action's default value apply.
+    // With the Drop-in filter this branch should almost never fire; it is a guard,
+    // not a workaround.
+    const hasValue = Number.isFinite(m.booking.value) && m.booking.value > 0;
     lines.push(
       [
         csvEscape(m.click.gclid),
         csvEscape(m.booking.room.conversionName),
         csvEscape(torontoIso(m.booking.created_timestamp)),
-        m.booking.value.toFixed(2),
-        "CAD",
+        hasValue ? m.booking.value.toFixed(2) : "",
+        hasValue ? "CAD" : "",
       ].join(",")
     );
   }
