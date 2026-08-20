@@ -107,7 +107,19 @@ export const DEST = {
   },
 
   // --- Larger event spaces bookable by the hour ---
+  // VERIFIED 2026-08-19 against ?debug=1 on /optix-feed-clicks: every theatre booking
+  // in the last 21 days was resource 621705 "Theatre Event Booking". This slug used to
+  // point at 634941 "Theatre Meeting", so /go/theatre logged one resource while the
+  // customer booked another and the join could never match. 634941 is kept below as a
+  // separate entry — it has no CTA, but leaving it in the map means a booking of it
+  // RESOLVES instead of being silently counted as noRoom.
   theatre: {
+    url: `${OPTIX_BASE}/book/resource/621705`,
+    resourceId: "621705",
+    title: "Theatre Event Booking",
+    conversionName: CONV_EVENT_SPACE,
+  },
+  "theatre-meeting": {
     url: `${OPTIX_BASE}/book/resource/634941`,
     resourceId: "634941",
     title: "Theatre Meeting",
@@ -118,6 +130,19 @@ export const DEST = {
     resourceId: "634942",
     title: "Library Meeting",
     conversionName: CONV_EVENT_SPACE,
+  },
+
+  // --- Members-only room: resolves for diagnostics, never joins ---
+  // The Cellar is not sold through a /go/ link. On meeting-rooms.html it opens the
+  // cellarModal ("Exclusive to Den 1880 members") and fires cellar_book_intent, so no
+  // click can ever carry this resourceId and it can never be attributed to an ad.
+  // It is mapped so its bookings stop landing in the noRoom bucket and skewing the
+  // join diagnostics.
+  cellar: {
+    url: `${OPTIX_BASE}/book/resource/619271`,
+    resourceId: "619271",
+    title: "The Cellar",
+    conversionName: CONV_MEETING,
   },
 
   // --- Generic booking entry point (no specific room) ---
