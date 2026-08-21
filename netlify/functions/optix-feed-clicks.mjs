@@ -76,6 +76,52 @@ export function resolveRoom(resource) {
   return BY_RESOURCE_ID[String(rid)] || null;
 }
 
+// CLICK-SIDE DIAGNOSTICS (?debug=1 only — this changes no behaviour).
+//
+// On 20 August the feed reported a clean run: 62 bookings in window, 2 eligible after
+// the Drop-in filter, 0 noRoom, 0 ambiguous, and matched 0 with noCandidate 2. Both
+// eligible bookings resolved to a mapped room; neither had a click to pair with.
+//
+// "noCandidate" is where this pipeline now spends all its time, and the bookings side
+// cannot explain it. These fields describe the OTHER side of the join:
+//
+//   clicksBySlug  which /go/ links ad traffic actually uses. If every click is for one
+//                 room and the bookings are for different rooms, the join can never
+//                 fire no matter how wide JOIN_WINDOW_MIN gets — and that is an ad
+//                 targeting finding, not a tracking bug.
+//   clickAgeDays  oldest/newest/median. Clicks are pruned at GCLID_MAX_AGE_DAYS (90),
+//                 bookings are looked back WINDOW_DAYS (21). If every click predates
+//                 the booking window the two populations never overlap in time.
+//   clicksNoRoom  clicks on a /go/ link with no resourceId (the generic "book" entry,
+//                 day passes, the podcast bundle). Logged for funnel visibility, never
+//                 joinable — so they inflate clicksLogged without ever being able to
+//                 match. Read clicksLogged minus this as the real joinable click count.
+//
+// No gclid, gbraid or wbraid value is ever returned here. Slug, count and age only.
+export function summariseClicks(clicks, nowSec) {
+  const bySlug = {};
+  let noRoom = 0;
+  const ages = [];
+
+  for (const c of clicks) {
+    const slug = c.slug || "(none)";
+    bySlug[slug] = (bySlug[slug] || 0) + 1;
+    if (!c.resourceId) noRoom++;
+    if (c.ts) ages.push(Math.floor((nowSec - c.ts) / 86400));
+  }
+
+  ages.sort((a, b) => a - b);
+  const median = ages.length
+    ? (ages.length % 2 ? ages[(ages.length - 1) / 2] : Math.round((ages[ages.length / 2 - 1] + ages[ages.length / 2]) / 2))
+    : null;
+
+  return {
+    clicksBySlug: bySlug,
+    clicksNoRoom: noRoom,
+    clickAgeDays: ages.length ? { newest: ages[0], median, oldest: ages[ages.length - 1] } : null,
+  };
+}
+
 // WHICH BOOKINGS CAN EVER BE AD-DRIVEN (verified 2026-08-20 against 327 bookings
 // back to 21 January 2026, via the Optix API).
 //
@@ -363,6 +409,7 @@ export default async (req) => {
           excludedBySource,
           sourceCounts,
           clicksLogged: clicks.length,
+          ...summariseClicks(clicks, Math.floor(Date.now() / 1000)),
           clickStoreError: clickErr,
           joinWindowMin,
           stats,
