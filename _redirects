@@ -4,6 +4,11 @@
 # www -> non-www is handled automatically by Netlify, so no rule is needed for that.
 # Netlify matches the FIRST rule that applies, so specific rules are listed before wildcards.
 
+# -- Gallery: the gallery/ folder of use-case pages would otherwise make the
+# bare trailing-slash URL a 404 (there is no gallery/index.html; /gallery is
+# served by gallery.html via pretty URLs).
+/gallery/                   /gallery        301
+
 # -- Memberships (coworking / resident desk / day passes) --
 /club-membership            /memberships    301
 /club-membership-1          /memberships    301
