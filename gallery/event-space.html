@@ -150,6 +150,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .gallery-tabs a:hover{color:var(--orange);border-color:var(--orange)}
   .gallery-tabs a[aria-current="page"]{background:var(--mustard);border-color:var(--mustard);color:var(--ink);font-weight:600}
   @media(max-width:600px){.gallery-tabs{gap:8px}.gallery-tabs a{padding:9px 14px;letter-spacing:.14em}}
+  .gallery-backlink{margin:20px 0 0;font-family:'Oswald',Impact,sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
+  .gallery-backlink a{color:var(--lime-deep);transition:color .2s}
+  .gallery-backlink a:hover{color:var(--orange)}
 
   /* ── GALLERY GRID ── */
   .gallery-section{
@@ -305,11 +308,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Event Space Gallery · Den 1880" />
 <meta property="og:description" content="See Den 1880's event spaces in Uptown Waterloo — the Theatre, the Lobby Bar, the Library and the Kitchen, set for receptions, panels, parties and dinners." />
 <meta property="og:url" content="https://den1880.co/gallery/event-space" />
-<meta property="og:image" content="https://den1880.co/assets/photos/private-events/pe-07-drinks-reception.jpg" />
+<meta property="og:image" content="https://den1880.co/assets/photos/gallery/ev-s070-07-square.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Event Space Gallery · Den 1880" />
 <meta name="twitter:description" content="See Den 1880's event spaces in Uptown Waterloo — the Theatre, the Lobby Bar, the Library and the Kitchen, set for receptions, panels, parties and dinners." />
-<meta name="twitter:image" content="https://den1880.co/assets/photos/private-events/pe-07-drinks-reception.jpg" />
+<meta name="twitter:image" content="https://den1880.co/assets/photos/gallery/ev-s070-07-square.jpg" />
 <!-- SEO:LocalBusiness -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","additionalType":"https://www.wikidata.org/wiki/Q1378974","@id":"https://den1880.co/#business","name":"Den 1880","description":"Premium coworking space, private gym, recovery suite, podcast studio and event venue under one heritage roof in Uptown Waterloo.","url":"https://den1880.co/","logo":"https://den1880.co/assets/den1880-logo-black.svg","image":"https://den1880.co/assets/photos/hero-poster.jpg","telephone":"+1-519-783-1505","email":"hello@den1880.co","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"14 Erb St. West","addressLocality":"Waterloo","addressRegion":"ON","postalCode":"N2L 1S7","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":"43.4655231","longitude":"-80.5232601"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/den1880.co/","https://ca.linkedin.com/company/den-1880"]}
@@ -419,7 +422,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
       </div>
     </div>
-    <a class="btn btn-lime btn-sm" href="/eventinquiry">Inquire Now</a>
+    <a class="btn btn-lime btn-sm" href="/private-events#inquiry">Inquire Now</a>
   </nav>
 
   <!-- Mobile: hamburger only -->
@@ -460,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://performanceclub.ca/memberships.html" target="_blank" rel="noopener">Club Memberships</a>
     </div>
   </div>
-  <a href="/eventinquiry" class="mobile-cta">Inquire Now</a>
+  <a href="/private-events#inquiry" class="mobile-cta">Inquire Now</a>
 </div>
 
 <!-- PAGE HEADER -->
@@ -469,6 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="eyebrow" data-cms="hero_eyebrow">14 Erb St. West · Uptown Waterloo</span>
     <h1 data-cms="hero_heading">The Event Space Gallery</h1>
     <p data-cms="hero_subhead">The Theatre, the Lobby Bar, the Library and the Kitchen — set for receptions, panels, parties and dinners.</p>
+    <p class="gallery-backlink"><a href="/private-events">&#8592; Back to Private Events</a></p>
   </div>
 </section>
 
@@ -507,8 +511,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 data-cms="cta_heading">Picture your event here.</h2>
     <p data-cms="cta_subhead">Tell us what you're planning and we'll walk you through the rooms that fit.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="/eventinquiry">Inquire Now</a>
-      <a class="btn btn-ghost" href="/private-events">See Private Events</a>
+      <a class="btn btn-primary" href="/private-events#inquiry">Inquire About Your Event</a>
+      <a class="btn btn-ghost" href="/private-events">Explore Private Events</a>
     </div>
   </div>
 </section>
@@ -563,18 +567,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
   // ── Photos list (curated order)
   const photos = [
-    {src: "/assets/photos/private-events/pe-07-drinks-reception.jpg", alt: "Guests at a drinks reception in the Den 1880 lounge"},
-    {src: "/assets/Events/823A5663.jpg", alt: "The Theatre at Den 1880 with tiered bleacher seating"},
-    {src: "/assets/photos/holiday/holiday-01-staircase-crowd.jpg", alt: "A party crowd on the heritage staircase at Den 1880"},
-    {src: "/assets/photos/private-events/pe-05-live-music.jpg", alt: "Live music at a private event at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s070-07-square.jpg", alt: "An event crowd seen from the mezzanine at Den 1880"},
+    {src: "/assets/photos/gallery/ev-05.jpg", alt: "Live music playing to a full room at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s059-09-square.jpg", alt: "Guests mingling at an evening event at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s066-16-square.jpg", alt: "A dinner under the chandeliers at Den 1880"},
     {src: "/assets/Events/12.11 - 38.jpg", alt: "A fireside talk in front of a seated crowd at Den 1880"},
-    {src: "/assets/photos/private-events/pe-04-seated-audience.jpg", alt: "A seated audience at a Den 1880 event"},
-    {src: "/assets/photos/gallery/ev-mezzanine-crowd.jpg", alt: "An event crowd across the mezzanine and Lobby Bar at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s037-16-square.jpg", alt: "A tech talk on stage at Den 1880"},
+    {src: "/assets/photos/gallery/ev-02.jpg", alt: "A party crowd in warm red light at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s068-15-square.jpg", alt: "Plated dishes served at a Den 1880 event"},
+    {src: "/assets/photos/gallery/ev-s036-08-square.jpg", alt: "A full lounge crowd at a Den 1880 talk"},
+    {src: "/assets/photos/gallery/ev-creativeriseraw-126.jpg", alt: "A seated audience at a corporate event at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s083-10-square.jpg", alt: "Wine and service at the bar during a Den 1880 event"},
+    {src: "/assets/photos/gallery/ev-s074-09-landscape.jpg", alt: "A panel conversation under the disco ball at Den 1880"},
+    {src: "/assets/photos/gallery/ev-10.jpg", alt: "Guests mingling by the arches at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s067-13-landscape.jpg", alt: "A group gathered on the bleacher steps at Den 1880"},
     {src: "/assets/photos/holiday/holiday-03-bar-cocktails.jpg", alt: "Cocktails being served at the bar during a Den 1880 party"},
-    {src: "/assets/photos/private-events/pe-03-champagne-pour.jpg", alt: "Champagne poured for guests at a Den 1880 reception"},
-    {src: "/assets/websitegallery/DEN02924.JPG", alt: "The Theatre and video wall at Den 1880, set lounge-style"},
-    {src: "/assets/Events/Panel-Fireside-QA.jpg", alt: "A panel discussion in front of an audience at Den 1880"},
-    {src: "/assets/photos/private-events/pe-02-lounge-mingling.jpg", alt: "Guests mingling in the lounge at a Den 1880 event"}
+    {src: "/assets/photos/gallery/ev-s032-12-square.jpg", alt: "A working session around the table at Den 1880"},
+    {src: "/assets/photos/gallery/ev-04.jpg", alt: "Dancing at a Den 1880 party"},
+    {src: "/assets/photos/gallery/ev-s074-10-square.jpg", alt: "A seated crowd at tables in the Theatre at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s059-12-landscape.jpg", alt: "An audience close to the stage at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s070-11-landscape.jpg", alt: "A candle-lit dinner audience at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s066-03-square.jpg", alt: "A guest listening during an event at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s076-06-square.jpg", alt: "A slow dance at a celebration at Den 1880"},
+    {src: "/assets/photos/gallery/ev-s081-09-square.jpg", alt: "The heritage exterior of Den 1880 at 14 Erb St. West"}
   ];
 
   // Curated order — no shuffle on the use-case galleries.
