@@ -33,6 +33,13 @@ const LOG_TIMEOUT_MS = 400;
 // but the feed currently only uploads gclid rows.
 const CLICK_PARAMS = ["gclid", "gbraid", "wbraid"];
 
+// Only the production hostname may write to the click store. Deploy previews and
+// branch deploys run this exact code on *.netlify.app, and a click logged from one is
+// indistinguishable from a real one afterwards — it has a real-looking gclid, a real
+// slug and a real timestamp, so it silently inflates the store and skews click-age
+// stats. Anything not on this list still redirects; it just does not log.
+const PROD_HOSTS = new Set(["den1880.co", "www.den1880.co"]);
+
 function readCookie(request, name) {
   const raw = request.headers.get("cookie") || "";
   for (const part of raw.split(";")) {
@@ -82,7 +89,9 @@ export default async (request) => {
 
     // Only log clicks that carry an ad click id. An organic visitor can never be
     // uploaded as an offline conversion, so logging them would just grow the store.
-    if (ids.gclid || ids.gbraid || ids.wbraid) {
+    // And only from production — see PROD_HOSTS above.
+    const isProd = PROD_HOSTS.has(url.hostname.toLowerCase());
+    if (isProd && (ids.gclid || ids.gbraid || ids.wbraid)) {
       const record = {
         ts: Math.floor(Date.now() / 1000),
         slug,
