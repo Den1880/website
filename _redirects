@@ -37,6 +37,11 @@
 # NOTE: private-events, weddings, holiday-parties, team-offsites,
 # and eventinquiry are now real rebuilt pages -- no redirect needed.
 
+# /weddings is a directory (weddings/index.html). Without this, the
+# extensionless form returns a bare "Document moved permanently" body
+# instead of a clean 301 to the trailing-slash URL.
+/weddings                   /weddings/      301!
+
 # -- bookanevent retired Aug 2026: it was an orphaned duplicate of the
 # private-events "Find Your Event" hub (same hub grid, but nothing on the
 # site linked to it and its hub grid never got the newer sitelink pages
