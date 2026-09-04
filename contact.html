@@ -598,7 +598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="contact-split">
       <div>
-        <div class="optix-inquiry-widget" optix-venue="den1880" optix-mode="embed"></div>
+        <div class="optix-inquiry-widget" optix-venue="den1880" optix-mode="embed" optix-tracking="1" optix-tracking-origin="https://den1880.co"></div>
 <script>(function(o, p, t, i, x) {x = p.createElement(t);var m = p.getElementsByTagName(t)[0];x.async = 1;x.src = i;m.parentNode.insertBefore(x, m)})(window, document, 'script', 'https://den1880.optixapp.com/web-plugin/optix.v1.js');</script>
 
       </div>
@@ -860,6 +860,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   window.addEventListener('scroll',function(){revealNav();if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 })();
+</script>
+<script>
+/* Optix widget -> dataLayer. The widget confirms inline and never navigates,
+   so conversions are detected from the page_view messages it posts up when
+   optix-tracking is on. Pushes every step; the GTM trigger keys on the
+   confirmation step name. */
+(function(){window.addEventListener('message',function(e){
+  var d=e&&e.data; if(!d||d.source!=='optix-form') return;
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event:'optix_form_step',optix_form:d.form||'',
+    optix_step:(d.payload&&d.payload.name)||d.event||''});
+});})();
 </script>
 </body>
 </html>
