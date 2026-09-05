@@ -786,11 +786,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 <script>
   (function(){
-    /* Newsletter subscriber log (Apps Script web app): same plumbing as the
-       Lead Log. The page posts straight to the sheet endpoint because Netlify's
-       outgoing webhooks choke on Apps Script's redirect responses and get
-       auto-disabled. Netlify Forms stays on as backup either way. */
-    var NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbxGDHxtdgY-yoqVGm0MM4_9Yaw5vWUcwuSUXGuyecpUxgldPCBiz6NvHFRc4rP3kcMA/exec?key=f7eb88ca9687dc71933e64c6";
+    /* Newsletter subscriber log: posts to a same-origin Netlify function
+       (netlify/functions/newsletter-signup.mjs) which relays to the Apps
+       Script sheet endpoint. The script URL and its key live in the
+       NEWSLETTER_ENDPOINT env var on Netlify -- never in page source.
+       Netlify Forms stays on as backup either way. */
+    var NEWSLETTER_ENDPOINT = "/api/newsletter-signup";
     var f=document.getElementById('newsletterForm');
     if(!f) return;
     function sendToSheet(email){
