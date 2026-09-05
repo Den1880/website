@@ -135,6 +135,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -157,6 +158,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -186,6 +188,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Post header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -263,6 +266,7 @@ collections:
           - label: "Business Mail — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero — line under the headline"
             name: "hero_subhead"
@@ -372,6 +376,7 @@ collections:
           - label: "Careers — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
@@ -402,6 +407,7 @@ collections:
           - label: "Contact — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero — line under the headline"
             name: "hero_subhead"
@@ -468,6 +474,7 @@ collections:
           - label: "Corporate — Compare — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Compare — Hero eyebrow"
             name: "hero_eyebrow"
@@ -516,6 +523,7 @@ collections:
           - label: "Corporate — Drop-In — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Drop-In — Hero eyebrow"
             name: "hero_eyebrow"
@@ -555,6 +563,7 @@ collections:
           - label: "Corporate — Enterprise — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Enterprise — Hero eyebrow"
             name: "hero_eyebrow"
@@ -615,6 +624,7 @@ collections:
           - label: "Corporate — Team Plans FAQ — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Team Plans FAQ — Hero eyebrow"
             name: "hero_eyebrow"
@@ -639,6 +649,7 @@ collections:
           - label: "Corporate — Team OfficeFlex — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Team OfficeFlex — Hero eyebrow"
             name: "hero_eyebrow"
@@ -684,6 +695,7 @@ collections:
           - label: "Corporate — Team OfficeLite — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Team OfficeLite — Hero eyebrow"
             name: "hero_eyebrow"
@@ -732,6 +744,7 @@ collections:
           - label: "Corporate — Index — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Corporate — Index — Hero eyebrow"
             name: "hero_eyebrow"
@@ -1009,6 +1022,7 @@ collections:
           - label: "Holiday Parties — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
@@ -1055,30 +1069,39 @@ collections:
           - label: "Photo gallery — photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 9"
             name: "gallery_photo_9"
             widget: "image"
+            required: false
           - label: "Reviews section — small tag above the heading"
             name: "testi_eyebrow"
             widget: "string"
@@ -1396,6 +1419,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1421,6 +1445,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1446,6 +1471,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1490,30 +1516,39 @@ collections:
           - label: "Gallery — photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
           - label: "Gallery — photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Gallery — photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Gallery — photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Gallery — photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Gallery — photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Gallery — photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Gallery — photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 9"
             name: "gallery_photo_9"
             widget: "image"
+            required: false
           - label: "Reviews — small tag above the heading"
             name: "testi_eyebrow"
             widget: "string"
@@ -1566,37 +1601,48 @@ collections:
           - label: "Meeting Rooms — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Room photo — The Grand Boardroom"
             name: "room_grand_photo"
             widget: "image"
+            required: false
           - label: "Room photo — Olive & Laurel (combined)"
             name: "room_olivelaurel_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Oak"
             name: "room_oak_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Dominion"
             name: "room_dominion_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Olive"
             name: "room_olive_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Laurel"
             name: "room_laurel_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Theatre"
             name: "room_theatre_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Library"
             name: "room_library_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Cellar"
             name: "room_cellar_photo"
             widget: "image"
+            required: false
           - label: "Room photo — The Vault (Podcast Studio)"
             name: "room_vault_photo"
             widget: "image"
+            required: false
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -1629,6 +1675,7 @@ collections:
           - label: "Memberships — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
@@ -1720,21 +1767,27 @@ collections:
           - label: "Photo gallery — photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Enterprise section — small tag above the heading"
             name: "enterprise_eyebrow"
             widget: "string"
@@ -1823,6 +1876,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Post header — small tag above the title"
             name: "post_eyebrow"
             widget: "string"
@@ -1857,6 +1911,7 @@ collections:
           - label: "Private Events — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
@@ -1898,30 +1953,39 @@ collections:
           - label: "Photo gallery — photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Photo gallery — photo 9"
             name: "gallery_photo_9"
             widget: "image"
+            required: false
           - label: "Reviews section — small tag above the heading"
             name: "testi_eyebrow"
             widget: "string"
@@ -1990,34 +2054,44 @@ collections:
           - label: "Private Offices — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline."
           - label: "Intro photo (Teams Floor section)"
             name: "intro_photo"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Suite gallery — photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Suite gallery — small tag above the heading"
             name: "gallery_eyebrow"
             widget: "string"
@@ -2151,6 +2225,7 @@ collections:
           - label: "Cover photo"
             name: "post_cover_photo"
             widget: "image"
+            required: false
           - label: "Header — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -2174,6 +2249,7 @@ collections:
           - label: "Team Offsites — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline."
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
@@ -2212,28 +2288,36 @@ collections:
           - label: "Photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
             hint: "The photos show in a square grid, so anything roughly square or portrait crops best."
           - label: "Photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Reviews section — small tag above the heading"
             name: "testi_eyebrow"
             widget: "string"
@@ -2299,13 +2383,16 @@ collections:
           - label: "The Vault — Hero background photo"
             name: "hero_bg_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
           - label: "The Vault door photo"
             name: "door_photo"
             widget: "image"
+            required: false
           - label: "Hero — small tag above the headline"
             name: "hero_eyebrow"
             widget: "string"
@@ -2344,28 +2431,36 @@ collections:
           - label: "Photo 1"
             name: "gallery_photo_1"
             widget: "image"
+            required: false
             hint: "The photos show in a square grid, so anything roughly square or portrait crops best."
           - label: "Photo 2"
             name: "gallery_photo_2"
             widget: "image"
+            required: false
           - label: "Photo 3"
             name: "gallery_photo_3"
             widget: "image"
+            required: false
           - label: "Photo 4"
             name: "gallery_photo_4"
             widget: "image"
+            required: false
           - label: "Photo 5"
             name: "gallery_photo_5"
             widget: "image"
+            required: false
           - label: "Photo 6"
             name: "gallery_photo_6"
             widget: "image"
+            required: false
           - label: "Photo 7"
             name: "gallery_photo_7"
             widget: "image"
+            required: false
           - label: "Photo 8"
             name: "gallery_photo_8"
             widget: "image"
+            required: false
           - label: "Reviews section — small tag above the heading"
             name: "testi_eyebrow"
             widget: "string"
@@ -2430,6 +2525,7 @@ collections:
           - label: "Weddings — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Hero intro paragraph"
             name: "hero_lede"
@@ -2673,6 +2769,7 @@ collections:
           - label: "Weddings — Micro Weddings — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Micro Weddings — Hero eyebrow"
             name: "hero_eyebrow"
@@ -2793,6 +2890,7 @@ collections:
           - label: "Weddings — Ceremony & Reception — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Ceremony & Reception — Hero eyebrow"
             name: "hero_eyebrow"
@@ -2964,6 +3062,7 @@ collections:
           - label: "Weddings — Capacity & Layouts — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Capacity & Layouts — Hero eyebrow"
             name: "hero_eyebrow"
@@ -3096,6 +3195,7 @@ collections:
           - label: "Weddings — Bar & Catering — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Bar & Catering — Hero eyebrow"
             name: "hero_eyebrow"
@@ -3231,6 +3331,7 @@ collections:
           - label: "Weddings — Showers & Rehearsals — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Showers & Rehearsals — Hero eyebrow"
             name: "hero_eyebrow"
@@ -3357,6 +3458,7 @@ collections:
           - label: "Weddings — Reviews — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — Reviews — Hero eyebrow"
             name: "hero_eyebrow"
@@ -3441,6 +3543,7 @@ collections:
           - label: "Weddings — FAQs — Hero photo"
             name: "hero_photo"
             widget: "image"
+            required: false
             hint: "The full-bleed photo behind the hero headline. Replaces the photo at both desktop and mobile sizes -- there isn't a separate mobile crop field."
           - label: "Weddings — FAQs — Hero eyebrow"
             name: "hero_eyebrow"
