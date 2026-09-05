@@ -169,6 +169,19 @@ footer a{color:var(--plum)}
   .gs-inquire h2{font-size:clamp(22px,2.4vw,30px);margin-bottom:10px}
   .gs-inquire .gs-desc{color:var(--muted);font-size:15px;line-height:1.6;max-width:56ch;margin:0 auto 22px}
   .gs-inquire .gs-form{max-width:660px;margin:0 auto;text-align:left}
+  /* The Optix widget always renders a 750px frame whose top 64px is an empty
+     toolbar, then centres the step inside what is left - so on the short steps
+     the form floats in white space. Crop the dead 64px band and size the frame
+     to the tallest step instead of the widget's fixed 750.
+     Measured against every step of the live form (Sep 2026): tallest content is
+     464px at >=660px wide, 480 at 560, 535 at 420, and it climbs steeply below
+     that - hence the wider frame on small screens. Header 64 + content + 63
+     footer = the frame height; the crop is that minus the 64 we hide.
+     The Back control lives in the bottom bar, not the cropped band. */
+  .optix-frame{overflow:hidden;height:536px}
+  .optix-frame .optix-inquiry-widget{display:block;margin-top:-64px;height:600px!important}
+  @media(max-width:764px){.optix-frame{height:596px}.optix-frame .optix-inquiry-widget{height:660px!important}}
+  @media(max-width:560px){.optix-frame{height:686px}.optix-frame .optix-inquiry-widget{height:750px!important}}
   @media(max-width:560px){.gs-inquire{padding:28px 18px 24px}}
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   @supports(padding:max(0px)){@media(orientation:landscape){.topbar{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}}
@@ -351,7 +364,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="gs-desc" data-cms="card1_desc">Start with just your name and email &mdash; then tell us a little more. We'll reply within one business day.</p>
   <p class="form-note" data-cms="form_note">A few quick questions so we know what you're interested in &mdash; you won't be charged anything.</p>
   <div class="gs-form">
-    <div class="optix-inquiry-widget" optix-venue="den1880" optix-mode="embed" optix-tracking="1" optix-tracking-origin="https://den1880.co"></div>
+    <div class="optix-frame">
+      <div class="optix-inquiry-widget" optix-venue="den1880" optix-mode="embed" optix-tracking="1" optix-tracking-origin="https://den1880.co"></div>
+    </div>
     <script>(function(o, p, t, i, x) {x = p.createElement(t);var m = p.getElementsByTagName(t)[0];x.async = 1;x.src = i;m.parentNode.insertBefore(x, m)})(window, document, 'script', 'https://den1880.optixapp.com/web-plugin/optix.v1.js');</script>
   </div>
 </div>
