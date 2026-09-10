@@ -87,11 +87,13 @@ export const DEST = {
     title: "The Oak",
     conversionName: CONV_MEETING,
   },
+  // Dominion no longer bookable (Teeple 2026-09-10). Keep slug so old /go/dominion
+  // and any shared printed hops still land on generic book — never resource 619269.
   dominion: {
-    url: `${OPTIX_BASE}/book/resource/619269`,
-    resourceId: "619269",
+    url: FALLBACK_URL,
+    resourceId: null,
     title: "The Dominion",
-    conversionName: CONV_MEETING,
+    conversionName: null,
   },
   olive: {
     url: `${OPTIX_BASE}/book/resource/619265`,
