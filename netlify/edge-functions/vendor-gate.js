@@ -64,7 +64,7 @@ function gatePage(failed) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Preferred Vendors | Den 1880</title>
+<title>2026 Preferred Vendors | Den 1880</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +97,7 @@ button:hover,button:focus-visible{outline:2px solid var(--orange);outline-offset
 </head>
 <body>
 <img class="mark" src="/assets/den1880-logo-black.svg" alt="Den 1880">
-<span class="eyebrow">Preferred vendor program</span>
+<span class="eyebrow">2026 Preferred Vendor Program</span>
 <h1>This One&rsquo;s By <span class="accent">Invitation</span></h1>
 <p class="lede">Our preferred vendor sheet lives behind a password. Enter yours and the full list opens up.</p>
 <form method="POST" action="/preferred-vendors">
