@@ -1,0 +1,21 @@
+{
+  "hero_eyebrow": "Den 1880 · Uptown Waterloo",
+  "hero_headline": "Upcoming at *Den*",
+  "hero_meta": "Classes, socials and community nights at 14 Erb St. West",
+  "empty_message": "The next lineup is on its way. Follow @den1880.co on Instagram to hear about it first.",
+  "events": [
+    {
+      "title": "Puppy Yoga",
+      "start": "2026-11-10T17:00",
+      "end_time": "7:00 pm",
+      "location": "Den 1880, doors at 4:45 pm",
+      "audience": "Open to everyone",
+      "price": "$38 per ticket",
+      "description": "A one-hour guided yoga class, then an hour of puppy cuddles, play and socializing. Hosted with Purely Paws Yoga. All ages welcome; every guest needs a ticket, and members can buy tickets for their guests.",
+      "link": "https://www.eventbrite.ca/e/puppy-yoga-tickets-2002743452579",
+      "link_label": "Get tickets",
+      "image": "/assets/photos/upcoming/puppy-yoga.jpg",
+      "image_alt": "A yoga instructor in a standing split above a Bernese mountain dog puppy lying on her mat in the Den 1880 theatre"
+    }
+  ]
+}
