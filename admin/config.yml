@@ -262,6 +262,11 @@ collections:
                 widget: "string"
                 required: false
                 hint: "e.g. The Theatre, or Den 1880, doors at 4:45 pm"
+              - label: "Hosted by / performer (optional)"
+                name: "performer"
+                widget: "string"
+                required: false
+                hint: "The instructor, band or company running it, e.g. Purely Paws Yoga. Leave empty if Den 1880 runs it. Used for Google's event listings only."
               - label: "Who it's for"
                 name: "audience"
                 widget: "select"
@@ -286,6 +291,13 @@ collections:
                 widget: "string"
                 required: false
                 default: "Get tickets"
+              - label: "Tickets on sale from (optional)"
+                name: "on_sale"
+                widget: "datetime"
+                format: "YYYY-MM-DDTHH:mm"
+                picker_utc: false
+                required: false
+                hint: "When tickets first went on sale (Eventbrite shows this). Used for Google's event listings only."
               - label: "Photo (optional)"
                 name: "image"
                 widget: "image"
