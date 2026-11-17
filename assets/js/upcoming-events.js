@@ -79,17 +79,62 @@
     return h;
   }
 
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  // Waterloo's UTC offset on a given local date and hour: EDT (-04:00) from the
+  // second Sunday of March at 2am to the first Sunday of November at 2am, else EST.
+  function torontoOffset(y, mo, d, h) {
+    function nthSunday(month, n) {
+      var first = new Date(y, month - 1, 1).getDay();
+      return 1 + ((7 - first) % 7) + (n - 1) * 7;
+    }
+    var k = mo * 10000 + d * 100 + (h || 0);
+    var start = 3 * 10000 + nthSunday(3, 2) * 100 + 2;
+    var end = 11 * 10000 + nthSunday(11, 1) * 100 + 2;
+    return (k >= start && k < end) ? "-04:00" : "-05:00";
+  }
+
+  function stamp(y, mo, d, h, mi) {
+    if (h == null) return y + "-" + pad(mo) + "-" + pad(d);
+    return y + "-" + pad(mo) + "-" + pad(d) + "T" + pad(h) + ":" + pad(mi) + ":00" + torontoOffset(y, mo, d, h);
+  }
+
+  // "7:00 pm", "7pm", "7:30 p.m.", "19:00" -> {h, mi}; null if unreadable.
+  function parseClock(s) {
+    var m = /^\s*(\d{1,2})(?::(\d{2}))?\s*([ap])?\.?\s*m?\.?\s*$/i.exec(String(s || ""));
+    if (!m) return null;
+    var h = +m[1], mi = m[2] == null ? 0 : +m[2], ap = m[3] && m[3].toLowerCase();
+    if (h > 23 || mi > 59) return null;
+    if (ap === "p" && h < 12) h += 12;
+    if (ap === "a" && h === 12) h = 0;
+    return { h: h, mi: mi };
+  }
+
   function ld(ev, p) {
-    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var o = {
       "@type": "Event",
       "name": ev.title,
-      "startDate": p.y + "-" + pad(p.mo) + "-" + pad(p.d) + (p.h == null ? "" : "T" + pad(p.h) + ":" + pad(p.mi)),
+      "startDate": stamp(p.y, p.mo, p.d, p.h, p.mi),
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": { "@type": "Place", "name": "Den 1880", "address": { "@type": "PostalAddress", "streetAddress": "14 Erb St. West", "addressLocality": "Waterloo", "addressRegion": "ON", "postalCode": "N2L 1S7", "addressCountry": "CA" } },
       "organizer": { "@type": "Organization", "name": "Den 1880", "url": "https://den1880.co/" }
     };
+    // endDate: same day as the start, at the typed end time (next day if it reads earlier).
+    // With no end time, a one-day event ends the day it starts.
+    var end = p.h == null ? null : parseClock(ev.end_time);
+    if (end) {
+      var ed = new Date(p.y, p.mo - 1, p.d);
+      if (end.h * 60 + end.mi <= p.h * 60 + p.mi) ed.setDate(ed.getDate() + 1);
+      o.endDate = stamp(ed.getFullYear(), ed.getMonth() + 1, ed.getDate(), end.h, end.mi);
+    } else {
+      o.endDate = p.y + "-" + pad(p.mo) + "-" + pad(p.d);
+    }
+    // performer: the host typed in /admin, otherwise Den 1880 itself.
+    var host = String(ev.performer || "").trim();
+    o.performer = host
+      ? { "@type": "PerformingGroup", "name": host }
+      : { "@type": "Organization", "name": "Den 1880", "url": "https://den1880.co/" };
     if (ev.description) o.description = ev.description;
     var img = safeUrl(ev.image);
     if (img) o.image = img.charAt(0) === "/" ? "https://den1880.co" + img : img;
@@ -99,6 +144,9 @@
       o.offers = { "@type": "Offer", "url": link.charAt(0) === "/" ? "https://den1880.co" + link : link, "priceCurrency": "CAD", "availability": "https://schema.org/InStock" };
       if (m) o.offers.price = m[1];
       else if (/free/i.test(ev.price || "")) o.offers.price = "0";
+      // validFrom: when tickets went on sale, from /admin.
+      var sale = parseStart(ev.on_sale);
+      if (sale) o.offers.validFrom = stamp(sale.y, sale.mo, sale.d, sale.h == null ? 0 : sale.h, sale.mi);
     }
     return o;
   }
@@ -126,7 +174,7 @@
   }
 
   // Expose for the build step and tests; harmless on the live page.
-  window.DenUpcoming = { render: render, card: card, ld: ld, parseStart: parseStart };
+  window.DenUpcoming = { render: render, card: card, ld: ld, parseStart: parseStart, parseClock: parseClock, torontoOffset: torontoOffset };
 
   fetch("/content/upcoming.json", { cache: "no-store" })
     .then(function (r) { return r.ok ? r.json() : null; })
