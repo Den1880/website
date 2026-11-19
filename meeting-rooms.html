@@ -309,6 +309,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .room-cta:hover { background: rgba(27,28,28,.82); }
 
+    /* ── REFRESHMENTS BAND (Nov 2026) ── Blue ground, Mustard accents, so it
+       breaks the white/paper rhythm and reads as the "what's included" moment. */
+    .fb-section{background:var(--blue);color:var(--beige);padding:4.5rem 2rem}
+    .fb-inner{max-width:1120px;margin:0 auto}
+    .fb-eyebrow{display:block;font-family:'Oswald',Impact,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);font-weight:500;margin-bottom:12px}
+    .fb-section h2{font-family:var(--font-serif);font-weight:400;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;color:#FFFFFF;margin-bottom:.6rem}
+    .fb-lede{font-size:.98rem;line-height:1.7;color:var(--beige);max-width:640px;margin-bottom:2.25rem}
+    .fb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .fb-card{border:1px solid rgba(239,211,174,.28);padding:1.75rem 1.75rem 1.9rem;display:flex;flex-direction:column;gap:.7rem}
+    .fb-tag{align-self:flex-start;background:var(--mustard);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+    .fb-card h3{font-family:var(--font-serif);font-weight:400;font-size:1.35rem;color:#FFFFFF;line-height:1.2}
+    .fb-card p{font-size:.93rem;line-height:1.7;color:var(--beige)}
+    .fb-how{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid rgba(239,211,174,.28);font-size:.9rem;line-height:1.7;color:var(--beige)}
+    .fb-how strong{color:#FFFFFF;font-weight:600}
+    @media (max-width:768px){.fb-section{padding:3rem 1.25rem}.fb-grid{grid-template-columns:1fr}}
+
     /* ── EXTRAS SECTION ── */
     .extras-section {
       background: var(--light);
@@ -1016,6 +1032,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
+  </section>
+
+  <!-- REFRESHMENTS & CATERING -->
+  <section class="fb-section" id="refreshments" aria-labelledby="fb-heading">
+    <div class="fb-inner">
+      <span class="fb-eyebrow" data-cms="fb_eyebrow">Refreshments &amp; Catering</span>
+      <h2 id="fb-heading" data-cms="fb_heading">Coffee is on us. Lunch is one email away.</h2>
+      <p class="fb-lede" data-cms="fb_lede">Every meeting room booking includes coffee and tea at no charge. If your group needs more than that, we can bring in food too.</p>
+      <div class="fb-grid">
+        <div class="fb-card">
+          <span class="fb-tag" data-cms="fb_free_tag">Included</span>
+          <h3 data-cms="fb_free_heading">Complimentary coffee &amp; tea</h3>
+          <p data-cms="fb_free_desc">Fresh coffee and a selection of teas come with every booking, for every guest. Nothing to order and nothing to add at checkout. It's ready when you arrive.</p>
+        </div>
+        <div class="fb-card">
+          <span class="fb-tag" data-cms="fb_cater_tag">From $49</span>
+          <h3 data-cms="fb_cater_heading">Catering, built around your meeting</h3>
+          <p data-cms="fb_cater_desc">Pastries for a morning kickoff, bagels for a working session, or a proper lunch for the full day. Tell us what your group needs and we'll take care of it. Catering options start at $49.</p>
+        </div>
+      </div>
+      <p class="fb-how"><strong data-cms="fb_how_label">How it works:</strong> <span data-cms="fb_how">Book your room as usual. After you book, we'll email you to ask whether you'd like catering and what suits your group. No decision needed up front.</span></p>
+    </div>
   </section>
 
   <!-- EXTRAS -->
